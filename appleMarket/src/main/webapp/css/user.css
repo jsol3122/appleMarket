@@ -1,0 +1,118 @@
+@charset "UTF-8";
+
+/* -------------------- 회원가입 ----------------------------- */
+form h1{
+	color: #66269a;
+	text-align: center;
+	text-indent: 1em;
+}
+form{
+	width: 1000px;
+	margin: 0 250px;
+}
+form div{
+	padding: 15px 50px;
+}
+form label{
+	display: inline-block;
+	width: 150px;
+	text-align: left;
+	padding: 0 30px;
+	font-weight: bold;
+}
+form input, select{
+	height: 45px;
+}
+form input[type=text], form input[type=email], form input[type=password]{
+	width: 500px;
+	margin-right: 20px;
+	text-indent: 1.5em;
+}
+form input[type=text]:focus, form input[type=email]:focus, form input[type=password]:focus{
+	background: #efddff;
+}
+.chk{
+	width: 120px;
+	height: 50px;
+	background: white;
+	font-weight: bold;
+	border: 1px solid #66269a;
+	border-radius: 4px;
+	color: #66269a;
+}
+
+/* ---------------------- 로그인창 -------------------------- */
+#sectionLogin input, #member_dong, #member_address, #member_detailAddr{
+	margin: 10px 215px 0;
+}
+#write{
+	width: 510px;
+	height: 60px;
+	background: white;
+	color: #66269a;
+	font-size: 18px;
+	border-radius: 4px;
+	border: 1px solid #66269a;
+}
+.sbm, #kakao_login, #google_login{
+	width: 510px;
+	height: 60px;
+	margin: 0 215px;
+	background: #66269a;
+	color: white;
+	font-size: 18px;
+	border-radius: 4px;
+	border: 0;
+}
+
+.chk_div{
+	padding: -25px 5px;
+	text-indent: 22em;
+	font-size: 8pt;
+	color: red;
+	
+}
+
+.placeholderColor::-webkit-input-placeholder{
+	color: red;
+}
+
+.warning{
+	font-size: 8pt;
+	color: red;
+	text-align: right;
+}
+
+select{
+	width: 130px;
+	margin-right: 20px;
+	text-indent: 1.5em;
+}
+
+input[type=radio]{
+	margin: 2px 5px 0;
+	padding: 0 5px;
+	width: 20px;
+	height: 20px;
+}
+
+.radio_lbl{
+	width: 80px;
+	font-size: 12pt;
+	margin-bottom: 3px;
+}
+
+#kakao_login{
+	background: #ffe812;
+	color: black;
+	margin-top: -15px;
+}
+
+#google_login{
+	background: #4285F4;
+	color: white;
+	margin-top: -15px;
+}
+
+
+
