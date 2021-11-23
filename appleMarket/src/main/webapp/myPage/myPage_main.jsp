@@ -171,20 +171,14 @@
               Github</a>, it contains more themes and background image option</p>
         </div>
         <div class="form-group col-md-12">
-          <iframe src="https://ghbtns.com/github-btn.html?user=azouaoui-med&repo=pro-sidebar-template&type=star&count=true&size=small" frameborder="0" scrolling="0" width="90px" height="30px"></iframe>
-          <iframe src="https://ghbtns.com/github-btn.html?user=azouaoui-med&repo=pro-sidebar-template&type=fork&count=true&size=small" frameborder="0" scrolling="0" width="90px" height="30px"></iframe>
+          
         </div>
         <div class="form-group col-md-12">
           <div class="alert alert-success" role="alert">
             <h4 class="alert-heading">New !</h4>
             <p>New react pro sidebar library is now available on <a href="https://www.npmjs.com/package/react-pro-sidebar" target="_blank">npm</a> <a href="https://github.com/azouaoui-med/react-pro-sidebar" target="_blank">
-                <img alt="GitHub stars" src="https://img.shields.io/github/stars/azouaoui-med/react-pro-sidebar?style=social" />
               </a></p>
-            <a href="https://github.com/azouaoui-med/react-pro-sidebar" target="_blank" class="btn btn-sm btn-primary mr-2">
-              Github</a>
-            <a href="https://azouaoui-med.github.io/react-pro-sidebar" target="_blank" class="btn btn-sm btn-success">
-              Demo</a>
-
+           
           </div>
 
         </div>
@@ -196,9 +190,7 @@
           <div class="card rounded-0 p-0 shadow-sm">
             <img src="https://user-images.githubusercontent.com/25878302/58369568-a49b2480-7efc-11e9-9ca9-2be44afacda1.png" class="card-img-top rounded-0" alt="Angular pro sidebar">
             <div class="card-body text-center">
-              <h6 class="card-title">Angular Pro Sidebar</h6>
-              <a href="https://github.com/azouaoui-med/angular-pro-sidebar" target="_blank" class="btn btn-primary btn-sm">Github</a>
-              <a href="https://azouaoui-med.github.io/angular-pro-sidebar/demo/" target="_blank" class="btn btn-success btn-sm">Preview</a>
+              <h6 class="card-title">혹시 필요</h6>             
             </div>
           </div>
         </div>
@@ -206,9 +198,7 @@
           <div class="card rounded-0 p-0 shadow-sm">
             <img src="https://user-images.githubusercontent.com/25878302/58369258-33f20900-7ef8-11e9-8ff3-b277cb7ed7b4.PNG" class="card-img-top rounded-0" alt="Angular pro sidebar">
             <div class="card-body text-center">
-              <h6 class="card-title">Angular Dashboard</h6>
-              <a href="https://github.com/azouaoui-med/lightning-admin-angular" target="_blank" class="btn btn-primary btn-sm">Github</a>
-              <a href="https://azouaoui-med.github.io/lightning-admin-angular/demo/" target="_blank" class="btn btn-success btn-sm">Preview</a>
+              <h6 class="card-title">할까봐 냅둠</h6>             
             </div>
           </div>
         </div>
