@@ -7,9 +7,11 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.security.GeneralSecurityException;
 import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Payload;
 
 import org.json.simple.JSONObject;
 import org.springframework.stereotype.Controller;
@@ -19,9 +21,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.fasterxml.jackson.core.JsonFactory;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+
+import edu.emory.mathcs.backport.java.util.Collections;
+import edu.emory.mathcs.backport.java.util.concurrent.helpers.Utils;
 
 @Controller
 public class KakaoController {
@@ -57,7 +63,7 @@ public class KakaoController {
         JSONObject kakaoInfo =  new JSONObject(userInfo);
         model.addAttribute("kakaoInfo", kakaoInfo);
         
-        return "/home"; //본인 원하는 경로 설정
+        return "/index"; //본인 원하는 경로 설정
 	}
 	
     //토큰발급
@@ -166,4 +172,7 @@ public class KakaoController {
 
         return userInfo;
     }
+    
+    
+   
  }
