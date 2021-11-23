@@ -16,7 +16,7 @@ public class SaleboardMybatis implements SaleboardDAO {
 
 	@Override
 	public void saleboardWrite(SaleboardDTO saleboardDTO) {
-		sqlSession.insert("saleboardSQL.write", saleboardDTO);
+		sqlSession.insert("saleboardSQL.saleboardWrite", saleboardDTO);
 	}
 
 	@Override

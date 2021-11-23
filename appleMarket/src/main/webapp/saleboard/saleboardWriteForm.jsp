@@ -12,7 +12,8 @@
 카테고리
 가격
 내용
-완료
+
+<p><a href="/jihyun/saleboard/saleboardList">완료</a></p>
 
 
 </body>

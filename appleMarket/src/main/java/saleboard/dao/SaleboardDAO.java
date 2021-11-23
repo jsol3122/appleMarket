@@ -4,6 +4,7 @@ import java.util.List;
 
 import saleboard.bean.SaleboardDTO;
 
+
 public interface SaleboardDAO {
 
 	public void saleboardWrite(SaleboardDTO saleboardDTO);
