@@ -12,4 +12,6 @@
 	
 	<!-- Connection Pool : 여기서 해도 된다. -> spring configuration으로 할거다.  -->
 	<context:component-scan base-package="spring.conf"/>
+	
+	
 </beans>

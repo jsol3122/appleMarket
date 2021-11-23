@@ -3,6 +3,7 @@ package member.controller;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
@@ -21,12 +22,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import member.bean.MemberDTO;
 import member.bean.MessageDTO;
+import member.bean.ZipcodeDTO;
 import member.service.MemberService;
 import member.service.MessageService;
 
 
 @Controller	
-@RequestMapping(value="/user")
+//@RequestMapping(value="/user")
 @Validated
 public class MemberController {
 	@Autowired
@@ -47,6 +49,7 @@ public class MemberController {
 		return "/user/writeForm";
 	}
 	
+	//회원가입
 	@PostMapping("/write")
 	@ResponseBody
 	public void write(@ModelAttribute @Valid MemberDTO memberDTO) {
@@ -128,12 +131,26 @@ public class MemberController {
 		return memberSerivce.checkId(member_id);
 	}
 	
+	//우편번호폼
+	@GetMapping("/checkPost")
+	public String checkPost() {
+		return "/checkPost";
+	}
+	
+	//우편번호
+	@PostMapping("/checkPostSearch")
+	@ResponseBody
+	public List<ZipcodeDTO> checkPostSearch(@ModelAttribute ZipcodeDTO zipcodeDTO) {
+		return memberSerivce.checkPostSearch(zipcodeDTO);
+	}
+	
 	//로그인폼
 	@GetMapping("/loginForm")
 	public String loginForm() {
-		return "/user/loginForm";
+		return "/login/loginForm";
 	}
 	
+	//로그인
 	@PostMapping("/login")
 	@ResponseBody
 	public String login(@RequestParam("member_id") String member_id, @RequestParam("member_pwd") String member_pwd) {
@@ -146,12 +163,8 @@ public class MemberController {
 		memberDTO.setMember_pwd(member_pwd);
 		
 		int result = memberSerivce.login(memberDTO);
-
-		if(result == 1) {
-			path ="index";
-		}else {
-			path = "/user/loginForm";
-		}
+		
+		path = result+"";
 		
 		return path;
 	}

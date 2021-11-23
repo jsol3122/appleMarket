@@ -30,8 +30,8 @@ public class MemberDTO {
 	private int member_tel1;
 	private int member_tel2;
 	private int member_tel3;
-	private String member_sido; 
-	private String member_sigungu; 
+	private String member_sido_sigungu; 
+	private String member_dong; 
 	private String member_address; 
 	private String member_detailAddr;
 	private int member_gender; 

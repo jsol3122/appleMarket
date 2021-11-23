@@ -1,9 +1,12 @@
 package member.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import member.bean.MemberDTO;
+import member.bean.ZipcodeDTO;
 import member.dao.MemberDAO;
 
 @Service
@@ -32,6 +35,15 @@ public class MemberServiceImpl implements MemberService {
 	public int login(MemberDTO memberDTO) {
 		
 		return memberDAO.login(memberDTO);
+	}
+
+	@Override
+	public List<ZipcodeDTO> checkPostSearch(ZipcodeDTO zipcodeDTO) {
+		List<ZipcodeDTO> list = null; 
+		list = memberDAO.getZipcodeList(zipcodeDTO.getSido(), zipcodeDTO.getSigungu(), zipcodeDTO.getRoadname());
+		
+		return list;
+		
 	}
 
 	

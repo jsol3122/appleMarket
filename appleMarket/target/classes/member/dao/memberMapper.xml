@@ -8,7 +8,7 @@
  	<insert id="write" parameterType="member">
  		insert into appleMarket(member_seq, member_id, member_pwd,
  								member_email, member_tel1, member_tel2,
- 								member_tel3, member_sido, member_sigungu,
+ 								member_tel3, member_sido_sigungu, member_dong,
  								member_address, member_detailAddr, member_gender,
 								member_entryLogtime) 
 		values(seq_member.nextval,	#{member_id}, 
@@ -17,8 +17,8 @@
  									#{member_tel1}, 
  									#{member_tel2}, 
  									#{member_tel3}, 
- 									#{member_sido}, 
- 									#{member_sigungu}, 
+ 									#{member_sido_sigungu}, 
+ 									#{member_dong}, 
  									#{member_address}, 
  									#{member_detailAddr}, 
  									#{member_gender}, 
@@ -35,5 +35,13 @@
  	<select id="login" parameterType="member" resultType="Integer">
  		select count(*) from appleMarket where member_id=#{member_id} and member_pwd=#{member_pwd}
  	</select>
+ 	
+ 	<!-- 주소  -->
+ 	<select id="getzipcodeList" parameterType="java.util.Map" resultType="zipcode">
+ 		select * from newzipcode where sido like'%'||#{sido}||'%'
+ 								   and nvl(sigungu,0) like '%'||#{sigungu}||'%'
+ 								   and roadname like '%'||#{roadname}||'%'
+  	</select>
+ 	
  	
  </mapper>
