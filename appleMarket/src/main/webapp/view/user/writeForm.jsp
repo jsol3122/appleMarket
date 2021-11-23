@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href="/appleMarket/css/user.css">
 </head>
 <body>
-	<section id="sectionJoin">
+	<div id="sectionJoin">
 		<form id="writeForm" action="/appleMarket/user/write" method="post">
 			<h1>회원가입</h1>
 			<hr>
@@ -72,7 +72,7 @@
 		</form>
 		<br>
 		<br>
-	</section> <!-- section -->
+	</div> <!-- section -->
 </body>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="/appleMarket/js/user.js"></script>

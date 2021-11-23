@@ -520,8 +520,7 @@
         </ul>
     </footer>
 </body>
-<<<<<<< HEAD
-=======
+
 <!-- Channel Plugin Scripts -->
 <script>
   (function() {
@@ -564,5 +563,5 @@
   });
 </script>
 <!-- End Channel Plugin -->
->>>>>>> branch 'master' of https://github.com/jsol3122/appleMarket.git
+
 </html>
