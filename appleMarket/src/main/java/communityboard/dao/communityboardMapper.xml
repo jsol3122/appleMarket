@@ -15,12 +15,13 @@
  	</select>
  	
  	<insert id="communityboardWrite" parameterType="communityboard.bean.CommunityboardDTO">
- 		insert into communityboard values(
+ 		insert into communityboard(communityboard_seq,communityboard_subject,communityboard_content
+ 									,communityboard_image,communityboard_logtime,communityboard_user_id)
+ 				 values(
  				seq_communityboard.nextval
  				,#{communityboard_subject}
  				,#{communityboard_content}
  				,#{communityboard_image}
- 				,#{communityboard_hit}
  				,sysdate
  				,#{communityboard_user_id})
  	</insert>
