@@ -14,6 +14,7 @@
    </bean>
    
    <context:component-scan base-package="communityboard.controller"/>
+   <context:component-scan base-package="communityboardComment.controller"/>
    
    <!-- <context:component-scan base-package="handler"/> -->
    

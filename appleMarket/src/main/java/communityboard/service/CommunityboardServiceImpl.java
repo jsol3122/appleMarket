@@ -100,6 +100,18 @@ public class CommunityboardServiceImpl implements CommunityboardService {
 		return communityboardDAO.communityboardGetView(communityboard_seq);
 	}
 
+	@Override
+	public List<CommunityboardDTO> communityboardSearch(CommunityboardDTO communityboardDTO) {
+		
+		return communityboardDAO.communityboardSearch(communityboardDTO);
+	}
+
+	@Override
+	public void communityboardHit(String communityboard_seq) {
+		
+		communityboardDAO.communityboardHit(communityboard_seq);
+	}
+
 	
 
 	

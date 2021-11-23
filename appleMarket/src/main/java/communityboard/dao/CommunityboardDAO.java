@@ -19,6 +19,10 @@ public interface CommunityboardDAO {
 
 	public List<CommunityboardDTO> communityboardGetView(int communityboard_seq);
 
+	public List<CommunityboardDTO> communityboardSearch(CommunityboardDTO communityboardDTO);
+
+	public void communityboardHit(String communityboard_seq);
+
 	
 	
 }

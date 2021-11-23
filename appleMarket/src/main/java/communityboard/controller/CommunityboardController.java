@@ -73,5 +73,17 @@ public class CommunityboardController {
 		return 	communityboardService.communityboardGetView(communityboard_seq);	
 	}
 	
+	@PostMapping("/board/communityboardSearch")
+	public List<CommunityboardDTO> communityboardSearch(@ModelAttribute CommunityboardDTO communityboardDTO){
+		
+		return communityboardService.communityboardSearch(communityboardDTO);
+	}
+	
+	@GetMapping("/board/communityboardHit")
+	@ResponseBody
+	public void communityboardHit(@RequestParam String communityboard_seq) {
+		communityboardService.communityboardHit(communityboard_seq);
+	}
+	
 	
 }

@@ -15,4 +15,8 @@ public class CommunityboardDTO {
 	private int communityboard_hit;
 	private Date communityboard_logtime;
 	private String communityboard_user_id;
+	private String searchType;
+	private String keyword;
+	
+	
 }
