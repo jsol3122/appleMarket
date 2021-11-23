@@ -58,7 +58,7 @@ form input[type=text]:focus, form input[type=email]:focus, form input[type=passw
 	width: 510px;
 	height: 60px;
 	margin: 0 215px;
-	background: #66269a;
+	background: #ff8080;
 	color: white;
 	font-size: 18px;
 	border-radius: 4px;
@@ -75,6 +75,7 @@ form input[type=text]:focus, form input[type=email]:focus, form input[type=passw
 
 .placeholderColor::-webkit-input-placeholder{
 	color: red;
+	font-weight: bold;
 }
 
 .warning{
