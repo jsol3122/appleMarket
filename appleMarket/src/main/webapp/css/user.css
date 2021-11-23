@@ -41,8 +41,14 @@ form input[type=text]:focus, form input[type=email]:focus, form input[type=passw
 	color: #66269a;
 }
 
+.hidden{
+	display: none;
+	font-size: 12pt;
+	border: 0;
+}
+
 /* ---------------------- 로그인창 -------------------------- */
-#sectionLogin input, #member_dong, #member_address, #member_detailAddr{
+#sectionLogin input, #member_dong, #member_address, #member_detailAddr, #id_valid{
 	margin: 10px 215px 0;
 }
 #write{

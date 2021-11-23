@@ -9,7 +9,7 @@
 </head>
 <body>
 	<section id="sectionJoin">
-		<form id="writeForm">
+		<form id="writeForm" action="/appleMarket/user/write" method="post">
 			<h1>회원가입</h1>
 			<hr>
 			<p class="warning">* 는 필수 입력 항목입니다</p>
@@ -19,7 +19,8 @@
 				<label>아이디 <span class="warning">*</span></label>
 				<input type="text" name="member_id" id="member_id" placeholder="5자 이상 입력해주세요"/>
 				<input type="button" value="중복확인" class="chk" id="id_chk" />
-				
+				<input type="text" id="id_valid" class="hidden">
+				<input type="hidden" id="checked_id" value="">
 			</div>
 			<div>
 				<label>비밀번호 <span class="warning">*</span></label>
@@ -31,14 +32,17 @@
 			</div>
 			<div>
 				<label>휴대폰 <span class="warning">*</span></label>
-				<select name="member_tel1" >
+				<select name="member_tel1" id="member_tel1" >
 					<option value="010" selected>010</option>
 					<option value="011">011</option>
 					<option value="019">019</option>
 				</select> -
-				<input type="text" name="member_tel2" maxlength="4" style="width:135px; margin-left: 7px;"> -
-				<input type="text" name="member_tel3" maxlength="4" style="width:135px; margin-left: 7px;">
+				<input type="text" name="member_tel2" id="member_tel2" maxlength="4" style="width:135px; margin-left: 7px;"> -
+				<input type="text" name="member_tel3" id="member_tel3" maxlength="4" style="width:135px; margin-left: 7px;">
 				<input type="button" value="본인인증"  class="chk" id="tel_chk"/>
+				<input type="text" id="user_valid" class="hidden">
+				<input type="hidden" id="checked_user" value="">
+				
 			</div>
 			<div>
 				<label>이메일 <span class="warning">*</span></label>
