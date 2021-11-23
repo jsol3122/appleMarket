@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="saleboardSQL">
+  	<insert id="saleboardWrite" parameterType="user.bean.SaleboardDTO">
+ 		insert into saleboard values(#{sale_subject}, #{sale_content}, 
+ 									#{sale_image1}, #{sale_image2}, #{sale_image3},)
+ 	</insert>
+ 	
+ 	<select id="getSaleboardList" resultType="saleboard">
+ 		select * from saleboard 
+ 	</select>
+ 	
+ 	<select id="getSaleboardIdList" parameterType="String" resultType="saleboard">
+		select * from saleboard where sale_id=#{sale_id}
+ 	</select>
+ 	
+ 	<update id="saleboardModify" parameterType="saleboard">
+ 		update saleboard set sale_subject=#{sale_subject}, sale_content=#{sale_content},
+							sale_image1=#{sale_image1}, sale_image2=#{sale_image2}, sale_image3=#{sale_image3} 		
+ 		 								where sale_seq=#{sale_seq}
+ 	</update>
+ 	
+ 	
+ 	<delete id="delete" parameterType="String"> <!-- int 로 넣어야 하나? -->
+ 		delete saleboard where sale_seq=#{sale_seq}
+ 	</delete>
+ 	
+ 	
+ 	<select id="saleboardSearch" parameterType="java.util.Map" resultType="saleboard">
+ 
+	select * from saleboard where
+ 		<choose>
+ 			<when test="columnName=='sale_id'">
+ 				sale_id like '%' || #{value} || '%' 			
+ 			</when>
+ 			<when test="columnName=='sale_subject'">
+ 				sale_subject like '%' || #{value} || '%'
+ 			</when>
+ 			<otherwise>
+ 				sale_content like '%' || #{value} || '%'
+ 			</otherwise>
+ 		</choose> 		
+
+ 	</select>
+ 	
+ 	<insert id="saleboardPick" parameterType="user.bean.SaleboardDTO">
+	 	insert into interestList 
+	 		values(#{member_id},#{sale_seq}, #{sale_status}, #{sale_subject}, #{sale_price}, #{sale_logtime},
+	 				#{sale_update_logtime}, #{sale_heart_count}, #{sale_heart_YN}, #{sale_chat_count}, #{sale_img1})
+ 	</insert>
+
+<!-- 수정 필요 -->
+	<insert id="saleboardChat" parameterType="String"> <!-- resultType="" -->
+		insert into chat (member_id, sale_buyer)
+			values(#{member_id},#{sale_buyer})
+	</insert> 
+ 	
+ 	
+ 	<!-- parameterType="String" 인 이유는 non_exist / exist 가 return 값이라 그렇다. -->
+<!-- 	<select id="checkId" parameterType="String" resultType="user">
+ 		select * from usertable where id=#{id}
+ 	</select> 
+ 	근데 이거 getUser랑 똑같아서 걍 이거 지우고 getUser로 쓰기로 함
+ --> 	
+ </mapper>
