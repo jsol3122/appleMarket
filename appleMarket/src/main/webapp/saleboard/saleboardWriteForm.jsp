@@ -14,7 +14,7 @@
 내용
 
 <p><a href="/jihyun/saleboard/saleboardList">완료</a></p>
-
+<!-- 완료 버튼 쟈스로 데이터 디비에 보내기 -->
 
 </body>
 </html>

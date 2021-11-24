@@ -50,7 +50,18 @@
  	</insert>
  	
  	<select id="getSaleboardList" resultType="saleboard.bean.SaleboardDTO">
- 		select * from saleboard 
+ 		select * from saleboard where
+ 		 	<choose>
+ 			<when test="columnName=='location1_addr2'">
+ 				location1_addr2 = #{member_gps}			
+ 			</when>
+ 			<when test="columnName=='location2_addr2'">
+ 				location2_addr2 = #{member_gps}
+ 			</when>
+ 			<when test="columnName=='location3_addr2'">
+ 				location3_addr2 = #{member_gps}
+ 			</when>
+ 		</choose> 	
 	</select>
 	
 	<select id="getSaleboardView" resultType="saleboard.bean.SaleboardDTO"> 		
@@ -98,15 +109,33 @@
  
  	</select>
  	
- 	<update id="saleboardPick" parameterType="hashmap"> <!-- 파라미터 타입 확인 필요 -->
-	 	update saleboard set sale_heart_count = sale_heart_count + 1 where sale_seq = #{sale_seq}
+
+	<!-- 찜 하기 -->
+	<update id="saleboardPick1" parameterType="saleboard.bean.saleboardDTO">
+	   update saleboard set sale_heart_count = sale_heart_count + 1
+	   where sale_seq = #{sale_seq}
 	</update>
- 
-<!-- 수정 필요 -->
-	<insert id="saleboardChat" parameterType="String"> <!-- resultType="" -->
-		insert into chat (member_id)
-			values(#{member_id})
-	</insert> 
+	
+	<insert id="saleboardPick2" parameterType="java.util.Map">
+	   insert into interestList (member_id, sale_seq)
+	   	values(#{sale_buyer_id}, #{sale_seq})
+	</insert>
+	
+	<!-- 찜 취소 -->
+	<update id="saleboardPickCancel1" parameterType="saleboard.bean.saleboardDTO">
+	   update saleboard set sale_heart_count = sale_heart_count - 1
+   	   where sale_seq = #{sale_seq}
+	</update>
+	
+	<delete id="saleboardPickCancel2" parameterType="int">
+	   delete interestList where sale_seq=#{sale_seq}
+	</delete>
+ 	
+ 	<!-- 판매글 누르면 조회수 증가-->
+	<update id="saleboardHit" parameterType="saleboard.bean.saleboardDTO">
+		update saleboard set sale_hit = sale_hit + 1
+		where sale_seq = #{sale_seq}
+	</update>
  	
  	
  	<!-- parameterType="String" 인 이유는 non_exist / exist 가 return 값이라 그렇다. -->
