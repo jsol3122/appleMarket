@@ -50,10 +50,15 @@ public class MemberController {
 	}
 	
 	//회원가입
-	@PostMapping("/write")
+	@RequestMapping("/write")
 	@ResponseBody
 	public void write(@ModelAttribute @Valid MemberDTO memberDTO) {
-		memberSerivce.write(memberDTO);
+		String Check = memberSerivce.checkId(memberDTO.getMember_id());
+		if(Check.equals("non_exist")) {
+			memberSerivce.write(memberDTO);
+		}else {
+			return;
+		}
 	}
 	
 	
@@ -137,8 +142,8 @@ public class MemberController {
 		return "/checkPost";
 	}
 	
-	//우편번호
-	@PostMapping("/checkPostSearch")
+	//우편번호 조회
+	@GetMapping("/checkPostSearch")
 	@ResponseBody
 	public List<ZipcodeDTO> checkPostSearch(@ModelAttribute ZipcodeDTO zipcodeDTO) {
 		return memberSerivce.checkPostSearch(zipcodeDTO);
@@ -169,6 +174,7 @@ public class MemberController {
 		return path;
 	}
 	
+
 	
 
 }

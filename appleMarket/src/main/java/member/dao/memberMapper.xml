@@ -6,6 +6,38 @@
  	
  	<!-- 회원가입  -->
  	<insert id="write" parameterType="member">
+ 		
+ 		<if test="member_pwd != null">
+ 		insert into appleMarket(member_seq, member_id, member_pwd,
+ 								member_email, member_tel1, member_tel2,
+ 								member_tel3, member_sido_sigungu, member_dong,
+ 								member_address, member_detailAddr, member_gender,
+								member_entryLogtime) 
+		values(seq_member.nextval,	#{member_id}, 
+ 									#{member_pwd},
+ 									#{member_email},
+ 									#{member_tel1}, 
+ 									#{member_tel2}, 
+ 									#{member_tel3}, 
+ 									#{member_sido_sigungu}, 
+ 									#{member_dong}, 
+ 									#{member_address}, 
+ 									#{member_detailAddr}, 
+ 									#{member_gender}, 
+ 									sysdate
+ 		)
+ 		</if>
+ 		
+ 		<if test="member_pwd == null">
+ 		insert into appleMarket(member_seq, member_id, member_siteCheck, member_entryLogtime) 
+		values(seq_member.nextval,	#{member_id}, #{member_siteCheck}, 
+ 									sysdate
+ 		)
+ 		</if>
+ 	</insert>
+ 	
+ 	<!-- 회원가입  -->
+ 	<insert id="kakaoWrite" parameterType="member">
  		insert into appleMarket(member_seq, member_id, member_pwd,
  								member_email, member_tel1, member_tel2,
  								member_tel3, member_sido_sigungu, member_dong,

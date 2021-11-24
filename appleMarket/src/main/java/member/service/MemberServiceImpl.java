@@ -43,7 +43,6 @@ public class MemberServiceImpl implements MemberService {
 		list = memberDAO.getZipcodeList(zipcodeDTO.getSido(), zipcodeDTO.getSigungu(), zipcodeDTO.getRoadname());
 		
 		return list;
-		
 	}
 
 	

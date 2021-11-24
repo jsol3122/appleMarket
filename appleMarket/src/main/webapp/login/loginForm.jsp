@@ -86,28 +86,42 @@ console.log(Kakao.isInitialized()); // sdk초기화여부판단
 
 //카카오로그인
 function kakaoLogin() {
-    Kakao.Auth.login({
-      success: function (response) {
-        Kakao.API.request({
-          url: '/v2/user/me',
-          success: function (response) {
-             console.log(response)
-             alert('로그인 합니다.');
-             location.href='/appleMarket/index.jsp';
-          },
-          fail: function (error) {
-            console.log(error)
-          },
-        })
-      },
-      fail: function (error) {
-        console.log(error)
-      },
-    })
-  }
+	   	$.ajax({
+	         url: '/appleMarket/login/getKakaoAuthUrl',
+	         type: 'get',
+	         //data: {'member_id' : id},
+	         dataType: 'text',
+	         success: function(data){
+	   			alert(data);
+	        	 location.href = data;
+
+	         },
+	         error: function(err){
+	            console.log(err);
+	         }
+	        });
+
+}
+
+$(document).ready(function() {
+	
+    var kakaoInfo = '${kakaoInfo}';
+    if(kakaoInfo != ""){
+        var data = JSON.parse(kakaoInfo);
+
+        alert("카카오로그인 성공 \n accessToken : " + data['accessToken']);
+        alert(
+        "user : \n" + "email : "
+        + data['email']  
+        + "\n nickname : " 
+        + data['nickname']);
+    }
+});  
   
 //카카오로그아웃  
-function kakaoLogout() {
+/* 
+ 
+ function kakaoLogout() {
     if (Kakao.Auth.getAccessToken()) {
       Kakao.API.request({
         url: '/v1/user/unlink',
@@ -120,7 +134,8 @@ function kakaoLogout() {
       })
       Kakao.Auth.setAccessToken(undefined)
     }
-  }  
+  }   
+*/
 
 </script>
 

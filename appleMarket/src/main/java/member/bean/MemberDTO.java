@@ -15,15 +15,15 @@ public class MemberDTO {
 	
 	private int member_seq; 
 	
-	@NotBlank
+	@NotBlank(message="아이디를 입력하세요.")
 	@Length(min=5)
 	private String member_id;
 	
-	@NotBlank
+	//@NotBlank
 	@Pattern(regexp="^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$")//원래 / 하나인데 이클립스에서 두개 써야지 오류가 안난다.
 	private String member_pwd; 
 	
-	@NotBlank
+	//@NotBlank
 	@Email
 	private String member_email; 
 	
@@ -40,4 +40,6 @@ public class MemberDTO {
 	private String member_profilePic;
 	private Date member_entryLogtime;
 	private String member_gps;
+	private int member_siteCheck;
+	
 }

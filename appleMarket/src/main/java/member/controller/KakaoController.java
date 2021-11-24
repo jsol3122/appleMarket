@@ -7,13 +7,10 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.security.GeneralSecurityException;
 import java.util.HashMap;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.validation.Payload;
-
 import org.json.simple.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,35 +18,38 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.fasterxml.jackson.core.JsonFactory;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-import edu.emory.mathcs.backport.java.util.Collections;
-import edu.emory.mathcs.backport.java.util.concurrent.helpers.Utils;
+import member.service.MemberService;
 
 @Controller
 public class KakaoController {
 
-@GetMapping(value = "/login/getKakaoAuthUrl")
-	public @ResponseBody String getKakaoAuthUrl(
-			HttpServletRequest request) throws Exception {
+	@Autowired
+	private MemberService memberSerivce;
+	
+	@GetMapping(value = "/login/getKakaoAuthUrl")
+	public @ResponseBody String getKakaoAuthUrl() throws Exception {
+		System.out.println("test");
+		
 		String reqUrl = 
 				"https://kauth.kakao.com/oauth/authorize"
 				+ "?client_id=ab83dfbd7b35d430c0fcb3a8f27f07ed"
-				+ "&redirect_uri=http://localhost:8080/login/kakaologin"
+				+ "&redirect_uri=http://localhost:8080/appleMarket/oauth_kakao"
 				+ "&response_type=code";
 		
 		return reqUrl;
 	}
 	
 	// 카카오 연동정보 조회
-	@RequestMapping(value = "/login/oauth_kakao")
+	@RequestMapping(value = "/oauth_kakao")
+//	/@ResponseBody
 	public String oauthKakao(
 			@RequestParam(value = "code", required = false) String code
 			, Model model) throws Exception {
-
+		
 		System.out.println("#########" + code);
         String access_Token = getAccessToken(code);
         System.out.println("###access_Token#### : " + access_Token);
@@ -62,9 +62,24 @@ public class KakaoController {
        
         JSONObject kakaoInfo =  new JSONObject(userInfo);
         model.addAttribute("kakaoInfo", kakaoInfo);
+        String id =(String)userInfo.get("id");
+
+        String Check=memberSerivce.checkId(id);
         
-        return "/index"; //본인 원하는 경로 설정
+        if(Check.equals("non_exist")) {
+        //중복체크가 안되면 여기 
+        	return "redirect:/write?member_id="+id+"&member_siteCheck="+1; //본인 원하는 경로 설정
+        //return "redirect:/checkId?member_id="+id;
+        //중복체크가 되면 index
+        }else {
+        	return "/index";
+        }
 	}
+	
+//	@GetMapping("/test/hi")
+//	public String test() {
+//		return "/index";
+//	}
 	
     //토큰발급
 	public String getAccessToken (String authorize_code) {
@@ -86,7 +101,7 @@ public class KakaoController {
             StringBuilder sb = new StringBuilder();
             sb.append("grant_type=authorization_code");
             sb.append("&client_id=ab83dfbd7b35d430c0fcb3a8f27f07ed");  //본인이 발급받은 key
-            sb.append("&redirect_uri=http://localhost:8080/login/kakaologin");     // 본인이 설정해 놓은 경로
+            sb.append("&redirect_uri=http://localhost:8080/appleMarket/oauth_kakao");     // 본인이 설정해 놓은 경로
             sb.append("&code=" + authorize_code);
             bw.write(sb.toString());
             bw.flush();
@@ -104,7 +119,8 @@ public class KakaoController {
                 result += line;
             }
             System.out.println("response body : " + result);
-
+           
+            
             //    Gson 라이브러리에 포함된 클래스로 JSON파싱 객체 생성
             JsonParser parser = new JsonParser();
             JsonElement element = parser.parse(result);
@@ -157,21 +173,27 @@ public class KakaoController {
 
             JsonObject properties = element.getAsJsonObject().get("properties").getAsJsonObject();
             JsonObject kakao_account = element.getAsJsonObject().get("kakao_account").getAsJsonObject();
-
+            
+            
             String nickname = properties.getAsJsonObject().get("nickname").getAsString();
             String email = kakao_account.getAsJsonObject().get("email").getAsString();
-            
+            String id = element.getAsJsonObject().get("id").getAsString();
+
             userInfo.put("accessToken", access_Token);
             userInfo.put("nickname", nickname);
             userInfo.put("email", email);
+            userInfo.put("id", id);
 
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 
         return userInfo;
+       
+       
     }
+    
+
     
     
    
