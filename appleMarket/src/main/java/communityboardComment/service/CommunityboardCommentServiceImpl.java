@@ -1,6 +1,7 @@
 package communityboardComment.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,28 @@ public class CommunityboardCommentServiceImpl implements CommunityboardCommentSe
 		
 		return communityboardCommentDAO.communityboardCommentGetList(communityboard_seq);
 	}
+
+	@Override
+	public void communityboardCommentWrite(CommunityboardCommentDTO communityboardCommentDTO) {
+
+		communityboardCommentDAO.communityboardCommentWrite(communityboardCommentDTO);
+			
+		
+	}
+
+	@Override
+	public void communityboardCommentModify(CommunityboardCommentDTO communityboardCommentDTO) {
+		
+		communityboardCommentDAO.communityboardCommentModify(communityboardCommentDTO);
+	}
+
+	@Override
+	public void communityboardCommentReply(Map<String, String> map) {
+		
+		communityboardCommentDAO.communityboardCommentReply(map);
+	}
+
+	
 	
 	
 }
