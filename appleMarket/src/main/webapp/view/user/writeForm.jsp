@@ -8,9 +8,14 @@
 <link rel="stylesheet" type="text/css" href="/appleMarket/css/user.css">
 </head>
 <body>
-	<div id="sectionJoin">
+	<div id="modal-content">
+		<div class="modal-header"> <!-- modal header -->
+			<button type="button" class="close" data-dismiss="modal">×</button>
+		</div>
+
+		<div class="modal-body"> <!-- modal body -->
 		<form id="writeForm" action="/appleMarket/user/write" method="post">
-			<h1>회원가입</h1>
+			<h3>회원가입</h3>
 			<hr>
 			<p class="warning">* 는 필수 입력 항목입니다</p>
 			<br>
@@ -37,8 +42,8 @@
 					<option value="011">011</option>
 					<option value="019">019</option>
 				</select> -
-				<input type="text" name="member_tel2" id="member_tel2" maxlength="4" style="width:135px; margin-left: 7px;"> -
-				<input type="text" name="member_tel3" id="member_tel3" maxlength="4" style="width:135px; margin-left: 7px;">
+				<input type="text" name="member_tel2" id="member_tel2" maxlength="4" style="width:60px; margin-right: 0;"> -
+				<input type="text" name="member_tel3" id="member_tel3" maxlength="4" style="width:60px; margin-right: 0;">
 				<input type="button" value="본인인증"  class="chk" id="tel_chk"/>
 				<input type="text" id="user_valid" class="hidden">
 				<input type="hidden" id="checked_user" value="">
@@ -70,9 +75,13 @@
 				<input type="button" value="가입하기" id="writeBtn" class="sbm" />
 			</div>
 		</form>
-		<br>
-		<br>
-	</div> <!-- section -->
+		</div>
+		<!-- Modal footer -->
+		<div class="modal-footer">
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		</div>
+	</div> <!-- modal content -->
+
 </body>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="/appleMarket/js/user.js"></script>

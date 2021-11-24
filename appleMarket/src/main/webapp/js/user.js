@@ -114,3 +114,4 @@ $('#loginBtn').click(function(){
 		loginForm.querySelector('#member_pwd').classList.add("placeholderColor");
 	else loginForm.submit();
 });
+
