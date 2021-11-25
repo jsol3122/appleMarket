@@ -131,7 +131,7 @@ public class MemberController {
 	}
 
 	//아이디 중복체크
-	@PostMapping("/user/checkId")
+	@PostMapping("/view/user/checkId")
 	@ResponseBody
 	public String checkId(@RequestParam String member_id) {
 		return memberSerivce.checkId(member_id);

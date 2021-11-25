@@ -45,6 +45,9 @@
 				<input type="text" name="member_tel2" id="member_tel2" maxlength="4" style="width:60px; margin-right: 0;"> -
 				<input type="text" name="member_tel3" id="member_tel3" maxlength="4" style="width:60px; margin-right: 0;">
 				<input type="button" value="본인인증"  class="chk" id="tel_chk"/>
+				<input type="text" name="phone2" id="phone2" class="hidden time" style="width: 130px;height: 35px;"/>
+				<label class="hidden" style="width: 70px;height: 35px;"></label>
+				<input type="button" value="인증확인"  class="hidden" id="tel_valid" disabled=""/>
 				<input type="text" id="user_valid" class="hidden">
 				<input type="hidden" id="checked_user" value="">
 				
@@ -57,7 +60,7 @@
 				<label>주소</label>
 				<input type="text" name="member_sido_sigungu" id="member_sido_sigungu" placeholder="우편번호 검색을 이용해주세요" readonly/>
 				<input type="button" value="우편번호 검색"  class="chk" id="addr_chk"/>
-				<input type="text" name="member_dong" id="member_dong" style="margin: 10px 102px 0;" readonly />
+				<input type="text" name="member_dong" id="member_dong" style="margin: 10px 105px 0;" readonly />
 				<input type="text" name="member_address" id="member_address" readonly />
 				<input type="text" name="member_detailAddr" id="member_detailAddr" placeholder="상세 주소를 입력해주세요"/>
 				
@@ -76,10 +79,7 @@
 			</div>
 		</form>
 		</div>
-		<!-- Modal footer -->
-		<div class="modal-footer">
-			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-		</div>
+
 	</div> <!-- modal content -->
 
 </body>
