@@ -198,5 +198,18 @@ public class MemberController {
 		memberSerivce.delete(memberDTO);
 	}
 	
+	//수정하기 폼
+	@GetMapping(value="/modifyForm")
+	public String modifyForm() {
+		return "/modifyForm";
+	}
+	
+	//수정하기 
+	@PostMapping("/modify")
+	@ResponseBody
+	public void modify(@ModelAttribute MemberDTO memberDTO) {
+		memberSerivce.modify(memberDTO);
+	}
+	
 
 }

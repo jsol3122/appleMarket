@@ -60,6 +60,12 @@ public class MemberServiceImpl implements MemberService {
 		
 	}
 
+	@Override
+	public void modify(MemberDTO memberDTO) {
+		memberDAO.modify(memberDTO);
+		
+	}
+
 	
 	
 	
