@@ -73,11 +73,11 @@ $('#id_chk').click(function(){
 			dataType: 'text',
 			success: function(data){
 			$('#id_valid').classList.removeClass("hidden");
-				if(data == 'exist'){
+				if(data =='exist'){
 					$('#id_valid').text('사용 불가능한 아이디 입니다');
 					$('#id_valid').style.color = 'tomato';
 					$('#checked_id').text('false');
-				}else if(data == 'non_exist'){ // 가능한 아이디값 hidden인풋창에 저장
+				}else if(data =='non_exist'){ // 가능한 아이디값 hidden인풋창에 저장
 					$('#id_valid').text('사용 가능한 아이디 입니다');
 					$('#id_valid').style.color = 'blue';
 					$('#checked_id').text(writeForm.querySelector("#member_id").value);
@@ -90,6 +90,7 @@ $('#id_chk').click(function(){
 	}
 });
 
+
 // 휴대폰 본인 인증
 $('#tel_chk').click(function(){
 	var writeForm = document.querySelector('#writeForm');
@@ -99,12 +100,12 @@ $('#tel_chk').click(function(){
 
 // 우편번호 검색
 $('#addr_chk').click(function(){
-	window.open("/appleMarket/user/checkPost", "우편번호검색", "width=500 height=500 top=200 left=700");
+	window.open("/appleMarket/view/user/checkPost", "우편번호검색", "width=500 height=500 top=200 left=700");
 });
 
 $('#checkPostSearchBtn').click(function(){
 	$.ajax({
-		url: '/appleMarket/user/checkPostSearch',
+		url: '/appleMarket/view/user/checkPostSearch',
 		type: 'post',
 		data: $('#checkPostForm').serialize(),
 		dataType: 'json', 
@@ -122,7 +123,7 @@ $('#checkPostSearchBtn').click(function(){
 							+ items.buildingname;
 				
 				// undefined라는 내용을 g(=global,전체)에서 찾아서 ''으로 바꾸기
-				address = address.replace(/undefined/g, ''); 
+				address = address.replace(/null/g, ''); 
 				
 				$('<tr/>').append($('<td/>',{ // td태그 안의 내용
 					align: 'center',
@@ -153,17 +154,3 @@ $('#checkPostSearchBtn').click(function(){
 	});
 });
 	
-// 로그인 유효성 검사	
-$('#loginBtn').click(function(){
-	var loginForm = document.querySelector('#loginForm');
-	
-	loginForm.querySelector('#member_id').classList.remove("placeholderColor");
-	loginForm.querySelector('#member_pwd').classList.remove("placeholderColor");
-
-	if(loginForm.querySelector("#member_id").value=="")
-		loginForm.querySelector('#member_id').classList.add("placeholderColor");
-	else if(loginForm.querySelector("#member_pwd").value=="")
-		loginForm.querySelector('#member_pwd').classList.add("placeholderColor");
-	else loginForm.submit();
-});
-

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="memberSQL">
+ 	
+ 	<!-- 회원가입  -->
+ 	<insert id="write" parameterType="member">
+ 		
+ 		<if test="member_pwd != null">
+ 		insert into appleMarket(member_seq, member_id, member_pwd,
+ 								member_email, member_tel1, member_tel2,
+ 								member_tel3, member_sido_sigungu, member_dong,
+ 								member_address, member_detailAddr, member_gender,
+								member_entryLogtime) 
+		values(seq_member.nextval,	#{member_id}, 
+ 									#{member_pwd},
+ 									#{member_email},
+ 									#{member_tel1}, 
+ 									#{member_tel2}, 
+ 									#{member_tel3}, 
+ 									#{member_sido_sigungu}, 
+ 									#{member_dong}, 
+ 									#{member_address}, 
+ 									#{member_detailAddr}, 
+ 									#{member_gender}, 
+ 									sysdate
+ 		)
+ 		</if>
+ 		
+ 		<if test="member_pwd == null">
+ 		insert into appleMarket(member_seq, member_id, member_siteCheck, member_entryLogtime) 
+		values(seq_member.nextval,	#{member_id}, #{member_siteCheck}, 
+ 									sysdate
+ 		)
+ 		</if>
+ 	</insert>
+ 	
+ 	<!-- 회원가입  -->
+ 	<insert id="kakaoWrite" parameterType="member">
+ 		insert into appleMarket(member_seq, member_id, member_pwd,
+ 								member_email, member_tel1, member_tel2,
+ 								member_tel3, member_sido_sigungu, member_dong,
+ 								member_address, member_detailAddr, member_gender,
+								member_entryLogtime) 
+		values(seq_member.nextval,	#{member_id}, 
+ 									#{member_pwd},
+ 									#{member_email},
+ 									#{member_tel1}, 
+ 									#{member_tel2}, 
+ 									#{member_tel3}, 
+ 									#{member_sido_sigungu}, 
+ 									#{member_dong}, 
+ 									#{member_address}, 
+ 									#{member_detailAddr}, 
+ 									#{member_gender}, 
+ 									sysdate
+ 		)
+ 	</insert>
+ 	
+ 	<!-- id 중복체크  -->
+ 	<select id="checkId" parameterType="String" resultType="member">
+ 		select * from appleMarket where member_id=#{member_id}
+ 	</select>
+ 	
+ 	<!-- 로그인  -->
+ 	<select id="login" parameterType="member" resultType="Integer">
+ 		select count(*) from appleMarket where member_id=#{member_id} and member_pwd=#{member_pwd}
+ 	</select>
+ 	
+ 	<!-- 주소  -->
+ 	<select id="getzipcodeList" parameterType="java.util.Map" resultType="zipcode">
+ 		select * from newzipcode where sido like'%'||#{sido}||'%'
+ 								   and nvl(sigungu,0) like '%'||#{sigungu}||'%'
+ 								   and roadname like '%'||#{roadname}||'%'
+  	</select>
+ 	
+ 	<!-- 회원탈퇴  -->
+ 	<delete id="delete" parameterType="member">
+ 		delete appleMarket where member_id=#{member_id} and member_pwd=#{member_pwd}
+ 	</delete>
+ </mapper>
