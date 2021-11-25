@@ -16,5 +16,8 @@ public interface CommunityboardCommentService {
 	public void communityboardCommentReply(Map<String, String> map);
 
 	
+	
+
+	
 
 }

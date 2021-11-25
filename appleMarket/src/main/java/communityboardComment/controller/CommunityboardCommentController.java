@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import communityboardComment.bean.CommunityboardCommentDTO;
 import communityboardComment.service.CommunityboardCommentService;
@@ -37,8 +38,13 @@ public class CommunityboardCommentController {
 	}
 	
 	@GetMapping("/comment/communityboardCommentModifyForm")
-	public String communityboardCommentModifyForm() {
-		return "/comment/communityboardCommentModifyForm";
+	public ModelAndView communityboardCommentModifyForm(@RequestParam int communityboard_comment_seq) {
+		ModelAndView mv = new ModelAndView();
+//		CommunityboardCommentDTO communityboardCommentDTO = communityboardCommentService.communityboardCommentModifyForm(communityboard_comment_seq);
+//		mv.addObject("communityboardCommentDTO", communityboardCommentDTO);
+		
+		mv.setViewName("");
+		return mv;
 	}
 	
 	@PostMapping("/comment/communityboardCommentModify")

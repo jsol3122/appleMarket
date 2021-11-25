@@ -42,11 +42,13 @@ public class CommunityboardCommentDAOMybatis implements CommunityboardCommentDAO
 		
 		CommunityboardCommentDTO commentDTO  = replyLoad(communityboard_comment_pseq);
 	
+		System.out.println(commentDTO);
+		
 		map.put("communityboard_comment_ref", commentDTO.getCommunityboard_comment_ref()+"");
-		map.put("communityboard_comment_lev", commentDTO.getCommunityboard_comment_lev()+1+"");
-		map.put("communityboard_comment_step", commentDTO.getCommunityboard_comment_step()+1+"");
+		map.put("communityboard_comment_lev", (commentDTO.getCommunityboard_comment_lev()+1)+"");
+		map.put("communityboard_comment_step", (commentDTO.getCommunityboard_comment_step()+1)+"");
 		
-		
+		System.out.println(map);
 		
 		//step update
 		sqlSession.update("communityboardCommentSQL.commentReply1",commentDTO);
@@ -60,9 +62,9 @@ public class CommunityboardCommentDAOMybatis implements CommunityboardCommentDAO
 	
 	public CommunityboardCommentDTO replyLoad(String communityboard_comment_pseq) {
 		
-		System.out.println("!11:"+communityboard_comment_pseq);
+		
 		CommunityboardCommentDTO commentDTO = sqlSession.selectOne("communityboardCommentSQL.replyLoad",communityboard_comment_pseq);
-		System.out.println("@@"+commentDTO);
+		
 		 return commentDTO;
 	}
 

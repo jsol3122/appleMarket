@@ -44,6 +44,7 @@
  		update communityboard_Comment set communityboard_comment_step = communityboard_comment_step+1
  		where communityboard_comment_ref = #{communityboard_comment_ref} and communityboard_comment_step > #{communityboard_comment_step}
  	</update>
+ 	
  	<insert id="commentReply2" parameterType="java.util.Map">
  		insert into communityboard_Comment(
  										communityboard_seq
@@ -55,7 +56,7 @@
  										,communityboard_comment_pseq
  										,communityboard_comment_user_id)
  									values(
- 										#{communityboard_comment_seq}
+ 										#{communityboard_seq}
  										,seq_communityboard_Comment.nextval
  										,#{communityboard_comment_content}
  										,#{communityboard_comment_ref}
