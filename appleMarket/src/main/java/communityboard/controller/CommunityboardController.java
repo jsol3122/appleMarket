@@ -37,23 +37,25 @@ public class CommunityboardController {
 		return "/index";
 	}
 	
-	@GetMapping("/board/communityboardList")
+	@GetMapping("/communityboard/communityboardList")
 	public String communityboardList() {
-		return "/board/communityboardList";
+		return "/communityboard/communityboardList";
 	}
 	
-	@GetMapping("/board/communityboardGetList")
+	@GetMapping("/communityboard/communityboardGetList")
 	@ResponseBody
-	public JSONObject communityboardGetList(@RequestParam int pg) {
-		return communityboardService.communityboardGetList(pg);
+	public JSONObject communityboardGetList(@RequestParam String pg) {
+		int page = Integer.parseInt(pg);
+		System.out.println(page);
+		return communityboardService.communityboardGetList(page);
 	}
 	
-	@GetMapping("/board/communityboardWriteForm")
+	@GetMapping("/communityboard/communityboardWriteForm")
 	public String communityboardWriteForm() {
-		return "/board/communityboardWriteForm";
+		return "/communityboard/communityboardWriteForm";
 	}
 	
-	@PostMapping("/board/communityboardWrite")
+	@PostMapping("/communityboard/communityboardWrite")
 	@ResponseBody
 	public void communityboardWrite(@ModelAttribute CommunityboardDTO communityboardDTO 
 									, @RequestParam MultipartFile img) {
@@ -80,43 +82,43 @@ public class CommunityboardController {
 		
 	}
 	
-	@GetMapping("/board/communityboardModifyForm")
+	@GetMapping("/communityboard/communityboardModifyForm")
 	public String communityboardModifyForm() {
-		return "/board/communityboardModifyForm";
+		return "/communityboard/communityboardModifyForm";
 	}
 	
-	@PostMapping("/board/communityboardModify")
+	@PostMapping("/communityboard/communityboardModify")
 	@ResponseBody
 	public void communityboardModify(@ModelAttribute CommunityboardDTO communityboardDTO) {
 		communityboardService.communityboardModify(communityboardDTO);
 	}
 	
-	@GetMapping("/board/communityboardDelete")
+	@GetMapping("/communityboard/communityboardDelete")
 	@ResponseBody
 	public void communityboardDelete(@RequestParam int communityboard_seq) {
 		communityboardService.communityboardDelete(communityboard_seq);
 	}
 	
-	@GetMapping("/board/communityboardView")
+	@GetMapping("/communityboard/communityboardView")
 	public String communityboardView(HttpServletResponse response ,HttpServletRequest request) {
 		
 		
-		return "/board/communityboardView";
+		return "/communityboard/communityboardView";
 	}
 	
-	@PostMapping("/board/communityboardGetView")
+	@PostMapping("/communityboard/communityboardGetView")
 	public List<CommunityboardDTO>  communityboardGetView(@RequestParam int communityboard_seq){
 		return 	communityboardService.communityboardGetView(communityboard_seq);	
 	}
 	
-	@PostMapping("/board/communityboardSearch")
+	@PostMapping("/communityboard/communityboardSearch")
 	public List<CommunityboardDTO> communityboardSearch(@ModelAttribute CommunityboardDTO communityboardDTO){
 		
 		return communityboardService.communityboardSearch(communityboardDTO);
 	}
 	
 	
-	@GetMapping("/board/communityboardHit")
+	@GetMapping("/communityboard/communityboardHit")
 	@ResponseBody
 	public void communityboardHit(@RequestParam String communityboard_seq) {
 		communityboardService.communityboardHit(communityboard_seq);
