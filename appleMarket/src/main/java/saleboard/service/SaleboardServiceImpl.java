@@ -14,19 +14,17 @@ import saleboard.dao.SaleboardDAO;
 
 @Service
 public class SaleboardServiceImpl implements SaleboardService {
-/*
 	@Autowired
 	private SaleboardDAO saleboardDAO;
 	
-	@Autowired
-	private saleboardPaging saleboardPaging;
+//	@Autowired
+//	private saleboardPaging saleboardPaging;
 	
 	@Override
 	public void saleboardWrite(SaleboardDTO saleboardDTO) {
-		saleboardDAO.saleboardWrite(saleboardDTO);
-		
+		saleboardDAO.saleboardWrite(saleboardDTO);		
 	}
-
+	/*
 	@Override
 	public void saleboardModify(SaleboardDTO saleboardDTO) {
 		saleboardDAO.saleboardModify(saleboardDTO);

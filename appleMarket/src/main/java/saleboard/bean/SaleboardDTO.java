@@ -2,11 +2,9 @@ package saleboard.bean;
 
 import java.util.Date;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Setter
-@Getter
+@Data
 public class SaleboardDTO {
 	private int sale_seq; 
 	private String sale_status;

@@ -13,15 +13,14 @@ import saleboard.bean.SaleboardDTO;
 @Repository
 @Transactional
 public class SaleboardMybatis implements SaleboardDAO {
-	/*
 	@Autowired
 	private SqlSession sqlSession;
-
+	
 	@Override
 	public void saleboardWrite(SaleboardDTO saleboardDTO) {
 		sqlSession.insert("saleboardSQL.saleboardWrite", saleboardDTO);
 	}
-
+	/*
 	@Override
 	public void saleboardModify(SaleboardDTO saleboardDTO) {
 		sqlSession.update("saleboardSQL.saleboardModify", saleboardDTO);
@@ -59,14 +58,6 @@ public class SaleboardMybatis implements SaleboardDAO {
 	public List<SaleboardDTO> getSale_idList() {
 		return sqlSession.selectList("saleboardSQL.getSale_idList");	}
 
-	@Override
-	public List<SaleboardDTO> getSale_subjectList() {
-		return sqlSession.selectList("saleboardSQL.getSale_subjectList");	
-	}
-
-	@Override
-	public List<SaleboardDTO> getSale_contentList() {
-		return sqlSession.selectList("saleboardSQL.getSale_contentList");	
 	}
 
 	@Override
