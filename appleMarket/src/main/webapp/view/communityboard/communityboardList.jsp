@@ -58,34 +58,7 @@
 							        <td>2020.2.1</td>
 							        <td>1</td>
 							     </tr>
-							     		<tr>
-							        <td>July</td>
-							        <td>Dooley</td>
-							        <td>july@example.com</td>
-							        <td>2020.2.1</td>
-							        <td>1</td>
-							     </tr>
-							     		<tr>
-							        <td>July</td>
-							        <td>Dooley</td>
-							        <td>july@example.com</td>
-							        <td>2020.2.1</td>
-							        <td>1</td>
-							     </tr>
-							     		<tr>
-							        <td>July</td>
-							        <td>Dooley</td>
-							        <td>july@example.com</td>
-							        <td>2020.2.1</td>
-							        <td>1</td>
-							     </tr>
-							     		<tr>
-							        <td>July</td>
-							        <td>Dooley</td>
-							        <td>july@example.com</td>
-							        <td>2020.2.1</td>
-							        <td>1</td>
-							     </tr>
+							     	
 							     </tbody>							      
 							</table>
 						</div> <!-- 테이블  -->
