@@ -5,6 +5,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
@@ -28,7 +29,7 @@ import member.service.MessageService;
 
 
 @Controller	
-//@RequestMapping(value="/user")
+@RequestMapping(value="/view/user")
 @Validated
 public class MemberController {
 	@Autowired
@@ -158,7 +159,8 @@ public class MemberController {
 	//로그인
 	@PostMapping("/login")
 	@ResponseBody
-	public String login(@RequestParam("member_id") String member_id, @RequestParam("member_pwd") String member_pwd) {
+	public String login(@RequestParam("member_id") String member_id, @RequestParam("member_pwd") String member_pwd, HttpSession session) {
+		
 		
 		String path="";
 		
@@ -169,12 +171,32 @@ public class MemberController {
 		
 		int result = memberSerivce.login(memberDTO);
 		
+		session.setAttribute("login_info", memberDTO);
+		
 		path = result+"";
 		
 		return path;
 	}
 	
-
+	//로그아웃 요청 
+	@PostMapping("/logout")
+	@ResponseBody
+	public void logout(HttpSession session) {
+		session.removeAttribute("login_info");
+	}
+	
+	//탈퇴하기 폼
+	@GetMapping(value="/deleteForm")
+	public String deleteForm() {
+		return "/deleteForm";
+	}
+	
+	//탈퇴하기 
+	@PostMapping("/delete")
+	@ResponseBody
+	public void delete(@ModelAttribute MemberDTO memberDTO) {
+		memberSerivce.delete(memberDTO);
+	}
 	
 
 }

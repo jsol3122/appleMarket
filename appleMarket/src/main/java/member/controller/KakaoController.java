@@ -9,10 +9,13 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
 
+import javax.servlet.http.HttpSession;
+
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -48,7 +51,7 @@ public class KakaoController {
 //	/@ResponseBody
 	public String oauthKakao(
 			@RequestParam(value = "code", required = false) String code
-			, Model model) throws Exception {
+			, Model model, HttpSession session) throws Exception {
 		
 		System.out.println("#########" + code);
         String access_Token = getAccessToken(code);
@@ -63,8 +66,13 @@ public class KakaoController {
         JSONObject kakaoInfo =  new JSONObject(userInfo);
         model.addAttribute("kakaoInfo", kakaoInfo);
         String id =(String)userInfo.get("id");
-
+        
         String Check=memberSerivce.checkId(id);
+        
+        if (userInfo.get("email") != null) {
+            session.setAttribute("userId", userInfo.get("email"));
+            session.setAttribute("access_Token", access_Token);
+        }
         
         if(Check.equals("non_exist")) {
         //중복체크가 안되면 여기 
@@ -192,9 +200,48 @@ public class KakaoController {
        
        
     }
-    
+//    //로그아웃
+//    public void kakaoLogout(String access_Token) {
+//        String reqURL = "https://kapi.kakao.com/v1/user/logout";
+//        try {
+//            URL url = new URL(reqURL);
+//            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+//            conn.setRequestMethod("POST");
+//            conn.setRequestProperty("Authorization", "Bearer " + access_Token);
+//
+//            int responseCode = conn.getResponseCode();
+//            System.out.println("responseCode : " + responseCode);
+//
+//            BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+//
+//            String result = "";
+//            String line = "";
+//
+//            while ((line = br.readLine()) != null) {
+//                result += line;
+//            }
+//            System.out.println(result);
+//        } catch (IOException e) {
+//            // TODO Auto-generated catch block
+//            e.printStackTrace();
+//        }
+//        
+//    }
+//    
+//    @RequestMapping(value="/logout")
+//    public String logout(HttpSession session) {
+//        String access_Token = (String)session.getAttribute("access_Token");
+//
+//        if(access_Token != null && !"".equals(access_Token)){
+//            kakaoLogout(access_Token);
+//            session.removeAttribute("access_Token");
+//            session.removeAttribute("userId");
+//        }else{
+//            System.out.println("access_Token is null");
+//            //return "redirect:/";
+//        }
+//        //return "index";
+//        return "redirect:/";
+//    }
 
-    
-    
-   
  }

@@ -47,4 +47,10 @@ public class MemberDAOMybatis implements MemberDAO {
 		return sqlSession.selectList("memberSQL.getzipcodeList", map);
 	}
 
+	@Override
+	public void delete(MemberDTO memberDTO) {
+		sqlSession.delete("memberSQL.delete",memberDTO);
+		
+	}
+
 }

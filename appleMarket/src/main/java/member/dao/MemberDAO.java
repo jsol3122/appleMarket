@@ -14,4 +14,6 @@ public interface MemberDAO {
 	public int login(MemberDTO memberDTO);
 
 	public List<ZipcodeDTO> getZipcodeList(String sido, String sigungu, String roadname);
+
+	public void delete(MemberDTO memberDTO);
 }

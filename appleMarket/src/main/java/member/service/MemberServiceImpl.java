@@ -45,6 +45,12 @@ public class MemberServiceImpl implements MemberService {
 		return list;
 	}
 
+	@Override
+	public void delete(MemberDTO memberDTO) {
+		memberDAO.delete(memberDTO);
+		
+	}
+
 	
 	
 	

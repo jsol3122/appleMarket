@@ -57,7 +57,7 @@ $('#loginBtn').click(function(){
       loginForm.querySelector('#member_pwd').classList.add("placeholderColor");
    else{
 	   $.ajax({
-	         url: '/appleMarket/login',
+	         url: '/appleMarket/view/user/login',
 	         type: 'post',
 	         data: 'member_id='+$('#member_id').val()+'&member_pwd='+$('#member_pwd').val(),
 	         //dataType: 'text',
@@ -92,15 +92,12 @@ function kakaoLogin() {
 	         //data: {'member_id' : id},
 	         dataType: 'text',
 	         success: function(data){
-	   			alert(data);
 	        	 location.href = data;
-
 	         },
 	         error: function(err){
 	            console.log(err);
 	         }
 	        });
-
 }
 
 $(document).ready(function() {
