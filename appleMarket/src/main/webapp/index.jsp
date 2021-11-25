@@ -79,7 +79,7 @@
                     </div>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="/appleMarketimg/phone-ee2960c1cbf1e932ac291ad59eacc55ef6dc3cab3e9e4ea4284c4e0256bb9f4c.png" class="d-block w-100" alt="...">
+                            <img src="/appleMarket/img/phone-ee2960c1cbf1e932ac291ad59eacc55ef6dc3cab3e9e4ea4284c4e0256bb9f4c.png" class="d-block w-100" alt="...">
                         </div>
                         <div class="carousel-item">
                             <img src="/appleMarket/img/environmentday.png" class="d-block w-100" alt="...">
