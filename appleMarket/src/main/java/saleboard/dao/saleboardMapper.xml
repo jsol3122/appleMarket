@@ -3,6 +3,8 @@
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  <mapper namespace="saleboardSQL">
+  
+  <!--
   	<insert id="saleboardWrite" parameterType="saleboard.bean.SaleboardDTO">
  		insert into saleboard (
  			sale_status,
@@ -49,7 +51,7 @@
  		) 
  	</insert>
  	
- 	<select id="getSaleboardList" resultType="saleboard.bean.SaleboardDTO">
+ 	<select id="saleboardGetList" resultType="saleboard.bean.SaleboardDTO">
  		select * from saleboard where
  		 	<choose>
  			<when test="columnName=='location1_addr2'">
@@ -67,7 +69,7 @@
 	<select id="getSaleboardView" resultType="saleboard.bean.SaleboardDTO"> 		
  		select * from saleboard where sale_seq=#{sale_seq}	 
  	</select>
-<!--  	
+ 	
  	<update id="saleboardHit" parameterType="saleboard.bean.SaleboardDTO">
  		update saleboard set sale_hit = sale_hit + 1 where sale_seq = #{sale_seq}
  	</update> -->
@@ -75,7 +77,8 @@
 <!--  	<select id="saleboardPopular" resultType="saleboard.bean.SaleboardDTO">
  		select * from saleboard where 조회수 내림차순했을 때 상위 10개
  	</select> 
- --> 	
+ --> 
+ <!-- 	
  	<select id="getSaleboardIdList" parameterType="String" resultType="saleboard.bean.SaleboardDTO">
 		select * from saleboard where sale_id=#{sale_id}
  	</select>
@@ -87,7 +90,7 @@
  	</update>
  	
  	
- 	<delete id="saleboardDelete" parameterType="String"> <!-- int 로 넣어야 하나? -->
+ 	<delete id="saleboardDelete" parameterType="String"> 
  		delete saleboard where sale_seq=#{sale_seq}
  	</delete>
  	
@@ -109,8 +112,10 @@
  
  	</select>
  	
-
+ -->
 	<!-- 찜 하기 -->
+	
+	<!-- 
 	<update id="saleboardPick1" parameterType="saleboard.bean.SaleboardDTO">
 	   update saleboard set sale_heart_count = sale_heart_count + 1
 	   where sale_seq = #{sale_seq}
@@ -120,8 +125,8 @@
 	   insert into interestList (member_id, sale_seq)
 	   	values(#{sale_buyer_id}, #{sale_seq})
 	</insert>
-	
-	<!-- 찜 취소 -->
+	 -->
+	<!-- 찜 취소 --><!-- 
 	<update id="saleboardPickCancel1" parameterType="saleboard.bean.SaleboardDTO">
 	   update saleboard set sale_heart_count = sale_heart_count - 1
    	   where sale_seq = #{sale_seq}
@@ -130,13 +135,14 @@
 	<delete id="saleboardPickCancel2" parameterType="int">
 	   delete interestList where sale_seq=#{sale_seq}
 	</delete>
- 	
+  -->	
  	<!-- 판매글 누르면 조회수 증가-->
+ 	<!-- 
 	<update id="saleboardHit" parameterType="saleboard.bean.SaleboardDTO">
 		update saleboard set sale_hit = sale_hit + 1
 		where sale_seq = #{sale_seq}
 	</update>
- 	
+ 	 -->
  	
  	<!-- parameterType="String" 인 이유는 non_exist / exist 가 return 값이라 그렇다. -->
 <!-- 	<select id="checkId" parameterType="String" resultType="user">

@@ -6,15 +6,15 @@ import saleboard.bean.SaleboardDTO;
 
 
 public interface SaleboardDAO {
-
+/*
 	public void saleboardWrite(SaleboardDTO saleboardDTO);
 
 	public void saleboardModify(SaleboardDTO saleboardDTO);
 
 	public void saleboardDelete();
 
-	public List<SaleboardDTO> getSaleboardList();
-/*
+	public List<SaleboardDTO> saleboardGetList();
+
 	public void searchSale_id(String sale_id);
 
 	public void searchSale_subject(String sale_subject);

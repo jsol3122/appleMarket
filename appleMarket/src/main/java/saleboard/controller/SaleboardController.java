@@ -17,6 +17,7 @@ import saleboard.service.SaleboardService;
 @Controller
 @RequestMapping(value="/saleboard")
 public class SaleboardController {
+	/*
 	@Autowired
 	private SaleboardService saleboardService;
 
@@ -27,13 +28,13 @@ public class SaleboardController {
 	}
 	
 
-	/*
-	@RequestMapping(value="/checkId", method=RequestMethod.POST)
-	@ResponseBody // return exist 가 경로가 아니라 String 으로 보내지도록 설정.
-	public String checkId(@RequestParam String id) {
-		return saleboardService.checkId(id);
-	}
-	*/
+	
+//	@RequestMapping(value="/checkId", method=RequestMethod.POST)
+//	@ResponseBody // return exist 가 경로가 아니라 String 으로 보내지도록 설정.
+//	public String checkId(@RequestParam String id) {
+//		return saleboardService.checkId(id);
+//	}
+	
 	
 	@RequestMapping(value="/saleboardWrite", method=RequestMethod.POST)
 	@ResponseBody
@@ -51,7 +52,7 @@ public class SaleboardController {
 		return "/saleboard/saleboardView";
 	} 
 	
-/*	
+	
 	@PostMapping(value="/getUserList")
 	@ResponseBody
 	//메소드의 return형 앞에 @ResponseBody를 붙여서 사용하게되면 해당객체가 자동으로 JSON 객체로 변환되어 반환됩니다.
@@ -63,7 +64,7 @@ public class SaleboardController {
 	</dependency> 
 	
 	https://www.nextree.co.kr/p11205/
-	 */
+	
 	
 	public List<SaleboardDTO> getSaleboardList() {
 		return saleboardService.getSaleboardList(); 
@@ -75,14 +76,14 @@ public class SaleboardController {
 		return "/saleboard/saleboardModifyForm";
 	}
 	
-/*	
+	
 	@PostMapping("/getSaleboard")
 	@ResponseBody
 	public SaleboardDTO getSaleboard(@RequestParam String searchId) {
 		return saleboardService.getSaleboard(searchId);
 	}
 	// 이렇게 하다가 나중에 에러날 수 있는데 그러면 searchId 를 id 로 바꿔야 한다.
-*/	
+	
 	@PostMapping("/saleboardModify")
 	@ResponseBody
 	public void saleboardModify(@ModelAttribute SaleboardDTO saleboardDTO) {
@@ -93,7 +94,7 @@ public class SaleboardController {
 	public String saleboardDeleteForm() {
 		return "/saleboard/saleboardDeleteForm";
 	}
-	/*
+	
 	@PostMapping("/saleboardDelete")
 	@ResponseBody
 	public void saleboardDelete(@RequestParam String searchId) {
