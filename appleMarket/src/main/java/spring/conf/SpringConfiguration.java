@@ -1,6 +1,7 @@
 package spring.conf;
 
 
+
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
@@ -15,12 +16,12 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-
 @Configuration
 @EnableTransactionManagement
 @PropertySource("classpath:spring/db.properties")
 public class SpringConfiguration {
 	
+
 	 @Autowired
 	 private ApplicationContext applicationContext;
 	
@@ -72,8 +73,4 @@ public class SpringConfiguration {
   	}
 //---------------------------------------------------------------------------------------------------
 
-  	
-  	
-  	
-	
 }
