@@ -11,7 +11,8 @@
 	<context:component-scan base-package="communityboard.service"/>
 	<context:component-scan base-package="communityboardComment.dao"/>
 	<context:component-scan base-package="communityboardComment.service"/>
-	
+	<context:component-scan base-package="localCommunityboard.dao"/>
+	<context:component-scan base-package="localCommunityboard.service"/>
 	
 	<context:component-scan base-package="boardPaging"/>
 

@@ -28,13 +28,7 @@ public class CommunityboardController {
 	@Autowired
 	private CommunityboardService communityboardService;
 	
-	@GetMapping("/index")
-	public String index(HttpServletResponse response) {
-		
-		
-		
-		return "/index";
-	}
+	
 	
 	@GetMapping("/communityboard/communityboardList")
 	public String communityboardList() {

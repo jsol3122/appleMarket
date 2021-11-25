@@ -19,9 +19,9 @@
 		base-package="communityboard.controller" />
 	<context:component-scan
 		base-package="communityboardComment.controller" />
-
+	<context:component-scan base-package="localCommunityboard.controller"/>
 	<!-- <context:component-scan base-package="handler"/> -->
-
+	
 
 	<mvc:resources location="/js/" mapping="/js/**" />
 	<mvc:resources location="/img/" mapping="/img/**" />
@@ -37,9 +37,6 @@
 	<context:component-scan base-package="handler" />
 
 
-	<mvc:resources location="/js/" mapping="/js/**" />
-	<mvc:resources location="/img/" mapping="/img/**" />
-	<mvc:resources location="/css/" mapping="/css/**" />
 
 	
 	
