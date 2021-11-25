@@ -11,9 +11,11 @@
     <script src="https://kit.fontawesome.com/674d94d429.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" type="image/x-icon" href="/appleMarket/img/shortcut_icon.png" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+
     <link rel="stylesheet" href="/appleMarket/css/style.css">
     <title>사고팔고마켓</title>
 </head>
@@ -41,6 +43,7 @@
             <ul class="login">
                 <li><a href="/appleMarket/view/user/writeForm.jsp" rel="modal:open">회원가입</a></li>
                 <li><a href="/appleMarket/view/user/loginForm.jsp" rel="modal:open">로그인</a></li>
+
             </ul>
             <!-- <div class="btnbox_search"> 수정해야하지만 일단 잘 돌아감 -->
             <div class="btnbox_search">
@@ -84,6 +87,7 @@
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <img src="/appleMarket/img/phone-ee2960c1cbf1e932ac291ad59eacc55ef6dc3cab3e9e4ea4284c4e0256bb9f4c.png" class="d-block w-100" alt="...">
+
                         </div>
                         <div class="carousel-item">
                             <img src="/appleMarket/img/environmentday.png" class="d-block w-100" alt="...">
@@ -587,6 +591,48 @@
     <script src="/appleMarket/js/app.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="/appleMarket/js/user.js"></script>
-</body>
 
+<!-- Channel Plugin Scripts -->
+<script>
+  (function() {
+    var w = window;
+    if (w.ChannelIO) {
+      return (window.console.error || window.console.log || function(){})('ChannelIO script included twice.');
+    }
+    var ch = function() {
+      ch.c(arguments);
+    };
+    ch.q = [];
+    ch.c = function(args) {
+      ch.q.push(args);
+    };
+    w.ChannelIO = ch;
+    function l() {
+      if (w.ChannelIOInitialized) {
+        return;
+      }
+      w.ChannelIOInitialized = true;
+      var s = document.createElement('script');
+      s.type = 'text/javascript';
+      s.async = true;
+      s.src = 'https://cdn.channel.io/plugin/ch-plugin-web.js';
+      s.charset = 'UTF-8';
+      var x = document.getElementsByTagName('script')[0];
+      x.parentNode.insertBefore(s, x);
+    }
+    if (document.readyState === 'complete') {
+      l();
+    } else if (window.attachEvent) {
+      window.attachEvent('onload', l);
+    } else {
+      window.addEventListener('DOMContentLoaded', l, false);
+      window.addEventListener('load', l, false);
+    }
+  })();
+  ChannelIO('boot', {
+    "pluginKey": "8f477d11-b3a5-4a18-9f84-31eeb55cd47e"
+  });
+</script>
+<!-- End Channel Plugin -->
+</body>
 </html>
