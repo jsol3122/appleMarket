@@ -71,7 +71,7 @@ $('#loginBtn').click(function(){
       loginForm.querySelector('#member_pwd').classList.add("placeholderColor");
    else{
       $.ajax({
-            url: '/appleMarket/view/user/login',
+            url: '/appleMarket/login',
             type: 'post',
             data: 'member_id='+$('#member_id').val()+'&member_pwd='+$('#member_pwd').val(),
             //dataType: 'text',
@@ -100,6 +100,40 @@ console.log(Kakao.isInitialized()); // sdk초기화여부판단
 
 //카카오로그인
 function kakaoLogin() {
+	   	$.ajax({
+	         url: '/appleMarket/login/getKakaoAuthUrl',
+	         type: 'get',
+	         //data: {'member_id' : id},
+	         dataType: 'text',
+	         success: function(data){
+	        	 location.href = data;
+	         },
+	         error: function(err){
+	            console.log(err);
+	         }
+	        });
+}
+
+$(document).ready(function() {
+	
+    var kakaoInfo = '${kakaoInfo}';
+    if(kakaoInfo != ""){
+        var data = JSON.parse(kakaoInfo);
+
+        alert("카카오로그인 성공 \n accessToken : " + data['accessToken']);
+        alert(
+        "user : \n" + "email : "
+        + data['email']  
+        + "\n nickname : " 
+        + data['nickname']);
+    }
+});  
+  
+//카카오로그아웃  
+/* 
+ 
+ function kakaoLogout() {
+=======
     Kakao.Auth.login({
       success: function (response) {
         Kakao.API.request({
@@ -122,6 +156,7 @@ function kakaoLogin() {
   
 //카카오로그아웃  
 function kakaoLogout() {
+>>>>>>> a93d96737d193454a44d622e534e34c0a3cd9cbc
     if (Kakao.Auth.getAccessToken()) {
       Kakao.API.request({
         url: '/v1/user/unlink',
@@ -134,7 +169,12 @@ function kakaoLogout() {
       })
       Kakao.Auth.setAccessToken(undefined)
     }
-  }  
+<<<<<<< HEAD
+  }   
+*/
+
+ 
+
 
 </script>
 
