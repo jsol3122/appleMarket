@@ -72,6 +72,7 @@ $('#id_chk').click(function(){
 			data: 'member_id='+$('#member_id').val(),
 			dataType: 'text',
 			success: function(data){
+			$('#id_valid').classList.removeClass("hidden");
 				if(data == 'exist'){
 					$('#id_valid').text('사용 불가능한 아이디 입니다');
 					$('#id_valid').style.color = 'tomato';
