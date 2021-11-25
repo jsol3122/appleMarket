@@ -67,10 +67,10 @@
 	<select id="getSaleboardView" resultType="saleboard.bean.SaleboardDTO"> 		
  		select * from saleboard where sale_seq=#{sale_seq}	 
  	</select>
- 	
+<!--  	
  	<update id="saleboardHit" parameterType="saleboard.bean.SaleboardDTO">
  		update saleboard set sale_hit = sale_hit + 1 where sale_seq = #{sale_seq}
- 	</update>
+ 	</update> -->
  	
 <!--  	<select id="saleboardPopular" resultType="saleboard.bean.SaleboardDTO">
  		select * from saleboard where 조회수 내림차순했을 때 상위 10개
@@ -87,7 +87,7 @@
  	</update>
  	
  	
- 	<delete id="delete" parameterType="String"> <!-- int 로 넣어야 하나? -->
+ 	<delete id="saleboardDelete" parameterType="String"> <!-- int 로 넣어야 하나? -->
  		delete saleboard where sale_seq=#{sale_seq}
  	</delete>
  	
@@ -111,7 +111,7 @@
  	
 
 	<!-- 찜 하기 -->
-	<update id="saleboardPick1" parameterType="saleboard.bean.saleboardDTO">
+	<update id="saleboardPick1" parameterType="saleboard.bean.SaleboardDTO">
 	   update saleboard set sale_heart_count = sale_heart_count + 1
 	   where sale_seq = #{sale_seq}
 	</update>
@@ -122,7 +122,7 @@
 	</insert>
 	
 	<!-- 찜 취소 -->
-	<update id="saleboardPickCancel1" parameterType="saleboard.bean.saleboardDTO">
+	<update id="saleboardPickCancel1" parameterType="saleboard.bean.SaleboardDTO">
 	   update saleboard set sale_heart_count = sale_heart_count - 1
    	   where sale_seq = #{sale_seq}
 	</update>
@@ -132,7 +132,7 @@
 	</delete>
  	
  	<!-- 판매글 누르면 조회수 증가-->
-	<update id="saleboardHit" parameterType="saleboard.bean.saleboardDTO">
+	<update id="saleboardHit" parameterType="saleboard.bean.SaleboardDTO">
 		update saleboard set sale_hit = sale_hit + 1
 		where sale_seq = #{sale_seq}
 	</update>

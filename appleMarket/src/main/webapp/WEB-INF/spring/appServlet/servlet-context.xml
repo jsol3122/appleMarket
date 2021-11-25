@@ -13,10 +13,10 @@
 	
 <!-- 	<bean id="userController" class="user.controller.UserController"></bean> -->
 	<!-- 혹은 -->
-	<context:component-scan base-package="user.controller"/>
+	<context:component-scan base-package="saleboard.controller"/>
 
 	<mvc:resources location="/js/" mapping="/js/**" />		
-	<mvc:resources location="/image/" mapping="/image/**" />	
+	<mvc:resources location="/img/" mapping="/img/**" />	
 
 	<mvc:annotation-driven/>
 <!-- 

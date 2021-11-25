@@ -35,7 +35,7 @@ public class SaleboardServiceImpl implements SaleboardService {
 	public List<SaleboardDTO> getSaleboardList() {
 		return saleboardDAO.getSaleboardList();
 	}
-
+/*
 	@Override
 	public void searchSale_id(String sale_id) {
 		saleboardDAO.searchSale_id(sale_id);
@@ -76,12 +76,12 @@ public class SaleboardServiceImpl implements SaleboardService {
 		saleboardDAO.saleboardPick(saleboardDTO);
 		
 	}
-
-	@Override
-	public void saleboardChat(String sale_id) {
-		saleboardDAO.saleboardChat(sale_id);
-		
-	}
+*/
+//	@Override
+//	public void saleboardChat(String sale_id) {
+//		saleboardDAO.saleboardChat(sale_id);
+//		
+//	}
 
 
 

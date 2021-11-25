@@ -14,7 +14,7 @@ public interface SaleboardDAO {
 	public void saleboardDelete();
 
 	public List<SaleboardDTO> getSaleboardList();
-
+/*
 	public void searchSale_id(String sale_id);
 
 	public void searchSale_subject(String sale_subject);
@@ -28,7 +28,7 @@ public interface SaleboardDAO {
 	public List<SaleboardDTO> getSale_contentList();
 
 	public void saleboardPick(SaleboardDTO saleboardDTO);
-
-	public void saleboardChat(String sale_id);
+*/
+//	public void saleboardChat(String sale_id);
 
 }

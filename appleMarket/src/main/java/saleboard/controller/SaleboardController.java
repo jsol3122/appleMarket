@@ -20,10 +20,10 @@ public class SaleboardController {
 	@Autowired
 	private SaleboardService saleboardService;
 
-
 	@RequestMapping(value="/saleboardWriteForm", method=RequestMethod.POST)
 	public String saleboardWriteForm() {
 		return "/saleboard/saleboardWriteForm";
+		
 	}
 	
 
@@ -101,5 +101,7 @@ public class SaleboardController {
 	}
 	
 	*/
+	
+	
 	
 }

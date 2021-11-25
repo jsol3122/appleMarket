@@ -2,15 +2,18 @@ package saleboard.dao;
 
 import java.util.List;
 
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import saleboard.bean.SaleboardDTO;
+
 @Repository
 @Transactional
 public class SaleboardMybatis implements SaleboardDAO {
+	
 	@Autowired
 	private SqlSession sqlSession;
 
@@ -27,7 +30,7 @@ public class SaleboardMybatis implements SaleboardDAO {
 
 	@Override
 	public void saleboardDelete() {
-		sqlSession.delete("saleboardSQL.delete");
+		sqlSession.delete("saleboardSQL.saleboardDelete");
 		
 	}
 
@@ -35,7 +38,7 @@ public class SaleboardMybatis implements SaleboardDAO {
 	public List<SaleboardDTO> getSaleboardList() {
 		return sqlSession.selectList("saleboardSQL.getSaleboardList");
 	}
-
+	/*
 	@Override
 	public void searchSale_id(String sale_id) {
 		sqlSession.selectOne("saleboardSQL.searchSale_id", sale_id);	}
@@ -71,10 +74,11 @@ public class SaleboardMybatis implements SaleboardDAO {
 		sqlSession.insert("saleboardSQL.saleboardPick", saleboardDTO);		
 	}
 
-	@Override
-	public void saleboardChat(String sale_id) {
-		sqlSession.insert("saleboardSQL.saleboardChat", sale_id);
-		
-	}
+	
+	  @Override public void saleboardChat(String sale_id) {
+	  sqlSession.insert("saleboardSQL.saleboardChat", sale_id);
+	  
+	  }
+	 */
 
 }
