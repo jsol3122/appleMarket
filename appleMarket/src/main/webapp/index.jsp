@@ -11,6 +11,11 @@
     <script src="https://kit.fontawesome.com/674d94d429.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" type="image/x-icon" href="/appleMarket/img/shortcut_icon.png" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+
     <link rel="stylesheet" href="/appleMarket/css/style.css">
     <title>사고팔고마켓</title>
 </head>
@@ -36,8 +41,9 @@
                 <li><a href="#">문의하기</a></li>
             </ul>
             <ul class="login">
-                <li><a href="#">로그인</a></li>
-                <li><a href="#">회원가입</a></li>
+                <li><a href="/appleMarket/view/user/writeForm.jsp" rel="modal:open">회원가입</a></li>
+                <li><a href="/appleMarket/view/user/loginForm.jsp" rel="modal:open">로그인</a></li>
+
             </ul>
             <!-- <div class="btnbox_search"> 수정해야하지만 일단 잘 돌아감 -->
             <div class="btnbox_search">
@@ -62,6 +68,7 @@
 
         </div>
     </header>
+
     <section id="visualBox">
         <div class="inner">
             <h1>우리 동네 중고 직거래 마켓</h1>
@@ -79,7 +86,8 @@
                     </div>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="/appleMarketimg/phone-ee2960c1cbf1e932ac291ad59eacc55ef6dc3cab3e9e4ea4284c4e0256bb9f4c.png" class="d-block w-100" alt="...">
+                            <img src="/appleMarket/img/phone-ee2960c1cbf1e932ac291ad59eacc55ef6dc3cab3e9e4ea4284c4e0256bb9f4c.png" class="d-block w-100" alt="...">
+
                         </div>
                         <div class="carousel-item">
                             <img src="/appleMarket/img/environmentday.png" class="d-block w-100" alt="...">
@@ -581,6 +589,8 @@
     <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js'></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="/appleMarket/js/app.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="/appleMarket/js/user.js"></script>
 
 <!-- Channel Plugin Scripts -->
 <script>
