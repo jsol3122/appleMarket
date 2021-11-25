@@ -40,7 +40,16 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public List<ZipcodeDTO> checkPostSearch(ZipcodeDTO zipcodeDTO) {
 		List<ZipcodeDTO> list = null; 
-		list = memberDAO.getZipcodeList(zipcodeDTO.getSido(), zipcodeDTO.getSigungu(), zipcodeDTO.getRoadname());
+		
+		if(zipcodeDTO.getSido() != null && zipcodeDTO.getRoadname() !=null) {
+			list = memberDAO.getZipcodeList(zipcodeDTO.getSido(), zipcodeDTO.getSigungu(), zipcodeDTO.getRoadname());
+			System.out.println(list);
+		}
+		if(zipcodeDTO.getSigungu() == null) {
+			list = memberDAO.getZipcodeList(zipcodeDTO.getSido(), "", zipcodeDTO.getRoadname());
+			System.out.println(list);
+		}
+	
 		
 		return list;
 	}

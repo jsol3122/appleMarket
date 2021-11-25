@@ -72,11 +72,13 @@ $('#id_chk').click(function(){
 			data: 'member_id='+$('#member_id').val(),
 			dataType: 'text',
 			success: function(data){
-				if(data == 'exist'){
+				alert("확인" + data);
+				console.log(data);
+				if(data =='exist'){
 					$('#id_valid').text('사용 불가능한 아이디 입니다');
 					$('#id_valid').style.color = 'tomato';
 					$('#checked_id').text('false');
-				}else if(data == 'non_exist'){ // 가능한 아이디값 hidden인풋창에 저장
+				}else if(data =='non_exist'){ // 가능한 아이디값 hidden인풋창에 저장
 					$('#id_valid').text('사용 가능한 아이디 입니다');
 					$('#id_valid').style.color = 'blue';
 					$('#checked_id').text(writeForm.querySelector("#member_id").value);
@@ -99,12 +101,12 @@ $('#tel_chk').click(function(){
 
 // 우편번호 검색
 $('#addr_chk').click(function(){
-	window.open("/appleMarket/user/checkPost", "우편번호검색", "width=500 height=500 top=200 left=700");
+	window.open("/appleMarket/view/user/checkPost", "우편번호검색", "width=500 height=500 top=200 left=700");
 });
 
 $('#checkPostSearchBtn').click(function(){
 	$.ajax({
-		url: '/appleMarket/user/checkPostSearch',
+		url: '/appleMarket/view/user/checkPostSearch',
 		type: 'post',
 		data: $('#checkPostForm').serialize(),
 		dataType: 'json', 
@@ -122,7 +124,7 @@ $('#checkPostSearchBtn').click(function(){
 							+ items.buildingname;
 				
 				// undefined라는 내용을 g(=global,전체)에서 찾아서 ''으로 바꾸기
-				address = address.replace(/undefined/g, ''); 
+				address = address.replace(/null/g, ''); 
 				
 				$('<tr/>').append($('<td/>',{ // td태그 안의 내용
 					align: 'center',

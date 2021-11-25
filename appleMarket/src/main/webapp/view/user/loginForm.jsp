@@ -71,7 +71,7 @@ $('#loginBtn').click(function(){
       loginForm.querySelector('#member_pwd').classList.add("placeholderColor");
    else{
       $.ajax({
-            url: '/appleMarket/view/user/login',
+            url: '/appleMarket/login',
             type: 'post',
             data: 'member_id='+$('#member_id').val()+'&member_pwd='+$('#member_pwd').val(),
             //dataType: 'text',
@@ -173,7 +173,7 @@ function kakaoLogout() {
   }   
 */
 
-  }  
+ 
 
 
 </script>

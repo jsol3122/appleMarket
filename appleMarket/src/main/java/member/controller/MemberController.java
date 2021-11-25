@@ -29,7 +29,7 @@ import member.service.MessageService;
 
 
 @Controller	
-@RequestMapping(value="/view/user")
+//@RequestMapping(value="/view/user")
 @Validated
 public class MemberController {
 	@Autowired
@@ -131,20 +131,20 @@ public class MemberController {
 	}
 
 	//아이디 중복체크
-	@PostMapping("/checkId")
+	@PostMapping("/user/checkId")
 	@ResponseBody
 	public String checkId(@RequestParam String member_id) {
 		return memberSerivce.checkId(member_id);
 	}
 	
 	//우편번호폼
-	@GetMapping("/checkPost")
+	@GetMapping("/view/user/checkPost")
 	public String checkPost() {
-		return "/checkPost";
+		return "/view/user/checkPost";
 	}
 	
 	//우편번호 조회
-	@GetMapping("/checkPostSearch")
+	@PostMapping("/view/user/checkPostSearch")
 	@ResponseBody
 	public List<ZipcodeDTO> checkPostSearch(@ModelAttribute ZipcodeDTO zipcodeDTO) {
 		return memberSerivce.checkPostSearch(zipcodeDTO);
