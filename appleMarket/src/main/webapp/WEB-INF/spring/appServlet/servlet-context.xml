@@ -14,7 +14,9 @@
 <!-- 	<bean id="userController" class="user.controller.UserController"></bean> -->
 	<!-- 혹은 -->
 	<context:component-scan base-package="saleboard.controller"/>
-
+	<context:component-scan base-package="member.controller"/>
+	<context:component-scan base-package="spring.conf"/>
+	<context:component-scan base-package="handler"/>
 	<mvc:resources location="/js/" mapping="/js/**" />		
 	<mvc:resources location="/img/" mapping="/img/**" />	
 	<mvc:resources location="/css/" mapping="/css/**" />	
