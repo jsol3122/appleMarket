@@ -34,12 +34,12 @@
 				</tr>
 				
 			</table>
-			<table width="100%" align="center" cellpadding="0" cellspacing="0"  >
+			<table width="100%" align="center" cellpadding="0" cellspacing="0"   >
 			<tbody>
 				<tr>
 					<td>
 						<div>
-							<table class="table table-hover">
+							<table class="table table-hover" id="communityboardListTable">
 								<thead>
 									<tr>
 										<th>번호</th>
@@ -86,8 +86,7 @@
 							        <td>2020.2.1</td>
 							        <td>1</td>
 							     </tr>
-						
-							      
+							     </tbody>							      
 							</table>
 						</div> <!-- 테이블  -->
 						
@@ -99,6 +98,7 @@
 				<div class="pagediv">
 					<a href="">맨 처음 페이지로 가기</a>
 					<a href="">이전 페이지로 가기</a>
+					
 					<a href="">다음 페이지로 가기</a>
 					<a href="">맨 끝 페이지로 가기</a>
 				</div>
@@ -109,5 +109,23 @@
 	</div>
  </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+$(function(){
+$.ajax({
+	url: ,
+	type:'post',
+	data: ,
+	dataType: 'json' ,
+	success:function(){
+		
+	},
+	error:function(err){
+		console.log(err);
+	}
+	});
+});
+</script>
+
 </body>
 </html>
