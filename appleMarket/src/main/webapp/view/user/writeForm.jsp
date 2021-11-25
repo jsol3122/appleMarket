@@ -4,159 +4,85 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<style type="text/css">
-div {
-	color : red;
-	font-size : 8pt;
-	font-weight: bold;
-}
-</style>
+<title>Write Form</title>
+<link rel="stylesheet" type="text/css" href="/appleMarket/css/user.css">
 </head>
 <body>
-	<form name="writeForm">
-		<table id="writeTable" align="center" cellpadding="15">
-		<thead>
-			<tr style="color:#333; font-size:20pt;">
-				<td colspan="2" align="center">회원가입</td>	
-			</tr>
-			<tr>
-			<td colspan="2" align="center">
-				<img src="../img/write_step2.PNG" width="500"  alt="회원가입_스탭2"/>
-			</td>
-			</tr>
-		</thead>	
-		
-		<tbody id="writeTableBody">
-		
-			<tr>
-				<td>&emsp;</td>
-			</tr>
+	<div id="modal-content">
+		<div class="modal-header"> <!-- modal header -->
+			<button type="button" class="close" data-dismiss="modal">×</button>
+		</div>
 
-			<!-- 아이디  -->
-			<tr>
-				<td align="left">아이디 <font color="red">*</font></td>
+		<div class="modal-body"> <!-- modal body -->
+		<form id="writeForm" action="/appleMarket/user/write" method="post">
+			<h3>회원가입</h3>
+			<hr>
+			<p class="warning">* 는 필수 입력 항목입니다</p>
+			<br>
+			<br>
+			<div>
+				<label>아이디 <span class="warning">*</span></label>
+				<input type="text" name="member_id" id="member_id" placeholder="5자 이상 입력해주세요"/>
+				<input type="button" value="중복확인" class="chk" id="id_chk" />
+				<input type="text" id="id_valid" class="hidden">
+				<input type="hidden" id="checked_id" value="">
+			</div>
+			<div>
+				<label>비밀번호 <span class="warning">*</span></label>
+				<input type="password" name="member_pwd" id="member_pwd" placeholder="8자 이상의 영문과 숫자를 조합"/>
+			</div>
+			<div>
+				<label>비밀번호확인 <span class="warning">*</span></label>
+				<input type="password" name="member_rePwd" id="member_rePwd" placeholder="비밀번호를 한번 더 입력해주세요"/>
+			</div>
+			<div>
+				<label>휴대폰 <span class="warning">*</span></label>
+				<select name="member_tel1" id="member_tel1" >
+					<option value="010" selected>010</option>
+					<option value="011">011</option>
+					<option value="019">019</option>
+				</select> -
+				<input type="text" name="member_tel2" id="member_tel2" maxlength="4" style="width:60px; margin-right: 0;"> -
+				<input type="text" name="member_tel3" id="member_tel3" maxlength="4" style="width:60px; margin-right: 0;">
+				<input type="button" value="본인인증"  class="chk" id="tel_chk"/>
+				<input type="text" id="user_valid" class="hidden">
+				<input type="hidden" id="checked_user" value="">
 				
-				<td>
-					<input type="text" name="member_id" id="member_id" size="30" onkeydown="inputIdChk()" style="border : none; border-bottom: 1px solid #999;">&nbsp;&nbsp;&nbsp;&nbsp;
-					<button type="button" class="btn" id="writeIdCheckBtn" onclick="checkId()" style=" color: black; background: white; border: 0.1px solid #999;font-size : 8pt;">중복확인</button>
-					<div id="writeIdDiv"></div>
-					<input type="hidden" id="writeIdDuplication" name="writeIdDuplication" value="idUncheck">
-				</td> 
-			</tr>
-			
-			<!-- 비밀번호  -->
-			<tr>
-				<td align="left">비밀번호 <font color="red">*</font></td>
-				<td>
-					<input type="password" name="writePwd" size="30" style="border : none; border-bottom: 1px solid #999">
-					<div id="writePwdDiv"></div>
-				</td>
-			</tr>
-			
-			<!-- 비밀번호 확인  -->
-			<tr>
-				<td align="left">비밀번호 확인 <font color="red">*</font></td>
-				<td>
-					<input type="password" name="writeRepwd" size="30" style="border : none; border-bottom: 1px solid #999">
-					<div id="writeRepwdDiv"></div>
-				</td>
-			</tr>
-			
-			<!-- 휴대폰번호  -->
-			<tr>
-				<td align="left">휴대폰 번호 <font color="red">*</font></td>
-				<td>
-					<select name="writeTel1" id="writeTel1"  onkeydown="inputPhoneChk()" style="width: 70px; height : 23px; border : none; border-bottom: 1px solid #999;">
-						<option value="010" selected>010</option>
-						<option value="011">011</option>
-						<option value="011">019</option>
-					</select>
-					<input type="text" name="writeTel2" id="writeTel2" size="7" maxlength="4" onkeydown="inputPhoneChk()" style="border : none; border-bottom: 1px solid #999">
-					<input type="text" name="writeTel3" id="writeTel3" size="7" maxlength="4" onkeydown="inputPhoneChk()" style="border : none; border-bottom: 1px solid #999">&nbsp;&nbsp;&nbsp;&nbsp;
- 					<button type="button" class="btn" id="writePhoneBtn" onclick="checkPhone()" style=" color: black; background: white; border: 1px solid #999;font-size : 8pt;">휴대폰 중복체크</button> 
-					<div id="writePhoneDiv"></div>
-					<input type="hidden" id="writePhoneDuplication" name="writePhoneDuplication" value="phoneUnCheck">
-				</td>
-			</tr>
-			
-			<!-- 생년월일  -->
-			<tr>
-				<td align="left">생년월일 <font color="red">*</font></td>
-				<td>
-					<select name="yy" style="width: 80px; border : none; border-bottom: 1px solid #999;">
-						 <c:forEach var="yy" begin="1950" end="2021" step="1">
-							<option value="${yy}">${yy}</option>
-						</c:forEach> 
-					</select>
-			
-					<select name="mm" style="width: 80px; border : none; border-bottom: 1px solid #999;">
-						 <c:forEach var="mm" begin="1" end="12" step="1">
-							<option value="${mm}">${mm}</option>
-						</c:forEach> 
-					</select>
-					
-					<select name="dd" style="width: 80px; border : none; border-bottom: 1px solid #999;">
-						 <c:forEach var="dd" begin="1" end="31" step="1">
-							<option value="${dd}">${dd}</option>
-						</c:forEach> 
-					</select>
-				</td>
+			</div>
+			<div>
+				<label>이메일 <span class="warning">*</span></label>
+				<input type="email" name="member_email" id="member_email" placeholder="예: appleMarket@gmail.com"/>
+			</div>
+			<div>
+				<label>주소</label>
+				<input type="text" name="member_sido_sigungu" id="member_sido_sigungu" placeholder="우편번호 검색을 이용해주세요" readonly/>
+				<input type="button" value="우편번호 검색"  class="chk" id="addr_chk"/>
+				<input type="text" name="member_dong" id="member_dong" style="margin: 10px 102px 0;" readonly />
+				<input type="text" name="member_address" id="member_address" readonly />
+				<input type="text" name="member_detailAddr" id="member_detailAddr" placeholder="상세 주소를 입력해주세요"/>
 				
-			</tr>
-			
-			<!-- 이메일  -->
-			<tr>
-				<td align="left">이메일 <font color="red">*</font></td>
-				<td>
-					<input type="text" name="writeEmail1" size="20" style="border : none; border-bottom: 1px solid #999"> 
-					@
-					<input type="text" name="writeEmail2" size="20" style="border : none; border-bottom: 1px solid #999">
-					<div id="writeEmailDiv"></div>
-				</td>
-			</tr>
-			
-			<!-- 메일수신여부  -->
-			<tr>
-				<td align="left">메일수신여부 <font color="red">*</font></td>
-				<td>
-					<input type="radio" name="writeemailtf" checked/>
-					<label for="yes">예</label>
-					&nbsp;&nbsp;&nbsp;&nbsp;
-					<input type="radio" name="writeemailtf">
-					<label for="no">아니오</label>
-				</td>
-			</tr>
-			
-			<!-- 추천인아이디  -->
-			<tr>
-				<td align="left">추천인아이디</td>
-				<td>
-					<input type="text" name="writeRecommenderid" size="30" style="border : none; border-bottom: 1px solid #999">
-				</td>
-			</tr>
-			
-			<tr>
-				<td>&emsp;</td>
-			</tr>
-			
-			</tbody>
-			
-			
-			<!-- button  -->
-			<tr>
-				<td colspan="2" align="center">
-					<button type="button" class="btn" id="writeOkBtn" onclick="checkWrite()" style=" color: white; background: #39210D;font-size : 13pt;">회원가입</button>
-					<input type="reset" class="btn" value="취  소" id="wrtieCancleBtn" style=" color: white; background: #39210D;font-size : 13pt;" >
-				</td>
-			</tr>
-			
-			<tr>
-				<td>&emsp;</td>
-			</tr>
-		</table>
-	</form>
-<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="../js/user.js"></script>
+			</div>
+			<div>
+				<label>성별</label>
+				<input type="radio" name="member_gender" id="m" value=0>
+				<label for="m" class="radio_lbl"> 남 </label>
+				<input type="radio" name="member_gender" id="w" value=1>
+				<label for="w" class="radio_lbl"> 여 </label>
+				<input type="radio" name="member_gender" id="n" value=2 checked>
+				<label for="n" class="radio_lbl"> 선택 안함 </label>
+			</div>
+			<div>
+				<input type="button" value="가입하기" id="writeBtn" class="sbm" />
+			</div>
+		</form>
+		</div>
+		<!-- Modal footer -->
+		<div class="modal-footer">
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		</div>
+	</div> <!-- modal content -->
+
 </body>
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="/appleMarket/js/user.js"></script>
 </html>

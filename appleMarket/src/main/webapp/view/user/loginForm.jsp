@@ -9,36 +9,44 @@
 <meta name="google-signin-client_id" content="618037962343-sbg29ei4a6dcd9acrv01ndougru7va1b.apps.googleusercontent.com">
 </head>
 <body>
-   <section id="sectionLogin">
-      <form id="loginForm">
-         <h1>로그인</h1>
-         <hr>
-         <br>
-         <br>
-         <div>
-            <input type="text" id="member_id" name="member_id" placeholder="아이디를 입력해주세요"/>
-         </div>
-         <div>
-            <input type="password" id="member_pwd" name="member_pwd" placeholder="비밀번호를 입력해주세요"/>
-         </div>
-         <div>
-         <input type="button"  value="로그인" class="sbm" id="loginBtn" style="cursor:pointer;"/>
-          <input type="button" value="카카오톡 로그인" id="kakao_login" onclick="kakaoLogin();" href="javascript:void(0)"  style="cursor:pointer;"/>
-         </div>
-         <div id="loginResult">
-           
-            <!-- 로그아웃 기능 구현시 아래 코드 사용  -->
-          <!-- <ul>
-            <li onclick="kakaoLogout();">
-            <a href="javascript:void(0)">
-            <span>카카오 인증 취소</span>
-            </a>
-            </li>
-         </ul>    -->
-      </form>
+	<div id="modal-content">
+		<div class="modal-header"> <!-- modal header -->
+			<button type="button" class="close" data-dismiss="modal">×</button>
+		</div>
+	
+		<div class="modal-body"> <!-- modal body -->
+	      <form id="loginForm">
+	         <h3>로그인</h3>
+	         <hr>
+	         <br>
+	         <br>
+	         <div>
+	            <input type="text" id="member_id" name="member_id" class="loginInput" placeholder="아이디를 입력해주세요" style="width:350px; height:45px;"/>
+	         </div>
+	         <div>
+	            <input type="password" id="member_pwd" name="member_pwd" class="loginInput" placeholder="비밀번호를 입력해주세요" style="width:350px; height:45px;"/>
+	         </div>
+	         <div style="padding:0 5px;">
+		         <input type="button" value="로그인" class="sbm" id="loginBtn" style="cursor:pointer;"/>
+		         <input type="button" value="카카오톡 로그인" id="kakao_login" onclick="kakaoLogin();" href="javascript:void(0)"  style="cursor:pointer;"/>
+		         <br>
+		         <div id="loginResult"></div>
+	         </div>
+	         
+	           
+	            <!-- 로그아웃 기능 구현시 아래 코드 사용  -->
+	          <!-- <ul>
+	            <li onclick="kakaoLogout();">
+	            <a href="javascript:void(0)">
+	            <span>카카오 인증 취소</span>
+	            </a>
+	            </li>
+	         </ul>    -->
+	      </form>
+	    </div>
       <br>
       <br>
-   </section> <!-- section -->
+   </div> <!-- section -->
 </body>
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -51,33 +59,39 @@ $('#loginBtn').click(function(){
    loginForm.querySelector('#member_id').classList.remove("placeholderColor");
    loginForm.querySelector('#member_pwd').classList.remove("placeholderColor");
 
-   if(loginForm.querySelector("#member_id").value=="")
-      loginForm.querySelector('#member_id').classList.add("placeholderColor");
-   else if(loginForm.querySelector("#member_pwd").value=="")
+   if(loginForm.querySelector("#member_id").value==""){
+      loginForm.querySelector('#member_id').classList.add("placeholderColor");  
+      $('#loginResult').html('아이디와 비밀번호를 정확히 입력해 주세요.');
+      $('#loginResult').css('color', 'red');
+      $('#loginResult').css('font-size', '10pt');
+      $('#loginResult').css('font-weight', 'bold');
+      $('#loginResult').css('text-align', 'center');
+   }
+   else if(loginForm.querySelector("#member_pwd").value=="")	   
       loginForm.querySelector('#member_pwd').classList.add("placeholderColor");
    else{
-	   $.ajax({
-	         url: '/appleMarket/view/user/login',
-	         type: 'post',
-	         data: 'member_id='+$('#member_id').val()+'&member_pwd='+$('#member_pwd').val(),
-	         //dataType: 'text',
-	         success: function(data){
-	            //alert(data);
-	            data = data.trim();         
-	           if(data==1){
-	               location.href="/appleMarket/index";                  
-	            }else{
-	               $('#loginResult').text('로그인 실패');
-	               $('#loginResult').css('color', 'red');
-	               $('#loginResult').css('font-size', '15pt');
-	               $('#loginResult').css('font-weight', 'bold');
-	            } 
-	         },
-	         error: function(err){
-	            console.log(err);
-	         }
-	         });
-	      
+      $.ajax({
+            url: '/appleMarket/view/user/login',
+            type: 'post',
+            data: 'member_id='+$('#member_id').val()+'&member_pwd='+$('#member_pwd').val(),
+            //dataType: 'text',
+            success: function(data){
+               //alert(data);
+               data = data.trim();         
+              if(data==1){
+                  location.href="/appleMarket/index";                  
+               }else{
+                  $('#loginResult').text('아이디 또는 비밀번호가 잘못 입력 되었습니다.아이디와 비밀번호를 정확히 입력해 주세요.');
+                  $('#loginResult').css('color', 'red');
+                  $('#loginResult').css('font-size', '15pt');
+                  $('#loginResult').css('font-weight', 'bold');
+               } 
+            },
+            error: function(err){
+               console.log(err);
+            }
+            });
+         
    }
 });
    
@@ -119,6 +133,30 @@ $(document).ready(function() {
 /* 
  
  function kakaoLogout() {
+=======
+    Kakao.Auth.login({
+      success: function (response) {
+        Kakao.API.request({
+          url: '/v2/user/me',
+          success: function (response) {
+             console.log(response)
+             alert('로그인 합니다.');
+             location.href='/appleMarket/index.jsp';
+          },
+          fail: function (error) {
+            console.log(error)
+          },
+        })
+      },
+      fail: function (error) {
+        console.log(error)
+      },
+    })
+  }
+  
+//카카오로그아웃  
+function kakaoLogout() {
+>>>>>>> a93d96737d193454a44d622e534e34c0a3cd9cbc
     if (Kakao.Auth.getAccessToken()) {
       Kakao.API.request({
         url: '/v1/user/unlink',
@@ -131,8 +169,12 @@ $(document).ready(function() {
       })
       Kakao.Auth.setAccessToken(undefined)
     }
+<<<<<<< HEAD
   }   
 */
+
+  }  
+
 
 </script>
 
