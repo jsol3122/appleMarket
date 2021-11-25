@@ -98,7 +98,58 @@ $('#tel_chk').click(function(){
 
 // 우편번호 검색
 $('#addr_chk').click(function(){
-	window.open("/appleMarket/user/addr", "우편번호검색", "width=500 height=500 top=200 left=700");
+	window.open("/appleMarket/user/checkPost", "우편번호검색", "width=500 height=500 top=200 left=700");
+});
+
+$('#checkPostSearchBtn').click(function(){
+	$.ajax({
+		url: '/appleMarket/user/checkPostSearch',
+		type: 'post',
+		data: $('#checkPostForm').serialize(),
+		dataType: 'json', 
+		success: function(data){
+			// alert(JSON.stringify(data)); -- 확인용
+			
+			$('#zipcodeTable tr:gt(2)').remove(); // 테이블에서 맨 위 3줄 빼고 나머지는 검색누를때마다 초기화
+			
+			$.each(data, function(index, items){
+				var address = items.sido+' '
+							+ items.sigungu+' '
+							+ items.yubmyundong+' '
+							+ items.ri+' '
+							+ items.roadname+' '
+							+ items.buildingname;
+				
+				// undefined라는 내용을 g(=global,전체)에서 찾아서 ''으로 바꾸기
+				address = address.replace(/undefined/g, ''); 
+				
+				$('<tr/>').append($('<td/>',{ // td태그 안의 내용
+					align: 'center',
+					text: items.zipcode
+				})).append($('<td/>',{
+					colspan: 3,
+				}).append($('<a/>',{
+					href: '#',
+					text: address,
+					class: 'addressA'
+				}))).appendTo($('#zipcodeTable'));
+			}); // each
+			
+			// 주소 클릭하면 회원가입 폼으로 값 이동시키기
+			$('.addressA').click(function(){ 
+				addr = $(this).text().split(" ");
+	
+				$('#member_sido_sigungu', opener.document).val(addr[0]+' '+addr[1]); // 주소 넣기
+				$('#member_dong', opener.document).val(addr[2]);
+				$('#member_address', opener.document).val(addr[3]+' '+addr[4]+' '+addr[5]);
+				window.close();
+				$('#member_detailAddr', opener.document).focus();
+			});
+		},
+		error: function(err){
+			console.log(err);
+		}
+	});
 });
 	
 // 로그인 유효성 검사	

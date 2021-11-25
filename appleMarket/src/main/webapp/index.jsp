@@ -40,7 +40,7 @@
             </ul>
             <ul class="login">
                 <li><a href="/appleMarket/view/user/writeForm.jsp" rel="modal:open">회원가입</a></li>
-                <li><a href="/appleMarket/login/loginForm.jsp" rel="modal:open">로그인</a></li>
+                <li><a href="/appleMarket/view/user/loginForm.jsp" rel="modal:open">로그인</a></li>
             </ul>
             <!-- <div class="btnbox_search"> 수정해야하지만 일단 잘 돌아감 -->
             <div class="btnbox_search">

@@ -60,13 +60,18 @@ $('#loginBtn').click(function(){
    loginForm.querySelector('#member_pwd').classList.remove("placeholderColor");
 
    if(loginForm.querySelector("#member_id").value==""){
-      loginForm.querySelector('#member_id').classList.add("placeholderColor");   	
+      loginForm.querySelector('#member_id').classList.add("placeholderColor");  
+      $('#loginResult').html('아이디와 비밀번호를 정확히 입력해 주세요.');
+      $('#loginResult').css('color', 'red');
+      $('#loginResult').css('font-size', '10pt');
+      $('#loginResult').css('font-weight', 'bold');
+      $('#loginResult').css('text-align', 'center');
    }
    else if(loginForm.querySelector("#member_pwd").value=="")	   
       loginForm.querySelector('#member_pwd').classList.add("placeholderColor");
    else{
       $.ajax({
-            url: '/appleMarket/login',
+            url: '/appleMarket/view/user/login',
             type: 'post',
             data: 'member_id='+$('#member_id').val()+'&member_pwd='+$('#member_pwd').val(),
             //dataType: 'text',
