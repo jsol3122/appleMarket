@@ -57,7 +57,7 @@
 				<label>주소</label>
 				<input type="text" name="member_sido_sigungu" id="member_sido_sigungu" placeholder="우편번호 검색을 이용해주세요" readonly/>
 				<input type="button" value="우편번호 검색"  class="chk" id="addr_chk"/>
-				<input type="text" name="member_dong" id="member_dong" readonly />
+				<input type="text" name="member_dong" id="member_dong" style="margin: 10px 102px 0;" readonly />
 				<input type="text" name="member_address" id="member_address" readonly />
 				<input type="text" name="member_detailAddr" id="member_detailAddr" placeholder="상세 주소를 입력해주세요"/>
 				
