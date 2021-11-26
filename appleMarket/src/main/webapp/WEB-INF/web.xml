@@ -24,7 +24,11 @@
 		<servlet-name>appServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>  
-  
+  <servlet-mapping>
+		<servlet-name>dispatcherServlet</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+	
     <!-- 스프링 파라메터로 한글을 넘길 때 -->
   <filter>
    <filter-name>encodingFilter</filter-name>
