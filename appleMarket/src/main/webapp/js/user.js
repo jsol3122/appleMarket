@@ -113,8 +113,13 @@ $("#tel_chk").click(function(e){
 	}else{
 		startTimer(leftSec, display);
 	}
+	// 숨겨놨던 인증번호 관련 3개 띄우기
+	writeForm.querySelector('#phone2').classList.remove('hidden');
+	writeForm.querySelector('#timer').classList.remove('hidden');
+	writeForm.querySelector('#tel_valid').classList.remove('hidden');
+
 	$.ajax({
-		url: '/appleMarket/view/user/phoneCheck',
+		url: '/appleMarket/phoneCheck',
 		type: 'get',
 		data: 'phone='+$('#member_tel1').val()+$('#member_tel2').val()+$('#member_tel3').val(),
 		success: function(){
@@ -135,13 +140,13 @@ function startTimer(count, display) {
 		minutes = minutes < 10 ? "0" + minutes : minutes;
 		seconds = seconds < 10 ? "0" + seconds : seconds;
  
-    	display.value(minutes + ":" + seconds);
+    	$('.time').val(minutes + ":" + seconds);
  
         // 타이머 끝
         if (--count < 0) {
 	     clearInterval(timer);
 	     $('#phone2').val("시간초과");
-	     $('#tel_valid').attr("disabled","disabled");
+		 writeForm.querySelector('#tel_valid').classList.add('hidden');
 	     isRunning = false;
         }
     }, 1000);
@@ -150,7 +155,8 @@ function startTimer(count, display) {
 
 $('#tel_valid').click(function(){
 	$.ajax({
-		url: '/appleMarket/view/user/phoneCheckNum',
+		url: '/appleMarket/phoneCheckNum',
+		type: 'post',
 		data: 'phone2='+$('#phone2').val(),
 		dataType: 'text',
 		success: function(data){

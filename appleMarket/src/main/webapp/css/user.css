@@ -55,6 +55,12 @@ form input[type=text]:focus, form input[type=email]:focus, form input[type=passw
 #id_valid, #user_valid{
 	font-size: 8pt;
 	border: 0;
+	height: 20px;
+}
+
+.time{
+	font-size: 8pt;
+	color: tomato;
 }
 
 #modal-body{

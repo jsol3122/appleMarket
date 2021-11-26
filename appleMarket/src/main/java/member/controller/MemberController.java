@@ -124,10 +124,11 @@ public class MemberController {
 		int result = today.compareTo(checkTime);
 		
 		if(Integer.parseInt(Checknum) == messageDTO.getCertificationNumber() && result < 0) {
+			System.out.println(result);
 			return "ok";
-		}else {
-			return "fail";
-		}	
+		}
+
+		return "fail";
 	}
 
 	//아이디 중복체크

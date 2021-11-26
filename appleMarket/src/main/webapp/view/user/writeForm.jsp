@@ -45,9 +45,9 @@
 				<input type="text" name="member_tel2" id="member_tel2" maxlength="4" style="width:60px; margin-right: 0;"> -
 				<input type="text" name="member_tel3" id="member_tel3" maxlength="4" style="width:60px; margin-right: 0;">
 				<input type="button" value="본인인증"  class="chk" id="tel_chk"/>
-				<input type="text" name="phone2" id="phone2" class="hidden time" style="width: 130px;height: 35px;"/>
-				<label class="hidden" style="width: 70px;height: 35px;"></label>
-				<input type="button" value="인증확인"  class="hidden" id="tel_valid" disabled=""/>
+				<input type="text" name="phone2" id="phone2" class="hidden" style="width: 135px;height: 35px; margin-left:102px;"/>
+				<input type="text" class="hidden time" id="timer" style="width: 70px;height: 35px;border:0">
+				<input type="button" value="인증확인"  class="hidden chk" id="tel_valid"/>
 				<input type="text" id="user_valid" class="hidden">
 				<input type="hidden" id="checked_user" value="">
 				
