@@ -20,10 +20,10 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 @PropertySource("classpath:spring/db.properties")
 public class SpringConfiguration {
-	
 
-	 @Autowired
-	 private ApplicationContext applicationContext;
+	@Autowired
+	private ApplicationContext applicationContext;
+
 	
 	@Value("${jdbc.driver}")
     private String driver;
@@ -72,5 +72,6 @@ public class SpringConfiguration {
   		return dataSourceTransactionManager;
   	}
 //---------------------------------------------------------------------------------------------------
+
 
 }
