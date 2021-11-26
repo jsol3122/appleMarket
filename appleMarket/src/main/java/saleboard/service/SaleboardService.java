@@ -15,7 +15,7 @@ public interface SaleboardService {
 
 	public void saleboardDelete(int saleboard_seq); // 글 삭제 : 로그인이 되어있어야 삭제 버튼이 보여서 () 안에 데이터 보낼 필요 없다.
 	
-	public List<SaleboardDTO> saleboardGetView(int saleboard_seq);
+	public List<SaleboardDTO> saleboardGetView(int saleboard_seq); // 글 상세보기
 	
 	/*		
 	public List<SaleboardDTO> saleboardSearch(SaleboardDTO saleboardDTO);// 글 검색 : 작성자(id), 제목(Subject), 내용(Content)

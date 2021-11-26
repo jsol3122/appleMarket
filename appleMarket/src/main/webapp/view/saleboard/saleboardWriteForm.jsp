@@ -13,7 +13,6 @@ action="/chapter06_SpringMaven/user/imageboardWrite">
 <form id="saleboardWriteForm" >        
 	<table border="1" cellpadding="5" cellspacing="0">
 	
-		
 		<tr>
 			<td align="center" width="100">상품명</td>
 			<td><input type="text" name="sale_subject" id="sale_subject" size="50"></td>
