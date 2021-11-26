@@ -53,4 +53,15 @@ public class MemberDAOMybatis implements MemberDAO {
 		
 	}
 
+	@Override
+	public void modify(MemberDTO memberDTO) {
+		sqlSession.update("memberSQL.update",memberDTO);
+		
+	}
+
+	@Override
+	public MemberDTO idSearch(String member_email) {
+		return sqlSession.selectOne("memberSQL.idSearch", member_email);
+	}
+
 }

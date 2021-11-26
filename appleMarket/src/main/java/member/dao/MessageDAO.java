@@ -21,13 +21,22 @@ public class MessageDAO {
 	}
 
 	public MessageDTO checkSMS(String checknum) {
-		if(sqlSession.selectOne("phoneSQL.checkSMS", checknum) != null)
-			return sqlSession.selectOne("phoneSQL.checkSMS", checknum);
-		else {
-			MessageDTO messageDTO = null;
-			return messageDTO;
-		}
+		return sqlSession.selectOne("phoneSQL.checkSMS", checknum);		
 	}
+
+	public MessageDTO CheckPhone(String phone) {
+		return sqlSession.selectOne("phoneSQL.checkPhone",phone);
+	}
+
+	public void phoneUpdate(MessageDTO messageDTO) {
+		sqlSession.update("phoneSQL.phoneUpdate", messageDTO);
+		
+	}
+
+	
+//	public void phoneUpdate(MessageDTO messageDTO) {
+//		sqlSession.update("phoneSQL.phoneUpdate", messageDTO);
+//	}
 	
 	
 }

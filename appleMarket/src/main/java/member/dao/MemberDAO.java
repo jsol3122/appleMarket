@@ -16,4 +16,8 @@ public interface MemberDAO {
 	public List<ZipcodeDTO> getZipcodeList(String sido, String sigungu, String roadname);
 
 	public void delete(MemberDTO memberDTO);
+
+	public void modify(MemberDTO memberDTO);
+
+	public MemberDTO idSearch(String member_email);
 }

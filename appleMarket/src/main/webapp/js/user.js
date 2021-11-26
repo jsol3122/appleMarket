@@ -73,7 +73,7 @@ $('#id_chk').click(function(){
 		writeForm.querySelector('#member_id').classList.add("placeholderColor");
 	}else{
 		$.ajax({
-			url: '/appleMarket/view/user/checkId',
+			url: '/appleMarket/user/checkId',
 			type: 'post',
 			data: 'member_id='+$('#member_id').val(),
 			dataType: 'text',
@@ -157,7 +157,7 @@ $('#tel_valid').click(function(){
 	$.ajax({
 		url: '/appleMarket/phoneCheckNum',
 		type: 'post',
-		data: 'phone2='+$('#phone2').val(),
+		data: 'phone2='+$('#phone2').val()+'&phone='+$('#member_tel1').val()+$('#member_tel2').val()+$('#member_tel3').val(),
 		dataType: 'text',
 		success: function(data){
 			if(data == 'ok'){
