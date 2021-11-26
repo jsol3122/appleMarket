@@ -67,14 +67,20 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public String idSearch(String member_email) {
-		MemberDTO memberDTO = memberDAO.idSearch(member_email);
+	public String searchId(String member_email) {
+		MemberDTO memberDTO = memberDAO.searchId(member_email);
 		
 		if(memberDTO == null) {
 			return "non_exist"; 
 		}else {
 			return "exist";
 		}
+	}
+
+	@Override
+	public void searchPwd(MemberDTO memberDTO) {
+		
+		memberDAO.searchPwd(memberDTO);
 	}
 
 	

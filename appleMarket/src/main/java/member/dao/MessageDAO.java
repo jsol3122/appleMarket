@@ -29,11 +29,5 @@ public class MessageDAO {
 		sqlSession.update("phoneSQL.phoneUpdate", messageDTO);
 		
 	}
-
-	
-//	public void phoneUpdate(MessageDTO messageDTO) {
-//		sqlSession.update("phoneSQL.phoneUpdate", messageDTO);
-//	}
-	
 	
 }

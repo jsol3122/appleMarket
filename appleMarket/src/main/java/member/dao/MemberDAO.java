@@ -19,5 +19,7 @@ public interface MemberDAO {
 
 	public void modify(MemberDTO memberDTO);
 
-	public MemberDTO idSearch(String member_email);
+	public MemberDTO searchId(String member_email);
+
+	public void searchPwd(MemberDTO memberDTO);
 }

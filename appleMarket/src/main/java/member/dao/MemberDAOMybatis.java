@@ -60,8 +60,13 @@ public class MemberDAOMybatis implements MemberDAO {
 	}
 
 	@Override
-	public MemberDTO idSearch(String member_email) {
+	public MemberDTO searchId(String member_email) {
 		return sqlSession.selectOne("memberSQL.idSearch", member_email);
+	}
+
+	@Override
+	public void searchPwd(MemberDTO memberDTO) {
+		sqlSession.selectOne("memberSQL.pwdSearch", memberDTO);		
 	}
 
 }

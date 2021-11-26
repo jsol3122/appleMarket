@@ -19,6 +19,8 @@ public interface MemberService {
 
 	public void modify(MemberDTO memberDTO);
 
-	public String idSearch(String member_email);
+	public String searchId(String member_email);
+
+	public void searchPwd(MemberDTO memberDTO);
 	
 }

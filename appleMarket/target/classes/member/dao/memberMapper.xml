@@ -94,4 +94,9 @@
  	<select id="idSearch" parameterType="String" resultType="member">
  		select * from appleMarket where member_email=#{member_email}
  	</select>
+ 	
+ 	<!-- 비밀번호 찾기 -->
+ 	<select id="pwdSearch" parameterType="member" resultType="String">
+ 		select * from appleMarket where member_id=#{member_id} and member_email=#{member_email}
+ 	</select>
  </mapper>

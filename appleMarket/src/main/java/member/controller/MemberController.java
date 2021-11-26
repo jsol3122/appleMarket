@@ -12,6 +12,7 @@ import javax.validation.constraints.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -228,17 +229,29 @@ public class MemberController {
 	}
 	
 	//아이디찾기 폼
-	@GetMapping(value="/idSearchForm")
-	public String idSearch() {
-		return "/idSearch";
+	@GetMapping(value="/searchIdForm")
+	public String searchIdForm() {
+		return "/searchIdForm";
 	}
 	
 	//아이디찾기 
-	@PostMapping(value="/idSearch")
+	@PostMapping(value="/searchId")
 	@ResponseBody
 	public String idSearch(@RequestParam("member_email") String member_email) {
-		return memberSerivce.idSearch(member_email);
+		return memberSerivce.searchId(member_email);
+	}
+	
+	//비밀번호찾기 폼
+	@GetMapping(value="/searchPwdForm")
+	public String searchPwdForm() {
+		return "/searchPwdForm";
+	}
+	
+	//비밀번호찾기
+	@PostMapping(value="/searchPwd")
+	@ResponseBody
+	public void pwdSearch(@ModelAttribute MemberDTO memberDTO) {
+		memberSerivce.searchPwd(memberDTO);
 	}
 
-	//비밀번호 찾기 폼 
 }
