@@ -21,5 +21,11 @@ public class LocalCommunityboardDAOMybatis implements LocalCommunityboardDAO {
 		
 		return sqlSession.selectList("localCommunityboardSQL.localCommunityboardGetList",map);
 	}
+
+	@Override
+	public int getTotalA() {
+		
+		return sqlSession.selectOne("localCommunityboardSQL.getTotalA");
+	}
 	
 }

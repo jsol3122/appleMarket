@@ -7,6 +7,8 @@ import localCommunityboard.bean.LocalCommunityboardDTO;
 
 public interface LocalCommunityboardDAO {
 
-	List<LocalCommunityboardDTO> localCommunityboardGetList(Map<String, Integer> map);
+	public List<LocalCommunityboardDTO> localCommunityboardGetList(Map<String, Integer> map);
+
+	public int getTotalA();
 
 }

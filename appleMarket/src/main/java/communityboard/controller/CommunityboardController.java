@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -51,8 +52,8 @@ public class CommunityboardController {
 	@PostMapping("/communityboard/communityboardWrite")
 	@ResponseBody
 	public void communityboardWrite(@ModelAttribute CommunityboardDTO communityboardDTO 
-									, @RequestParam MultipartFile img) {
-		String filePath = "D:\\git_home\\appleMarket\\appleMarket\\src\\main\\webapp\\storage";
+									, @RequestParam MultipartFile img, HttpSession session) {
+		String filePath = session.getServletContext().getRealPath("storage");
 		String fileName = img.getOriginalFilename();
 		File file = new File(filePath,fileName);
 		
@@ -100,6 +101,7 @@ public class CommunityboardController {
 	}
 	
 	@PostMapping("/communityboard/communityboardGetView")
+	@ResponseBody
 	public List<CommunityboardDTO>  communityboardGetView(@RequestParam int communityboard_seq){
 		return 	communityboardService.communityboardGetView(communityboard_seq);	
 	}
