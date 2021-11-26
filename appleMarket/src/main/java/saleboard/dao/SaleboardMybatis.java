@@ -1,7 +1,7 @@
 package saleboard.dao;
 
 import java.util.List;
-
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,19 +20,33 @@ public class SaleboardMybatis implements SaleboardDAO {
 	public void saleboardWrite(SaleboardDTO saleboardDTO) {
 		sqlSession.insert("saleboardSQL.saleboardWrite", saleboardDTO);
 	}
-	/*
+	
+	@Override
+	public List<SaleboardDTO> saleboardGetList(Map<String, Integer> map) {
+		return sqlSession.selectList("saleboardSQL.saleboardGetList",map);
+	}
+	
+	@Override
+	public int getTotalA() {
+		return sqlSession.selectOne("saleboardSQL.getTotalA");
+	}
+	
 	@Override
 	public void saleboardModify(SaleboardDTO saleboardDTO) {
 		sqlSession.update("saleboardSQL.saleboardModify", saleboardDTO);
-		
 	}
 
 	@Override
-	public void saleboardDelete() {
-		sqlSession.delete("saleboardSQL.saleboardDelete");
-		
+	public void saleboardDelete(int saleboard_seq) {
+		sqlSession.delete("saleboardSQL.saleboardDelete");		
+	}
+	
+	@Override
+	public List<SaleboardDTO> saleboardGetView(int saleboard_seq) {
+		return sqlSession.selectList("saleboardSQL.saleboardGetView", saleboard_seq);
 	}
 
+	/*
 	@Override
 	public List<SaleboardDTO> saleboardGetList() {
 		return sqlSession.selectList("saleboardSQL.SaleboardGetList");
@@ -71,5 +85,8 @@ public class SaleboardMybatis implements SaleboardDAO {
 	  
 	  }
 	 */
+
+
+
 
 }

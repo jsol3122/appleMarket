@@ -3,6 +3,16 @@
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  <mapper namespace="saleboardSQL">
+  	<select id="saleboardGetList" parameterType="java.util.Map" resultType="saleboard.bean.SaleboardDTO">
+ 		select * from 
+	 	(select rownum rn, tt.* from 
+	 	(select * from saleboard order by saleboard_seq desc) tt)
+	 	where rn between #{startNum} and #{endNum}
+ 	</select>
+ 	
+ 	<select id="getTotalA" resultType="int">
+ 		select count(*) from saleboard
+ 	</select>
      	
   	<insert id="saleboardWrite" parameterType="saleboard.bean.SaleboardDTO">
  		insert into saleboard (
@@ -49,5 +59,22 @@
 			seq_sale.nextval
  		) 
  	</insert>
+ 	
+ 	<update id="saleboardModify" parameterType="saleboard.bean.SaleboardDTO">
+ 		update saleboard set sale_category=#{sale_category}, sale_status=#{sale_status}, sale_price=#{sale_price}, 
+ 							 sale_subject=#{sale_subject}, sale_content=#{sale_content}, sale_free_YN=#{sale_free_YN},
+							 sale_image1=#{sale_image1}, sale_image2=#{sale_image2}, sale_image3=#{sale_image3}, sale_image4=#{sale_image4}, sale_image5=#{sale_image5} 		
+ 		 			   where sale_seq=#{sale_seq}
+ 	</update>
+
+	<delete id="saleboardDelete" parameterType="String"> 
+ 		delete saleboard where sale_seq=#{sale_seq}
+ 	</delete>
+ 	
+ 	<select id="saleboardGetView" parameterType="Integer" resultType="saleboard.bean.SaleboardDTO">
+ 		select * from saleboard where saleboard_seq = #{saleboard_seq}
+ 	</select> 	
+ 	
+ 
 
  </mapper>

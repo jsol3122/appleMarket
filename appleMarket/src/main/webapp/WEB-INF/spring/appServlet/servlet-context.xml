@@ -11,6 +11,11 @@
 		<property name="suffix" value=".jsp"/>
 	</bean>
 	
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="5000000"/>
+	</bean>
+	<!-- value="5000000" 은 10메가 -->
+	
 	<context:component-scan base-package="saleboard.controller"/>
 	<context:component-scan base-package="member.controller"/>
 	<context:component-scan base-package="spring.conf"/>
