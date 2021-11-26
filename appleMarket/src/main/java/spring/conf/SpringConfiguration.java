@@ -18,7 +18,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 @PropertySource("classpath:spring/db.properties")
 public class SpringConfiguration {
-	
 	@Autowired
 	private ApplicationContext applicationContext;
 	
@@ -70,5 +69,6 @@ public class SpringConfiguration {
 	public DataSourceTransactionManager transactionManager() {
 		return new DataSourceTransactionManager(dataSource());
 	}
+
 
 }
