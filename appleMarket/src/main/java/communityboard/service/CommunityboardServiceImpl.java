@@ -1,6 +1,5 @@
 package communityboard.service;
 
-import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,7 +24,6 @@ public class CommunityboardServiceImpl implements CommunityboardService {
 	
 	@Override
 	public JSONObject communityboardGetList(int pg) {
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
 		
 		// DB 
 		//1페이지당 n개씩
@@ -59,7 +57,7 @@ public class CommunityboardServiceImpl implements CommunityboardService {
 				temp.put("communityboard_image", communityboardDTO.getCommunityboard_image());
 				temp.put("communityboard_user_id", communityboardDTO.getCommunityboard_user_id());
 				temp.put("communityboard_hit", communityboardDTO.getCommunityboard_hit());
-				temp.put("communityboard_logtime", sdf.format(communityboardDTO.getCommunityboard_logtime()));
+				temp.put("communityboard_logtime", communityboardDTO.getCommunityboard_logtime());
 				
 				array.add(temp);
 			}//for

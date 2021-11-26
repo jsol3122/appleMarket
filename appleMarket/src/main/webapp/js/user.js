@@ -44,14 +44,16 @@ $('#writeBtn').click(function(){
 	}else{
 	
 		// 아이디 중복체크 여부 & 본인인증 여부 확인 후 submit
-		if($('#checked_id').val() == false) {
-			$('#id_valid').show();
-			$('#id_valid').value = '아이디 중복확인이 필요합니다';
+		if($('#checked_id').val() == false || $('#checked_id').val() == '') {
+			writeForm.querySelector('#id_valid').classList.remove('hidden');
+			$('#id_valid').css('color', 'tomato');
+			$('#id_valid').val('아이디 중복확인이 필요합니다');
 			return false;
 		}
-		if($('#checked_user').val() == false) {
-			$('#user_valid').show();
-			$('#user_valid').value = '본인인증을 완료해 주세요';
+		if($('#checked_user').val() == false || $('#checked_user').val() == '') {
+			writeForm.querySelector('#user_valid').classList.remove('hidden');
+			$('#user_valid').css('color', 'tomato');
+			$('#user_valid').val('본인인증을 완료해 주세요');
 			return false;
 		}
 		writeForm.submit();
@@ -65,23 +67,26 @@ $('#id_chk').click(function(){
 	if(writeForm.querySelector("#member_id").value == ''){ // 공백 먼저 체크
 		writeForm.querySelector("#member_id").placeholder = "아이디를 입력하세요";
 		writeForm.querySelector('#member_id').classList.add("placeholderColor");
+	}else if(writeForm.querySelector("#member_id").value.length < 5){
+		writeForm.querySelector("#member_id").value = '';
+		writeForm.querySelector("#member_id").placeholder = "아이디는 5자 이상 입력해주세요";
+		writeForm.querySelector('#member_id').classList.add("placeholderColor");
 	}else{
 		$.ajax({
-			url: '/appleMarket/user/checkId',
+			url: '/appleMarket/view/user/checkId',
 			type: 'post',
 			data: 'member_id='+$('#member_id').val(),
 			dataType: 'text',
 			success: function(data){
-				alert("확인" + data);
-				console.log(data);
+			writeForm.querySelector('#id_valid').classList.remove('hidden');
 				if(data =='exist'){
-					$('#id_valid').text('사용 불가능한 아이디 입니다');
-					$('#id_valid').style.color = 'tomato';
-					$('#checked_id').text('false');
+					$('#id_valid').val('사용 불가능한 아이디 입니다');
+					$('#id_valid').css('color', 'tomato');
+					$('#checked_id').val('false');
 				}else if(data =='non_exist'){ // 가능한 아이디값 hidden인풋창에 저장
-					$('#id_valid').text('사용 가능한 아이디 입니다');
-					$('#id_valid').style.color = 'blue';
-					$('#checked_id').text(writeForm.querySelector("#member_id").value);
+					$('#id_valid').val('사용 가능한 아이디 입니다');
+					$('#id_valid').css('color', 'blue');
+					$('#checked_id').val(writeForm.querySelector("#member_id").value);
 				}
 			},
 			error: function(err){
@@ -93,11 +98,84 @@ $('#id_chk').click(function(){
 
 
 // 휴대폰 본인 인증
-$('#tel_chk').click(function(){
+var timer = null;
+var isRunning = false;
+$("#tel_chk").click(function(e){
 	var writeForm = document.querySelector('#writeForm');
+	var display = $('.time');
+	var leftSec = 180;
+	// 남은 시간
+	// 이미 타이머가 작동중이면 중지
+	if (isRunning){
+		clearInterval(timer);
+		display.val("");
+		startTimer(leftSec, display);
+	}else{
+		startTimer(leftSec, display);
+	}
+	// 숨겨놨던 인증번호 관련 3개 띄우기
+	writeForm.querySelector('#phone2').classList.remove('hidden');
+	writeForm.querySelector('#timer').classList.remove('hidden');
+	writeForm.querySelector('#tel_valid').classList.remove('hidden');
 
-
+	$.ajax({
+		url: '/appleMarket/phoneCheck',
+		type: 'get',
+		data: 'phone='+$('#member_tel1').val()+$('#member_tel2').val()+$('#member_tel3').val(),
+		success: function(){
+			console.log('인증번호 전송 완료');
+		},
+		error: function(err){
+			console.log(err);
+		}
+	});
 });
+    
+function startTimer(count, display) {
+	var minutes, seconds;
+    timer = setInterval(function () {
+		minutes = parseInt(count / 60, 10);
+		seconds = parseInt(count % 60, 10);
+	
+		minutes = minutes < 10 ? "0" + minutes : minutes;
+		seconds = seconds < 10 ? "0" + seconds : seconds;
+ 
+    	$('.time').val(minutes + ":" + seconds);
+ 
+        // 타이머 끝
+        if (--count < 0) {
+	     clearInterval(timer);
+	     $('#phone2').val("시간초과");
+		 writeForm.querySelector('#tel_valid').classList.add('hidden');
+	     isRunning = false;
+        }
+    }, 1000);
+    isRunning = true;
+}
+
+$('#tel_valid').click(function(){
+	$.ajax({
+		url: '/appleMarket/phoneCheckNum',
+		type: 'post',
+		data: 'phone2='+$('#phone2').val(),
+		dataType: 'text',
+		success: function(data){
+			if(data == 'ok'){
+				$('#checked_user').val('본인인증 완료');
+				writeForm.querySelector('#user_valid').classList.remove('hidden');
+				$('#user_valid').val('본인인증 완료');
+			}else if(data == 'fail'){
+				$('#checked_user').val('false');
+				writeForm.querySelector('#user_valid').classList.remove('hidden');
+				$('#user_valid').val('잘못된 번호입니다');
+			}
+		},
+		error: function(err){
+			console.log(err);
+		}
+	});
+});
+
 
 // 우편번호 검색
 $('#addr_chk').click(function(){
