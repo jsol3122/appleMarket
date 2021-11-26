@@ -1,29 +1,5 @@
 package member.controller;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URI;
-import java.net.URL;
-import java.net.http.HttpHeaders;
-import java.util.HashMap;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import org.apache.commons.collections.map.MultiValueMap;
-import org.apache.http.HttpEntity;
-import org.apache.tomcat.util.http.parser.MediaType;
-import org.springframework.http.ResponseEntity;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.client.RestTemplate;
-
-import com.google.gson.JsonElement;
-import com.google.gson.JsonParser;
-
 public class GoogleController {
 	
 	private static final String CLIENT_ID = "";
