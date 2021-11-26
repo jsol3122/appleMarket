@@ -89,4 +89,9 @@
  							   member_detailAddr=#{member_detailAddr}, member_gender=#{member_gender} 
  						   	   where member_id=#{member_id}	   
  	</update>
+ 	
+ 	<!-- 아이디 찾기 -->
+ 	<select id="idSearch" parameterType="String" resultType="member">
+ 		select * from appleMarket where member_email=#{member_email}
+ 	</select>
  </mapper>

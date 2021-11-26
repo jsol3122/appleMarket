@@ -18,5 +18,7 @@ public interface MemberService {
 	public void delete(MemberDTO memberDTO);
 
 	public void modify(MemberDTO memberDTO);
+
+	public String idSearch(String member_email);
 	
 }

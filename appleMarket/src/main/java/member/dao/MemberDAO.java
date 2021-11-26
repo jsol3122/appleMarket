@@ -18,4 +18,6 @@ public interface MemberDAO {
 	public void delete(MemberDTO memberDTO);
 
 	public void modify(MemberDTO memberDTO);
+
+	public MemberDTO idSearch(String member_email);
 }

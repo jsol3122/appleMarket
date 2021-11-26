@@ -10,7 +10,7 @@
  	</insert>
  	
  	<select id="checkSMS" parameterType="String" resultType="message">
- 		select * from certificationCheck where certificationNumber = #{certificationNumber}
+ 		select * from certificationCheck where certificationNumber=#{certificationNumber}
  	</select>
  	
  	

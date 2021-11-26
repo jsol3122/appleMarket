@@ -99,7 +99,12 @@ public class MemberController {
 	@PostMapping("/phoneCheckNum")
 	@ResponseBody
 	public String checkSMS(@RequestParam("phone2") String Checknum) {
+		
 		MessageDTO messageDTO = messageService.checkSMS(Checknum);
+		
+		if(messageDTO == null) {
+			messageDTO.setCertificationNumber(0);
+ 		}
 		
 		String today = null; 
 		Date date = new Date(); 
@@ -118,8 +123,8 @@ public class MemberController {
 		
 		cal.setTime(date);
 		
-		System.out.println(checkTime);
-		System.out.println(today);
+		System.out.println("checkTime="+checkTime);
+		System.out.println("today="+today);
 		
 		int result = today.compareTo(checkTime);
 		
@@ -127,8 +132,10 @@ public class MemberController {
 			return "ok";
 		}else {
 			return "fail";
-		}	
+		}
+
 	}
+	
 
 	//아이디 중복체크
 	@PostMapping("/user/checkId")
@@ -211,5 +218,18 @@ public class MemberController {
 		memberSerivce.modify(memberDTO);
 	}
 	
+	//아이디찾기 폼
+	@GetMapping(value="/idSearchForm")
+	public String idSearch() {
+		return "/idSearch";
+	}
+	
+	//아이디찾기 
+	@PostMapping(value="/idSearch")
+	@ResponseBody
+	public String idSearch(@RequestParam("member_email") String member_email) {
+		return memberSerivce.idSearch(member_email);
+	}
 
+	//비밀번호 찾기 폼 
 }
