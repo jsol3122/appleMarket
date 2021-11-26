@@ -10,8 +10,17 @@
  	</insert>
  	
  	<select id="checkSMS" parameterType="String" resultType="message">
- 		select * from certificationCheck where certificationNumber=#{certificationNumber}
+ 		select * from certificationCheck where phone=#{phone}
  	</select>
  	
+	<update id="phoneUpdate" parameterType="message">
+ 		update certificationCheck set certificationNumber=#{certificationNumber}, 
+ 									  transmissionTime=sysdate
+ 								  where phone=#{phone}
+ 	</update>
+ 	
+ 	<select id="checkPhone" parameterType="String" resultType="message">
+ 		select * from certificationCheck where phone=#{phone}
+ 	</select>
  	
  </mapper>

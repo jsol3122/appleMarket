@@ -82,8 +82,14 @@ public class MemberController {
 		MessageDTO messageDTO = new MessageDTO();
 		messageDTO.setPhone(userPhoneNumber);
 		messageDTO.setCertificationNumber(randomNumber);
-		messageService.certificationCheck(messageDTO);
 		
+		String message = messageService.checkPhone(userPhoneNumber);
+		
+		if(message=="non_exist") {
+			messageService.certificationCheck(messageDTO);
+		}else if(message=="exist"){
+			messageService.phoneUpdate(messageDTO);
+		}
 		return Integer.toString(randomNumber); 
 		
 	}
@@ -98,13 +104,9 @@ public class MemberController {
 	 */
 	@PostMapping("/phoneCheckNum")
 	@ResponseBody
-	public String checkSMS(@RequestParam("phone2") String Checknum) {
+	public String checkSMS(@RequestParam("phone2") String Checknum,@RequestParam("phone") String userPhoneNumber) {
 		
-		MessageDTO messageDTO = messageService.checkSMS(Checknum);
-		
-		if(messageDTO == null) {
-			messageDTO.setCertificationNumber(0);
- 		}
+		MessageDTO messageDTO = messageService.checkSMS(userPhoneNumber);
 		
 		String today = null; 
 		Date date = new Date(); 
@@ -128,6 +130,7 @@ public class MemberController {
 		
 		int result = today.compareTo(checkTime);
 		
+//		if(Integer.parseInt(Checknum) == messageDTO.getCertificationNumber() && result < 0) {
 		if(Integer.parseInt(Checknum) == messageDTO.getCertificationNumber() && result < 0) {
 			return "ok";
 		}else {
@@ -136,6 +139,12 @@ public class MemberController {
 
 	}
 	
+	//핸드폰 중복체크 
+	@PostMapping("/checkPhone")
+	@ResponseBody
+	public String checkPhone(@RequestParam String phone) {
+		return messageService.checkPhone(phone);
+	}
 
 	//아이디 중복체크
 	@PostMapping("/user/checkId")
