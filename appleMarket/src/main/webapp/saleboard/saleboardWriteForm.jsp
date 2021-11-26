@@ -12,6 +12,7 @@ action="/chapter06_SpringMaven/user/imageboardWrite">
 <!-- 2. AJax -->
 <form id="saleboardWriteForm" >        
 	<table border="1" cellpadding="5" cellspacing="0">
+	
 		
 		<tr>
 			<td align="center" width="100">상품명</td>
