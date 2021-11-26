@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import boardPaging.BoardPaging;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import saleboard.bean.SaleboardDTO;
@@ -17,26 +18,9 @@ public class SaleboardServiceImpl implements SaleboardService {
 	@Autowired
 	private SaleboardDAO saleboardDAO;
 	
-//	@Autowired
-//	private saleboardPaging saleboardPaging;
-	
-	@Override
-	public void saleboardWrite(SaleboardDTO saleboardDTO) {
-		saleboardDAO.saleboardWrite(saleboardDTO);		
-	}
-	/*
-	@Override
-	public void saleboardModify(SaleboardDTO saleboardDTO) {
-		saleboardDAO.saleboardModify(saleboardDTO);
+	@Autowired
+	private BoardPaging boardPaging;
 		
-	}
-
-	@Override
-	public void saleboardDelete() {
-		saleboardDAO.saleboardDelete();
-		
-	}
-/*
 	@Override
 	public JSONObject saleboardGetList(int pg) {
 		
@@ -53,11 +37,11 @@ public class SaleboardServiceImpl implements SaleboardService {
 		int totalA = saleboardDAO.getTotalA();
 		
 		
-		saleboardPaging.setCurrentPage(pg);
-		saleboardPaging.setPageBlock(3);
-		saleboardPaging.setPageSize(5);
-		saleboardPaging.setTotalA(totalA);
-		saleboardPaging.makePagingHTML();
+		boardPaging.setCurrentPage(pg);
+		boardPaging.setPageBlock(3);
+		boardPaging.setPageSize(5);
+		boardPaging.setTotalA(totalA);
+		boardPaging.makePagingHTML();
 		
 		JSONObject json = new JSONObject();
 		if(list != null) {
@@ -66,12 +50,24 @@ public class SaleboardServiceImpl implements SaleboardService {
 			for(SaleboardDTO saleboardDTO : list) {
 				JSONObject temp = new JSONObject();
 				
-				temp.put("saleboard_seq", saleboardDTO.getSaleboard_seq());
-				temp.put("saleboard_subject", saleboardDTO.getSaleboard_subject());
-				temp.put("communityboard_image", communityboardDTO.getCommunityboard_image());
-				temp.put("communityboard_user_id", communityboardDTO.getCommunityboard_user_id());
-				temp.put("communityboard_hit", communityboardDTO.getCommunityboard_hit());
-				temp.put("communityboard_logtime", communityboardDTO.getCommunityboard_logtime());
+				temp.put("sale_seq", saleboardDTO.getSale_seq());
+				
+				temp.put("sale_image1", saleboardDTO.getSale_image1());
+				
+				temp.put("sale_subject", saleboardDTO.getSale_subject());
+				temp.put("sale_price", saleboardDTO.getSale_price());
+				temp.put("sale_status", saleboardDTO.getSale_status());
+				
+				temp.put("member_profilePic", saleboardDTO.getMember_profilePic());
+				temp.put("member_id", saleboardDTO.getMember_id());
+				temp.put("location1_addr2", saleboardDTO.getLocation1_addr2());
+				
+				temp.put("sale_heart_count", saleboardDTO.getSale_heart_count());
+				temp.put("sale_hit", saleboardDTO.getSale_hit());
+				temp.put("sale_free_YN", saleboardDTO.getSale_free_YN());
+				
+				temp.put("sale_logtime", saleboardDTO.getSale_logtime());
+				temp.put("sale_update_logtime", saleboardDTO.getSale_update_logtime());
 				
 				array.add(temp);
 			}//for
@@ -81,13 +77,33 @@ public class SaleboardServiceImpl implements SaleboardService {
 		}
 		
 		
-		json.put("boardPaging", boardPaging.getPagingHTML().toString());
-		
-		
+		json.put("boardPaging", boardPaging.getPagingHTML().toString());	
 		
 		return json;
 	}
+
+	@Override
+	public void saleboardWrite(SaleboardDTO saleboardDTO) {
+		saleboardDAO.saleboardWrite(saleboardDTO);
+	}
 	
+
+	@Override
+	public void saleboardModify(SaleboardDTO saleboardDTO) {
+		saleboardDAO.saleboardModify(saleboardDTO);
+		
+	}
+
+	@Override
+	public void saleboardDelete(int saleboard_seq) {
+		saleboardDAO.saleboardDelete(saleboard_seq);	
+	}
+	
+	@Override
+	public List<SaleboardDTO> saleboardGetView(int saleboard_seq) {		
+		return saleboardDAO.saleboardGetView(saleboard_seq);
+	}
+/*
 	
 
 	@Override
