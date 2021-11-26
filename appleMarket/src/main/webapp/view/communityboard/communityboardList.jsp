@@ -85,20 +85,15 @@ $.ajax({
 		
 		$.each(data.list, function(index,items){
 				
-				$('<tbody>').append($('<tr>').append($('<td/>',{
-					
-					text: items.communityboard_seq
-					
-				})).append($('<td/>',{	
-										
+				$('<tbody>').append($('<tr>').append($('<td/>',{		
+					text: items.communityboard_seq					
+				})).append($('<td/>',{										
 					}).append($('<a/>',{
 						href:'#',
 						text: items.communityboard_subject,			
 						class: 'subjectA',
 						id:'subject_'+items.communityboard_seq
 						
-						
-					
 				}))).append($('<td/>',{
 					
 					text: items.communityboard_user_id

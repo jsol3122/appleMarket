@@ -27,8 +27,6 @@ public class LocalCommunityboardDAOMybatis implements LocalCommunityboardDAO {
 		
 		return sqlSession.selectOne("localCommunityboardSQL.getTotalA");
 	}
-<<<<<<< HEAD
-=======
 
 	@Override
 	public void localCommunityboardWrite(LocalCommunityboardDTO localCommunityboardDTO) {
@@ -37,6 +35,5 @@ public class LocalCommunityboardDAOMybatis implements LocalCommunityboardDAO {
 		sqlSession.insert("localCommunityboardSQL.localCommunityboardWrite", localCommunityboardDTO);
 		
 	}
->>>>>>> 18cf0739a7304a5f4635592b382de765e5f44e83
-	
+
 }

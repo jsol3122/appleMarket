@@ -1,13 +1,5 @@
 package localCommunityboard.controller;
 
-<<<<<<< HEAD
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-
-=======
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -25,7 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import localCommunityboard.bean.LocalCommunityboardDTO;
->>>>>>> 18cf0739a7304a5f4635592b382de765e5f44e83
+
 import localCommunityboard.service.LocalCommunityboardService;
 import net.sf.json.JSONObject;
 
@@ -46,8 +38,7 @@ public class LocalCommunityboardController {
 		return localCommunityboardService.localCommunityboardGetList(page);
 	}
 	
-<<<<<<< HEAD
-=======
+
 	@GetMapping("/localCommunityboard/localCommunityboardWriteForm")
 	public String localCommunityboardWriteForm() {
 		return "/localCommunityboard/localCommunityboardWriteForm";
@@ -77,9 +68,6 @@ public class LocalCommunityboardController {
 	}
 	
 	
-	
-	
->>>>>>> 18cf0739a7304a5f4635592b382de765e5f44e83
 	
 	
 	
