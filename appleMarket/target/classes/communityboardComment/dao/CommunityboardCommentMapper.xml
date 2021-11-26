@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="communityboardCommentSQL">
+ 
+ 	<select id="communityboardCommentGetList" parameterType="String" resultType="communityboardComment.bean.CommunityboardCommentDTO">
+ 		select * from communityboard_Comment 
+ 		where communityboard_seq = #{communityboard_seq} 
+ 		order by communityboard_comment_ref desc, communityboard_comment_step asc
+ 	</select>
+ 	
+ 	<insert id="communityboardCommentWrite" parameterType="communityboardComment.bean.CommunityboardCommentDTO">
+ 		insert into communityboard_Comment(
+ 					communityboard_seq
+					,communityboard_comment_seq
+					,communityboard_comment_content
+					,communityboard_comment_ref
+					,communityboard_comment_user_id
+					,communityboard_comment_logtime)
+ 					values(
+ 					#{communityboard_seq}
+ 					,seq_communityboard_Comment.nextval
+ 					,#{communityboard_comment_content}
+ 					,seq_communityboard_Comment.currval
+ 					,#{communityboard_comment_user_id}
+ 					,sysdate
+ 					)
+ 	</insert>
+ 	
+ 	<update id="communityboardCommentModify" parameterType="communityboardComment.bean.CommunityboardCommentDTO">
+ 		update communityboard_Comment set communityboard_comment_content = #{communityboard_comment_content}
+ 										,communityboard_comment_logtime = sysdate 
+ 										where communityboard_comment_seq = #{communityboard_comment_seq}
+ 	</update>
+ 	
+ 	
+ 	<!-- 대댓글 -->
+ 	<select id="replyLoad" parameterType="java.lang.String" resultType="communityboardComment.bean.CommunityboardCommentDTO">
+ 		select * from communityboard_Comment where communityboard_comment_seq = #{communityboard_comment_pseq}
+ 	</select>
+ 	
+ 	<update id="commentReply1" parameterType="communityboardComment.bean.CommunityboardCommentDTO">
+ 		update communityboard_Comment set communityboard_comment_step = communityboard_comment_step+1
+ 		where communityboard_comment_ref = #{communityboard_comment_ref} and communityboard_comment_step > #{communityboard_comment_step}
+ 	</update>
+ 	
+ 	<insert id="commentReply2" parameterType="java.util.Map">
+ 		insert into communityboard_Comment(
+ 										communityboard_seq
+ 										,communityboard_comment_seq
+ 										,communityboard_comment_content
+ 										,communityboard_comment_ref
+ 										,communityboard_comment_lev
+ 										,communityboard_comment_step
+ 										,communityboard_comment_pseq
+ 										,communityboard_comment_user_id)
+ 									values(
+ 										#{communityboard_seq}
+ 										,seq_communityboard_Comment.nextval
+ 										,#{communityboard_comment_content}
+ 										,#{communityboard_comment_ref}
+ 										,#{communityboard_comment_lev}
+ 										,#{communityboard_comment_step}
+ 										,#{communityboard_comment_pseq}
+ 										,#{communityboard_comment_user_id})
+ 	</insert>
+ 
+ 
+ </mapper>
