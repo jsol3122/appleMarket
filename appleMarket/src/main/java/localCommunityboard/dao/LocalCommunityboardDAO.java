@@ -11,4 +11,6 @@ public interface LocalCommunityboardDAO {
 
 	public int getTotalA();
 
+	public void localCommunityboardWrite(LocalCommunityboardDTO localCommunityboardDTO);
+
 }

@@ -27,5 +27,13 @@ public class LocalCommunityboardDAOMybatis implements LocalCommunityboardDAO {
 		
 		return sqlSession.selectOne("localCommunityboardSQL.getTotalA");
 	}
+
+	@Override
+	public void localCommunityboardWrite(LocalCommunityboardDTO localCommunityboardDTO) {
+		String sido = sqlSession.selectOne("localCommunityboardSQL.searchSido",localCommunityboardDTO.getLocalcommunity_user_id());
+		localCommunityboardDTO.setLocalcommunity_sido(sido);
+		sqlSession.insert("localCommunityboardSQL.localCommunityboardWrite", localCommunityboardDTO);
+		
+	}
 	
 }

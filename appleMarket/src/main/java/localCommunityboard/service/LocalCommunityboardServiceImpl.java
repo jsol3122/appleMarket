@@ -67,6 +67,12 @@ public class LocalCommunityboardServiceImpl implements LocalCommunityboardServic
 		
 		return json;
 	}
+
+	@Override
+	public void localCommunityboardWrite(LocalCommunityboardDTO localCommunityboardDTO) {
+		localCommunityboardDAO.localCommunityboardWrite(localCommunityboardDTO);
+		
+	}
 	
 	
 }
