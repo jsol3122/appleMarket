@@ -15,8 +15,7 @@
  	</select>
  	
  	<insert id="communityboardWrite" parameterType="communityboard.bean.CommunityboardDTO">
- 		insert into communityboard(communityboard_seq,communityboard_subject,communityboard_content
- 									,communityboard_image,communityboard_logtime,communityboard_user_id)
+ 		insert into communityboard(communityboard_seq,communityboard_subject,communityboard_content,communityboard_image,communityboard_logtime,communityboard_user_id)
  				 values(
  				seq_communityboard.nextval
  				,#{communityboard_subject}
@@ -31,6 +30,7 @@
  			communityboard_subject = #{communityboard_subject}
  			,communityboard_content = #{communityboard_content}
  			,communityboard_image = #{communityboard_image}
+ 			,communityboard_logtime = sysdate
  			 where communityboard_seq = #{communityboard_seq}
  	</update>
  	
