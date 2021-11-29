@@ -124,6 +124,12 @@ public class SaleboardServiceImpl implements SaleboardService {
 	public List<SaleboardDTO> saleboardSearch(SaleboardDTO saleboardDTO) {
 		return saleboardDAO.saleboardSearch(saleboardDTO);
 	}
+
+	@Override
+	public void saleboardFollow(Map<String, String> map) {
+		saleboardDAO.saleboardFollow(map);
+		
+	}
 	
 
 //	@Override

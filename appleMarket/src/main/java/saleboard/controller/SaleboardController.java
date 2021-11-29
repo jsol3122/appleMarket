@@ -57,7 +57,11 @@ public class SaleboardController {
 	@ResponseBody
 	public void saleboardWrite(@ModelAttribute SaleboardDTO saleboardDTO,
 							   @RequestParam MultipartFile[] img,
-							   HttpSession session) { 
+							   HttpSession session
+							   , HttpServletRequest request) { 
+		HttpSession loginSession = request.getSession();
+		String member_id = (String)loginSession.getAttribute("member_id");
+		System.out.println(member_id);
 		
 		String uuid = UUID.randomUUID().toString();
 		
@@ -74,6 +78,8 @@ public class SaleboardController {
 				fileName = uuid+"_"+img[i].getOriginalFilename();
 				file = new File(filePath, fileName);
 				System.out.println(fileName+"확인");
+				
+				
 				try {
 					FileCopyUtils.copy(img[i].getInputStream(), new FileOutputStream(file));
 				} catch (IOException e) {
@@ -157,6 +163,19 @@ public class SaleboardController {
 		saleboardService.saleboardHit(sale_seq);
 	}
 	
+	@PostMapping("/saleboard/saleboardFollow")
+	@ResponseBody
+	public void saleboardFollow(@ModelAttribute SaleboardDTO saleboardDTO, HttpServletRequest request) {
+		HttpSession loginSession = request.getSession();
+		String member_id = saleboardDTO.getMember_id(); // follow 누른 게시글 seq의 작성자
+		String following_id = (String)loginSession.getAttribute("member_id");
+
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("member_id", member_id);
+		map.put("following_id", following_id);
+		
+		saleboardService.saleboardFollow(map);
+	}
 	
 
 	

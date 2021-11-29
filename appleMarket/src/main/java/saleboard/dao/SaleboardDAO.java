@@ -28,6 +28,8 @@ public interface SaleboardDAO {
 
 	public void saleboardHit(int sale_seq);
 
+	public void saleboardFollow(Map<String, String> map);
+
 
 
 //	public void saleboardChat(String sale_id);

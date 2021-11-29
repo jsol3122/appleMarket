@@ -93,6 +93,18 @@ public class SaleboardMybatis implements SaleboardDAO {
 	public List<SaleboardDTO> saleboardSearch(SaleboardDTO saleboardDTO) {
 		return sqlSession.selectList("saleboardSQL.saleboardSearch", saleboardDTO);
 	}
+
+	@Override
+	public void saleboardFollow(Map<String, String> map) {
+		String member_id = map.get("member_id");
+		String following_id = map.get("following_id"); // 로그인 세션 값 받아오기
+		
+		map.put("member_id", member_id);
+		map.put("following_id", following_id);
+		
+		sqlSession.insert("saleboardSQL.saleboardFollow", map);
+		
+	}
 	
 
 	/*
