@@ -27,6 +27,7 @@ $('#writeBtn').click(function(){
 		writeForm.querySelector("#member_pwd").placeholder = "비밀번호는 문자와 숫자를 혼용하여 8자 이상 입력해주세요";
 		writeForm.querySelector('#member_pwd').classList.add("placeholderColor");
 	}else if(writeForm.querySelector("#member_pwd").value != writeForm.querySelector("#member_rePwd").value){
+		writeForm.querySelector("#member_rePwd").value = '';
 		writeForm.querySelector('#member_rePwd').placeholder = "동일한 비밀번호를 입력해주세요";
 		writeForm.querySelector('#member_rePwd').classList.add("placeholderColor");
 	}else if(!email_valid.test(writeForm.querySelector('#member_email').value)){

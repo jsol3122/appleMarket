@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>팔고게시판 글 등록</title>
+<title>사고게시판 글 등록</title>
 <style>
 #wrap{ 
 	width: 100%;
@@ -67,14 +67,14 @@ form input[type=text]:focus, textarea:focus{
 </head>
 <body>
 	<div id="wrap">
-		<form name="saleboardWriteForm" action="">
-			<h1>팔고게시판 글 등록</h1>
+		<form name="buyerboardWriteForm" action="">
+			<h1>사고게시판 글 등록</h1>
 			<hr>
 			<br>
 			<br>
 			<div>
 				<label>카테고리</label>
-				<select name="sale_category">
+				<select name="buyerboard_category">
 					<option value="X" selected>-- 선택하세요 --</option>
 					<option value="디지털기기/생활가전">디지털기기/생활가전</option>
 					<option value="가구/인테리어">가구/인테리어</option>
@@ -95,32 +95,18 @@ form input[type=text]:focus, textarea:focus{
 				<input type="text" name="buyerboard_price" />
 			</div>
 			<div>
-				<label>가격 제시 가능 여부</label>
-				<input type="radio" name="sale_nego_YN" id="nego_Y" value="Y" checked>
-				<label for="nego_Y" class="radio_lbl"> 가능 </label>
-				<input type="radio" name="sale_nego_YN" id="nego_N" value="N">
-				<label for="nego_N" class="radio_lbl"> 불가능 </label>
-			</div>
-			<div>
 				<label>글 제목</label>
-				<input type="text"  name="sale_subject"/>
+				<input type="text"  name="buyerboard_subject"/>
 			</div>
 			<div>
 				<label>글 내용</label>
-				<textarea name="sale_content" rows="15"></textarea>
-			</div>
-			<div>
-				<label>나눔 여부</label>
-				<input type="radio" name="sale_free_YN" id="free_Y" value="Y">
-				<label for="free_Y" class="radio_lbl"> 나눔상품 </label>
-				<input type="radio" name="sale_free_YN" id="free_N" value="N" checked>
-				<label for="free_N" class="radio_lbl"> 나눔상품이 아님 </label>
+				<textarea name="buyerboard_content" rows="15"></textarea>
 			</div>
 			<div>
 				<input type="file" name="img" multiple>
 			</div>
 			<div>
-				<input type="button" value="글 등록" class="sbm" id="saleboardWriteBtn" />
+				<input type="button" value="글 등록" class="sbm" id="buyerboardWriteBtn" />
 			</div>
 		</form>
 		<br>
