@@ -3,7 +3,10 @@ package saleboard.controller;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -40,6 +43,10 @@ public class SaleboardController {
 		return saleboardService.saleboardGetList(page);
 	}
 	
+	@PostMapping("/saleboard/saleboardSearch")
+	public List<SaleboardDTO> saleboardSearch(@ModelAttribute SaleboardDTO saleboardDTO){		
+		return saleboardService.saleboardSearch(saleboardDTO);
+	}	
 	
 	@PostMapping(value="/saleboard/saleboardWriteForm")
 	public String saleboardWriteForm() {
@@ -51,6 +58,9 @@ public class SaleboardController {
 	public void saleboardWrite(@ModelAttribute SaleboardDTO saleboardDTO,
 							   @RequestParam MultipartFile[] img,
 							   HttpSession session) { 
+		
+		String uuid = UUID.randomUUID().toString();
+		
 		//String filePath = "C:\\Users\\초롱불\\Desktop\\jihyun\\appleMarket\\appleMarket\\src\\main\\webapp\\storage";
 		String filePath = session.getServletContext().getRealPath("storage");
 		System.out.println(filePath);
@@ -61,7 +71,7 @@ public class SaleboardController {
 		//파일 복사
 		for(int i=0; i<5; i++) {
 			if(img[i] != null) {
-				fileName = img[i].getOriginalFilename();
+				fileName = uuid+"_"+img[i].getOriginalFilename();
 				file = new File(filePath, fileName);
 				System.out.println(fileName+"확인");
 				try {
@@ -102,8 +112,8 @@ public class SaleboardController {
 	
 	@PostMapping("/saleboard/saleboardDelete")
 	@ResponseBody
-	public void saleboardDelete(@RequestParam int saleboard_seq) {
-		saleboardService.saleboardDelete(saleboard_seq);
+	public void saleboardDelete(@RequestParam int sale_seq) {
+		saleboardService.saleboardDelete(sale_seq);
 	}
 	
 	@PostMapping(value="/saleboard/saleboardView")
@@ -112,9 +122,41 @@ public class SaleboardController {
 	}
 	
 	@PostMapping("/saleboard/saleboardGetView")
-	public List<SaleboardDTO> saleboardGetView(@RequestParam int saleboard_seq){
-		return saleboardService.saleboardGetView(saleboard_seq);	
+	public List<SaleboardDTO> saleboardGetView(@RequestParam int sale_seq){
+		System.out.println("controller");
+		return saleboardService.saleboardGetView(sale_seq);	
 	}	
+	
+	@PostMapping("/saleboard/saleboardPick")
+	public void saleboardPick(@ModelAttribute SaleboardDTO saleboardDTO) {
+		int sale_seq = saleboardDTO.getSale_seq();
+		String member_id = saleboardDTO.getMember_id();
+
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("sale_seq", sale_seq+"");
+		map.put("member_id", member_id);
+
+		saleboardService.saleboardPick(map);
+	}
+	
+	@PostMapping("/saleboard/saleboardPickCancel")
+	public void saleboardPickCancel(@ModelAttribute SaleboardDTO saleboardDTO) {
+		int sale_seq = saleboardDTO.getSale_seq();
+		String member_id = saleboardDTO.getMember_id();
+
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("sale_seq", sale_seq+"");
+		map.put("member_id", member_id);
+
+		saleboardService.saleboardPickCancel(map);
+	}	
+	
+	@PostMapping("/saleboard/saleboardHit")
+	@ResponseBody
+	public void saleboardHit(@RequestParam int sale_seq) {
+		saleboardService.saleboardHit(sale_seq);
+	}
+	
 	
 
 	

@@ -6,13 +6,28 @@
   	<select id="saleboardGetList" parameterType="java.util.Map" resultType="saleboard.bean.SaleboardDTO">
  		select * from 
 	 	(select rownum rn, tt.* from 
-	 	(select * from saleboard order by saleboard_seq desc) tt)
+	 	(select * from saleboard order by sale_seq desc) tt)
 	 	where rn between #{startNum} and #{endNum}
  	</select>
  	
  	<select id="getTotalA" resultType="int">
  		select count(*) from saleboard
  	</select>
+ 	
+ 	<select id="saleboardSearch" parameterType="java.util.Map" resultType="saleboard.bean.SaleboardDTO">
+ 			select * from saleboard where
+ 		<if test="searchType == 'searchId'">
+ 			member_id like '%'|| #{value} ||'%'
+ 		</if>
+ 		
+ 		<if test="searchType == 'searchSubject'">
+ 			sale_subject like '%'|| #{value}|| '%'
+ 		</if>
+
+ 		<if test="searchType == 'searchContent'">
+ 			sale_content like '%'|| #{value} '%'
+ 		</if>
+ 	</select> 	
      	
   	<insert id="saleboardWrite" parameterType="saleboard.bean.SaleboardDTO">
  		insert into saleboard (
@@ -67,14 +82,40 @@
  		 			   where sale_seq=#{sale_seq}
  	</update>
 
-	<delete id="saleboardDelete" parameterType="String"> 
+	<delete id="saleboardDelete" parameterType="Integer"> 
  		delete saleboard where sale_seq=#{sale_seq}
  	</delete>
  	
  	<select id="saleboardGetView" parameterType="Integer" resultType="saleboard.bean.SaleboardDTO">
- 		select * from saleboard where saleboard_seq = #{saleboard_seq}
+ 		select * from saleboard where sale_seq = #{sale_seq}
  	</select> 	
- 	
+
+ 	<select id="member_idLoad" parameterType="java.lang.String" resultType="saleboard.bean.SaleboardDTO">
+ 		select * from saleboard where sale_seq = #{sale_seq}
+ 	</select>
+
+	<update id="saleboardPick1" parameterType="saleboard.bean.SaleboardDTO">
+	   update saleboard set sale_heart_count = sale_heart_count + 1
+	   where sale_seq = #{sale_seq}
+	</update>
+	
+	<insert id="saleboardPick2" parameterType="java.util.Map">
+	   insert into interestList (member_id, sale_seq)
+	   	values(#{member_id}, #{sale_seq})
+	</insert> 	
  
+ 	<update id="saleboardPickCancel1" parameterType="saleboard.bean.SaleboardDTO">
+	   update saleboard set sale_heart_count = sale_heart_count - 1
+	   where sale_seq = #{sale_seq}
+	</update>
+	
+	<delete id="saleboardPickCancel2" parameterType="java.util.Map">
+	   delete from interestList where member_id = #{member_id} and sale_seq = #{sale_seq} 
+	</delete>
+	
+	<update id="saleboardHit" parameterType="Integer">
+	   update saleboard set sale_hit = sale_hit + 1
+	   where sale_seq = #{sale_seq}
+	</update>	
 
  </mapper>

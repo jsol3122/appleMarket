@@ -18,22 +18,19 @@
 	</bean>
 	<!-- value="5000000" 은 10메가 -->
 
-	<context:component-scan
-		base-package="communityboard.controller" />
-	<context:component-scan
-		base-package="communityboardComment.controller" />
+	<context:component-scan base-package="communityboard.controller" />
+	<context:component-scan	base-package="communityboardComment.controller" />
 	<context:component-scan base-package="localCommunityboard.controller"/>
 	<context:component-scan base-package="saleboard.controller"/>
-	<!-- <context:component-scan base-package="handler"/> -->
-	<context:component-scan
-		base-package="member.controller" />
-	<context:component-scan
-		base-package="spring.conf" />
+	<context:component-scan base-package="member.controller" />
+
+	<context:component-scan base-package="spring.conf" />
 	<context:component-scan base-package="handler" />
 
 	<mvc:resources location="/js/" mapping="/js/**" />
 	<mvc:resources location="/img/" mapping="/img/**" />
 	<mvc:resources location="/css/" mapping="/css/**" />
+	<mvc:resources location="/view/" mapping="/view/**" />
 
 	<mvc:annotation-driven />
 
