@@ -51,7 +51,7 @@ public class LocalCommunityboardController {
 	
 	@PostMapping("/localCommunityboard/localCommunityboardWrite")
 	@ResponseBody
-	public void communityboardWrite(@ModelAttribute LocalCommunityboardDTO localCommunityboardDTO
+	public void localCommunityboardWrite(@ModelAttribute LocalCommunityboardDTO localCommunityboardDTO
 									,@RequestParam MultipartFile img, HttpSession session) {
 		String uuid = UUID.randomUUID().toString();
 		

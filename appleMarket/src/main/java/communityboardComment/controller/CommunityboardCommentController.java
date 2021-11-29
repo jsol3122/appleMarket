@@ -34,7 +34,6 @@ public class CommunityboardCommentController {
 	@PostMapping("/comment/communityboardCommentWrite")
 	@ResponseBody
 	public void communityboardCommentWrite(@ModelAttribute CommunityboardCommentDTO communityboardCommentDTO) {
-
 		communityboardCommentService.communityboardCommentWrite(communityboardCommentDTO);
 	}
 	
@@ -48,6 +47,13 @@ public class CommunityboardCommentController {
 	@ResponseBody
 	public void communityboardCommentModify(@ModelAttribute CommunityboardCommentDTO communityboardCommentDTO) {
 		communityboardCommentService.communityboardCommentModify(communityboardCommentDTO);
+	}
+	
+	@GetMapping("comment/communityboardCommentDelete")
+	@ResponseBody
+	public void communityboardCommentDelete(@RequestParam String communityboard_comment_seq) {
+		
+		communityboardCommentService.communityboardCommentDelete(communityboard_comment_seq);
 	}
 	
 	@PostMapping("/comment/communityboardCommentReply")

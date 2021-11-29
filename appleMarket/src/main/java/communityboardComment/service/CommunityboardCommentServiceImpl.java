@@ -40,6 +40,12 @@ public class CommunityboardCommentServiceImpl implements CommunityboardCommentSe
 		communityboardCommentDAO.communityboardCommentReply(map);
 	}
 
+	@Override
+	public void communityboardCommentDelete(String communityboard_comment_seq) {
+		
+		communityboardCommentDAO.communityboardCommentDelete(communityboard_comment_seq);
+	}
+
 	
 
 	

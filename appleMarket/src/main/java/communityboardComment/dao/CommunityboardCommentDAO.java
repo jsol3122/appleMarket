@@ -15,6 +15,8 @@ public interface CommunityboardCommentDAO {
 
 	public void communityboardCommentReply(Map<String, String> map);
 
+	public void communityboardCommentDelete(String communityboard_comment_seq);
+
 	
 
 }

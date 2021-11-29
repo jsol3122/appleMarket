@@ -66,5 +66,8 @@
  										,#{communityboard_comment_user_id})
  	</insert>
  
+ 	<delete id="communityboardCommentDelete" parameterType="String">
+ 		delete communityboard_Comment where communityboard_comment_seq = #{communityboard_comment_seq}
+ 	</delete>
  
  </mapper>

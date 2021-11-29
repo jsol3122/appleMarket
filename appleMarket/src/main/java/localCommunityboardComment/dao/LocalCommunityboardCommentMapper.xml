@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="localCommunityboardCommnentSQL">
+	<select id="localCommunityboardCommentGetList" parameterType="String" resultType="localCommunityboardComment.bean.LocalCommunityboardCommentDTO">
+		select * from localCommunityboard_comment
+		where localcommunity_seq = #{localcommunity_seq}
+		order by localcommunity_comment_ref desc, localcommunity_comment_step asc
+	</select>
+	
+	<insert id="localCommunityboardCommentWrite" parameterType="localCommunityboardComment.bean.LocalCommunityboardCommentDTO">
+		insert into localCommunityboard_comment(
+					localcommunity_seq
+					,localcommunity_comment_seq
+					,localcommunity_comment_content
+					,localcommunity_comment_ref
+					,localcommunity_comment_user_id
+					,localcommunity_comment_logtime
+					)values(
+					#{localcommunity_seq}
+					,seq_localcommunity_comment.nextval
+					,#{localcommunity_comment_content}
+					,seq_localcommunity_comment.currval
+					,#{localcommunity_comment_user_id}
+					,sysdate
+					)			
+	</insert>
+	
+	<update id="localCommunityboardCommentModify" parameterType="localCommunityboardComment.bean.LocalCommunityboardCommentDTO">
+		update localCommunityboard_comment set localcommunity_comment_content = #{localcommunity_comment_content}
+												,localcommunity_comment_logtime = sysdate
+												where localcommunity_comment_seq = #{localcommunity_comment_seq}
+	</update>
+	
+	<delete id="localCommunityboardCommentDelete" parameterType="String">
+		delete localCommunityboard_comment where localcommunity_comment_seq = #{localcommunity_comment_seq}
+	</delete>
+	
+	
+	
+</mapper> 
