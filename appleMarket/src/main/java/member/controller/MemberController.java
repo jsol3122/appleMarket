@@ -65,14 +65,13 @@ public class MemberController {
 	
 	//회원가입 - index 이동(맞는지 확인 요망)
 	@RequestMapping("/write")
-	@ResponseBody
 	public String write(@ModelAttribute @Valid MemberDTO memberDTO) {
 		String Check = memberSerivce.checkId(memberDTO.getMember_id());
 		if(Check.equals("non_exist")) {
 			memberSerivce.write(memberDTO);
 			return "/index";
 		}else {
-			return "/writeForm";
+			return "/user/writeForm";
 		}
 	}
 	
