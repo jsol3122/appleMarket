@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>원, 선, 사각형, 다각형 표시하기</title>
+    <title>지도</title>
     
 </head>
 <body>
@@ -15,8 +15,8 @@
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=75b263d76606aaf650816f233cd5f1c9"></script>
 <script>
 
-setInterval(function(){
-	
+//setInterval(function(){
+$(function(){
 	//현재 접속한 브라우저의 위도와 경도 출력하기 
 
 	navigator.geolocation.getCurrentPosition(function(position){
@@ -24,7 +24,7 @@ setInterval(function(){
 
 		var loc = position.coords.latitude + "-" +position.coords.longitude
 
-		console.log(loc);
+		//console.log(loc);
 		//address라는 URL loc를 파라미터로 넘겨서 
 
 		//json 타입으로 데이터를 받아오는 ajax 요청 
@@ -36,7 +36,7 @@ setInterval(function(){
 			data:{"loc":loc},
 			dataType:'json',
 			success:function(data){
-				alert(data.address);
+				//alert(data.address);
 				document.getElementById("address").innerHTML="<h3>" + data.address + "</h3>";
 			
 				//지도생성
@@ -75,8 +75,8 @@ setInterval(function(){
 
 	});
 
-},10000);
-
+//},10000);
+});	
 </script>
 </body>
 </html>

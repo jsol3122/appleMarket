@@ -84,12 +84,9 @@ public class MemberServiceImpl implements MemberService {
 	public void searchPwd(MemberDTO memberDTO,HttpServletResponse response) {
 		
 		memberDAO.searchPwd(memberDTO);
-		
-		
+			
 	}
-	
-	
-	
+
 	//비밀번호 찾기 이메일발송
 	@Override
 	public void sendEmail(MemberDTO memberDTO, String div) throws Exception {

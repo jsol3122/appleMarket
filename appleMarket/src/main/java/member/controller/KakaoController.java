@@ -66,6 +66,9 @@ public class KakaoController {
         model.addAttribute("kakaoInfo", kakaoInfo);
         String id =(String)userInfo.get("id");
         
+        System.out.println("id="+id);
+        session.setAttribute("member_id", id);
+        
         String Check=memberSerivce.checkId(id);
         
         if (userInfo.get("email") != null) {
