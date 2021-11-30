@@ -34,10 +34,10 @@
                 </fieldset>
             </form>
             <ul class="category">
-                <li><a href="#">사고/팔고</a></li>
-                <li><a href="#">조잘조잘</a></li>
+                <li><a href="#">사고</a></li>
+                <li><a href="#">팔고</a></li>
                 <li><a href="#">우리동네</a></li>
-                <li><a href="#">문의하기</a></li>
+                <li><a href="#">조잘조잘</a></li>
             </ul>
             <ul class="login">
                 <li><a href="/appleMarket/view/user/writeForm.jsp" rel="modal:open">회원가입</a></li>

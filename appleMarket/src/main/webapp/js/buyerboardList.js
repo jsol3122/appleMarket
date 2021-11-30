@@ -29,7 +29,7 @@ let fetchList = function(){
     // renderList 함수에서 html 코드를 보면 <li> 태그에 data-no 속성이 있는 것을 알 수 있다.
     // ajax에서는 data- 속성의 값을 가져오기 위해 data() 함수를 제공.
     $.ajax({
-        url:"/appleMarket/saleboard/saleboardGetList?pg=" + pageNum ,
+        url:"/appleMarket/buyerboard/buyerboardGetList?pg=" + pageNum ,
         type: "post",
         dataType: "json",
         success: function(result){
@@ -53,14 +53,14 @@ let renderList = function(mode, DTO){
     }
 
     // 리스트 html을 정의
-    let html = "<li id=product_"+DTO.sale_seq+">"+
+    let html = "<li id=product_"+DTO.buyerboard_seq+">"+
         "<div class=list_contents>"+
             "<div class=default>"+
                 //"<img src='/appleMarket/storage/"+DTO.sale_image1+"' style=width:200px;height:180px; alt=img>"+
                 "<img src='/appleMarket/img/food4.jpg' style=width:200px;height:180px; alt=img>"+
-                "<h3>"+DTO.sale_subject+"</h3>"+
+                "<h3>"+DTO.buyerboard_subject+"</h3>"+
                 "<h3>"+DTO.location1_addr2+"</h3>"+
-                "<h4>"+DTO.sale_price+"</h4>"+
+                "<h4>"+DTO.buyerboard_price+"</h4>"+
             "</div>"+
             "<div class=hover>"+
                 "<ul>"+

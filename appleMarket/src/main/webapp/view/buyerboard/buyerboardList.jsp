@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>사과마켓 팔기</title>
+    <title>사과마켓 사고</title>
     <meta name="keywords" content="shopping mall, jacket, men, women">
     <meta name="description" content="shop any where for women and men's ware">
     <meta name="robots" content="index, follow">
@@ -22,13 +22,13 @@
     <!-- fontawesome -->
     <script src="/appleMarket/js/all.min.js"></script>
 
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.m	in.js"></script>
     <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
     <script src="/appleMarket/js/isotope.pkgd.min.js"></script>
     <script src="/appleMarket/js/buyandsell.js"></script>
-	<script src="/appleMarket/js/saleboardList.js"></script>
+    <script type="text/javascript" src="/appleMarket/js/buyerboardList.js"></script>
 
     <!-- bootstrap grid -->
     <link rel="stylesheet" href="/appleMarket/css/bootstrap-grid.min.css">
@@ -73,55 +73,55 @@
                 <div class="combi_filters">
                     <div class="category_filter" data-filter-group="category">
                         <h3>카테고리</h3>
-                        <input type="checkbox" id="sale_category_all" name="sale_category" value="*">
+                        <input type="checkbox" id="buyerboard_category_all" name="buyerboard_category" value="*">
                         <span class="box">box</span>
-                        <label for="sale_category_all">All</label>
+                        <label for="buyerboard_category_all">All</label>
 
-                        <input type="checkbox" id="tech" name="sale_category" value=".tech">
+                        <input type="checkbox" id="tech" name="buyerboard_category" value=".tech">
                         <span class="box">box</span>
                         <label for="tech">디지털기기/생활가전</label>
 
-                        <input type="checkbox" id="furniture" name="sale_category" value=".furniture">
+                        <input type="checkbox" id="furniture" name="buyerboard_category" value=".furniture">
                         <span class="box">box</span>
                         <label for="furniture">가구/인테리어</label>
 
-                        <input type="checkbox" id="baby" name="sale_category" value=".baby">
+                        <input type="checkbox" id="baby" name="buyerboard_category" value=".baby">
                         <span class="box">box</span>
                         <label for="baby">유아동</label>
 
-                        <input type="checkbox" id="living" name="sale_category" value=".living">
+                        <input type="checkbox" id="living" name="buyerboard_category" value=".living">
                         <span class="box">box</span>
                         <label for="living">생활/가공식품</label>
                         
-                        <input type="checkbox" id="female" name="sale_category" value=".female">
+                        <input type="checkbox" id="female" name="buyerboard_category" value=".female">
                         <span class="box">box</span>
                         <label for="female">여성패션/잡화</label>
                         
-                        <input type="checkbox" id="male" name="sale_category" value=".male">
+                        <input type="checkbox" id="male" name="buyerboard_category" value=".male">
                         <span class="box">box</span>
                         <label for="male">남성패션/잡화</label>
                         
-                        <input type="checkbox" id="hobby" name="sale_category" value=".hobby">
+                        <input type="checkbox" id="hobby" name="buyerboard_category" value=".hobby">
                         <span class="box">box</span>
                         <label for="hobby">게임/취미</label>
                         
-                        <input type="checkbox" id="sports" name="sale_category" value=".sports">
+                        <input type="checkbox" id="sports" name="buyerboard_category" value=".sports">
                         <span class="box">box</span>
                         <label for="sports">스포츠/레저</label>
                         
-                        <input type="checkbox" id="beauty" name="sale_category" value=".beauty">
+                        <input type="checkbox" id="beauty" name="buyerboard_category" value=".beauty">
                         <span class="box">box</span>
                         <label for="beauty">뷰티/미용</label>
                         
-                        <input type="checkbox" id="pet" name="sale_category" value=".pet">
+                        <input type="checkbox" id="pet" name="buyerboard_category" value=".pet">
                         <span class="box">box</span>
                         <label for="pet">반려동물용품</label>
                         
-                        <input type="checkbox" id="book" name="sale_category" value=".book">
+                        <input type="checkbox" id="book" name="buyerboard_category" value=".book">
                         <span class="box">box</span>
                         <label for="book">도시/티켓/음반</label>
                         
-                        <input type="checkbox" id="etc" name="sale_category" value=".etc">
+                        <input type="checkbox" id="etc" name="buyerboard_category" value=".etc">
                         <span class="box">box</span>
                         <label for="etc">기타중고물품</label>
 
@@ -138,6 +138,5 @@
     </main>
     <footer></footer>
 </body>
-
 
 </html>

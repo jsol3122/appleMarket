@@ -752,7 +752,7 @@ form hr {
     text-align: center;
 }
 
-.size_filter,
+.category_filter,
 .brand_filter {
     display: flex;
     margin-bottom: 20px;
@@ -771,7 +771,7 @@ form hr {
     margin-right: 30px;
 }
 
-.size_filter input,
+.category_filter input,
 .brand_filter input {
     display: none;
 }
