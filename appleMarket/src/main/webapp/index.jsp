@@ -34,7 +34,7 @@
                 </fieldset>
             </form>
             <ul class="category">
-                <li><a href="#">사고/팔고</a></li>
+                <li><a href="/appleMarket/view/buyandsell/products.jsp">사고/팔고</a></li>
                 <li><a href="#">조잘조잘</a></li>
                 <li><a href="#">우리동네</a></li>
                 <li><a href="#">문의하기</a></li>
@@ -58,7 +58,7 @@
                     <span class="bar3"></span>
                 </div>
                 <ul class="menu">
-                    <li class="active"><a href="#">사고/팔고</a></li>
+                    <li class="active"><a href="/appleMarket/view/buyandsell/products.jsp">사고/팔고</a></li>
                     <li><a href="#">조잘조잘</a></li>
                     <li><a href="#">우리동네</a></li>
                     <li><a href="#">문의하기</a></li>
@@ -73,7 +73,7 @@
             <h1>우리 동네 중고 직거래 마켓</h1>
             <p>동네 주민들과 가깝고 따뜻한 거래를 지금 경험해보세요.</p>
             <div class="btnbox_down">
-                <a href="">사과마켓 물품보러 가기</a>
+                <a href="/appleMarket/view/buyandsell/products.jsp">사과마켓 물품보러 가기</a>
             </div>
             <div class="visual_img">
                 <!-- 앱 미리보기 이미지 -->
