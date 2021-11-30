@@ -25,9 +25,9 @@ public class SaleboardServiceImpl implements SaleboardService {
 	public JSONObject saleboardGetList(int pg) {
 		
 		// DB 
-		//1페이지당 n개씩
-		int endNum = pg * 5;
-		int startNum = endNum - 4;
+		//1페이지당 1개씩
+		int endNum = pg * 12;
+		int startNum = endNum - 11;
 		
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		map.put("startNum", startNum);
@@ -38,10 +38,10 @@ public class SaleboardServiceImpl implements SaleboardService {
 		
 		
 		boardPaging.setCurrentPage(pg);
-		boardPaging.setPageBlock(3);
-		boardPaging.setPageSize(5);
+		//boardPaging.setPageBlock(3); 
+		boardPaging.setPageSize(12); //
 		boardPaging.setTotalA(totalA);
-		boardPaging.makePagingHTML();
+		//boardPaging.makePagingHTML();
 		
 		JSONObject json = new JSONObject();
 		if(list != null) {
@@ -77,7 +77,7 @@ public class SaleboardServiceImpl implements SaleboardService {
 		}
 		
 		
-		json.put("boardPaging", boardPaging.getPagingHTML().toString());	
+		//json.put("boardPaging", boardPaging.getPagingHTML().toString());
 		
 		return json;
 	}

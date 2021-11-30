@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="buyerboardSQL">
+ 	<select id="buyerboardGetList" parameterType="java.util.Map" resultType="buyerboard.bean.BuyerboardDTO">
+ 		select * from 
+	 	(select rownum rn, tt.* from 
+	 	(select * from buyerboard order by buyerboard_seq desc) tt)
+	 	where rn between #{startNum} and #{endNum}
+ 	</select>
+ 	
+ 	<select id="buyerboardSQL">
+ 		select count(*) from buyerboard
+ 	</select>
+ 	
+ 	<insert id="buyerboardWrite" parameterType="buyerboard.bean.BuyerboardDTO">
+ 		insert into buyerboard(buyerboard_seq
+ 								,member_id
+ 								,buyerboard_category
+ 								,buyerboard_price
+ 								,buyerboard_subject
+ 								,buyerboard_content
+ 								,buyerboard_image1
+ 								,buyerboard_image2
+ 								,buyerboard_image3
+ 								,buyerboard_logtime
+ 								)values(
+ 										seq_buyerboard.nextval
+ 										,#{member_id}
+ 										,#{buyerboard_category}
+ 										,#{buyerboard_price}
+ 										,#{buyerboard_subject}
+ 										,#{buyerboard_content}
+ 										,#{buyerboard_image1}
+ 										,#{buyerboard_image2}
+ 										,#{buyerboard_image3}
+ 										,sysdate
+ 										)
+ 	</insert>
+ 	
+ 	<update id="buyerboardModify" parameterType="buyerboard.bean.BuyerboardDTO">
+ 		update buyerboard set buyerboard_category = #{buyerboard_category}
+ 							,buyerboard_price = #{buyerboard_price}
+ 							,buyerboard_subject=#{buyerboard_subject}
+ 							,buyerboard_content=#{buyerboard_content}
+ 							,buyerboard_image1=#{buyerboard_image1}
+ 							,buyerboard_image2=#{buyerboard_image3}
+ 							,buyerboard_image2=#{buyerboard_image3}
+ 							,buyerboard_logtime=sysdate
+ 							where buyerboard_seq=#{buyerboard_seq}
+ 	</update>
+ 	
+ 	<delete id="buyerboardDelete" parameterType="int">
+ 		delete buyerboard where buyerboard_seq=#{buyerboard_seq}
+ 	</delete>
+ 	
+ 	<select id="buyerboardGetView" parameterType="int" resultType="buyerboard.bean.BuyerboardDTO">
+ 		select * from buyerboard where buyerboard_seq=#{buyerboard_seq}
+ 	</select>
+ 	
+ 	
+ 	
+ 	
+ 	
+ </mapper>
