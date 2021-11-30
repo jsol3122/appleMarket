@@ -19,12 +19,11 @@
 	<!-- value="5000000" 은 10메가 -->
 	
 	<context:component-scan base-package="kakaoPay.controller"/>
-	<context:component-scan
-		base-package="communityboard.controller" />
-	<context:component-scan
-		base-package="communityboardComment.controller" />
+	<context:component-scan base-package="communityboard.controller" />
+	<context:component-scan base-package="communityboardComment.controller" />
 	<context:component-scan base-package="localCommunityboard.controller"/>
 	<context:component-scan base-package="saleboard.controller"/>
+	<context:component-scan base-package="buyerboard.controller"/>
 	<!-- <context:component-scan base-package="handler"/> -->
 	<context:component-scan
 		base-package="member.controller" />

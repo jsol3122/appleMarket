@@ -37,6 +37,41 @@
 		delete localCommunityboard_comment where localcommunity_comment_seq = #{localcommunity_comment_seq}
 	</delete>
 	
+	<select id="replyLoad" parameterType="java.lang.String" resultType="localCommunityboardComment.bean.LocalCommunityboardCommentDTO">
+		select * from localCommunityboard_comment where localcommunity_comment_seq = #{localcommunity_comment_pseq}
+	</select>
+	
+	<update id="commentReply1" parameterType="localCommunityboardComment.bean.LocalCommunityboardCommentDTO">
+		update localCommunityboard_comment set localcommunity_comment_step = localcommunity_comment_step+1
+		where localcommunity_comment_ref = #{localcommunity_comment_ref} and localcommunity_comment_step > #{localcommunity_comment_step}
+	</update>
+	
+	
+	<insert id="commentReply2" parameterType="java.util.Map">
+		insert into localCommunityboard_comment(
+												localcommunity_seq
+												,localcommunity_comment_seq
+												,localcommunity_comment_content
+												,localcommunity_comment_ref
+												,localcommunity_comment_lev
+												,localcommunity_comment_step
+												,localcommunity_comment_pseq
+												,localcommunity_comment_user_id
+												,localcommunity_comment_logtime
+												)values(
+												#{localcommunity_seq}
+												,seq_localcommunity_comment.nextval
+												,#{localcommunity_comment_content}
+												,#{localcommunity_comment_ref}
+												,#{localcommunity_comment_lev}
+												,#{localcommunity_comment_step}
+												,#{localcommunity_comment_pseq}
+												,#{localcommunity_comment_user_id}
+												,sysdate
+												)
+												
+		
+	</insert>
 	
 	
 </mapper> 

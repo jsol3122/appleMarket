@@ -1,6 +1,7 @@
 package localCommunityboardComment.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,6 +38,12 @@ public class LocalCommunityboardCommentServiceImpl implements LocalCommunityboar
 	public void localCommunityboardCommentDelete(String localcommunity_comment_seq) {
 		
 		localCommunityboardCommentDAO.localCommunityboardCommentDelete(localcommunity_comment_seq);
+	}
+
+	@Override
+	public void localCommunityboardCommentReply(Map<String, String> map) {
+		localCommunityboardCommentDAO.localCommunityboardCommentReply(map);
+		
 	}
 
 }

@@ -8,7 +8,7 @@
 </head>
 <body>
 <h1>KakaoPayTest</h1>
-
+<input type="text" id = "price">
 <form id = KakaoPayForm method="post" >
 	<button id=kakaoPay type="button">결제버튼</button>
 </form>
@@ -18,18 +18,17 @@
 <script type="text/javascript">
 $('#kakaoPay').click(function(){
 	var IMP = window.IMP;
-	IMP.init('imp67037870');
+	IMP.init('imp67037870'); //가맹점 코드
 	IMP.request_pay({
 		pg : "kakaopay",
 		merchant_uid : 'merchant_' + new Date().getTime(),
-		name : '결제Test',
-		amount : 50000,
-		buyer_email : '1188gur@naver.com',
-		buyer_name : '맹주혁',
-		buyer_tel : '010-1111-1111',
-		buyer_addr : '구매자 주소',
-		buyer_postcode : '구매자 주소',
-		<%--m_redirect_url : 'redirect url'--%>
+		name : '상품명', //결제창에서 보여질 이름
+		amount : $('#price').val(), //실제 결제 가격
+		buyer_email : '',
+		buyer_name : '',
+		buyer_tel : '',
+		buyer_addr : '',
+		buyer_postcode : '',
 	}, function(rsp) {
 		if (rsp.success) {
 			var msg = '결제가 완료되었습니다.';

@@ -20,6 +20,8 @@
     </plugins>
   </build>
   
+	
+
   <dependencies>
   	<dependency>
 		<groupId>org.springframework</groupId>
@@ -174,7 +176,12 @@
 	    <version>1.18.20</version>
 	    <scope>provided</scope>
 	</dependency>	
+	
+	
+	
+	
   </dependencies>
+  
   
   
 </project>

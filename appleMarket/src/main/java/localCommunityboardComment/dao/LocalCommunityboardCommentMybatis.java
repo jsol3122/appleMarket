@@ -1,6 +1,7 @@
 package localCommunityboardComment.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +35,30 @@ public class LocalCommunityboardCommentMybatis implements LocalCommunityboardCom
 	@Override
 	public void localCommunityboardCommentDelete(String localcommunity_comment_seq) {
 		sqlSession.delete("localCommunityboardCommnentSQL.localCommunityboardCommentDelete", localcommunity_comment_seq);
+		
+	}
+
+	@Override
+	public void localCommunityboardCommentReply(Map<String, String> map) {
+		String localcommunity_comment_pseq = map.get("localcommunity_comment_pseq");
+		LocalCommunityboardCommentDTO localCommentDTO = replyLoad(localcommunity_comment_pseq);
+		
+		System.out.println(localCommentDTO);
+		
+		map.put("localcommunity_comment_ref", localCommentDTO.getLocalcommunity_comment_ref()+"");
+		map.put("localcommunity_comment_lev",(localCommentDTO.getLocalcommunity_comment_lev()+1)+"" );
+		map.put("localcommunity_comment_step",(localCommentDTO.getLocalcommunity_comment_step()+1)+"" );
+		
+		System.out.println(map);
+
+		sqlSession.update("localCommunityboardCommnentSQL.commentReply1",localCommentDTO);
+		
+		sqlSession.insert("localCommunityboardCommnentSQL.commentReply2",map);
+		
+	}
+
+	private LocalCommunityboardCommentDTO replyLoad(String localcommunity_comment_pseq) {
+		return sqlSession.selectOne("localCommunityboardCommnentSQL.replyLoad",localcommunity_comment_pseq);
 		
 	}
 
