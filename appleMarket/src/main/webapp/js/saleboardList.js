@@ -8,7 +8,7 @@ $(function(){
         let windowHeight = $window.height();
         let documentHeight = $(document).height();
         
-        console.log("documentHeight:" + documentHeight + " | scrollTop:" + scrollTop + " | windowHeight: " + windowHeight );
+        // console.log("documentHeight:" + documentHeight + " | scrollTop:" + scrollTop + " | windowHeight: " + windowHeight );
         
         // scrollbar의 thumb가 바닥 전 30px까지 도달 하면 리스트를 가져온다.
         if( scrollTop + windowHeight + 30 > documentHeight ){
@@ -53,7 +53,7 @@ let renderList = function(mode, DTO){
     }
 
     // 리스트 html을 정의
-    let html = "<li id=product_"+DTO.sale_seq+">"+
+    let html = "<li id=product_"+DTO.sale_seq+" class="+DTO.sale_category+">"+
         "<div class=list_contents>"+
             "<div class=default>"+
                 //"<img src='/appleMarket/storage/"+DTO.sale_image1+"' style=width:200px;height:180px; alt=img>"+
@@ -74,6 +74,7 @@ let renderList = function(mode, DTO){
     console.log(mode)
     
     $('.hover a').addClass('addcart');
+    $('.new_arrivals_list li').addClass('col-md-3');
     
     /*
     if( mode ){

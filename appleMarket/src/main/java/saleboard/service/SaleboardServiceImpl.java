@@ -67,6 +67,8 @@ public class SaleboardServiceImpl implements SaleboardService {
 				temp.put("sale_logtime", saleboardDTO.getSale_logtime());
 				temp.put("sale_update_logtime", saleboardDTO.getSale_update_logtime());
 				
+				temp.put("sale_category", saleboardDTO.getSale_category());
+				
 				array.add(temp);
 			}//for
 			

@@ -77,7 +77,7 @@
                         <span class="box">box</span>
                         <label for="sale_category_all">All</label>
 
-                        <input type="checkbox" id="tech" name="sale_category" value=".tech">
+                        <input type="checkbox" id="tech" name="sale_category" value=".tech" checked>
                         <span class="box">box</span>
                         <label for="tech">디지털기기/생활가전</label>
 
