@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -39,11 +41,23 @@
                 <li><a href="#">우리동네</a></li>
                 <li><a href="#">문의하기</a></li>
             </ul>
-            <ul class="login">
-                <li><a href="/appleMarket/view/user/writeForm.jsp" rel="modal:open">회원가입</a></li>
-                <li><a href="/appleMarket/view/user/loginForm.jsp" rel="modal:open">로그인</a></li>
-
-            </ul>
+            <c:choose>
+            	<c:when test="${not empty sessionScope.login_info}">
+		            <ul class="login">
+		              <li> ${sessionScope.login_info.member_id}님		            
+		               <li><a href="/appleMarket/view/myPage/userupdatapage.jsp">마이페이지</a></li>
+		               <li><a href="/appleMarket/logout">로그아웃</a></li><!-- ajax 쓰기..화면넘어가게 하지 않기 위해서 -->
+		
+		            </ul>
+            	</c:when>
+            	<c:otherwise>
+            		 <ul class="login">
+		                <li><a href="/appleMarket/view/user/writeForm.jsp" rel="modal:open">회원가입</a></li>
+		                <li><a href="/appleMarket/view/user/loginForm.jsp" rel="modal:open">로그인</a></li>
+		
+		            </ul>
+            	</c:otherwise>  
+            </c:choose>
             <!-- <div class="btnbox_search"> 수정해야하지만 일단 잘 돌아감 -->
             <div class="btnbox_search">
                 <!-- 캐러셀 -->

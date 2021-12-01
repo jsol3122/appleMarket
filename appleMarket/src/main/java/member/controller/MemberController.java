@@ -5,6 +5,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
@@ -179,7 +180,7 @@ public class MemberController {
 	}
 	
 	//로그아웃 요청 
-	@PostMapping("/logout")
+	@GetMapping("/logout")
 	@ResponseBody
 	public void logout(HttpSession session) {
 		session.removeAttribute("login_info");

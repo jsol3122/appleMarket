@@ -27,6 +27,7 @@ $('#writeBtn').click(function(){
 		writeForm.querySelector("#member_pwd").placeholder = "비밀번호는 문자와 숫자를 혼용하여 8자 이상 입력해주세요";
 		writeForm.querySelector('#member_pwd').classList.add("placeholderColor");
 	}else if(writeForm.querySelector("#member_pwd").value != writeForm.querySelector("#member_rePwd").value){
+		writeForm.querySelector("#member_rePwd").value = '';
 		writeForm.querySelector('#member_rePwd').placeholder = "동일한 비밀번호를 입력해주세요";
 		writeForm.querySelector('#member_rePwd').classList.add("placeholderColor");
 	}else if(!email_valid.test(writeForm.querySelector('#member_email').value)){
@@ -73,7 +74,7 @@ $('#id_chk').click(function(){
 		writeForm.querySelector('#member_id').classList.add("placeholderColor");
 	}else{
 		$.ajax({
-			url: '/appleMarket/view/user/checkId',
+			url: '/appleMarket/user/checkId',
 			type: 'post',
 			data: 'member_id='+$('#member_id').val(),
 			dataType: 'text',
@@ -157,7 +158,7 @@ $('#tel_valid').click(function(){
 	$.ajax({
 		url: '/appleMarket/phoneCheckNum',
 		type: 'post',
-		data: 'phone2='+$('#phone2').val(),
+		data: 'phone2='+$('#phone2').val()+'&phone='+$('#member_tel1').val()+$('#member_tel2').val()+$('#member_tel3').val(),
 		dataType: 'text',
 		success: function(data){
 			if(data == 'ok'){

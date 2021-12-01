@@ -10,7 +10,7 @@
 	 	where rn between #{startNum} and #{endNum}
  	</select>
  	
- 	<select id="buyerboardSQL">
+ 	<select id="getTotalA" resultType="int">
  		select count(*) from buyerboard
  	</select>
  	

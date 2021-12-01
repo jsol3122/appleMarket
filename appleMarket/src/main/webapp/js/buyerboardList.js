@@ -17,6 +17,7 @@ $(function(){
         }
     })
     fetchList();
+    
 })
 
 let fetchList = function(){
@@ -32,7 +33,6 @@ let fetchList = function(){
         type: "post",
         dataType: "json",
         success: function(result){
-        alert('zz');
             // 컨트롤러에서 가져온 방명록 리스트는 result.data에 담겨오도록 했다.
             // 남은 데이터가 5개 이하일 경우 무한 스크롤 종료
             let length = result.list.length;
@@ -47,29 +47,33 @@ let fetchList = function(){
 }
 
 let renderList = function(mode, DTO){
-     
-    if(DTO.location1_addr2 == undefined){ //임시로 지역 넣어놓고 gps위치 개발하면 위치값 넣어놓기
-    	DTO.location1_addr2 = '강남구'; 
+	if(DTO.location1_addr2 == undefined){ //임시로 지역 넣어놓고 gps위치 개발하면 위치값 넣어놓기
+       DTO.location1_addr2 = '강남구'; 
+       //DTO.location1_addr2.replace(/null/g, '');
     }
-    let html = "<li id=product_'"+ DTO.buyerboard_seq +"'>" +
+
+    // 리스트 html을 정의
+    let html = "<li id=product_"+DTO.buyerboard_seq+">"+
         "<div class=list_contents>"+
             "<div class=default>"+
-                "<img src='/appleMarket/img/''"+DTO.buyerboard_image1+"' style=width:200px;height:180px; alt=img>"+
+                //"<img src='/appleMarket/storage/"+DTO.sale_image1+"' style=width:200px;height:180px; alt=img>"+
+                "<img src='/appleMarket/img/food4.jpg' style=width:200px;height:180px; alt=img>"+
                 "<h3>"+DTO.buyerboard_subject+"</h3>"+
                 "<h3>"+DTO.location1_addr2+"</h3>"+
-                "<h4>"+DTO.buyerboard_pricee+"</h4>"+
+                "<h4>"+DTO.buyerboard_price+"</h4>"+
             "</div>"+
             "<div class=hover>"+
                 "<ul>"+
-                    "<li><a href='#' class=sprites addcart>addcart</a></li>"+
+                    "<li><a href='#' class=sprites>addcart</a></li>"+
                 "</ul>"+
             "</div>"+
         "</div>"+
     "</li>";
-
     
     $(".new_arrivals_list").append(html);
     console.log(mode)
+    
+    $('.hover a').addClass('addcart');
     
     /*
     if( mode ){
