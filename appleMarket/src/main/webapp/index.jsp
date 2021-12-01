@@ -23,7 +23,7 @@
     <header id="headBox">
         <div class="inner">
             <h1>
-                <a href="#"><img class="logo" src="/appleMarket/img/logo-basic.png" alt="사과마켓"></a>
+                <a href="/appleMarket/loginindex.jsp"><img class="logo" src="/appleMarket/img/logo-basic.png" alt="사과마켓"></a>
             </h1>
             <form action="#" method="get" class="search_box">
                 <fieldset>

@@ -344,7 +344,7 @@
                                         <div class="tl_srch clear">
 
                                             <div class="bd_tl">
-                                                <h1 class="ngeb clear"><i class="bg_color"></i><a href="#">자유게시판</a></h1>
+                                                <h1 class="ngeb clear"><i class="bg_color"></i><a href="#">우리동네게시판</a></h1>
                                             </div>
                                         </div>
                                         <div class="cnb_n_list">
