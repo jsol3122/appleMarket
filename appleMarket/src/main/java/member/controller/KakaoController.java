@@ -68,6 +68,7 @@ public class KakaoController {
         
         System.out.println("id="+id);
         session.setAttribute("member_id", id);
+        session.setAttribute("member_siteCheck", 1);
         
         String Check=memberSerivce.checkId(id);
         

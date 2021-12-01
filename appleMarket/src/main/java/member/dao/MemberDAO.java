@@ -21,5 +21,7 @@ public interface MemberDAO {
 
 	public MemberDTO searchId(String member_email);
 
-	public void searchPwd(MemberDTO memberDTO);
+	public MemberDTO searchPwd(String member_id, String member_email);
+
+	public void changePwd(MemberDTO memberDTO);
 }

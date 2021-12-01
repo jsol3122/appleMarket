@@ -65,8 +65,19 @@ public class MemberDAOMybatis implements MemberDAO {
 	}
 
 	@Override
-	public void searchPwd(MemberDTO memberDTO) {
-		sqlSession.selectOne("memberSQL.pwdSearch", memberDTO);		
+	public MemberDTO searchPwd(String member_id, String member_email) {
+		
+		Map<String,String>map = new HashMap<String, String>();
+		map.put("member_id", member_id);
+		map.put("member_email", member_email);
+		
+		return sqlSession.selectOne("memberSQL.pwdSearch", map);		
+	}
+
+	@Override
+	public void changePwd(MemberDTO memberDTO) {
+		sqlSession.update("memberSQL.changePwd",memberDTO);
+		
 	}
 
 }

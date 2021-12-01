@@ -2,11 +2,11 @@
 create table appleMarket(
 member_seq number primary key, 
 member_id varchar2(20) not null, 
-member_pwd varchar2(30) not null, 
-member_email varchar2(40) not null, 
-member_tel1 number not null, 
-member_tel2 number not null, 
-member_tel3 number not null, 
+member_pwd varchar2(30), 
+member_email varchar2(40), 
+member_tel1 number, 
+member_tel2 number, 
+member_tel3 number, 
 member_sido_sigungu varchar2(50), 
 member_dong varchar2(50), 
 member_address varchar2(50), 
@@ -16,7 +16,8 @@ member_reputation number default 36.5,
 member_warning number, 
 member_profilePic varchar2(1000), 
 member_entryLogtime date default sysdate, 
-member_gps varchar2(100)
+member_gps varchar2(100),
+member_siteCheck number default 0
 );
 
 #시퀀스

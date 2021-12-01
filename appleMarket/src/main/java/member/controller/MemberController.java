@@ -5,6 +5,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -202,6 +203,7 @@ public class MemberController {
 		
 		session.setAttribute("member_id", member_id);
 		session.setAttribute("login_info", memberDTO);
+		session.setAttribute("member_siteCheck", 0);
 		
 		path = result+"";
 		
@@ -260,11 +262,30 @@ public class MemberController {
 		return "/searchPwdForm";
 	}
 	
+	
 	//비밀번호찾기
 	@PostMapping(value="/searchPwd")
 	@ResponseBody
-	public void pwdSearch(@ModelAttribute MemberDTO memberDTO, HttpServletResponse response) {
+	public void searchPwd(@ModelAttribute MemberDTO memberDTO, HttpServletResponse response) {
 		memberSerivce.searchPwd(memberDTO, response);
+	}
+	
+	//비밀번호 변경 폼 
+	@GetMapping(value="/changePwdForm")
+	public String changePwdForm() {
+		return "/changePwdForm";
+	}
+	
+	//비밀번호 변경 
+	@PostMapping(value="/changePwd")
+	@ResponseBody
+	public void changePwd(@RequestParam("member_id")String member_id,@RequestParam("member_pwd")String member_pwd) {
+		
+		MemberDTO memberDTO = new MemberDTO();
+		memberDTO.setMember_id(member_id);
+		memberDTO.setMember_pwd(member_pwd);
+
+		memberSerivce.chagePwd(memberDTO);
 	}
 
 }

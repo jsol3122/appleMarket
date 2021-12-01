@@ -28,5 +28,8 @@ public interface MemberService {
 	//이메일발송
 	public void sendEmail(MemberDTO memberDTO, String div) throws Exception;
 
+	public void chagePwd(MemberDTO memberDTO);
+
+
 
 }

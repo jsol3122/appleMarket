@@ -42,13 +42,7 @@ public class LocationController {
 		return map;
 
 	}
-	
-	/*
-	 위치확인 api
-	  1. 위치를 확인한다.
-	  2. db를 확인한다. 
-	  3. 기존에 있으면 exist를, 없으면 non_exist를 response로 준다. 
-	 */
+
 	
 	@PostMapping("/checkGPS")
 	@ResponseBody
@@ -56,13 +50,6 @@ public class LocationController {
 		return locationService.checkGPS(member_id);
 	}
 
-	
-	/*
-	 위치 재확인 api
-	  1. 위치를 확인한다. 
-	  2. 위치를 db에 등록한다. 
-	  3. 기존에 있으면 exist를, 없으면 non_exist를 response로 준다. 
-	
-	 */
+
 	
 }
