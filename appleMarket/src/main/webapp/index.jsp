@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 
     <link rel="stylesheet" href="/appleMarket/css/style.css">
-    <title>사고팔고마켓커뮤니티</title>
+    <title>사고팔고마켓</title>
 </head>
 
 <body>
