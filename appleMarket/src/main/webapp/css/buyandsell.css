@@ -370,6 +370,10 @@ header form input[type="submit"] {
     padding: 30px 0;
 }
 
+.new_arrivals_list .list_contents .default:hover {
+    cursor: pointer;
+}
+
 .new_arrivals_list .list_contents .hover {
     padding: 30px 0;
 }

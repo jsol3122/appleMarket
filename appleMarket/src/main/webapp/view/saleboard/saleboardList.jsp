@@ -71,7 +71,7 @@
             <h2 class="hidden">category filter</h2>
             <div class="list_filters">
                 <div class="combi_filters">
-                    <div class="category_filter" data-filter-group="category">
+                    <div class="category_filter" data-filter-group="sale_category">
                         <h3>카테고리</h3>
                         <input type="checkbox" id="sale_category_all" name="sale_category" value="*">
                         <span class="box">box</span>

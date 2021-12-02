@@ -51,11 +51,13 @@ let renderList = function(mode, DTO){
        DTO.location1_addr2 = '강남구'; 
        //DTO.location1_addr2.replace(/null/g, '');
     }
+    
+    let category = DTO.sale_category;
 
     // 리스트 html을 정의
-    let html = "<li id=product_"+DTO.sale_seq+" class="+DTO.sale_category+">"+
+    let html = "<li id=product_"+DTO.sale_seq+">"+
         "<div class=list_contents>"+
-            "<div class=default>"+
+            "<div class=default onclick=location.href='/appleMarket/view/saleboard/saleboardView.jsp?sale_seq="+DTO.sale_seq+"'>"+
                 //"<img src='/appleMarket/storage/"+DTO.sale_image1+"' style=width:200px;height:180px; alt=img>"+
                 "<img src='/appleMarket/img/food4.jpg' style=width:200px;height:180px; alt=img>"+
                 "<h3>"+DTO.sale_subject+"</h3>"+
@@ -74,7 +76,7 @@ let renderList = function(mode, DTO){
     console.log(mode)
     
     $('.hover a').addClass('addcart');
-    $('.new_arrivals_list li').addClass('col-md-3');
+    $('.new_arrivals_list>li').addClass(['col-md-3', category]);
     
     /*
     if( mode ){

@@ -1,4 +1,5 @@
-$(function() {
+$(document).ready(function(){
+//$(function() {
     var $searchBtn = $('.shopping_nav .search_btn'),
         $searchForm = $('header form');
 
@@ -159,12 +160,13 @@ $(function() {
         itemSelector: '.new_arrivals_list > li'
     });
 
-    $filters.click(function() {
+	$filters.click(function() {
         var $button = $(this);
 
         //get group key
-        var $buttonGroup = $button.parent('div');
-        var filterGroup = $buttonGroup.attr('data-filter-group');
+        //var $buttonGroup = $button.parent('div');
+        //var filterGroup = $buttonGroup.attr('data-filter-group');
+        var filterGroup = "sale_category";
 
         // set filter for grouop
         filters[filterGroup] = $button.val();
@@ -173,7 +175,6 @@ $(function() {
         // set filter for Isotope
         $grid.isotope({ filter: filterValue });
         console.log('filterValue = '+filterValue);
-        $grid.isotope( 'updateSortData', filterValue );
 
         if ($button.val() == '*') {
             $button.parent('div').find('input').prop('checked', false);
