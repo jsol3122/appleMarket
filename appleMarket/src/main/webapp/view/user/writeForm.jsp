@@ -14,7 +14,7 @@
 		</div>
 
 		<div class="modal-body"> <!-- modal body -->
-		<form id="writeForm" action="/appleMarket/user/write" method="post">
+		<form id="writeForm" action="/appleMarket/write" method="post">
 			<h3>회원가입</h3>
 			<hr>
 			<p class="warning">* 는 필수 입력 항목입니다</p>
