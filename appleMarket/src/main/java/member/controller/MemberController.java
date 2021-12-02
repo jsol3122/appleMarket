@@ -3,9 +3,10 @@ package member.controller;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -66,10 +67,22 @@ public class MemberController {
 	
 	//회원가입 - index 이동(맞는지 확인 요망)
 	@RequestMapping("/write")
-	public String write(@ModelAttribute @Valid MemberDTO memberDTO) {
+	public String write(@ModelAttribute @Valid MemberDTO memberDTO,@RequestParam("recommend_id")String recommend_id) {
 		String Check = memberSerivce.checkId(memberDTO.getMember_id());
 		if(Check.equals("non_exist")) {
 			memberSerivce.write(memberDTO);
+			
+			//추천인 등록
+			String member_id=memberDTO.getMember_id();
+			System.out.println("recommend_id=" + recommend_id);
+			System.out.println("member_id="+memberDTO.getMember_id());
+			Map<String, String> map = new HashMap<String,String>();
+			map.put("recommend_id", recommend_id);
+			map.put("member_id", member_id);
+			
+			memberSerivce.recommend(map);
+			memberSerivce.recommended(map);
+			
 			return "/index";
 		}else {
 			return "/user/writeForm";

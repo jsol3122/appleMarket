@@ -1,8 +1,10 @@
 package member.service;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 
 import member.bean.MemberDTO;
 import member.bean.ZipcodeDTO;
@@ -29,6 +31,11 @@ public interface MemberService {
 	public void sendEmail(MemberDTO memberDTO, String div) throws Exception;
 
 	public void chagePwd(MemberDTO memberDTO);
+
+	public void recommend(Map<String, String> map);
+
+	public void recommended(Map<String, String> map);
+
 
 
 

@@ -104,4 +104,14 @@
  	<update id="changePwd" parameterType="member">
  		update appleMarket set member_pwd=#{member_pwd} where member_id=#{member_id}
  	</update>
+ 	
+ 	<!-- 추천하기  -->
+	<insert id="recommend" parameterType="java.util.Map">
+		insert into recommend(recommend_id, recommend_1) values(#{recommend_id}, #{member_id})
+	</insert>
+	
+	<!-- 추천받기  -->
+	<insert id="recommended" parameterType="java.util.Map">
+		insert into recommend(recommend_id, recommend_1) values(#{member_id}, #{recommend_id})
+	</insert>	
  </mapper>

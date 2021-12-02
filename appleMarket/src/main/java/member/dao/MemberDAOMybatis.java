@@ -80,4 +80,18 @@ public class MemberDAOMybatis implements MemberDAO {
 		
 	}
 
+	@Override
+	public void recommend(Map<String, String> map) {
+		
+		sqlSession.insert("memberSQL.recommend", map);
+		
+	}
+
+	@Override
+	public void recommended(Map<String, String> map) {
+		
+		sqlSession.insert("memberSQL.recommended", map);
+		
+	}
+
 }

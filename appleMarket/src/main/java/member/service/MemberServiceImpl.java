@@ -3,6 +3,7 @@ package member.service;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -157,5 +158,19 @@ public class MemberServiceImpl implements MemberService {
 		memberDAO.changePwd(memberDTO);
 		
 	}
+
+	@Override
+	public void recommend(Map<String, String> map) {
+		memberDAO.recommend(map);
+		
+	}
+
+	@Override
+	public void recommended(Map<String, String> map) {
+		memberDAO.recommended(map);
+		
+		
+	}
+
 
 }
