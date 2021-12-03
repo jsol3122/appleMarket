@@ -28,32 +28,20 @@
 	<context:component-scan base-package="saleboard.controller"/>
 	<context:component-scan base-package="buyerboard.controller"/>
 	<!-- <context:component-scan base-package="handler"/> -->
-	<context:component-scan
-		base-package="member.controller" />
-	<context:component-scan
-		base-package="spring.conf" />
+	<context:component-scan base-package="member.controller" />
+	<context:component-scan base-package="spring.conf" />
 	<context:component-scan base-package="member.controller" />
 
 	<context:component-scan base-package="spring.conf" />
 	<context:component-scan base-package="handler" />
-
 	<context:component-scan base-package="location.controller"/>
 
 	<mvc:resources location="/js/" mapping="/js/**" />
 	<mvc:resources location="/img/" mapping="/img/**" />
 	<mvc:resources location="/css/" mapping="/css/**" />
 	<mvc:resources location="/view/" mapping="/view/**" />
-
-	<mvc:annotation-driven />
-
+	<mvc:resources location="/includes/" mapping="/includes/**" />
 	
-<!-- 
-<mvc:annotation-driven/>
-Spring Web MVC를 하기 위해 설정해야 하는 값들을 자동으로 추가해준다.
-Spring MVC가 @Controller에 요청을 보내기 위해 필요한 HandlerMapping과 HandlerAdapter를 bean으로 등록한다
-HandlerMapping : HTTP 요청정보를 이용해서 컨트롤러를 찾아주는 기능
-HandlerAdapter : HandlerMapping을 통해 찾은 컨트롤러를 직접 실행하는 기능을 수행
-bean을 생성하기 위해 xml 파일에 context:component-scan을 명시하면 이 태그를 포함하지 않아도 MVC 애플리케이션은 작동한다
- -->
-
+	
+	<mvc:annotation-driven />
 </beans>
