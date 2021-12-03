@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -122,13 +123,13 @@ public class SaleboardController {
 		saleboardService.saleboardDelete(sale_seq);
 	}
 	
-	@PostMapping(value="/saleboard/saleboardView")
+	@GetMapping(value="/saleboard/saleboardView")
 	public String saleboardView(HttpServletResponse response ,HttpServletRequest request) {
 		return "/saleboard/saleboardView";
 	}
 	
-	@PostMapping("/saleboard/saleboardGetView")
-	@ResponseBody
+
+	@PostMapping("/saleboard/saleboardGetView") @ResponseBody
 	public List<SaleboardDTO> saleboardGetView(@RequestParam int sale_seq){
 		System.out.println("controller");
 		return saleboardService.saleboardGetView(sale_seq);	

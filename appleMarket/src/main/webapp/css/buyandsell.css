@@ -370,6 +370,10 @@ header form input[type="submit"] {
     padding: 30px 0;
 }
 
+.new_arrivals_list .list_contents .default:hover {
+    cursor: pointer;
+}
+
 .new_arrivals_list .list_contents .hover {
     padding: 30px 0;
 }
@@ -752,8 +756,11 @@ form hr {
     text-align: center;
 }
 
+<<<<<<< HEAD
 .size_filter,
 
+=======
+>>>>>>> 0fbecf7911ef495459e770ec2eec66720e88d773
 .category_filter,
 .brand_filter {
     display: flex;
@@ -773,8 +780,11 @@ form hr {
     margin-right: 30px;
 }
 
+<<<<<<< HEAD
 
 .size_filter input,
+=======
+>>>>>>> 0fbecf7911ef495459e770ec2eec66720e88d773
 .category_filter input,
 .brand_filter input {
     display: none;
