@@ -24,6 +24,7 @@ public class CommunityboardCommentController {
 	
 	
 	@GetMapping("/comment/communityboardCommentGetList")
+	@ResponseBody
 	public List<CommunityboardCommentDTO> communityboardCommentGetList(@RequestParam String communityboard_seq){
 		
 		return communityboardCommentService.communityboardCommentGetList(communityboard_seq);
@@ -33,24 +34,26 @@ public class CommunityboardCommentController {
 	@PostMapping("/comment/communityboardCommentWrite")
 	@ResponseBody
 	public void communityboardCommentWrite(@ModelAttribute CommunityboardCommentDTO communityboardCommentDTO) {
-
 		communityboardCommentService.communityboardCommentWrite(communityboardCommentDTO);
 	}
 	
 	@GetMapping("/comment/communityboardCommentModifyForm")
-	public ModelAndView communityboardCommentModifyForm(@RequestParam int communityboard_comment_seq) {
-		ModelAndView mv = new ModelAndView();
-//		CommunityboardCommentDTO communityboardCommentDTO = communityboardCommentService.communityboardCommentModifyForm(communityboard_comment_seq);
-//		mv.addObject("communityboardCommentDTO", communityboardCommentDTO);
+	public String communityboardCommentModifyForm() {
 		
-		mv.setViewName("");
-		return mv;
+		return "/comment/communityboardCommentModifyForm";
 	}
 	
 	@PostMapping("/comment/communityboardCommentModify")
 	@ResponseBody
 	public void communityboardCommentModify(@ModelAttribute CommunityboardCommentDTO communityboardCommentDTO) {
 		communityboardCommentService.communityboardCommentModify(communityboardCommentDTO);
+	}
+	
+	@GetMapping("comment/communityboardCommentDelete")
+	@ResponseBody
+	public void communityboardCommentDelete(@RequestParam String communityboard_comment_seq) {
+		
+		communityboardCommentService.communityboardCommentDelete(communityboard_comment_seq);
 	}
 	
 	@PostMapping("/comment/communityboardCommentReply")

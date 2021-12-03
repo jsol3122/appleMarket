@@ -17,7 +17,7 @@ public class LocalCommunityboardDAOMybatis implements LocalCommunityboardDAO {
 	private SqlSession sqlSession;
 
 	@Override
-	public List<LocalCommunityboardDTO> localCommunityboardGetList(Map<String, Integer> map) {
+	public List<LocalCommunityboardDTO> localCommunityboardGetList(Map<String, String> map) {
 		
 		return sqlSession.selectList("localCommunityboardSQL.localCommunityboardGetList",map);
 	}
@@ -30,10 +30,46 @@ public class LocalCommunityboardDAOMybatis implements LocalCommunityboardDAO {
 
 	@Override
 	public void localCommunityboardWrite(LocalCommunityboardDTO localCommunityboardDTO) {
-		String dong = sqlSession.selectOne("localCommunityboardSQL.searchSido",localCommunityboardDTO.getLocalcommunity_user_id());
+		
+		String user_id =localCommunityboardDTO.getLocalcommunity_user_id();
+		String dong = sqlSession.selectOne("localCommunityboardSQL.searchDong",user_id);
+
 		localCommunityboardDTO.setLocalcommunity_dong(dong);
 		sqlSession.insert("localCommunityboardSQL.localCommunityboardWrite", localCommunityboardDTO);
 		
 	}
+
+
+	@Override
+	public void localCommunityboardModify(LocalCommunityboardDTO localCommunityboardDTO) {
+		sqlSession.update("localCommunityboardSQL.localCommunityboardModify", localCommunityboardDTO);
+		
+	}
+
+	@Override
+	public void localCommunityboardDelete(String localcommunity_seq) {
+
+		sqlSession.delete("localCommunityboardSQL.localCommunityboardDelete",localcommunity_seq);
+		
+	}
+
+	@Override
+	public LocalCommunityboardDTO localCommunityboardGetView(String localcommunity_seq) {
+		
+		return sqlSession.selectOne("localCommunityboardSQL.localCommunityboardGetView", localcommunity_seq);
+	}
+
+	@Override
+	public List<LocalCommunityboardDTO> localCommunityboardSearch(LocalCommunityboardDTO localCommunityboardDTO) {
+		
+		return sqlSession.selectList("localCommunityboardSQL.localCommunityboardSearch", localCommunityboardDTO);
+	}
+
+	@Override
+	public void localCommunityboardHit(String localcommunity_seq) {
+		sqlSession.update("localCommunityboardSQL.localCommunityboardHit", localcommunity_seq);
+		
+	}
+	
 
 }

@@ -40,7 +40,7 @@ public class BuyerboardServiceImpl implements BuyerboardService {
 		boardPaging.setCurrentPage(page);	
 		boardPaging.setPageSize(5);
 		boardPaging.setTotalA(totalA);
-		
+
 		
 		JSONObject json = new JSONObject();
 		if(list != null) {
@@ -51,7 +51,8 @@ public class BuyerboardServiceImpl implements BuyerboardService {
 				
 				temp.put("buyerboard_seq", buyerboardDTO.getBuyerboard_seq());
 				temp.put("member_id", buyerboardDTO.getMember_id());
-				temp.put("location1_addr2", buyerboardDTO.getLocation1_addr2());
+
+				temp.put("member_dong", buyerboardDTO.getMember_dong());
 				temp.put("buyerboard_category", buyerboardDTO.getBuyerboard_category());
 				temp.put("buyerboard_price", buyerboardDTO.getBuyerboard_price());
 				temp.put("buyerboard_subject", buyerboardDTO.getBuyerboard_subject());
@@ -99,7 +100,12 @@ public class BuyerboardServiceImpl implements BuyerboardService {
 		// TODO Auto-generated method stub
 		return buyerboardDAO.buyerboardGetView(buyerboard_seq);
 	}
-	
+
+	@Override
+	public void buyerboardHit(int buyerboard_seq) {
+		
+		buyerboardDAO.buyerboardHit(buyerboard_seq);
+	}
 	
 	
 	

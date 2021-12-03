@@ -23,18 +23,17 @@ public class LocalCommunityboardServiceImpl implements LocalCommunityboardServic
 	private BoardPaging boardPaging;
 
 	@Override
-	public JSONObject localCommunityboardGetList(int page) {
-		
-		int endNum = page * 5;
+	public JSONObject localCommunityboardGetList(Map<String, String> map) {
+		int pg = Integer.parseInt(map.get("pg"));
+		int endNum =  pg * 5;
 		int startNum = endNum - 4;
 		
-		Map<String, Integer> map = new HashMap<String, Integer>();
-		map.put("startNum", startNum);
-		map.put("endNum", endNum);
+		map.put("startNum", startNum+"");
+		map.put("endNum", endNum+"");
 		List<LocalCommunityboardDTO> list = localCommunityboardDAO.localCommunityboardGetList(map);
 		
 		int totalA = localCommunityboardDAO.getTotalA();
-		boardPaging.setCurrentPage(page);
+		boardPaging.setCurrentPage(pg);
 		boardPaging.setPageBlock(3);
 		boardPaging.setPageSize(5);
 		boardPaging.setTotalA(totalA);
@@ -73,6 +72,36 @@ public class LocalCommunityboardServiceImpl implements LocalCommunityboardServic
 		localCommunityboardDAO.localCommunityboardWrite(localCommunityboardDTO);
 		
 	}
+
+	@Override
+	public void localCommunityboardModify(LocalCommunityboardDTO localCommunityboardDTO) {
+		localCommunityboardDAO.localCommunityboardModify(localCommunityboardDTO);
+	}
+
+	@Override
+	public void localCommunityboardDelete(String localcommunity_seq) {
+		localCommunityboardDAO.localCommunityboardDelete(localcommunity_seq);
+		
+	}
+
+	@Override
+	public LocalCommunityboardDTO localCommunityboardGetView(String localcommunity_seq) {
+		
+		return localCommunityboardDAO.localCommunityboardGetView(localcommunity_seq);
+	}
+
+	@Override
+	public List<LocalCommunityboardDTO> localCommunityboardSearch(LocalCommunityboardDTO localCommunityboardDTO) {
+		
+		return localCommunityboardDAO.localCommunityboardSearch(localCommunityboardDTO);
+	}
+
+	@Override
+	public void localCommunityboardHit(String localcommunity_seq) {
+		localCommunityboardDAO.localCommunityboardHit(localcommunity_seq);
+		
+	}
+	
 
 	
 }

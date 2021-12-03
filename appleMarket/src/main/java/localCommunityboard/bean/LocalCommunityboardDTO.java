@@ -14,4 +14,7 @@ public class LocalCommunityboardDTO {
 	private int localcommunity_hit;
 	private Date localcommunity_logtime;
 	private String localcommunity_user_id;
+	private String searchType;
+	private String keyword;
+	
 }

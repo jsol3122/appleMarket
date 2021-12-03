@@ -4,8 +4,12 @@ import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -44,7 +48,13 @@ public class MemberController{
 	
 	//메인창
 	@GetMapping("/index")
-	public String index() {
+	public String index(HttpServletResponse response) {
+		Cookie cookie =new Cookie("view",null); 	//view라는 이름의 쿠키 생성
+		cookie.setComment("게시글 조회 확인");		//해당 쿠키가 어떤 용도인지 커멘트
+		cookie.setMaxAge(60*60*24);			//해당 쿠키의 유효시간을 설정 (초 기준)
+		response.addCookie(cookie);				//사용자에게 해당 쿠키를 추가
+		
+		
 		return "/index";
 	}
 	
@@ -54,19 +64,41 @@ public class MemberController{
 		return "/user/writeForm";
 	}
 	
-	//회원가입
-	@RequestMapping("/write")	
-	public String write(@ModelAttribute @Valid MemberDTO memberDTO){
+//	//회원가입
+//	@RequestMapping("/write")
+//	@ResponseBody
+//	public void write(@ModelAttribute @Valid MemberDTO memberDTO) {
+//		String Check = memberSerivce.checkId(memberDTO.getMember_id());
+//		if(Check.equals("non_exist")) {
+//			memberSerivce.write(memberDTO);
+//		}else {
+//			return;
+//		}
+//	}
+	
+	//회원가입 - index 이동(맞는지 확인 요망)
+	@RequestMapping("/write")
+	public String write(@ModelAttribute @Valid MemberDTO memberDTO,@RequestParam("recommend_id")String recommend_id) {
 		String Check = memberSerivce.checkId(memberDTO.getMember_id());
 		if(Check.equals("non_exist")) {
 			memberSerivce.write(memberDTO);
+			
+			//추천인 등록
+			String member_id=memberDTO.getMember_id();
+			System.out.println("recommend_id=" + recommend_id);
+			System.out.println("member_id="+memberDTO.getMember_id());
+			Map<String, String> map = new HashMap<String,String>();
+			map.put("recommend_id", recommend_id);
+			map.put("member_id", member_id);
+			
+			memberSerivce.recommend(map);
+			memberSerivce.recommended(map);
+			
 			return "/index";
 		}else {
-			
-			return "/user/index";
+			return "/user/writeForm";
 		}
-	}
-	
+}
 	
 	/*
 	 * 인증번호 전송 api
@@ -191,8 +223,10 @@ public class MemberController{
 		
 		int result = memberSerivce.login(memberDTO);
 		
-		session.setAttribute("member_id", member_id);	
+
+		session.setAttribute("member_id", member_id);
 		session.setAttribute("login_info", memberDTO);
+		session.setAttribute("member_siteCheck", 0);
 		
 		path = result+"";
 		
@@ -234,17 +268,48 @@ public class MemberController{
 	}
 	
 	//아이디찾기 폼
-	@GetMapping(value="/idSearchForm")
-	public String idSearch() {
-		return "/idSearch";
+	@GetMapping(value="/searchIdForm")
+	public String searchIdForm() {
+		return "/searchIdForm";
 	}
 	
 	//아이디찾기 
-	@PostMapping(value="/idSearch")
+	@PostMapping(value="/searchId")
 	@ResponseBody
 	public String idSearch(@RequestParam("member_email") String member_email) {
-		return memberSerivce.idSearch(member_email);
+		return memberSerivce.searchId(member_email);
 	}
+	
+	//비밀번호찾기 폼
+	@GetMapping(value="/searchPwdForm")
+	public String searchPwdForm() {
+		return "/searchPwdForm";
+	}
+	
+	
+	//비밀번호찾기
+	@PostMapping(value="/searchPwd")
+	@ResponseBody
+	public void searchPwd(@ModelAttribute MemberDTO memberDTO, HttpServletResponse response) {
+		memberSerivce.searchPwd(memberDTO, response);
+	}
+	
+	//비밀번호 변경 폼 
+	@GetMapping(value="/changePwdForm")
+	public String changePwdForm() {
+		return "/changePwdForm";
+	}
+	
+	//비밀번호 변경 
+	@PostMapping(value="/changePwd")
+	@ResponseBody
+	public void changePwd(@RequestParam("member_id")String member_id,@RequestParam("member_pwd")String member_pwd) {
+		
+		MemberDTO memberDTO = new MemberDTO();
+		memberDTO.setMember_id(member_id);
+		memberDTO.setMember_pwd(member_pwd);
 
-	//비밀번호 찾기 폼 
+		memberSerivce.chagePwd(memberDTO);
+	
+	}
 }

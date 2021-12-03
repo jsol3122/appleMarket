@@ -20,13 +20,17 @@
 	<!-- 팔고게시판  -->
 	<context:component-scan base-package="saleboard.service"/>
 	<context:component-scan base-package="saleboard.dao"/>
-	<!--사고게시판 -->
+
+	<!-- 사고게시판 -->
 	<context:component-scan base-package="buyerboard.service"/>
 	<context:component-scan base-package="buyerboard.dao"/>
-	<!-- member -->
 
+	<!-- member -->
 	<context:component-scan base-package="member.service"/>
 	<context:component-scan base-package="member.dao"/>
+	
+	<context:component-scan base-package="location.service"/>
+	<context:component-scan base-package="location.dao"/>
 	
 	<!-- Connection Pool : 여기서 해도 된다. -> spring configuration으로 할거다.  -->
 	<context:component-scan base-package="spring.conf"/>
