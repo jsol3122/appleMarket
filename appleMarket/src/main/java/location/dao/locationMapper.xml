@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="locationSQL">
+ 
+ 	<!-- 지도 등록 -->
+ 	<insert id="write" parameterType="location">
+ 		insert into locationConfirm values(#{member_id}, #{location_addr}, #{location_dong}, 
+ 										   #{location_latitude}, #{location_longitude}, sysdate)
+ 	</insert>
+ 	
+ 	<select id="checkGPS" parameterType="String" resultType="location">
+ 		select * from locationConfirm where member_id=#{member_id}
+ 	</select>
+ 	
+ 	<select id="gpsUpdate" parameterType="location">
+ 		update locationConfirm set location_addr=#{location_addr}, location_dong=#{location_dong},
+ 								   location_latitude=#{location_latitude}, location_longitude=#{location_longitude},
+ 								   location_logtime=sysdate
+ 							   where member_id=#{member_id}
+ 	</select>
+ 	
+ </mapper>

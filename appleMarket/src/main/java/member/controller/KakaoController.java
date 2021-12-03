@@ -66,6 +66,10 @@ public class KakaoController {
         model.addAttribute("kakaoInfo", kakaoInfo);
         String id =(String)userInfo.get("id");
         
+        System.out.println("id="+id);
+        session.setAttribute("member_id", id);
+        session.setAttribute("member_siteCheck", 1);
+        
         String Check=memberSerivce.checkId(id);
         
         if (userInfo.get("email") != null) {
@@ -199,48 +203,4 @@ public class KakaoController {
        
        
     }
-//    //로그아웃
-//    public void kakaoLogout(String access_Token) {
-//        String reqURL = "https://kapi.kakao.com/v1/user/logout";
-//        try {
-//            URL url = new URL(reqURL);
-//            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-//            conn.setRequestMethod("POST");
-//            conn.setRequestProperty("Authorization", "Bearer " + access_Token);
-//
-//            int responseCode = conn.getResponseCode();
-//            System.out.println("responseCode : " + responseCode);
-//
-//            BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-//
-//            String result = "";
-//            String line = "";
-//
-//            while ((line = br.readLine()) != null) {
-//                result += line;
-//            }
-//            System.out.println(result);
-//        } catch (IOException e) {
-//            // TODO Auto-generated catch block
-//            e.printStackTrace();
-//        }
-//        
-//    }
-//    
-//    @RequestMapping(value="/logout")
-//    public String logout(HttpSession session) {
-//        String access_Token = (String)session.getAttribute("access_Token");
-//
-//        if(access_Token != null && !"".equals(access_Token)){
-//            kakaoLogout(access_Token);
-//            session.removeAttribute("access_Token");
-//            session.removeAttribute("userId");
-//        }else{
-//            System.out.println("access_Token is null");
-//            //return "redirect:/";
-//        }
-//        //return "index";
-//        return "redirect:/";
-//    }
-
  }
