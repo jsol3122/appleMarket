@@ -8,7 +8,7 @@ import lombok.Data;
 public class BuyerboardDTO {
 	private int buyerboard_seq;
 	private String member_id;
-	private String location1_addr2;
+	private String member_dong;
 	private String buyerboard_category;
 	private int buyerboard_price;
 	private String buyerboard_subject;
