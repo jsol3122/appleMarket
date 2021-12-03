@@ -16,5 +16,9 @@ public interface MemberService {
 	public List<ZipcodeDTO> checkPostSearch(ZipcodeDTO zipcodeDTO);
 
 	public void delete(MemberDTO memberDTO);
+
+	public void modify(MemberDTO memberDTO);
+
+	public String idSearch(String member_email);
 	
 }

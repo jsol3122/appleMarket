@@ -51,4 +51,22 @@ public class MessageService {
 		
 	}
 
+	public String checkPhone(String phone) {
+		MessageDTO messageDTO =  messageDAO.CheckPhone(phone);
+		
+		if(messageDTO == null) {
+			return "non_exist";
+		}else {
+			return "exist";
+		}
+	}
+
+
+	public void phoneUpdate(MessageDTO messageDTO) {
+		messageDAO.phoneUpdate(messageDTO);
+		
+	}
+	
+	
+
 }

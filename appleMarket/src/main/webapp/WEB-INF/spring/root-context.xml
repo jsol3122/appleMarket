@@ -19,6 +19,11 @@
 
 	<context:component-scan base-package="saleboard.service"/>
 	<context:component-scan base-package="saleboard.dao"/>
+	<!--사고게시판 -->
+	<context:component-scan base-package="buyerboard.service"/>
+	<context:component-scan base-package="buyerboard.dao"/>
+	
+	<context:component-scan base-package="boardPaging"/>
 	
 	<context:component-scan base-package="member.service"/>
 	<context:component-scan base-package="member.dao"/>
