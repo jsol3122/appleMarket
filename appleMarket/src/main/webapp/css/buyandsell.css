@@ -370,6 +370,10 @@ header form input[type="submit"] {
     padding: 30px 0;
 }
 
+.new_arrivals_list .list_contents .default:hover {
+    cursor: pointer;
+}
+
 .new_arrivals_list .list_contents .hover {
     padding: 30px 0;
 }
@@ -752,6 +756,13 @@ form hr {
     text-align: center;
 }
 
+
+.category_filter,
+.brand_filter {
+    display: flex;
+    margin-bottom: 20px;
+    align-items: center;
+}
 
 
 .brand_filter:nth-child(n+14):nth-child(-n+26) {

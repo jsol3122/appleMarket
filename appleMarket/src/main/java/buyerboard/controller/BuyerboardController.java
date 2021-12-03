@@ -31,7 +31,7 @@ public class BuyerboardController {
 	@Autowired
 	private BuyerboardService buyerboardService;
 	
-	@PostMapping("/buyerboard/buyerboardList")
+	@GetMapping("/buyerboard/buyerboardList")
 	public String buyerboardList() {
 		return "/buyerboard/buyerboardList";
 	}
