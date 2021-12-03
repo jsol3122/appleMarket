@@ -25,9 +25,6 @@
 	<context:component-scan base-package="buyerboard.dao"/>
 	<!-- member -->
 
-	
-	<context:component-scan base-package="boardPaging"/>
-
 	<context:component-scan base-package="member.service"/>
 	<context:component-scan base-package="member.dao"/>
 	
