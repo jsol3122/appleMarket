@@ -60,6 +60,23 @@ public class MemberServiceImpl implements MemberService {
 		
 	}
 
+	@Override
+	public void modify(MemberDTO memberDTO) {
+		memberDAO.modify(memberDTO);
+		
+	}
+
+	@Override
+	public String idSearch(String member_email) {
+		MemberDTO memberDTO = memberDAO.idSearch(member_email);
+		
+		if(memberDTO == null) {
+			return "non_exist"; 
+		}else {
+			return "exist";
+		}
+	}
+
 	
 	
 	
