@@ -10,6 +10,7 @@ public interface LocalCommunityboardService {
 
 	public JSONObject localCommunityboardGetList(Map<String, String> map);
 
+
 	public void localCommunityboardWrite(LocalCommunityboardDTO localCommunityboardDTO);
 
 	public void localCommunityboardModify(LocalCommunityboardDTO localCommunityboardDTO);

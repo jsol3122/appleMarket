@@ -39,6 +39,7 @@ public class LocalCommunityboardDAOMybatis implements LocalCommunityboardDAO {
 		
 	}
 
+
 	@Override
 	public void localCommunityboardModify(LocalCommunityboardDTO localCommunityboardDTO) {
 		sqlSession.update("localCommunityboardSQL.localCommunityboardModify", localCommunityboardDTO);
@@ -70,4 +71,5 @@ public class LocalCommunityboardDAOMybatis implements LocalCommunityboardDAO {
 		
 	}
 	
+
 }

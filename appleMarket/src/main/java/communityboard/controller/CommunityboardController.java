@@ -62,8 +62,12 @@ public class CommunityboardController {
 		
 		String fileName = uuid+"_"+img.getOriginalFilename();
 		
+
 		File file = new File(filePath,fileName);
 		System.out.println(fileName);
+
+		System.out.println("여기까지 오는지 확인");
+
 		//file copy
 		try {
 			
@@ -77,9 +81,9 @@ public class CommunityboardController {
 		
 		communityboardDTO.setCommunityboard_image(fileName);
 		
+		System.out.println(communityboardDTO);
 	
 		communityboardService.communityboardWrite(communityboardDTO);
-		
 		
 	}
 	

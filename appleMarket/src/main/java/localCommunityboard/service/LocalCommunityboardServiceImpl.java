@@ -102,7 +102,6 @@ public class LocalCommunityboardServiceImpl implements LocalCommunityboardServic
 		
 	}
 	
-	
-	
+
 	
 }

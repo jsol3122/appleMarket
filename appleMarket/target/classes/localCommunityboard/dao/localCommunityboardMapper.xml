@@ -13,12 +13,14 @@
 	 
 	 <select id="getTotalA" parameterType="Integer" resultType="Integer">
 	 	select count(*) from localcommunityboard
+
 	 </select>
 	 
 	 <select id="searchDong" parameterType="String" resultType="String">
 	 	select member_dong from applemarket where member_id = #{user_id}
 	 </select>
 	 
+
 	 <insert id="localCommunityboardWrite" parameterType="localCommunityboard.bean.LocalCommunityboardDTO">
 	 	insert into localcommunityboard(localcommunity_seq
 	 									,localcommunity_subject

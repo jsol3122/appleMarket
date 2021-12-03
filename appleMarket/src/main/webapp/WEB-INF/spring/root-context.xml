@@ -6,24 +6,26 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 	
 
-	
+	<!-- 조잘게시판 -->
 	<context:component-scan base-package="communityboard.dao"/>
 	<context:component-scan base-package="communityboard.service"/>
+	<!-- 조잘게시판 댓글 -->
 	<context:component-scan base-package="communityboardComment.dao"/>
 	<context:component-scan base-package="communityboardComment.service"/>
-	
+	<!--지역게시판  -->
 	<context:component-scan base-package="localCommunityboard.dao"/>
 	<context:component-scan base-package="localCommunityboard.service"/>
-	
+	<!-- 게시판 페이징 처리  -->
 	<context:component-scan base-package="boardPaging"/>
-
+	<!-- 팔고게시판  -->
 	<context:component-scan base-package="saleboard.service"/>
 	<context:component-scan base-package="saleboard.dao"/>
 
-
+	<!-- 사고게시판 -->
 	<context:component-scan base-package="buyerboard.service"/>
 	<context:component-scan base-package="buyerboard.dao"/>
 
+	<!-- member -->
 	<context:component-scan base-package="member.service"/>
 	<context:component-scan base-package="member.dao"/>
 	

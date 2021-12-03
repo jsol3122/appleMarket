@@ -44,12 +44,14 @@
  	
  	<select id="communityboardSearch" parameterType="communityboard.bean.CommunityboardDTO" resultType="communityboard.bean.CommunityboardDTO">
  			select * from communityboard where
+
  		<if test="searchType == 'searchId'">
  			communityboard_user_id like '%'|| #{communityboard_user_id} ||'%'
  		</if>
  		
  		<if test="searchType == 'searchSubject'">
  			communityboard_subject like '%'|| #{communityboard_subject} ||'%'
+
  		</if>
  	</select>
  	
