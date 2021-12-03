@@ -98,7 +98,23 @@ public class MemberController{
 		}else {
 			return "/user/writeForm";
 		}
-}
+	}
+	
+	//이메일 중복체크
+	@PostMapping("/emailChk")
+	@ResponseBody
+	public int emailChk(@RequestParam("member_email") String member_email) {
+		int result = memberSerivce.emailChk(member_email);
+		return result;
+	}
+	
+	//핸드폰 중복체크
+	@PostMapping("/phoneChk")
+	@ResponseBody
+	public int phoneChk(@ModelAttribute MemberDTO memberDTO) {
+		int result = memberSerivce.phoneChk(memberDTO);
+		return result;
+	}
 	
 	/*
 	 * 인증번호 전송 api
@@ -257,7 +273,7 @@ public class MemberController{
 	//수정하기 폼
 	@GetMapping(value="/modifyForm")
 	public String modifyForm() {
-		return "/modifyForm";
+		return "/view/myPage/modifyForm";
 	}
 	
 	//수정하기 
@@ -285,7 +301,7 @@ public class MemberController{
 	public String searchPwdForm() {
 		return "/searchPwdForm";
 	}
-	
+
 	
 	//비밀번호찾기
 	@PostMapping(value="/searchPwd")

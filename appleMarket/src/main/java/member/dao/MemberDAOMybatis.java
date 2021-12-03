@@ -93,6 +93,18 @@ public class MemberDAOMybatis implements MemberDAO {
 		sqlSession.insert("memberSQL.recommended", map);
 		
 	}
+	//이메일 중복체크
+	@Override
+	public int emailChk(String member_email) {
+		
+		return sqlSession.selectOne("memberSQL.emailChk", member_email);
+	}
+
+	@Override
+	public int phoneChk(MemberDTO memberDTO) {
+		
+		return sqlSession.selectOne("memberSQL.phoneChk", memberDTO);
+	}
 
 }
 

@@ -36,4 +36,8 @@ public interface MemberService {
 
 	public void recommended(Map<String, String> map);
 
+	public int emailChk(String member_email);
+
+	public int phoneChk(MemberDTO memberDTO);
+
 }

@@ -24,14 +24,8 @@
 	            <input type="password" id="member_pwd" name="member_pwd" class="loginInput" placeholder="비밀번호를 입력해주세요" style="width:350px; height:45px;"/>
 	         </div>
 	         <div>
-<<<<<<< HEAD
-=======
-
-
->>>>>>> b196ef724127a9382fa7691e4087a8c3fa58ab62
 	         	<a href="/appleMarket/view/user/searchIdForm" onclick="window.open(this.href, '_blank', 'width=400, height=300'); return false;">아이디 찾기</a>
 	         	 | <a href="/appleMarket/view/user/searchPwdForm" onclick="window.open(this.href, '_blank', 'width=400, height=300'); return false;">비밀번호 찾기</a>
-
 	         </div>
 	         <div style="padding:0 5px;">
 		         <input type="button" value="로그인" class="sbm" id="loginBtn" style="cursor:pointer;"/>

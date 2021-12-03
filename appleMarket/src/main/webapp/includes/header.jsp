@@ -23,7 +23,7 @@
             	<c:when test="${not empty sessionScope.login_info}">
 		            <ul class="login">
 		              <li> ${sessionScope.login_info.member_id}님		            
-		               <li><a href="/appleMarket/view/myPage/userupdatapage.jsp">마이페이지</a></li>
+		               <li><a href="/appleMarket/modifyForm">마이페이지</a></li>
 		               <li><a href="#" class="logout">로그아웃</a></li><!-- ajax 쓰기..화면넘어가게 하지 않기 위해서 -->
 		
 		            </ul>

@@ -73,10 +73,10 @@
                             <h2 class="star"><span>마이페이지</span></h2>
                             <div class="clr"></div>
                             <ul class="sb_menu">
-                                <li><a href="/appleMarket/view/myPage/userupdatapage.jsp">회원정보수정</a></li>
+                                <li><a href="/appleMarket/view/myPage/modifyForm">회원정보수정</a></li>
                                 <li><a href="/appleMarket/view/myPage/userchangepwpage.jsp">비밀번호변경</a></li>
                                 <li><a href="/appleMarket/view/myPage/userdeletepage.jsp">회원탈퇴</a></li>
-                                <li><a href="/appleMarket/view/myPage/userupdatapage.jsp">회원정보수정</a></li>
+                                <li><a href="/appleMarket/view/myPage/modifyForm">회원정보수정</a></li>
                                 <li><a href="/appleMarket/view/myPage/userchangepwpage.jsp">비밀번호변경</a></li>
                                 <li><a href="/appleMarket/view/myPage/userdeletepage.jsp">회원탈퇴</a></li>
                             </ul>

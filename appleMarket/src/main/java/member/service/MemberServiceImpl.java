@@ -172,6 +172,18 @@ public class MemberServiceImpl implements MemberService {
 		
 	}
 
+	@Override
+	public int emailChk(String member_email) {
+		
+		return memberDAO.emailChk(member_email);
+	}
+
+	@Override
+	public int phoneChk(MemberDTO memberDTO) {
+		
+		return memberDAO.phoneChk(memberDTO);
+	}
+
 
 }
 
