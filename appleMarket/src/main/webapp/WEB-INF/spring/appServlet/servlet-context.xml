@@ -27,9 +27,7 @@
 	<context:component-scan base-package="localCommunityboard.controller"/>
 	<context:component-scan base-package="saleboard.controller"/>
 	<context:component-scan base-package="buyerboard.controller"/>
-	<!-- <context:component-scan base-package="handler"/> -->
-	<context:component-scan base-package="member.controller" />
-	<context:component-scan base-package="spring.conf" />
+
 	<context:component-scan base-package="member.controller" />
 
 	<context:component-scan base-package="spring.conf" />
@@ -40,8 +38,10 @@
 	<mvc:resources location="/img/" mapping="/img/**" />
 	<mvc:resources location="/css/" mapping="/css/**" />
 	<mvc:resources location="/view/" mapping="/view/**" />
+	<mvc:resources location="/storage/" mapping="/storage/**" />
 	<mvc:resources location="/includes/" mapping="/includes/**" />
 	
 	
 	<mvc:annotation-driven />
+
 </beans>

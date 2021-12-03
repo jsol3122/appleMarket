@@ -79,6 +79,7 @@ $(function() {
 
     //category filter
 
+	/*
 
     $(".price_range").slider({
         range: true,
@@ -130,7 +131,7 @@ $(function() {
         var slideLastVal = slideVal.filter(':last-of-type');
         slideLastVal.html('<i></i>');
         slideLastVal.find('i').text(userValue + '$');
-    });
+    }); */
 
     /*
     var sizeFilter = $('.size_filter input');
@@ -159,7 +160,7 @@ $(function() {
         itemSelector: '.new_arrivals_list > li'
     });
 
-    $filters.click(function() {
+	$filters.click(function() {
         var $button = $(this);
 
         //get group key
@@ -172,7 +173,6 @@ $(function() {
         var filterValue = concatValues(filters);
         // set filter for Isotope
         $grid.isotope({ filter: filterValue });
-        console.log('filterValue = '+filterValue);
         $grid.isotope( 'updateSortData', filterValue );
 
         if ($button.val() == '*') {

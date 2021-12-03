@@ -37,6 +37,7 @@
     <link rel="stylesheet" href="/appleMarket/css/buyandsell.css">
 
 </head>
+
 <body>
     <header>
         <nav class="main_navigation">
@@ -75,8 +76,7 @@
                         <input type="checkbox" id="sale_category_all" name="sale_category" value="*">
                         <span class="box">box</span>
                         <label for="sale_category_all">All</label>
-
-                        <input type="checkbox" id="tech" name="sale_category" value=".tech">
+                        <input type="checkbox" id="tech" name="sale_category" value=".tech" checked>
                         <span class="box">box</span>
                         <label for="tech">디지털기기/생활가전</label>
 
@@ -137,4 +137,4 @@
     </main>
     <footer></footer>
 </body>
-
+</html>
