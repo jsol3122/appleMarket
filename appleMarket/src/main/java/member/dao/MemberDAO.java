@@ -1,6 +1,7 @@
 package member.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import member.bean.MemberDTO;
 import member.bean.ZipcodeDTO;
@@ -19,5 +20,14 @@ public interface MemberDAO {
 
 	public void modify(MemberDTO memberDTO);
 
-	public MemberDTO idSearch(String member_email);
+	public MemberDTO searchId(String member_email);
+
+	public MemberDTO searchPwd(String member_id, String member_email);
+
+	public void changePwd(MemberDTO memberDTO);
+
+	public void recommend(Map<String, String> map);
+
+	public void recommended(Map<String, String> map);
 }
+
