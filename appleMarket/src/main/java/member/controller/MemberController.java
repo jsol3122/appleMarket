@@ -1,11 +1,13 @@
 package member.controller;
 
+import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
@@ -13,6 +15,7 @@ import javax.validation.constraints.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -32,7 +35,7 @@ import member.service.MessageService;
 @Controller	
 //@RequestMapping(value="/view/user")
 @Validated
-public class MemberController {
+public class MemberController{
 	@Autowired
 	private MemberService memberSerivce;
 	@Autowired
@@ -52,14 +55,22 @@ public class MemberController {
 	}
 	
 	//회원가입
-	@RequestMapping("/write")
-	@ResponseBody
-	public void write(@ModelAttribute @Valid MemberDTO memberDTO) {
+	@RequestMapping("/write")	
+	public String write(@ModelAttribute @Valid MemberDTO memberDTO, HttpServletResponse response, ModelMap model) throws Exception{
 		String Check = memberSerivce.checkId(memberDTO.getMember_id());
 		if(Check.equals("non_exist")) {
 			memberSerivce.write(memberDTO);
+			return "/index";
 		}else {
-			return;
+			response.setCharacterEncoding("EUC-KR");
+			PrintWriter writer = response.getWriter();
+			writer.println("<script type='text/javascript'>");
+			writer.println("alert('해당 메뉴에 대한 권한이 없습니다. ');");
+			writer.println("history.back();");
+			writer.println("</script>");
+			writer.flush();		
+
+			return "/user/index";
 		}
 	}
 	
@@ -198,6 +209,14 @@ public class MemberController {
 	public void delete(@ModelAttribute MemberDTO memberDTO) {
 		memberSerivce.delete(memberDTO);
 	}
+	
+	
+	//마이페이지update
+		@PostMapping("/WEB-INF/myPage/userupdatapage")	
+		public String userupdatapage() {
+			return "/myPage/userupdatapage";
+		}
+		
 	
 
 }

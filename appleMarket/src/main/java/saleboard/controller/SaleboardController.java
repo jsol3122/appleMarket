@@ -112,6 +112,7 @@ public class SaleboardController {
 	}
 	
 	@PostMapping("/saleboard/saleboardGetView")
+	@ResponseBody
 	public List<SaleboardDTO> saleboardGetView(@RequestParam int saleboard_seq){
 		return saleboardService.saleboardGetView(saleboard_seq);	
 	}	
