@@ -24,8 +24,11 @@
 	            <input type="password" id="member_pwd" name="member_pwd" class="loginInput" placeholder="비밀번호를 입력해주세요" style="width:350px; height:45px;"/>
 	         </div>
 	         <div>
+<<<<<<< HEAD
+=======
 
 
+>>>>>>> b196ef724127a9382fa7691e4087a8c3fa58ab62
 	         	<a href="/appleMarket/view/user/searchIdForm" onclick="window.open(this.href, '_blank', 'width=400, height=300'); return false;">아이디 찾기</a>
 	         	 | <a href="/appleMarket/view/user/searchPwdForm" onclick="window.open(this.href, '_blank', 'width=400, height=300'); return false;">비밀번호 찾기</a>
 
@@ -37,15 +40,9 @@
 		         <div id="loginResult"></div>
 	         </div>
 	         
-	           
-	            <!-- 로그아웃 기능 구현시 아래 코드 사용  -->
-	          <!-- <ul>
-	            <li onclick="kakaoLogout();">
-	            <a href="javascript:void(0)">
-	            <span>카카오 인증 취소</span>
-	            </a>
-	            </li>
-	         </ul>    -->
+	     <!-- 로그아웃 -->    
+   		 <a href="https://kauth.kakao.com/oauth/logout?client_id=ab83dfbd7b35d430c0fcb3a8f27f07ed&logout_redirect_uri=http://localhost:8080/appleMarket/index">로그아웃</a>
+
 	      </form>
 	    </div>
       <br>
@@ -133,54 +130,5 @@ $(document).ready(function() {
         + data['nickname']);
     }
 });  
-  
-//카카오로그아웃  
-/* 
- 
- function kakaoLogout() {
-=======
-    Kakao.Auth.login({
-      success: function (response) {
-        Kakao.API.request({
-          url: '/v2/user/me',
-          success: function (response) {
-             console.log(response)
-             alert('로그인 합니다.');
-             location.href='/appleMarket/index.jsp';
-          },
-          fail: function (error) {
-            console.log(error)
-          },
-        })
-      },
-      fail: function (error) {
-        console.log(error)
-      },
-    })
-  }
-  
-//카카오로그아웃  
-function kakaoLogout() {
->>>>>>> a93d96737d193454a44d622e534e34c0a3cd9cbc
-    if (Kakao.Auth.getAccessToken()) {
-      Kakao.API.request({
-        url: '/v1/user/unlink',
-        success: function (response) {
-           console.log(response)
-        },
-        fail: function (error) {
-          console.log(error)
-        },
-      })
-      Kakao.Auth.setAccessToken(undefined)
-    }
-<<<<<<< HEAD
-  }   
-*/
-
- 
-
-
 </script>
-
 </html>
