@@ -26,8 +26,8 @@ public class SaleboardServiceImpl implements SaleboardService {
 		
 		// DB 
 		//1페이지당 n개씩
-		int endNum = pg * 5;
-		int startNum = endNum - 4;
+		int endNum = pg * 12;
+		int startNum = endNum - 11;
 		
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		map.put("startNum", startNum);
@@ -38,10 +38,8 @@ public class SaleboardServiceImpl implements SaleboardService {
 		
 		
 		boardPaging.setCurrentPage(pg);
-		boardPaging.setPageBlock(3);
-		boardPaging.setPageSize(5);
+		boardPaging.setPageSize(12);
 		boardPaging.setTotalA(totalA);
-		boardPaging.makePagingHTML();
 		
 		JSONObject json = new JSONObject();
 		if(list != null) {
@@ -69,16 +67,14 @@ public class SaleboardServiceImpl implements SaleboardService {
 				temp.put("sale_logtime", saleboardDTO.getSale_logtime());
 				temp.put("sale_update_logtime", saleboardDTO.getSale_update_logtime());
 				
+				temp.put("sale_category", saleboardDTO.getSale_category());
+				
 				array.add(temp);
 			}//for
 			
 			json.put("list", array);
 			
 		}
-		
-		
-		json.put("boardPaging", boardPaging.getPagingHTML().toString());	
-		
 		return json;
 	}
 
@@ -95,43 +91,50 @@ public class SaleboardServiceImpl implements SaleboardService {
 	}
 
 	@Override
-	public void saleboardDelete(int saleboard_seq) {
-		saleboardDAO.saleboardDelete(saleboard_seq);	
+	public void saleboardDelete(int sale_seq) {
+		saleboardDAO.saleboardDelete(sale_seq);	
 	}
 	
 	@Override
-	public List<SaleboardDTO> saleboardGetView(int saleboard_seq) {		
-		return saleboardDAO.saleboardGetView(saleboard_seq);
+	public List<SaleboardDTO> saleboardGetView(int sale_seq) {
+		System.out.println("serviceImpl");
+		return saleboardDAO.saleboardGetView(sale_seq);
 	}
-/*
 	
+	@Override
+	public void saleboardPick(Map<String, String> map) {
+		saleboardDAO.saleboardPick(map);		
+	}
+
+	@Override
+	public void saleboardPickCancel(Map<String, String> map) {
+		saleboardDAO.saleboardPickCancel(map);
+	}
+
+	@Override
+	public void saleboardHit(int sale_seq) {
+		saleboardDAO.saleboardHit(sale_seq);		
+	}
 
 	@Override
 	public List<SaleboardDTO> saleboardSearch(SaleboardDTO saleboardDTO) {
-		// TODO Auto-generated method stub
-		return null;
+		return saleboardDAO.saleboardSearch(saleboardDTO);
 	}
 
 	@Override
-	public void saleboardPick(Map<String, String> map) {
-		// TODO Auto-generated method stub
+	public void saleboardFollow(Map<String, String> map) {
+		saleboardDAO.saleboardFollow(map);
 		
-	}
-
-	@Override
-	public List<SaleboardDTO> saleboardGetList() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 	
 
-
-*/
 //	@Override
 //	public void saleboardChat(String sale_id) {
 //		saleboardDAO.saleboardChat(sale_id);
 //		
 //	}
+
+
 
 
 

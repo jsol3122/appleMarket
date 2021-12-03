@@ -10,7 +10,7 @@
 <body>
 	<div id="modal-content">
 		<div class="modal-body"> <!-- modal body -->
-		<form id="writeForm" action="/appleMarket/user/write" method="post">
+		<form id="writeForm" action="/appleMarket/write" method="post">
 			<h3>회원가입</h3>
 			<hr>
 			<p class="warning">* 는 필수 입력 항목입니다</p>
@@ -41,6 +41,9 @@
 				<input type="text" name="member_tel2" id="member_tel2" maxlength="4" style="width:60px; margin-right: 0;"> -
 				<input type="text" name="member_tel3" id="member_tel3" maxlength="4" style="width:60px; margin-right: 0;">
 				<input type="button" value="본인인증"  class="chk" id="tel_chk"/>
+				<input type="text" name="phone2" id="phone2" class="hidden" style="width: 135px;height: 35px; margin-left:102px;"/>
+				<input type="text" class="hidden time" id="timer" style="width: 70px;height: 35px;border:0">
+				<input type="button" value="인증확인"  class="hidden chk" id="tel_valid"/>
 				<input type="text" id="user_valid" class="hidden">
 				<input type="hidden" id="checked_user" value="">
 				
@@ -53,7 +56,7 @@
 				<label>주소</label>
 				<input type="text" name="member_sido_sigungu" id="member_sido_sigungu" placeholder="우편번호 검색을 이용해주세요" readonly/>
 				<input type="button" value="우편번호 검색"  class="chk" id="addr_chk"/>
-				<input type="text" name="member_dong" id="member_dong" style="margin: 10px 102px 0;" readonly />
+				<input type="text" name="member_dong" id="member_dong" style="margin: 10px 105px 0;" readonly />
 				<input type="text" name="member_address" id="member_address" readonly />
 				<input type="text" name="member_detailAddr" id="member_detailAddr" placeholder="상세 주소를 입력해주세요"/>
 				
@@ -72,10 +75,7 @@
 			</div>
 		</form>
 		</div>
-		<!-- Modal footer -->
-		<div class="modal-footer">
-			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-		</div>
+
 	</div> <!-- modal content -->
 
 </body>

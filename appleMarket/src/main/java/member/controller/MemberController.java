@@ -82,8 +82,14 @@ public class MemberController {
 		MessageDTO messageDTO = new MessageDTO();
 		messageDTO.setPhone(userPhoneNumber);
 		messageDTO.setCertificationNumber(randomNumber);
-		messageService.certificationCheck(messageDTO);
 		
+		String message = messageService.checkPhone(userPhoneNumber);
+		
+		if(message=="non_exist") {
+			messageService.certificationCheck(messageDTO);
+		}else if(message=="exist"){
+			messageService.phoneUpdate(messageDTO);
+		}
 		return Integer.toString(randomNumber); 
 		
 	}
@@ -98,8 +104,9 @@ public class MemberController {
 	 */
 	@PostMapping("/phoneCheckNum")
 	@ResponseBody
-	public String checkSMS(@RequestParam("phone2") String Checknum) {
-		MessageDTO messageDTO = messageService.checkSMS(Checknum);
+	public String checkSMS(@RequestParam("phone2") String Checknum,@RequestParam("phone") String userPhoneNumber) {
+		
+		MessageDTO messageDTO = messageService.checkSMS(userPhoneNumber);
 		
 		String today = null; 
 		Date date = new Date(); 
@@ -118,16 +125,25 @@ public class MemberController {
 		
 		cal.setTime(date);
 		
-		System.out.println(checkTime);
-		System.out.println(today);
+		System.out.println("checkTime="+checkTime);
+		System.out.println("today="+today);
 		
 		int result = today.compareTo(checkTime);
 		
+//		if(Integer.parseInt(Checknum) == messageDTO.getCertificationNumber() && result < 0) {
 		if(Integer.parseInt(Checknum) == messageDTO.getCertificationNumber() && result < 0) {
 			return "ok";
 		}else {
 			return "fail";
-		}	
+		}
+
+	}
+	
+	//핸드폰 중복체크 
+	@PostMapping("/checkPhone")
+	@ResponseBody
+	public String checkPhone(@RequestParam String phone) {
+		return messageService.checkPhone(phone);
 	}
 
 	//아이디 중복체크
@@ -198,5 +214,31 @@ public class MemberController {
 		memberSerivce.delete(memberDTO);
 	}
 	
+	//수정하기 폼
+	@GetMapping(value="/modifyForm")
+	public String modifyForm() {
+		return "/modifyForm";
+	}
+	
+	//수정하기 
+	@PostMapping("/modify")
+	@ResponseBody
+	public void modify(@ModelAttribute MemberDTO memberDTO) {
+		memberSerivce.modify(memberDTO);
+	}
+	
+	//아이디찾기 폼
+	@GetMapping(value="/idSearchForm")
+	public String idSearch() {
+		return "/idSearch";
+	}
+	
+	//아이디찾기 
+	@PostMapping(value="/idSearch")
+	@ResponseBody
+	public String idSearch(@RequestParam("member_email") String member_email) {
+		return memberSerivce.idSearch(member_email);
+	}
 
+	//비밀번호 찾기 폼 
 }
