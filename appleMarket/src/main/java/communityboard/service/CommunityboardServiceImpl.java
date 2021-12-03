@@ -95,7 +95,7 @@ public class CommunityboardServiceImpl implements CommunityboardService {
 	}
 
 	@Override
-	public List<CommunityboardDTO> communityboardGetView(int communityboard_seq) {
+	public CommunityboardDTO communityboardGetView(int communityboard_seq) {
 		
 		return communityboardDAO.communityboardGetView(communityboard_seq);
 	}

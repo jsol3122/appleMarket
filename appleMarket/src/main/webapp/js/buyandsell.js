@@ -79,7 +79,7 @@ $(function() {
 
     //category filter
 
-	/*
+   /*
 
     $(".price_range").slider({
         range: true,
@@ -160,7 +160,7 @@ $(function() {
         itemSelector: '.new_arrivals_list > li'
     });
 
-	$filters.click(function() {
+   $filters.click(function() {
         var $button = $(this);
 
         //get group key
