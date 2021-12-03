@@ -34,12 +34,7 @@ public interface SaleboardDAO {
 
 //	public void saleboardChat(String sale_id);
 
-
-
-
-
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 481d671775efde5eebd6ed6c1385b96f07d5a16f
+
+
+
