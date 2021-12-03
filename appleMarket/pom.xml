@@ -20,6 +20,8 @@
     </plugins>
   </build>
   
+	
+
   <dependencies>
   	<dependency>
 		<groupId>org.springframework</groupId>
@@ -193,7 +195,7 @@
 	    <version>1.18.20</version>
 	    <scope>provided</scope>
 	</dependency>	
-	
+
 	<!-- 메일 api -->
 	<dependency>
 		<groupId>org.apache.commons</groupId>

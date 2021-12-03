@@ -1,3 +1,4 @@
+
 package communityboardComment.dao;
 
 import java.util.List;
@@ -14,6 +15,8 @@ public interface CommunityboardCommentDAO {
 	public void communityboardCommentModify(CommunityboardCommentDTO communityboardCommentDTO);
 
 	public void communityboardCommentReply(Map<String, String> map);
+
+	public void communityboardCommentDelete(String communityboard_comment_seq);
 
 	
 

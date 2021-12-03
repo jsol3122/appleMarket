@@ -22,6 +22,7 @@
 </head>
 
 <body>
+
 <!-- 상단 -->
 <%@include file="/includes/header.jsp" %>
     <section id="visualBox">
