@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
+import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -53,12 +54,20 @@ public class CommunityboardController {
 	@ResponseBody
 	public void communityboardWrite(@ModelAttribute CommunityboardDTO communityboardDTO 
 									, @RequestParam MultipartFile img, HttpSession session) {
+		
+		String uuid = UUID.randomUUID().toString();
+		
 		String filePath = session.getServletContext().getRealPath("storage");
-		String fileName = img.getOriginalFilename();
+		System.out.println(filePath);
+		
+		String fileName = uuid+"_"+img.getOriginalFilename();
+		
+
 		File file = new File(filePath,fileName);
-		
+		System.out.println(fileName);
+
 		System.out.println("여기까지 오는지 확인");
-		
+
 		//file copy
 		try {
 			
@@ -96,15 +105,13 @@ public class CommunityboardController {
 	}
 	
 	@GetMapping("/communityboard/communityboardView")
-	public String communityboardView(HttpServletResponse response ,HttpServletRequest request) {
-		
-		
+	public String communityboardView(HttpServletResponse response ,HttpServletRequest request) {	
 		return "/communityboard/communityboardView";
 	}
 	
 	@PostMapping("/communityboard/communityboardGetView")
 	@ResponseBody
-	public List<CommunityboardDTO>  communityboardGetView(@RequestParam int communityboard_seq){
+	public CommunityboardDTO  communityboardGetView(@RequestParam int communityboard_seq){
 		return 	communityboardService.communityboardGetView(communityboard_seq);	
 	}
 	

@@ -49,9 +49,9 @@ public class CommunityboardDAOMybatis implements CommunityboardDAO {
 	}
 
 	@Override
-	public List<CommunityboardDTO> communityboardGetView(int communityboard_seq) {
+	public CommunityboardDTO communityboardGetView(int communityboard_seq) {
 		
-		return sqlSession.selectList("communityboardSQL.communityboardGetView",communityboard_seq);
+		return sqlSession.selectOne("communityboardSQL.communityboardGetView",communityboard_seq);
 	}
 
 	@Override

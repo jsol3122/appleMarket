@@ -17,7 +17,7 @@ public interface CommunityboardDAO {
 
 	public void communityboardDelete(int communityboard_seq);
 
-	public List<CommunityboardDTO> communityboardGetView(int communityboard_seq);
+	public CommunityboardDTO communityboardGetView(int communityboard_seq);
 
 	public List<CommunityboardDTO> communityboardSearch(CommunityboardDTO communityboardDTO);
 

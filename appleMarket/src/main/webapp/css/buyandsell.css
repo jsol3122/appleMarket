@@ -756,12 +756,14 @@ form hr {
     text-align: center;
 }
 
+
 .category_filter,
 .brand_filter {
     display: flex;
     margin-bottom: 20px;
     align-items: center;
 }
+
 
 .brand_filter:nth-child(n+14):nth-child(-n+26) {
     display: none;
