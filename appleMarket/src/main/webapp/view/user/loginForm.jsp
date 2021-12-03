@@ -10,6 +10,9 @@
 </head>
 <body>
 	<div id="modal-content">
+		<div class="modal-header"> <!-- modal header -->
+			<button type="button" class="close" data-dismiss="modal">×</button>
+		</div>
 	
 		<div class="modal-body"> <!-- modal body -->
 	      <form id="loginForm">
@@ -22,13 +25,6 @@
 	         </div>
 	         <div>
 	            <input type="password" id="member_pwd" name="member_pwd" class="loginInput" placeholder="비밀번호를 입력해주세요" style="width:350px; height:45px;"/>
-	         </div>
-	         <div>
-
-
-	         	<a href="/appleMarket/view/user/searchIdForm" onclick="window.open(this.href, '_blank', 'width=400, height=300'); return false;">아이디 찾기</a>
-	         	<a href="/appleMarket/view/user/searchPwdForm" onclick="window.open(this.href, '_blank', 'width=400, height=300'); return false;">비밀번호 찾기</a>
-
 	         </div>
 	         <div style="padding:0 5px;">
 		         <input type="button" value="로그인" class="sbm" id="loginBtn" style="cursor:pointer;"/>
@@ -59,7 +55,7 @@
 //로그인 유효성 검사   
 $('#loginBtn').click(function(){
    var loginForm = document.querySelector('#loginForm');
-   var id = document.querySelector('#member_id').value;
+   
    loginForm.querySelector('#member_id').classList.remove("placeholderColor");
    loginForm.querySelector('#member_pwd').classList.remove("placeholderColor");
 
@@ -75,16 +71,15 @@ $('#loginBtn').click(function(){
       loginForm.querySelector('#member_pwd').classList.add("placeholderColor");
    else{
       $.ajax({
-            url: '/appleMarket/login',
+            url: '/appleMarket/view/user/login',
             type: 'post',
             data: 'member_id='+$('#member_id').val()+'&member_pwd='+$('#member_pwd').val(),
             //dataType: 'text',
-            success: function(data){            	             
+            success: function(data){
+               //alert(data);
                data = data.trim();         
               if(data==1){
-            	  alert(id+"님 반갑습니다.");
-                  location.href="/appleMarket/index";      
-                
+                  location.href="/appleMarket/index";                  
                }else{
                   $('#loginResult').text('아이디 또는 비밀번호가 잘못 입력 되었습니다.아이디와 비밀번호를 정확히 입력해 주세요.');
                   $('#loginResult').css('color', 'red');
@@ -105,40 +100,6 @@ console.log(Kakao.isInitialized()); // sdk초기화여부판단
 
 //카카오로그인
 function kakaoLogin() {
-	   	$.ajax({
-	         url: '/appleMarket/login/getKakaoAuthUrl',
-	         type: 'get',
-	         //data: {'member_id' : id},
-	         dataType: 'text',
-	         success: function(data){
-	        	 location.href = data;
-	         },
-	         error: function(err){
-	            console.log(err);
-	         }
-	        });
-}
-
-$(document).ready(function() {
-	
-    var kakaoInfo = '${kakaoInfo}';
-    if(kakaoInfo != ""){
-        var data = JSON.parse(kakaoInfo);
-
-        alert("카카오로그인 성공 \n accessToken : " + data['accessToken']);
-        alert(
-        "user : \n" + "email : "
-        + data['email']  
-        + "\n nickname : " 
-        + data['nickname']);
-    }
-});  
-  
-//카카오로그아웃  
-/* 
- 
- function kakaoLogout() {
-=======
     Kakao.Auth.login({
       success: function (response) {
         Kakao.API.request({
@@ -161,7 +122,6 @@ $(document).ready(function() {
   
 //카카오로그아웃  
 function kakaoLogout() {
->>>>>>> a93d96737d193454a44d622e534e34c0a3cd9cbc
     if (Kakao.Auth.getAccessToken()) {
       Kakao.API.request({
         url: '/v1/user/unlink',
@@ -174,12 +134,7 @@ function kakaoLogout() {
       })
       Kakao.Auth.setAccessToken(undefined)
     }
-<<<<<<< HEAD
-  }   
-*/
-
- 
-
+  }  
 
 </script>
 

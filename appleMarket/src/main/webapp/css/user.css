@@ -3,7 +3,7 @@
 /* -------------------- 회원가입 ----------------------------- */
 
 form h3{
-	color: #ff8080;
+	color: #66269a;
 	text-align: center;
 	text-indent: 1em;
 }
@@ -32,7 +32,7 @@ form label{
 form input[type=text], form input[type=email], form input[type=password]{
 	width: 210px;
 	height: 35px;
-	text-indent: 0.5em;
+	text-indent: 1.5em;
 }
 form input[type=text]:focus, form input[type=email]:focus, form input[type=password]:focus{
 	background: #efddff;
@@ -43,24 +43,15 @@ form input[type=text]:focus, form input[type=email]:focus, form input[type=passw
 	background: white;
 	font-size: 6pt;
 	font-weight: bold;
-	border: 1px solid #ff8080;
+	border: 1px solid #66269a;
 	border-radius: 4px;
-	color: #ff8080;
+	color: #66269a;
 }
 
 .hidden{
 	display: none;
-}
-
-#id_valid, #user_valid{
-	font-size: 8pt;
+	font-size: 12pt;
 	border: 0;
-	height: 20px;
-}
-
-.time{
-	font-size: 8pt;
-	color: tomato;
 }
 
 #modal-body{
@@ -69,8 +60,8 @@ form input[type=text]:focus, form input[type=email]:focus, form input[type=passw
 }
 
 ---------------------- 로그인창 --------------------------
-#member_dong, #member_address, #member_detailAddr, #id_valid, #user_valid{
-	margin: 10px 105px 0;
+#member_dong, #member_address, #member_detailAddr, #id_valid{
+	margin: 10px 102px 0;
 }
 
 .sbm, #kakao_login{
@@ -88,17 +79,17 @@ form input[type=text]:focus, form input[type=email]:focus, form input[type=passw
 	padding: -25px 5px;
 	text-indent: 22em;
 	font-size: 8pt;
-	color: tomato;
+	color: red;
 	
 }
 
 .placeholderColor::-webkit-input-placeholder{
-	color: tomato;
+	color: red;
 }
 
 .warning{
 	font-size: 8pt;
-	color: tomato;
+	color: red;
 	text-align: right;
 }
 
@@ -106,6 +97,7 @@ select{
 	width: 60px;
 	height: 35px;
 	margin-right: 0;
+	text-indent: 0.5em;
 }
 
 input[type=radio]{
@@ -130,10 +122,6 @@ input.loginInput{
 	margin: 10px 30px;
 }
 
-.modal a.close-modal {
-	top: 9.5px;
-	right: 7.5px;
-}
 
 
 
