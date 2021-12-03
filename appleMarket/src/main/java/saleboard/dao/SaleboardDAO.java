@@ -38,4 +38,8 @@ public interface SaleboardDAO {
 
 
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 481d671775efde5eebd6ed6c1385b96f07d5a16f

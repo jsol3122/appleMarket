@@ -114,6 +114,13 @@ public class SaleboardServiceImpl implements SaleboardService {
 	@Override
 	public void saleboardHit(int sale_seq) {
 		saleboardDAO.saleboardHit(sale_seq);		
+<<<<<<< HEAD
+	}
+
+	@Override
+	public List<SaleboardDTO> saleboardSearch(SaleboardDTO saleboardDTO) {
+		return saleboardDAO.saleboardSearch(saleboardDTO);
+=======
 	}
 
 	@Override
@@ -125,9 +132,19 @@ public class SaleboardServiceImpl implements SaleboardService {
 	public void saleboardFollow(Map<String, String> map) {
 		saleboardDAO.saleboardFollow(map);
 		
+>>>>>>> 481d671775efde5eebd6ed6c1385b96f07d5a16f
+	}
+
+<<<<<<< HEAD
+	@Override
+	public void saleboardFollow(Map<String, String> map) {
+		saleboardDAO.saleboardFollow(map);
+		
 	}
 	
 
+=======
+>>>>>>> 481d671775efde5eebd6ed6c1385b96f07d5a16f
 //	@Override
 //	public void saleboardChat(String sale_id) {
 //		saleboardDAO.saleboardChat(sale_id);
@@ -138,4 +155,8 @@ public class SaleboardServiceImpl implements SaleboardService {
 
 
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 481d671775efde5eebd6ed6c1385b96f07d5a16f
