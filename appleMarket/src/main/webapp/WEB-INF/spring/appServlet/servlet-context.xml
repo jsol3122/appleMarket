@@ -3,9 +3,11 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
-		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
+	xmlns:websocket="http://www.springframework.org/schema/websocket"
+	xsi:schemaLocation="http://www.springframework.org/schema/websocket http://www.springframework.org/schema/websocket/spring-websocket-4.3.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
 	<!--웹과 관련있는 환경설정 -->
 
@@ -13,41 +15,29 @@
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="suffix" value=".jsp" />
 	</bean>
-	
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<property name="maxUploadSize" value="5000000"/>
 	</bean>
 	<!-- value="5000000" 은 10메가 -->
 
-	<context:component-scan
-		base-package="communityboard.controller" />
-	<context:component-scan
-		base-package="communityboardComment.controller" />
+	<context:component-scan base-package="communityboard.controller" />
+	<context:component-scan	base-package="communityboardComment.controller" />
 	<context:component-scan base-package="localCommunityboard.controller"/>
 	<context:component-scan base-package="saleboard.controller"/>
 	<context:component-scan base-package="buyerboard.controller"/>
-	<!-- <context:component-scan base-package="handler"/> -->
-	<context:component-scan
-		base-package="member.controller" />
-	<context:component-scan
-		base-package="spring.conf" />
+	<context:component-scan base-package="member.controller" />
+
+	<context:component-scan base-package="spring.conf" />
 	<context:component-scan base-package="handler" />
 
 	<mvc:resources location="/js/" mapping="/js/**" />
 	<mvc:resources location="/img/" mapping="/img/**" />
 	<mvc:resources location="/css/" mapping="/css/**" />
+	<mvc:resources location="/view/" mapping="/view/**" />
 	<mvc:resources location="/storage/" mapping="/storage/**" />
 
 	<mvc:annotation-driven />
 
-
-	
-
-
-
-	
-	
-	
 	
 <!-- 
 <mvc:annotation-driven/>

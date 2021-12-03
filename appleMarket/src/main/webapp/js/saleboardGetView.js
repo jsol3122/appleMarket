@@ -20,7 +20,7 @@ $(function(){
     $.ajax({
         url: '/appleMarket/saleboard/saleboardGetView',
         type: 'post',
-        data: 'saleboard_seq='+result.sale_seq,
+        data: 'sale_seq='+result.sale_seq,
         dataType: 'json',
         success: function(data){
         	console.log(JSON.stringify(data));
