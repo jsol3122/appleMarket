@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,9 +36,6 @@
     <link rel="stylesheet" href="/appleMarket/css/buyandsell.css">
 
 </head>
-<<<<<<< HEAD
-=======
-
 <body>
     <header>
         <nav class="main_navigation">
@@ -142,9 +138,6 @@
 </body>
 
 </html>
-
->>>>>>> ad8d99bb62fe8ad49d3558463da3a86bdb310553
-
 <body>
     <header>
         <nav class="main_navigation">
