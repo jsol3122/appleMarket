@@ -56,20 +56,13 @@ public class MemberController{
 	
 	//회원가입
 	@RequestMapping("/write")	
-	public String write(@ModelAttribute @Valid MemberDTO memberDTO, HttpServletResponse response, ModelMap model) throws Exception{
+	public String write(@ModelAttribute @Valid MemberDTO memberDTO){
 		String Check = memberSerivce.checkId(memberDTO.getMember_id());
 		if(Check.equals("non_exist")) {
 			memberSerivce.write(memberDTO);
 			return "/index";
 		}else {
-			response.setCharacterEncoding("EUC-KR");
-			PrintWriter writer = response.getWriter();
-			writer.println("<script type='text/javascript'>");
-			writer.println("alert('해당 메뉴에 대한 권한이 없습니다. ');");
-			writer.println("history.back();");
-			writer.println("</script>");
-			writer.flush();		
-
+			
 			return "/user/index";
 		}
 	}
@@ -225,17 +218,8 @@ public class MemberController{
 	public void delete(@ModelAttribute MemberDTO memberDTO) {
 		memberSerivce.delete(memberDTO);
 	}
+
 	
-<<<<<<< HEAD
-	
-	//마이페이지update
-		@PostMapping("/WEB-INF/myPage/userupdatapage")	
-		public String userupdatapage() {
-			return "/myPage/userupdatapage";
-		}
-		
-	
-=======
 	//수정하기 폼
 	@GetMapping(value="/modifyForm")
 	public String modifyForm() {
@@ -261,7 +245,6 @@ public class MemberController{
 	public String idSearch(@RequestParam("member_email") String member_email) {
 		return memberSerivce.idSearch(member_email);
 	}
->>>>>>> ad8d99bb62fe8ad49d3558463da3a86bdb310553
 
 	//비밀번호 찾기 폼 
 }

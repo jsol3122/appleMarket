@@ -172,15 +172,9 @@ $(function() {
         var filterValue = concatValues(filters);
         // set filter for Isotope
         $grid.isotope({ filter: filterValue });
-<<<<<<< HEAD
         console.log('filterValue = '+filterValue);
         $grid.isotope( 'updateSortData', filterValue );
 
-=======
-        
-        $grid.isotope( 'updateSortData', filterValue );
-	
->>>>>>> ad8d99bb62fe8ad49d3558463da3a86bdb310553
         if ($button.val() == '*') {
             $button.parent('div').find('input').prop('checked', false);
             $button.prop('checked', true);
@@ -234,70 +228,44 @@ $(function() {
             $button.parent('div').find('input').prop('checked', false);
             $button.prop('checked', true);
         } else {
-<<<<<<< HEAD
             $button.parent('div').find('input').eq(6).prop('checked', false);
-=======
-            $button.parent('div').find('input').eq(7).prop('checked', false);
->>>>>>> ad8d99bb62fe8ad49d3558463da3a86bdb310553
         }
         
         if ($button.val() == '.sports') {
             $button.parent('div').find('input').prop('checked', false);
             $button.prop('checked', true);
         } else {
-<<<<<<< HEAD
             $button.parent('div').find('input').eq(6).prop('checked', false);
-=======
-            $button.parent('div').find('input').eq(8).prop('checked', false);
->>>>>>> ad8d99bb62fe8ad49d3558463da3a86bdb310553
         }
         
         if ($button.val() == '.beauty') {
             $button.parent('div').find('input').prop('checked', false);
             $button.prop('checked', true);
         } else {
-<<<<<<< HEAD
             $button.parent('div').find('input').eq(6).prop('checked', false);
-=======
-            $button.parent('div').find('input').eq(9).prop('checked', false);
->>>>>>> ad8d99bb62fe8ad49d3558463da3a86bdb310553
         }
         
         if ($button.val() == '.pet') {
             $button.parent('div').find('input').prop('checked', false);
             $button.prop('checked', true);
         } else {
-<<<<<<< HEAD
             $button.parent('div').find('input').eq(6).prop('checked', false);
-=======
-            $button.parent('div').find('input').eq(10).prop('checked', false);
->>>>>>> ad8d99bb62fe8ad49d3558463da3a86bdb310553
         }
         
         if ($button.val() == '.book') {
             $button.parent('div').find('input').prop('checked', false);
             $button.prop('checked', true);
         } else {
-<<<<<<< HEAD
             $button.parent('div').find('input').eq(6).prop('checked', false);
-=======
-            $button.parent('div').find('input').eq(11).prop('checked', false);
->>>>>>> ad8d99bb62fe8ad49d3558463da3a86bdb310553
         }
         
         if ($button.val() == '.etc') {
             $button.parent('div').find('input').prop('checked', false);
             $button.prop('checked', true);
         } else {
-<<<<<<< HEAD
             $button.parent('div').find('input').eq(6).prop('checked', false);
         }
 
-=======
-            $button.parent('div').find('input').eq(12).prop('checked', false);
-        }
-	
->>>>>>> ad8d99bb62fe8ad49d3558463da3a86bdb310553
     }); //filter click
 
     // flatten object by concatting values
