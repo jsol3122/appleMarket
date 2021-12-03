@@ -33,6 +33,7 @@ public class LocalCommunityboardDAOMybatis implements LocalCommunityboardDAO {
 		
 		String user_id =localCommunityboardDTO.getLocalcommunity_user_id();
 		String dong = sqlSession.selectOne("localCommunityboardSQL.searchDong",user_id);
+
 		localCommunityboardDTO.setLocalcommunity_dong(dong);
 		sqlSession.insert("localCommunityboardSQL.localCommunityboardWrite", localCommunityboardDTO);
 		

@@ -17,6 +17,7 @@ public interface BuyerboardService {
 
 	public List<BuyerboardDTO> buyerboardGetView(int buyerboard_seq);
 
+
 	public void buyerboardHit(int buyerboard_seq);
 
 }

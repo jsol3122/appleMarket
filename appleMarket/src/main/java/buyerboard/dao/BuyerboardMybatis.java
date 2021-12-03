@@ -56,4 +56,5 @@ public class BuyerboardMybatis implements BuyerboardDAO {
 		
 		sqlSession.update("buyerboardSQL.buyerboardHit",buyerboard_seq);
 	}
+
 }

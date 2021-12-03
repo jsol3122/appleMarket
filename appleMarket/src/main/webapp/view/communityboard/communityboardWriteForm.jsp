@@ -7,6 +7,7 @@ input[type=checkbox] {
 	background-repeat: no-repeat;
 	background-image: url('./img/checker-off.svg');
 }
+
 input[type=checkbox] {
     display:none;
 }
@@ -25,6 +26,7 @@ input[type=checkbox]:disabled + label {
  
 </style>
 <h3>이미지 등록</h3>
+
 <form id="communityboardWriteForm" ><!-- get방식 안 먹음 무조건 post방식으로만 먹힘 , ajax쓸거라서 나중에 지워짐 -->
 <table border="1" cellpadding="5" cellspacing="0" >
 		
@@ -37,11 +39,13 @@ input[type=checkbox]:disabled + label {
 			</td>
 			
 		</tr>
+
 		<tr>
 			<input type="checkbox" name="checker" id="checker1"><label for="checker1">익명</label>
 			<td align="center"> 글제목</td>				
 			<td>
 			
+
 			<input type="text" name = "communityboard_subject" id="communityboard_subject" size="35" placeholder="글 제목 입력">			
 			<div id="nameDiv"></div>
 			</td>
@@ -50,19 +54,25 @@ input[type=checkbox]:disabled + label {
 		<tr>
 			<td align="center">내용</td>
 			<td>
+
 			<textarea name="communityboard_content" id="communityboard_content" cols="35" rows="15" placeholder="내용 입력" style="﻿overflow-y:scroll; overflow-x:hidden;"></textarea>			
+
 			<div id="contentDiv"></div>
 			</td>			
 		</tr>		
 		<tr>
 			 <td colspan="2">				
+
 				<input type="file" name="img" id="img">
+
 			</td> 
 		</tr>
 		
 		<tr>		
 			<td colspan="2" align="center">
+
 				<input type="button" id="communityboardBtn" value="글쓰기 등록">
+
 				<input type="reset" value="다시작성">	
 			
 			</td>
@@ -72,6 +82,7 @@ input[type=checkbox]:disabled + label {
 </form>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
+
 $('#communityboardBtn').click(function(){
 	//초기화 과정
 	$('#nameDiv').empty();
@@ -106,4 +117,5 @@ $('#communityboardBtn').click(function(){
 		
 	}
 	});
+
 </script>

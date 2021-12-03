@@ -59,12 +59,11 @@
  		select * from buyerboard where buyerboard_seq=#{buyerboard_seq}
  	</select>
  	
+
  	<update id="buyerboardHit" parameterType="int">
  		update buyerboard set buyerboard_hit = buyerboard_hit + 1
 	  	 where buyerboard_seq=#{buyerboard_seq}
  	</update>
- 	
- 	
  	
  	
  	
