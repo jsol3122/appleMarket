@@ -25,8 +25,6 @@
 
 <!-- 상단 -->
 <%@include file="/includes/header.jsp" %>
-
-
     <section id="visualBox">
         <div class="inner">
             <h1>우리 동네 중고 직거래 마켓</h1>
