@@ -73,6 +73,6 @@ public class LocalCommunityboardServiceImpl implements LocalCommunityboardServic
 		localCommunityboardDAO.localCommunityboardWrite(localCommunityboardDTO);
 		
 	}
-	
+
 	
 }

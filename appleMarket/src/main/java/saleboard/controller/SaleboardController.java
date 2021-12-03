@@ -128,6 +128,7 @@ public class SaleboardController {
 	}
 	
 	@PostMapping("/saleboard/saleboardGetView")
+	@ResponseBody
 	public List<SaleboardDTO> saleboardGetView(@RequestParam int sale_seq){
 		System.out.println("controller");
 		return saleboardService.saleboardGetView(sale_seq);	
@@ -156,6 +157,7 @@ public class SaleboardController {
 
 		saleboardService.saleboardPickCancel(map);
 	}	
+	
 	
 	@PostMapping("/saleboard/saleboardHit")
 	@ResponseBody

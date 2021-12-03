@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import localCommunityboard.bean.LocalCommunityboardDTO;
+
 import localCommunityboard.service.LocalCommunityboardService;
 import net.sf.json.JSONObject;
 
@@ -37,6 +38,7 @@ public class LocalCommunityboardController {
 		return localCommunityboardService.localCommunityboardGetList(page);
 	}
 	
+
 	@GetMapping("/localCommunityboard/localCommunityboardWriteForm")
 	public String localCommunityboardWriteForm() {
 		return "/localCommunityboard/localCommunityboardWriteForm";
@@ -64,8 +66,6 @@ public class LocalCommunityboardController {
 			localCommunityboardService.localCommunityboardWrite(localCommunityboardDTO);
 		
 	}
-	
-	
 	
 	
 	

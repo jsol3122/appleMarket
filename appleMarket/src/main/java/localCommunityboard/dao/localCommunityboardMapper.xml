@@ -13,8 +13,7 @@
 	 
 	 <select id="getTotalA" parameterType="Integer" resultType="Integer">
 	 	select count(*) from localcommunityboard
-	 </select>
-	 
+	 </select> 
 	 <insert id="localCommunityboardWrite" parameterType="localCommunityboard.bean.LocalCommunityboardDTO">
 	 	insert into localcommunityboard(localcommunity_seq
 	 									,localcommunity_subject
