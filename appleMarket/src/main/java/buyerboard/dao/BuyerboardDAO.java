@@ -19,4 +19,6 @@ public interface BuyerboardDAO {
 
 	public List<BuyerboardDTO> buyerboardGetView(int buyerboard_seq);
 
+	public void buyerboardHit(int buyerboard_seq);
+
 }

@@ -54,7 +54,8 @@
  										,communityboard_comment_lev
  										,communityboard_comment_step
  										,communityboard_comment_pseq
- 										,communityboard_comment_user_id)
+ 										,communityboard_comment_user_id
+ 										,communityboard_comment_logtime)
  									values(
  										#{communityboard_seq}
  										,seq_communityboard_Comment.nextval
@@ -63,8 +64,12 @@
  										,#{communityboard_comment_lev}
  										,#{communityboard_comment_step}
  										,#{communityboard_comment_pseq}
- 										,#{communityboard_comment_user_id})
+ 										,#{communityboard_comment_user_id}
+ 										,sysdate)
  	</insert>
  
+ 	<delete id="communityboardCommentDelete" parameterType="String">
+ 		delete communityboard_Comment where communityboard_comment_seq = #{communityboard_comment_seq}
+ 	</delete>
  
  </mapper>

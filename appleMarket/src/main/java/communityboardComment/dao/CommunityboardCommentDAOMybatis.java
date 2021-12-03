@@ -68,6 +68,12 @@ public class CommunityboardCommentDAOMybatis implements CommunityboardCommentDAO
 		 return commentDTO;
 	}
 
+	@Override
+	public void communityboardCommentDelete(String communityboard_comment_seq) {
+		sqlSession.delete("communityboardCommentSQL.communityboardCommentDelete", communityboard_comment_seq);
+		
+	}
+
 	
 	
 	
