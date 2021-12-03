@@ -23,8 +23,7 @@ public class SaleboardServiceImpl implements SaleboardService {
 		
 	@Override
 	public JSONObject saleboardGetList(int pg) {
-		
-		// DB 
+
 		//1페이지당 n개씩
 		int endNum = pg * 12;
 		int startNum = endNum - 11;
@@ -38,9 +37,15 @@ public class SaleboardServiceImpl implements SaleboardService {
 		
 		
 		boardPaging.setCurrentPage(pg);
+
+		//boardPaging.setPageBlock(3); 
+		boardPaging.setPageSize(12); //
+		boardPaging.setTotalA(totalA);
+		//boardPaging.makePagingHTML();
+
 		boardPaging.setPageSize(12);
 		boardPaging.setTotalA(totalA);
-		
+
 		JSONObject json = new JSONObject();
 		if(list != null) {
 			JSONArray array = new JSONArray();
@@ -75,6 +80,10 @@ public class SaleboardServiceImpl implements SaleboardService {
 			json.put("list", array);
 			
 		}
+		
+		
+		//json.put("boardPaging", boardPaging.getPagingHTML().toString());
+
 		return json;
 	}
 

@@ -31,7 +31,7 @@ public class SaleboardController {
 	@Autowired
 	private SaleboardService saleboardService;
 
-	@GetMapping("/saleboard/saleboardList")
+	@PostMapping("/saleboard/saleboardList")
 	public String saleboardList() {
 		return "/saleboard/saleboardList";
 	}
@@ -158,6 +158,7 @@ public class SaleboardController {
 
 		saleboardService.saleboardPickCancel(map);
 	}	
+	
 	
 	@PostMapping("/saleboard/saleboardHit")
 	@ResponseBody

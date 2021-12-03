@@ -35,5 +35,5 @@ public class LocalCommunityboardDAOMybatis implements LocalCommunityboardDAO {
 		sqlSession.insert("localCommunityboardSQL.localCommunityboardWrite", localCommunityboardDTO);
 		
 	}
-	
+
 }
