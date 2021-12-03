@@ -1,10 +1,13 @@
 package member.controller;
 
+import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
@@ -12,6 +15,7 @@ import javax.validation.constraints.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -31,7 +35,7 @@ import member.service.MessageService;
 @Controller	
 //@RequestMapping(value="/view/user")
 @Validated
-public class MemberController {
+public class MemberController{
 	@Autowired
 	private MemberService memberSerivce;
 	@Autowired
@@ -51,14 +55,15 @@ public class MemberController {
 	}
 	
 	//회원가입
-	@RequestMapping("/write")
-	@ResponseBody
-	public void write(@ModelAttribute @Valid MemberDTO memberDTO) {
+	@RequestMapping("/write")	
+	public String write(@ModelAttribute @Valid MemberDTO memberDTO){
 		String Check = memberSerivce.checkId(memberDTO.getMember_id());
 		if(Check.equals("non_exist")) {
 			memberSerivce.write(memberDTO);
+			return "/index";
 		}else {
-			return;
+			
+			return "/user/index";
 		}
 	}
 	
@@ -186,7 +191,7 @@ public class MemberController {
 		
 		int result = memberSerivce.login(memberDTO);
 		
-		session.setAttribute("member_id", member_id);	     		
+		session.setAttribute("member_id", member_id);	
 		session.setAttribute("login_info", memberDTO);
 		
 		path = result+"";
@@ -195,7 +200,7 @@ public class MemberController {
 	}
 	
 	//로그아웃 요청 
-	@PostMapping("/logout")
+	@GetMapping("/logout")
 	@ResponseBody
 	public void logout(HttpSession session) {
 		session.removeAttribute("login_info");
@@ -213,6 +218,7 @@ public class MemberController {
 	public void delete(@ModelAttribute MemberDTO memberDTO) {
 		memberSerivce.delete(memberDTO);
 	}
+
 	
 	//수정하기 폼
 	@GetMapping(value="/modifyForm")

@@ -1,6 +1,11 @@
 eclipse.preferences.version=1
+<<<<<<< HEAD
+encoding//src/main/webapp/includes/footer.jsp=UTF-8
+encoding//src/main/webapp/includes/header.jsp=UTF-8
+=======
 encoding//src/main/webapp/view/buyandsell/details.jsp=UTF-8
 encoding//src/main/webapp/view/buyandsell/products.jsp=UTF-8
 encoding//src/main/webapp/view/myPage/userchangepwpage.jsp=UTF-8
 encoding//src/main/webapp/view/myPage/userdeletepage.jsp=UTF-8
 encoding//src/main/webapp/view/myPage/userupdatapage.jsp=UTF-8
+>>>>>>> ad8d99bb62fe8ad49d3558463da3a86bdb310553

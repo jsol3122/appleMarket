@@ -25,7 +25,8 @@
 	         </div>
 	         <div>
 	         	<a href="/appleMarket/view/user/searchIdForm" onclick="window.open(this.href, '_blank', 'width=400, height=300'); return false;">아이디 찾기</a>
-	         	 | <a href="/appleMarket/view/user/searchPwdForm" onclick="window.open(this.href, '_blank', 'width=400, height=300'); return false;">비밀번호 찾기</a>
+	         	<a href="/appleMarket/view/user/searchPwdForm" onclick="window.open(this.href, '_blank', 'width=400, height=300'); return false;">비밀번호 찾기</a>
+
 	         </div>
 	         <div style="padding:0 5px;">
 		         <input type="button" value="로그인" class="sbm" id="loginBtn" style="cursor:pointer;"/>
@@ -56,7 +57,7 @@
 //로그인 유효성 검사   
 $('#loginBtn').click(function(){
    var loginForm = document.querySelector('#loginForm');
-   
+   var id = document.querySelector('#member_id').value;
    loginForm.querySelector('#member_id').classList.remove("placeholderColor");
    loginForm.querySelector('#member_pwd').classList.remove("placeholderColor");
 
@@ -76,11 +77,12 @@ $('#loginBtn').click(function(){
             type: 'post',
             data: 'member_id='+$('#member_id').val()+'&member_pwd='+$('#member_pwd').val(),
             //dataType: 'text',
-            success: function(data){
-               //alert(data);
+            success: function(data){            	             
                data = data.trim();         
               if(data==1){
-                  location.href="/appleMarket/index";                  
+            	  alert(id+"님 반갑습니다.");
+                  location.href="/appleMarket/index";      
+                
                }else{
                   $('#loginResult').text('아이디 또는 비밀번호가 잘못 입력 되었습니다.아이디와 비밀번호를 정확히 입력해 주세요.');
                   $('#loginResult').css('color', 'red');

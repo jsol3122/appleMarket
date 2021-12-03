@@ -7,6 +7,7 @@ public interface LocalCommunityboardService {
 
 	public JSONObject localCommunityboardGetList(int page);
 
+
 	public void localCommunityboardWrite(LocalCommunityboardDTO localCommunityboardDTO);
 
 }
