@@ -22,58 +22,9 @@
 </head>
 
 <body>
-<<<<<<< HEAD
+
 <!-- 상단 -->
 <%@include file="/includes/header.jsp" %>
-=======
-    <header id="headBox">
-        <div class="inner">
-            <h1>
-                <a href="#"><img class="logo" src="/appleMarket/img/logo-basic.png" alt="사과마켓"></a>
-            </h1>
-            <form action="#" method="get" class="search_box">
-                <fieldset>
-                    <legend>검색창</legend>
-                    <label class="hidden" for="searchPrd">지역, 상품, 업체등을 검색해보세요.</label>
-                    <input type="text" id="searchPrd" name="searchPrd" placeholder="지역, 상품, 업체등을 검색해보세요.">
-                    <button type="button" id="indexSearchBtn"><i class="fas fa-search"></i><span class="hidden">검색버튼</span></button>
-                </fieldset>
-            </form>
-            <ul class="category">
-                <li><a href="/appleMarket/products.jsp">사고/팔고</a></li>
-                <li><a href="#">조잘조잘</a></li>
-                <li><a href="#">우리동네</a></li>
-                <li><a href="#">문의하기</a></li>
-            </ul>
-            <ul class="login">
-                <li><a href="/appleMarket/view/user/writeForm.jsp" rel="modal:open">회원가입</a></li>
-                <li><a href="/appleMarket/view/user/loginForm.jsp" rel="modal:open">로그인</a></li>
-
-            </ul>
-            <!-- <div class="btnbox_search"> 수정해야하지만 일단 잘 돌아감 -->
-            <div class="btnbox_search">
-                <!-- 캐러셀 -->
-                <button type="button"><i class="fas fa-search"></i><span class="hidden">검색창 펼치기</span></button>
-            </div>
-
-            <nav id="nav">
-                <!-- <h1></h1> -->
-                <div class="ham">
-                    <span class="bar1"></span>
-                    <span class="bar2"></span>
-                    <span class="bar3"></span>
-                </div>
-                <ul class="menu">
-                    <li class="active"><a href="#">사고/팔고</a></li>
-                    <li><a href="#">조잘조잘</a></li>
-                    <li><a href="#">우리동네</a></li>
-                    <li><a href="#">문의하기</a></li>
-                </ul>
-            </nav>
-
-        </div>
-    </header>
->>>>>>> 481d671775efde5eebd6ed6c1385b96f07d5a16f
 
     <section id="visualBox">
         <div class="inner">
@@ -570,8 +521,6 @@
     <script src="/appleMarket/js/app.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="/appleMarket/js/user.js"></script>
-<<<<<<< HEAD
-=======
 
 <!-- Channel Plugin Scripts --> 
 <script>
@@ -675,7 +624,5 @@ $(function(){
 });
 </script>
 -->
-
->>>>>>> 481d671775efde5eebd6ed6c1385b96f07d5a16f
 </body>
 </html>
