@@ -6,6 +6,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -44,7 +46,13 @@ public class MemberController{
 	
 	//메인창
 	@GetMapping("/index")
-	public String index() {
+	public String index(HttpServletResponse response) {
+		Cookie cookie =new Cookie("view",null); 	//view라는 이름의 쿠키 생성
+		cookie.setComment("게시글 조회 확인");		//해당 쿠키가 어떤 용도인지 커멘트
+		cookie.setMaxAge(60*60*24);			//해당 쿠키의 유효시간을 설정 (초 기준)
+		response.addCookie(cookie);				//사용자에게 해당 쿠키를 추가
+		
+		
 		return "/index";
 	}
 	

@@ -71,11 +71,14 @@
             <h2 class="hidden">category filter</h2>
             <div class="list_filters">
                 <div class="combi_filters">
-                    <div class="category_filter" data-filter-group="sale_category">
+
+                    <div class="category_filter" data-filter-group="category">
+
                         <h3>카테고리</h3>
                         <input type="checkbox" id="sale_category_all" name="sale_category" value="*">
                         <span class="box">box</span>
                         <label for="sale_category_all">All</label>
+
 
                         <input type="checkbox" id="tech" name="sale_category" value=".tech" checked>
                         <span class="box">box</span>
@@ -139,4 +142,6 @@
     <footer></footer>
 </body>
 
+
 </html>
+
