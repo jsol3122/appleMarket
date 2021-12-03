@@ -752,10 +752,6 @@ form hr {
     text-align: center;
 }
 
-<<<<<<< HEAD
-=======
-.size_filter,
->>>>>>> ad8d99bb62fe8ad49d3558463da3a86bdb310553
 .category_filter,
 .brand_filter {
     display: flex;
@@ -775,10 +771,6 @@ form hr {
     margin-right: 30px;
 }
 
-<<<<<<< HEAD
-=======
-.size_filter input,
->>>>>>> ad8d99bb62fe8ad49d3558463da3a86bdb310553
 .category_filter input,
 .brand_filter input {
     display: none;
