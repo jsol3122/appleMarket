@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 let isEnd = false;
 let pageNum = 1;
     
@@ -88,7 +87,6 @@ let renderList = function(mode, DTO){
     }
     */
 }
-=======
 $(function(){
 	$.ajax({
 		url: '/appleMarket/user/getUserList', //getUserList ? 
@@ -115,4 +113,3 @@ $(function(){
 		}
 	});
 });
->>>>>>> 481d671775efde5eebd6ed6c1385b96f07d5a16f

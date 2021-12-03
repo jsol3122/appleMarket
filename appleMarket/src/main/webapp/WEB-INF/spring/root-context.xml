@@ -19,14 +19,11 @@
 
 	<context:component-scan base-package="saleboard.service"/>
 	<context:component-scan base-package="saleboard.dao"/>
-<<<<<<< HEAD
 	<!--사고게시판 -->
 	<context:component-scan base-package="buyerboard.service"/>
 	<context:component-scan base-package="buyerboard.dao"/>
 	
 	<context:component-scan base-package="boardPaging"/>
-=======
->>>>>>> 481d671775efde5eebd6ed6c1385b96f07d5a16f
 	
 	<context:component-scan base-package="member.service"/>
 	<context:component-scan base-package="member.dao"/>
