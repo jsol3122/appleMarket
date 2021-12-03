@@ -26,7 +26,7 @@ public interface MemberService {
 	public String searchId(String member_email);
 
 	public void searchPwd(MemberDTO memberDTO,HttpServletResponse response);
-
+	
 	//이메일발송
 	public void sendEmail(MemberDTO memberDTO, String div) throws Exception;
 
