@@ -82,7 +82,7 @@ public class MemberServiceImpl implements MemberService {
 			return "exist";
 		}
 	}
-
+	
 	@Override
 	public void searchPwd(MemberDTO memberDTO,HttpServletResponse response) {
 		response.setContentType("text/html;charset=utf-8");
@@ -174,3 +174,4 @@ public class MemberServiceImpl implements MemberService {
 
 
 }
+

@@ -114,4 +114,5 @@
 	<insert id="recommended" parameterType="java.util.Map">
 		insert into recommend(recommend_id, recommend_1) values(#{member_id}, #{recommend_id})
 	</insert>	
+
  </mapper>

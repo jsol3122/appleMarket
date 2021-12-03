@@ -30,3 +30,4 @@ public interface MemberDAO {
 
 	public void recommended(Map<String, String> map);
 }
+

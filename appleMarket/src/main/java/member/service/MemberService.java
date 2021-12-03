@@ -36,7 +36,4 @@ public interface MemberService {
 
 	public void recommended(Map<String, String> map);
 
-
-
-
 }

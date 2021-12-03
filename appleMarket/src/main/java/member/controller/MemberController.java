@@ -299,6 +299,6 @@ public class MemberController {
 		memberDTO.setMember_pwd(member_pwd);
 
 		memberSerivce.chagePwd(memberDTO);
+	
 	}
-
 }
