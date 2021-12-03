@@ -24,6 +24,7 @@
 
     <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+    <script src="/appleMarket/js/isotope.pkgd.min.js"></script>
     <script src="/appleMarket/js/buyandsell.js"></script>
     <script src="/appleMarket/js/saleboardGetView.js"></script>
 

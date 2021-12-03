@@ -36,6 +36,7 @@
 	<mvc:resources location="/js/" mapping="/js/**" />
 	<mvc:resources location="/img/" mapping="/img/**" />
 	<mvc:resources location="/css/" mapping="/css/**" />
+	<mvc:resources location="/storage/" mapping="/storage/**" />
 
 	<mvc:annotation-driven />
 

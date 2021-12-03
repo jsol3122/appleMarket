@@ -1,5 +1,4 @@
-$(document).ready(function(){
-//$(function() {
+$(function() {
     var $searchBtn = $('.shopping_nav .search_btn'),
         $searchForm = $('header form');
 
@@ -80,6 +79,7 @@ $(document).ready(function(){
 
     //category filter
 
+	/*
 
     $(".price_range").slider({
         range: true,
@@ -131,7 +131,7 @@ $(document).ready(function(){
         var slideLastVal = slideVal.filter(':last-of-type');
         slideLastVal.html('<i></i>');
         slideLastVal.find('i').text(userValue + '$');
-    });
+    }); */
 
     /*
     var sizeFilter = $('.size_filter input');
