@@ -119,15 +119,15 @@ public class SaleboardServiceImpl implements SaleboardService {
 	@Override
 	public List<SaleboardDTO> saleboardSearch(SaleboardDTO saleboardDTO) {
 		return saleboardDAO.saleboardSearch(saleboardDTO);
+
 	}
 
 	@Override
 	public void saleboardFollow(Map<String, String> map) {
 		saleboardDAO.saleboardFollow(map);
-		
 	}
-	
 
+	
 //	@Override
 //	public void saleboardChat(String sale_id) {
 //		saleboardDAO.saleboardChat(sale_id);
@@ -136,3 +136,4 @@ public class SaleboardServiceImpl implements SaleboardService {
 
 
 }
+

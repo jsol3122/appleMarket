@@ -2,9 +2,7 @@
 @import "./reset.css";
 
 /* #headBox */
-.modal{
-	margin-top: 100px;
-}
+
 #headBox {
     width: 100%;
     height: 76px;
@@ -727,6 +725,282 @@
 
 #footBox>.sns_list>li>a:hover {
     text-decoration: none;
+}
+
+
+/* 마이페이지 */
+
+.memberup {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    color: #585757;
+    font: normal 12px/1.5em "Liberation sans", Arial, Helvetica, sans-serif;
+    background: #fff;
+}
+
+.main {
+    padding: 0;
+    margin: 0;
+}
+
+.main {}
+
+.clr {
+    clear: both;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    font-size: 0;
+    line-height: 0;
+}
+
+.memberup>h2 {
+    margin: 8px 0;
+    padding: 8px 0;
+    font-size: 26px;
+    font-weight: bold;
+    line-height: 1.2em;
+    color: #585757;
+    text-transform: none;
+}
+
+.memberup>p {
+    margin: 8px 0;
+    padding: 0 0 8px 0;
+}
+
+.memberup>a {
+    color: #df4b49;
+    text-decoration: underline;
+}
+
+.content,
+.memberup>ul,
+.content .mainbar,
+.content .sidebar {
+    margin: 0;
+    padding: 0;
+}
+
+.memberup>h1 {
+    margin: 0;
+    padding: 40px 0 0 20px;
+    font-size: 45px;
+    font-weight: bold;
+    line-height: 1.2em;
+    text-transform: none;
+    letter-spacing: 2px;
+}
+
+.memberup>h1 a,
+.memberup>h1 a:hover {
+    color: #df4b49;
+    text-decoration: none;
+}
+
+.memberup>h1 span {}
+
+.content {
+    padding: 40px 0 0;
+    background: repeat-x left bottom;
+}
+
+.content_resize {
+    margin: 0 auto;
+    padding: 100px 0 40px;
+    width: 960px;
+    background: repeat-y left top;
+}
+
+.content .mainbar {
+    margin: 0;
+    padding: 0;
+    float: right;
+    width: 680px;
+}
+
+.content .mainbar h2 {
+    margin-bottom: 4px;
+}
+
+.content .mainbar div.img {
+    padding: 12px 0;
+    float: left;
+}
+
+.content .mainbar img {}
+
+.content .mainbar img.fl {
+    margin: 0;
+    border: 1px solid #dcdee2;
+}
+
+.content .mainbar .article {
+    margin: 0 0 16px;
+    padding: 8px 20px 30px;
+    background: #ededed;
+}
+
+.content .mainbar .post_content {
+    float: right;
+    width: 440px;
+}
+
+.content .mainbar .post_content strong {
+    color: #585757;
+}
+
+.content .sidebar {
+    padding: 0;
+    float: left;
+    width: 260px;
+}
+
+.content .sidebar .gadget {
+    margin: 0 0 16px;
+    padding: 24px 20px 30px;
+    background: #ededed;
+}
+
+.content .sidebar h2 {
+    margin: 0 -20px 0 0;
+    padding: 6px 12px 4px;
+    color: #fff;
+    background: #df4b49;
+}
+
+ul.sb_menu {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: #959595;
+}
+
+ul.sb_menu li {
+    margin: 0;
+}
+
+ul.sb_menu li {
+    padding: 8px 0;
+    width: 220px;
+}
+
+ul.sb_menu li a {
+    color: #585757;
+    text-decoration: none;
+    margin-left: 0;
+    padding: 4px 8px 4px 0;
+}
+
+ul.sb_menu li a:hover {
+    color: #df4b49;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.content .mainbar .comment {
+    margin: 0;
+    padding: 16px 0 0 0;
+}
+
+;
+.content .mainbar .comment img.userpic {
+    border: 1px solid #dedede;
+    margin: 10px 16px 0 0;
+    padding: 0;
+    float: left;
+}
+
+.memberup>a {
+    outline: none;
+}
+
+.memberuptext>h3 {
+    color: #66269a;
+    text-align: center;
+    text-indent: 1em;
+}
+
+.memberuptext {
+    width: 100%;
+    height: 80%;
+    margin: 0;
+}
+
+.memberupwrite>::placeholder {
+    font-size: 0.7em;
+    vertical-align: middle;
+}
+
+.memberupwriteid {
+    margin: 20px 0;
+}
+
+.memberupwrite {
+    margin: 20px 0;
+}
+
+.memberupwriteid>label {
+    display: inline-block;
+    width: 25%;
+    text-align: left;
+    padding: 0 0 0 50px;
+    font-weight: bold;
+    font-size: 10pt;
+}
+
+.memberupwrite>label {
+    display: inline-block;
+    width: 25%;
+    text-align: left;
+    padding: 0 0 0 50px;
+    font-weight: bold;
+    font-size: 10pt;
+}
+
+.memberupwriteid>input[type=text],
+.memberupwriteid>input[type=email],
+.memberupwriteid>input[type=password] {
+    width: 300px;
+    height: 35px;
+    text-indent: 1.5em;
+}
+
+.memberupwriteid>input[readonly] {
+    background-color: #e9ecef;
+    opacity: 1;
+}
+
+.memberupwrite>input[type=text],
+.memberupwrite>input[type=email],
+.memberupwrite>input[type=password] {
+    width: 300px;
+    height: 35px;
+    text-indent: 1.5em;
+}
+
+.memberupwrite>input[type=text]:focus,
+.memberupwrite>input[type=email]:focus,
+.memberupwrite>input[type=password]:focus {
+    background: #efddff;
+}
+
+.memberupwrite>.hidden {
+    display: none;
+    font-size: 12pt;
+    border: 0;
+}
+
+.memberuptext>.sbm {
+    width: 300px;
+    height: 45px;
+    margin: 20px 10px 10px 160px;
+    background: #ff8080;
+    color: white;
+    font-size: 18px;
+    border-radius: 4px;
+    border: 0;
 }
 
 

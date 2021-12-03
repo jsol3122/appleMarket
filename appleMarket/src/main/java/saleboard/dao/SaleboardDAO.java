@@ -34,8 +34,6 @@ public interface SaleboardDAO {
 
 //	public void saleboardChat(String sale_id);
 
-
-
-
 }
+
 

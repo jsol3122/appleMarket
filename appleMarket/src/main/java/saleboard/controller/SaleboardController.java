@@ -31,7 +31,7 @@ public class SaleboardController {
 	@Autowired
 	private SaleboardService saleboardService;
 
-	@PostMapping("/saleboard/saleboardList")
+	@GetMapping("/saleboard/saleboardList")
 	public String saleboardList() {
 		return "/saleboard/saleboardList";
 	}
