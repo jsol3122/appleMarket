@@ -173,7 +173,6 @@ public class MemberController{
 	@ResponseBody
 	public String login(@RequestParam("member_id") String member_id, @RequestParam("member_pwd") String member_pwd, HttpSession session) {
 		
-		
 		String path="";
 		
 		MemberDTO memberDTO = new MemberDTO();
@@ -183,6 +182,7 @@ public class MemberController{
 		
 		int result = memberSerivce.login(memberDTO);
 		
+		session.setAttribute("member_id", member_id);	
 		session.setAttribute("login_info", memberDTO);
 		
 		path = result+"";

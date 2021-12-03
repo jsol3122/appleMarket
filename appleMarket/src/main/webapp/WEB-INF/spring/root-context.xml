@@ -17,7 +17,6 @@
 	<context:component-scan base-package="localCommunityboard.service"/>
 	<!-- 게시판 페이징 처리  -->
 	<context:component-scan base-package="boardPaging"/>
-
 	<!-- 팔고게시판  -->
 	<context:component-scan base-package="saleboard.service"/>
 	<context:component-scan base-package="saleboard.dao"/>

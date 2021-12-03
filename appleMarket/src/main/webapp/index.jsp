@@ -22,8 +22,58 @@
 </head>
 
 <body>
+<<<<<<< HEAD
 <!-- 상단 -->
 <%@include file="/includes/header.jsp" %>
+=======
+    <header id="headBox">
+        <div class="inner">
+            <h1>
+                <a href="#"><img class="logo" src="/appleMarket/img/logo-basic.png" alt="사과마켓"></a>
+            </h1>
+            <form action="#" method="get" class="search_box">
+                <fieldset>
+                    <legend>검색창</legend>
+                    <label class="hidden" for="searchPrd">지역, 상품, 업체등을 검색해보세요.</label>
+                    <input type="text" id="searchPrd" name="searchPrd" placeholder="지역, 상품, 업체등을 검색해보세요.">
+                    <button type="button" id="indexSearchBtn"><i class="fas fa-search"></i><span class="hidden">검색버튼</span></button>
+                </fieldset>
+            </form>
+            <ul class="category">
+                <li><a href="/appleMarket/products.jsp">사고/팔고</a></li>
+                <li><a href="#">조잘조잘</a></li>
+                <li><a href="#">우리동네</a></li>
+                <li><a href="#">문의하기</a></li>
+            </ul>
+            <ul class="login">
+                <li><a href="/appleMarket/view/user/writeForm.jsp" rel="modal:open">회원가입</a></li>
+                <li><a href="/appleMarket/view/user/loginForm.jsp" rel="modal:open">로그인</a></li>
+
+            </ul>
+            <!-- <div class="btnbox_search"> 수정해야하지만 일단 잘 돌아감 -->
+            <div class="btnbox_search">
+                <!-- 캐러셀 -->
+                <button type="button"><i class="fas fa-search"></i><span class="hidden">검색창 펼치기</span></button>
+            </div>
+
+            <nav id="nav">
+                <!-- <h1></h1> -->
+                <div class="ham">
+                    <span class="bar1"></span>
+                    <span class="bar2"></span>
+                    <span class="bar3"></span>
+                </div>
+                <ul class="menu">
+                    <li class="active"><a href="#">사고/팔고</a></li>
+                    <li><a href="#">조잘조잘</a></li>
+                    <li><a href="#">우리동네</a></li>
+                    <li><a href="#">문의하기</a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+>>>>>>> 481d671775efde5eebd6ed6c1385b96f07d5a16f
 
     <section id="visualBox">
         <div class="inner">
@@ -520,5 +570,112 @@
     <script src="/appleMarket/js/app.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="/appleMarket/js/user.js"></script>
+<<<<<<< HEAD
+=======
+
+<!-- Channel Plugin Scripts --> 
+<script>
+  (function() {
+    var w = window;
+    if (w.ChannelIO) {
+      return (window.console.error || window.console.log || function(){})('ChannelIO script included twice.');
+    }
+    var ch = function() {
+      ch.c(arguments);
+    };
+    ch.q = [];
+    ch.c = function(args) {
+      ch.q.push(args);
+    };
+    w.ChannelIO = ch;
+    function l() {
+      if (w.ChannelIOInitialized) {
+        return;
+      }
+      w.ChannelIOInitialized = true;
+      var s = document.createElement('script');
+      s.type = 'text/javascript';
+      s.async = true;
+      s.src = 'https://cdn.channel.io/plugin/ch-plugin-web.js';
+      s.charset = 'UTF-8';
+      var x = document.getElementsByTagName('script')[0];
+      x.parentNode.insertBefore(s, x);
+    }
+    if (document.readyState === 'complete') {
+      l();
+    } else if (window.attachEvent) {
+      window.attachEvent('onload', l);
+    } else {
+      window.addEventListener('DOMContentLoaded', l, false);
+      window.addEventListener('load', l, false);
+    }
+  })();
+  ChannelIO('boot', {
+    "pluginKey": "8f477d11-b3a5-4a18-9f84-31eeb55cd47e"
+  });
+</script>
+
+<!-- End Channel Plugin -->
+
+
+<!-- 검색 버튼 함수 : 아직 수정 전 --><!--
+<script type="text/javascript">
+$(function(){
+	$('#indexSearchBtn').click(function(){
+		$.ajax({
+			url: '/appleMarket/saleboard/saleboardSearch',
+			type: 'post',
+			data: {'searchId': $('#searchId').val()},
+			//dataType: 'json',
+			//서버에서 받아올 데이터는 TEXT, HTML, XML, JSON 형식을 지정할 수 있다.
+         	//생략하면 요청한 자료에 맞게 자동으로 형식이 설정된다.
+			success: function(data) {
+				console.log(JSON.stringify(data));
+				
+				if(data == ''){
+					$('#resultDiv').text('찾고자 하는 아이디가 없습니다.');
+					$('#resultDiv').css('color', 'red');
+					$('#resultDiv').css('font-weight', 'bold');
+				}else{
+					$('#modifyFormDiv').show();
+					
+					$('#name').val(data.name);
+					$('#id').val(data.id);
+					$('#pwd').val(data.pwd);
+				}	
+			},
+			error : function(err){
+				console.log(err);
+			} 
+		});
+	});
+	
+	// 다시 작성 버튼
+	$('#resetBtn').click(function(){
+		//강제로 검색 이벤트 호출(원래 썼던 아이디로) : 이걸 트리거라고 한다.
+		// (에이작스 코드들 또 써주기는 번거로우니까) 
+		$('#searchBtn').trigger('click');
+	});
+	
+	$('#modifyBtn').click(function(){
+		$.ajax({
+			url: '/chapter06_SpringMaven/user/modify',
+			type: 'post',	
+			data: $('#modifyForm').serialize(),
+			success: function(){ // 여기는 받아오는 데이터가 아니라 수정하러 가는거라 펑션 매개변수 없음.
+				alert('회원 정보 수정 완료');
+				location.href='/chapter06_SpringMaven/user/list';
+			},
+			error: function(err){
+				console.log(err);	
+			}
+			
+		});
+	});
+});
+</script>
+-->
+
+>>>>>>> 481d671775efde5eebd6ed6c1385b96f07d5a16f
 </body>
 </html>
