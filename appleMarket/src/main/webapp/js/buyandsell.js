@@ -79,6 +79,7 @@ $(function() {
 
     //category filter
 
+   /*
 
     $(".price_range").slider({
         range: true,
@@ -130,7 +131,7 @@ $(function() {
         var slideLastVal = slideVal.filter(':last-of-type');
         slideLastVal.html('<i></i>');
         slideLastVal.find('i').text(userValue + '$');
-    });
+    }); */
 
     /*
     var sizeFilter = $('.size_filter input');
@@ -159,7 +160,7 @@ $(function() {
         itemSelector: '.new_arrivals_list > li'
     });
 
-    $filters.click(function() {
+   $filters.click(function() {
         var $button = $(this);
 
         //get group key
@@ -172,7 +173,6 @@ $(function() {
         var filterValue = concatValues(filters);
         // set filter for Isotope
         $grid.isotope({ filter: filterValue });
-        console.log('filterValue = '+filterValue);
         $grid.isotope( 'updateSortData', filterValue );
 
         if ($button.val() == '*') {
@@ -228,42 +228,42 @@ $(function() {
             $button.parent('div').find('input').prop('checked', false);
             $button.prop('checked', true);
         } else {
-            $button.parent('div').find('input').eq(6).prop('checked', false);
+            $button.parent('div').find('input').eq(7).prop('checked', false);
         }
         
         if ($button.val() == '.sports') {
             $button.parent('div').find('input').prop('checked', false);
             $button.prop('checked', true);
         } else {
-            $button.parent('div').find('input').eq(6).prop('checked', false);
+            $button.parent('div').find('input').eq(8).prop('checked', false);
         }
         
         if ($button.val() == '.beauty') {
             $button.parent('div').find('input').prop('checked', false);
             $button.prop('checked', true);
         } else {
-            $button.parent('div').find('input').eq(6).prop('checked', false);
+            $button.parent('div').find('input').eq(9).prop('checked', false);
         }
         
         if ($button.val() == '.pet') {
             $button.parent('div').find('input').prop('checked', false);
             $button.prop('checked', true);
         } else {
-            $button.parent('div').find('input').eq(6).prop('checked', false);
+            $button.parent('div').find('input').eq(10).prop('checked', false);
         }
         
         if ($button.val() == '.book') {
             $button.parent('div').find('input').prop('checked', false);
             $button.prop('checked', true);
         } else {
-            $button.parent('div').find('input').eq(6).prop('checked', false);
+            $button.parent('div').find('input').eq(11).prop('checked', false);
         }
         
         if ($button.val() == '.etc') {
             $button.parent('div').find('input').prop('checked', false);
             $button.prop('checked', true);
         } else {
-            $button.parent('div').find('input').eq(6).prop('checked', false);
+            $button.parent('div').find('input').eq(12).prop('checked', false);
         }
 
     }); //filter click
