@@ -15,6 +15,7 @@
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="suffix" value=".jsp" />
 	</bean>
+	
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<property name="maxUploadSize" value="5000000"/>
 	</bean>
@@ -25,6 +26,14 @@
 	<context:component-scan base-package="localCommunityboard.controller"/>
 	<context:component-scan base-package="saleboard.controller"/>
 	<context:component-scan base-package="buyerboard.controller"/>
+<<<<<<< HEAD
+=======
+	<!-- <context:component-scan base-package="handler"/> -->
+	<context:component-scan
+		base-package="member.controller" />
+	<context:component-scan
+		base-package="spring.conf" />
+>>>>>>> ad8d99bb62fe8ad49d3558463da3a86bdb310553
 	<context:component-scan base-package="member.controller" />
 
 	<context:component-scan base-package="spring.conf" />

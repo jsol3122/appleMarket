@@ -26,6 +26,7 @@ input[type=checkbox]:disabled + label {
  
 </style>
 <h3>이미지 등록</h3>
+<<<<<<< HEAD
 <form id="communityboardWriteForm" ><!-- get방식 안 먹음 무조건 post방식으로만 먹힘 , ajax쓸거라서 나중에 지워짐 -->
 <table border="1" cellpadding="5" cellspacing="0" >
 		
@@ -38,32 +39,54 @@ input[type=checkbox]:disabled + label {
 			</td>
 			
 		</tr>
+=======
+<form id="communityboardWriteForm" enctype="multipart/form-data" method="post" action=""><!-- get방식 안 먹음 무조건 post방식으로만 먹힘 , ajax쓸거라서 나중에 지워짐 -->
+<table border="1" cellpadding="5" cellspacing="0" >
+	
+>>>>>>> ad8d99bb62fe8ad49d3558463da3a86bdb310553
 		<tr>
 			<input type="checkbox" name="checker" id="checker1"><label for="checker1">익명</label>
 			<td align="center"> 글제목</td>				
 			<td>
 			
+<<<<<<< HEAD
 			<input type="text" name = "communityboard_subject" id="communityboard_subject" size="35" placeholder="글 제목 입력">			
 			<div id="nameDiv"></div>
+=======
+			<input type="text" name = "imageName" id="imageName" size="35" placeholder="글 제목 입력">			
+			<div id="emailDiv"></div>
+>>>>>>> ad8d99bb62fe8ad49d3558463da3a86bdb310553
 			</td>
 			
 		</tr>
 		<tr>
 			<td align="center">내용</td>
 			<td>
+<<<<<<< HEAD
 			<textarea name="communityboard_content" id="communityboard_content" cols="35" rows="15" placeholder="내용 입력" style="﻿overflow-y:scroll; overflow-x:hidden;"></textarea>			
+=======
+			<textarea name="imageContent" id="imageContent" cols="35" rows="15" placeholder="내용 입력" style="﻿overflow-y:scroll; overflow-x:hidden;"></textarea>			
+>>>>>>> ad8d99bb62fe8ad49d3558463da3a86bdb310553
 			<div id="contentDiv"></div>
 			</td>			
 		</tr>		
 		<tr>
 			 <td colspan="2">				
+<<<<<<< HEAD
 				<input type="file" name="img" id="img">
+=======
+				<input type="file" name="img[]" multiple>
+>>>>>>> ad8d99bb62fe8ad49d3558463da3a86bdb310553
 			</td> 
 		</tr>
 		
 		<tr>		
 			<td colspan="2" align="center">
+<<<<<<< HEAD
 				<input type="button" id="communityboardBtn" value="글쓰기 등록">
+=======
+				<input type="submit" id="imageboardWriteBtn" value="이미지등록">
+>>>>>>> ad8d99bb62fe8ad49d3558463da3a86bdb310553
 				<input type="reset" value="다시작성">	
 			
 			</td>
@@ -73,6 +96,7 @@ input[type=checkbox]:disabled + label {
 </form>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
+<<<<<<< HEAD
 
 $('#communityboardBtn').click(function(){
 	//초기화 과정
@@ -110,4 +134,10 @@ $('#communityboardBtn').click(function(){
 	});
 
 
+=======
+$('#imageboardWriteBtn').click(function(){
+	$('#imageboardWriteForm').submit();
+	
+});
+>>>>>>> ad8d99bb62fe8ad49d3558463da3a86bdb310553
 </script>

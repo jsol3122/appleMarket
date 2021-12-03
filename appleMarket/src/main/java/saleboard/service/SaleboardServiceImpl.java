@@ -25,7 +25,11 @@ public class SaleboardServiceImpl implements SaleboardService {
 	public JSONObject saleboardGetList(int pg) {
 		
 		// DB 
+<<<<<<< HEAD
 		//1페이지당 1개씩
+=======
+		//1페이지당 n개씩
+>>>>>>> ad8d99bb62fe8ad49d3558463da3a86bdb310553
 		int endNum = pg * 12;
 		int startNum = endNum - 11;
 		
@@ -38,10 +42,15 @@ public class SaleboardServiceImpl implements SaleboardService {
 		
 		
 		boardPaging.setCurrentPage(pg);
+<<<<<<< HEAD
 		//boardPaging.setPageBlock(3); 
 		boardPaging.setPageSize(12); //
 		boardPaging.setTotalA(totalA);
 		//boardPaging.makePagingHTML();
+=======
+		boardPaging.setPageSize(12);
+		boardPaging.setTotalA(totalA);
+>>>>>>> ad8d99bb62fe8ad49d3558463da3a86bdb310553
 		
 		JSONObject json = new JSONObject();
 		if(list != null) {
@@ -69,16 +78,21 @@ public class SaleboardServiceImpl implements SaleboardService {
 				temp.put("sale_logtime", saleboardDTO.getSale_logtime());
 				temp.put("sale_update_logtime", saleboardDTO.getSale_update_logtime());
 				
+				temp.put("sale_category", saleboardDTO.getSale_category());
+				
 				array.add(temp);
 			}//for
 			
 			json.put("list", array);
 			
 		}
+<<<<<<< HEAD
 		
 		
 		//json.put("boardPaging", boardPaging.getPagingHTML().toString());
 		
+=======
+>>>>>>> ad8d99bb62fe8ad49d3558463da3a86bdb310553
 		return json;
 	}
 
@@ -123,23 +137,20 @@ public class SaleboardServiceImpl implements SaleboardService {
 	@Override
 	public List<SaleboardDTO> saleboardSearch(SaleboardDTO saleboardDTO) {
 		return saleboardDAO.saleboardSearch(saleboardDTO);
+
 	}
 
 	@Override
 	public void saleboardFollow(Map<String, String> map) {
 		saleboardDAO.saleboardFollow(map);
-		
 	}
-	
 
+	
 //	@Override
 //	public void saleboardChat(String sale_id) {
 //		saleboardDAO.saleboardChat(sale_id);
 //		
 //	}
 
-
-
-
-
 }
+

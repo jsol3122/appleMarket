@@ -130,6 +130,10 @@ input.loginInput{
 	margin: 10px 30px;
 }
 
+.modal a.close-modal {
+	top: 9.5px;
+	right: 7.5px;
+}
 
 
 

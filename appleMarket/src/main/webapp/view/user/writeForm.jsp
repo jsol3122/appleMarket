@@ -9,10 +9,6 @@
 </head>
 <body>
 	<div id="modal-content">
-		<div class="modal-header"> <!-- modal header -->
-			<button type="button" class="close" data-dismiss="modal">×</button>
-		</div>
-
 		<div class="modal-body"> <!-- modal body -->
 		<form id="writeForm" action="/appleMarket/write" method="post">
 			<h3>회원가입</h3>

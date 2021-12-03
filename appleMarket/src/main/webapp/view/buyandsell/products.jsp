@@ -343,6 +343,7 @@
     </main>
     <footer></footer>
 </body>
+<<<<<<< HEAD
 <script type="text/javascript">
     let isEnd = false;
     
@@ -407,5 +408,7 @@
         }
     }
 </script>
+=======
+>>>>>>> ad8d99bb62fe8ad49d3558463da3a86bdb310553
 
 </html>
