@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="localCommunityboardSQL">
+ 
+	 <select id="localCommunityboardGetList" parameterType="java.util.Map" resultType="localCommunityboard.bean.LocalCommunityboardDTO">
+	 	select * from 
+	 	(select rownum rn, tt.* from 
+	 	(select * from localcommunityboard order by communityboard_seq desc) tt)
+	 	where rn between #{startNum} and #{endNum}
+	 </select>
+	 
+	 <select id="getTotalA" parameterType="Integer" resultType="Integer">
+	 	select count(*) from localcommunityboard
+	 </select> 
+	 <insert id="localCommunityboardWrite" parameterType="localCommunityboard.bean.LocalCommunityboardDTO">
+	 	insert into localcommunityboard(localcommunity_seq
+	 									,localcommunity_subject
+	 									,localcommunity_sido
+	 									,localcommunity_content
+	 									,localcommunity_image
+	 									,localcommunity_logtime
+	 									,localcommunity_user_id
+	 									)values(
+	 									seq_localcommunityboard.nextval
+	 									,#{localcommunity_subject}
+	 									,#{localcommunity_sido}
+	 									,#{localcommunity_content}
+	 									,#{localcommunity_image}
+	 									,sysdate
+	 									,#{localcommunity_user_id}
+	 									)
+	 </insert>
+	 
+ </mapper>
