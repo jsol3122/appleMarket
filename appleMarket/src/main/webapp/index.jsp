@@ -590,7 +590,7 @@
     <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="/appleMarket/js/user.js"></script>
 
-<!-- Channel Plugin Scripts -->
+<!-- Channel Plugin Scripts --> 
 <script>
   (function() {
     var w = window;
@@ -631,6 +631,7 @@
     "pluginKey": "8f477d11-b3a5-4a18-9f84-31eeb55cd47e"
   });
 </script>
+
 <!-- End Channel Plugin -->
 
 
