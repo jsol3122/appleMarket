@@ -34,17 +34,8 @@
                 </fieldset>
             </form>
             <ul class="category">
-<<<<<<< HEAD
-<<<<<<< HEAD
-                <li><a href="/appleMarket/view/buyandsell/products.jsp">사고/팔고</a></li>
-=======
-                <li><a href="/appleMarket/products.jsp">사고/팔고</a></li>
->>>>>>> 481d671775efde5eebd6ed6c1385b96f07d5a16f
-                <li><a href="#">조잘조잘</a></li>
-=======
                 <li><a href="#">사고</a></li>
                 <li><a href="#">팔고</a></li>
->>>>>>> 05238b661e7783ce31a5e2786f1e443367a33827
                 <li><a href="#">우리동네</a></li>
                 <li><a href="#">조잘조잘</a></li>
             </ul>
