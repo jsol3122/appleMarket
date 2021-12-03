@@ -3,9 +3,11 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
-		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
+	xmlns:websocket="http://www.springframework.org/schema/websocket"
+	xsi:schemaLocation="http://www.springframework.org/schema/websocket http://www.springframework.org/schema/websocket/spring-websocket-4.3.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
 	<!--웹과 관련있는 환경설정 -->
 
@@ -17,8 +19,7 @@
 		<property name="maxUploadSize" value="5000000"/>
 	</bean>
 	<!-- value="5000000" 은 10메가 -->
-	
-	<context:component-scan base-package="kakaoPay.controller"/>
+
 	<context:component-scan base-package="communityboard.controller" />
 	<context:component-scan base-package="communityboardComment.controller" />
 	<context:component-scan base-package="localCommunityboard.controller"/>
@@ -34,17 +35,10 @@
 	<mvc:resources location="/js/" mapping="/js/**" />
 	<mvc:resources location="/img/" mapping="/img/**" />
 	<mvc:resources location="/css/" mapping="/css/**" />
+	<mvc:resources location="/view/" mapping="/view/**" />
 
 	<mvc:annotation-driven />
 
-
-	
-
-
-
-	
-	
-	
 	
 <!-- 
 <mvc:annotation-driven/>

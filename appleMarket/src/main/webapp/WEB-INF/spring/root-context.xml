@@ -11,18 +11,18 @@
 	<context:component-scan base-package="communityboard.service"/>
 	<context:component-scan base-package="communityboardComment.dao"/>
 	<context:component-scan base-package="communityboardComment.service"/>
+	
 	<context:component-scan base-package="localCommunityboard.dao"/>
 	<context:component-scan base-package="localCommunityboard.service"/>
 	
 	<context:component-scan base-package="boardPaging"/>
 
-	<!--웹과 관련없는 환경설정  -->
 	<context:component-scan base-package="saleboard.service"/>
 	<context:component-scan base-package="saleboard.dao"/>
+
 	<context:component-scan base-package="buyerboard.service"/>
 	<context:component-scan base-package="buyerboard.dao"/>
-	
-	
+
 	<context:component-scan base-package="member.service"/>
 	<context:component-scan base-package="member.dao"/>
 	

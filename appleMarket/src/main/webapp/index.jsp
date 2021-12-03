@@ -30,11 +30,11 @@
                     <legend>검색창</legend>
                     <label class="hidden" for="searchPrd">지역, 상품, 업체등을 검색해보세요.</label>
                     <input type="text" id="searchPrd" name="searchPrd" placeholder="지역, 상품, 업체등을 검색해보세요.">
-                    <button type="submit"><i class="fas fa-search"></i><span class="hidden">검색버튼</span></button>
+                    <button type="button" id="indexSearchBtn"><i class="fas fa-search"></i><span class="hidden">검색버튼</span></button>
                 </fieldset>
             </form>
             <ul class="category">
-                <li><a href="#">사고/팔고</a></li>
+                <li><a href="/appleMarket/products.jsp">사고/팔고</a></li>
                 <li><a href="#">조잘조잘</a></li>
                 <li><a href="#">우리동네</a></li>
                 <li><a href="#">문의하기</a></li>
@@ -590,7 +590,7 @@
     <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="/appleMarket/js/user.js"></script>
 
-<!-- Channel Plugin Scripts -->
+<!-- Channel Plugin Scripts --> 
 <script>
   (function() {
     var w = window;
@@ -631,6 +631,67 @@
     "pluginKey": "8f477d11-b3a5-4a18-9f84-31eeb55cd47e"
   });
 </script>
+
 <!-- End Channel Plugin -->
+
+
+<!-- 검색 버튼 함수 : 아직 수정 전 --><!--
+<script type="text/javascript">
+$(function(){
+	$('#indexSearchBtn').click(function(){
+		$.ajax({
+			url: '/appleMarket/saleboard/saleboardSearch',
+			type: 'post',
+			data: {'searchId': $('#searchId').val()},
+			//dataType: 'json',
+			//서버에서 받아올 데이터는 TEXT, HTML, XML, JSON 형식을 지정할 수 있다.
+         	//생략하면 요청한 자료에 맞게 자동으로 형식이 설정된다.
+			success: function(data) {
+				console.log(JSON.stringify(data));
+				
+				if(data == ''){
+					$('#resultDiv').text('찾고자 하는 아이디가 없습니다.');
+					$('#resultDiv').css('color', 'red');
+					$('#resultDiv').css('font-weight', 'bold');
+				}else{
+					$('#modifyFormDiv').show();
+					
+					$('#name').val(data.name);
+					$('#id').val(data.id);
+					$('#pwd').val(data.pwd);
+				}	
+			},
+			error : function(err){
+				console.log(err);
+			} 
+		});
+	});
+	
+	// 다시 작성 버튼
+	$('#resetBtn').click(function(){
+		//강제로 검색 이벤트 호출(원래 썼던 아이디로) : 이걸 트리거라고 한다.
+		// (에이작스 코드들 또 써주기는 번거로우니까) 
+		$('#searchBtn').trigger('click');
+	});
+	
+	$('#modifyBtn').click(function(){
+		$.ajax({
+			url: '/chapter06_SpringMaven/user/modify',
+			type: 'post',	
+			data: $('#modifyForm').serialize(),
+			success: function(){ // 여기는 받아오는 데이터가 아니라 수정하러 가는거라 펑션 매개변수 없음.
+				alert('회원 정보 수정 완료');
+				location.href='/chapter06_SpringMaven/user/list';
+			},
+			error: function(err){
+				console.log(err);	
+			}
+			
+		});
+	});
+});
+</script>
+-->
+
 </body>
 </html>
