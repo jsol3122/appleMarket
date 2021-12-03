@@ -35,7 +35,6 @@
                                 <hr>
                                 <div class="memberupwriteid">
                                     <label>아이디 </label>
-
                                     <input type="text" name="member_id" id="member_id" placeholder= ${sessionScope.login_info.member_id} readonly/>
                                 </div>
                                 <div class="memberupwrite">
@@ -97,6 +96,7 @@
     <script src="/appleMarket/js/user.js"></script>
 </body>
 </html>
+
 
 
 
