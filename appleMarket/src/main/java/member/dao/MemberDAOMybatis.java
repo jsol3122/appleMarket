@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import member.bean.MemberDTO;
+import member.bean.RecommendDTO;
 import member.bean.ZipcodeDTO;
 
 @Repository
@@ -82,16 +83,12 @@ public class MemberDAOMybatis implements MemberDAO {
 
 	@Override
 	public void recommend(Map<String, String> map) {
-		
 		sqlSession.insert("memberSQL.recommend", map);
-		
 	}
 
 	@Override
-	public void recommended(Map<String, String> map) {
-		
-		sqlSession.insert("memberSQL.recommended", map);
-		
+	public void recommended(Map<String, String> map) {		
+		sqlSession.insert("memberSQL.recommended", map);	
 	}
 	//이메일 중복체크
 	@Override
@@ -104,6 +101,17 @@ public class MemberDAOMybatis implements MemberDAO {
 	public int phoneChk(MemberDTO memberDTO) {
 		
 		return sqlSession.selectOne("memberSQL.phoneChk", memberDTO);
+	}
+
+	@Override
+	public String chkRecommended(Map<String, String> map) {
+		
+		return sqlSession.selectOne("memberSQL.chkRecommended", map);
+	}
+
+	@Override
+	public int recommendChk(Map<String, String> map) {
+		return sqlSession.selectOne("memberSQL.recommendChk", map);
 	}
 
 }

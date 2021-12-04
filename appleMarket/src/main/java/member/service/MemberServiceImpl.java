@@ -1,7 +1,5 @@
 package member.service;
 
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import java.util.Map;
 
@@ -12,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import member.bean.MemberDTO;
+import member.bean.RecommendDTO;
 import member.bean.ZipcodeDTO;
 import member.dao.MemberDAO;
 
@@ -161,15 +160,23 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public void recommend(Map<String, String> map) {
-		memberDAO.recommend(map);
-		
+		memberDAO.recommend(map);		
 	}
 
 	@Override
 	public void recommended(Map<String, String> map) {
-		memberDAO.recommended(map);
+		memberDAO.recommended(map);			
+	}
+	
+	@Override
+	public String chkRecommended(Map<String, String> map) {
+		String recommend_1 = memberDAO.chkRecommended(map);
 		
-		
+		if(recommend_1 == null) {
+			return "non_exist"; 
+		}else {
+			return "exist";
+		}
 	}
 
 	@Override
@@ -182,6 +189,12 @@ public class MemberServiceImpl implements MemberService {
 	public int phoneChk(MemberDTO memberDTO) {
 		
 		return memberDAO.phoneChk(memberDTO);
+	}
+
+	@Override
+	public int recommendChk(Map<String, String> map) {
+		
+		return memberDAO.recommendChk(map);
 	}
 
 

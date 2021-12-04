@@ -115,6 +115,20 @@
 		insert into recommend(recommend_id, recommend_1) values(#{member_id}, #{recommend_id})
 	</insert>	
 	
+	<!-- 추천받기 확인  -->
+	<select id="chkRecommended" parameterType="java.util.Map" resultType="String">
+		select recommend_1 from recommend where recommend_id=#{member_id}
+	</select>
+	
+	
+	<!-- 추천하기 업데이트  -->
+	
+	
+	<!-- 추천하기 중복체크  -->
+	<select id="recommendChk" parameterType="java.util.Map" resultType="Integer">
+ 		select count(*) from recommend where recommend_id=#{recommend_id}
+ 	</select>
+ 	
 	<!-- 이메일 중복체크  -->
  	<select id="emailChk" parameterType="String" resultType="Integer">
  		select count(*) from appleMarket where member_email=#{member_email}

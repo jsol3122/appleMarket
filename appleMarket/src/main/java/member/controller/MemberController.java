@@ -76,22 +76,37 @@ public class MemberController{
 	//회원가입 - index 이동(맞는지 확인 요망)
 	@RequestMapping("/write")
 	public String write(@ModelAttribute @Valid MemberDTO memberDTO,@Nullable @RequestParam("recommend_id") String recommend_id) {
-		String Check = memberSerivce.checkId(memberDTO.getMember_id());
+		
+		String member_id=memberDTO.getMember_id();
+		String Check = memberSerivce.checkId(member_id);
+		
+		Map<String, String> map = new HashMap<String,String>();
+		map.put("recommend_id", recommend_id);
+		map.put("member_id", member_id);
+		int recommendChk = memberSerivce.recommendChk(map);
+		
+		
+		System.out.println("recommend_id=" + recommend_id);
+		System.out.println("member_id="+memberDTO.getMember_id());
+		System.out.println("recommendChk="+recommendChk);
+		
 		if(Check.equals("non_exist")) {
-			memberSerivce.write(memberDTO);
+			
 			
 			//추천인 등록
 			if(recommend_id!=null) {
-				String member_id=memberDTO.getMember_id();
-				System.out.println("recommend_id=" + recommend_id);
-				System.out.println("member_id="+memberDTO.getMember_id());
-				Map<String, String> map = new HashMap<String,String>();
-				map.put("recommend_id", recommend_id);
-				map.put("member_id", member_id);
 				
-				memberSerivce.recommend(map);
+				String chkRecommended = memberSerivce.chkRecommended(map);
+				System.out.println(chkRecommended);
+				
+				if(chkRecommended.equals("non_exist") && recommendChk!=1) {
+					memberSerivce.recommend(map);
+					
+				}	
 				memberSerivce.recommended(map);
 			}
+			
+			memberSerivce.write(memberDTO);
 			return "/index";
 		}else {
 			return "/user/writeForm";
