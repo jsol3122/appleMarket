@@ -6,8 +6,13 @@
  
 	 <select id="localCommunityboardGetList" parameterType="java.util.Map" resultType="localCommunityboard.bean.LocalCommunityboardDTO">
 	 	select * from 
-	 	(select rownum rn, tt.* from 
-	 	(select * from localcommunityboard where localcommunity_dong=#{localcommunity_dong} order by communityboard_seq desc) tt)
+	 		(select rownum rn, tt.* from 
+	 			(select * from localcommunityboard
+	 			<if test="localcommunity_user_id != null">
+	 				where location_dong=(select location_dong from locationConfirm where member_id=#{localcommunity_user_id})
+				</if>
+	 			order by localcommunity_seq desc) 
+ 			tt)
 	 	where rn between #{startNum} and #{endNum}
 	 </select>
 	 

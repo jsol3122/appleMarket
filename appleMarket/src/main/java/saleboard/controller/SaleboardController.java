@@ -31,7 +31,7 @@ public class SaleboardController {
 	@Autowired
 	private SaleboardService saleboardService;
 
-	@PostMapping("/saleboard/saleboardList")
+	@GetMapping("/saleboard/saleboardList")
 	public String saleboardList() {
 		return "/saleboard/saleboardList";
 	}
@@ -134,6 +134,12 @@ public class SaleboardController {
 		System.out.println("controller");
 		return saleboardService.saleboardGetView(sale_seq);	
 	}	
+	
+	@PostMapping("/saleboard/saleboardGetListId")
+	@ResponseBody
+	public List<SaleboardDTO> saleboardGetListId(@RequestParam String member_id, int sale_seq) {
+		return saleboardService.saleboardGetListId(member_id, sale_seq);
+	}
 	
 	@PostMapping("/saleboard/saleboardPick")
 	public void saleboardPick(@ModelAttribute SaleboardDTO saleboardDTO) {

@@ -8,7 +8,7 @@ $(function(){
         let windowHeight = $window.height();
         let documentHeight = $(document).height();
         
-        console.log("documentHeight:" + documentHeight + " | scrollTop:" + scrollTop + " | windowHeight: " + windowHeight );
+        // console.log("documentHeight:" + documentHeight + " | scrollTop:" + scrollTop + " | windowHeight: " + windowHeight );
         
         // scrollbar의 thumb가 바닥 전 30px까지 도달 하면 리스트를 가져온다.
         if( scrollTop + windowHeight + 30 > documentHeight ){
@@ -47,19 +47,21 @@ let fetchList = function(){
 }
 
 let renderList = function(mode, DTO){
-	if(DTO.location1_addr2 == undefined){ //임시로 지역 넣어놓고 gps위치 개발하면 위치값 넣어놓기
-       DTO.location1_addr2 = '강남구'; 
+	if(DTO.location_dong == undefined){ //임시로 지역 넣어놓고 gps위치 개발하면 위치값 넣어놓기
+       DTO.location_dong = '강남구'; 
        //DTO.location1_addr2.replace(/null/g, '');
     }
+    
+    let category = DTO.buyerboard_category;
 
     // 리스트 html을 정의
     let html = "<li id=product_"+DTO.buyerboard_seq+">"+
         "<div class=list_contents>"+
-            "<div class=default>"+
+            "<div class=default onclick=location.href='/appleMarket/view/buyerboard/buyerboardView.jsp?buyerboard_seq="+DTO.buyerboard_seq+"'>"+
                 //"<img src='/appleMarket/storage/"+DTO.sale_image1+"' style=width:200px;height:180px; alt=img>"+
-                "<img src='/appleMarket/img/food4.jpg' style=width:200px;height:180px; alt=img>"+
+                "<img src='/appleMarket/storage/"+DTO.buyerboard_image1+"' style=width:200px;height:180px; alt=img>"+
                 "<h3>"+DTO.buyerboard_subject+"</h3>"+
-                "<h3>"+DTO.location1_addr2+"</h3>"+
+                "<h3>"+DTO.location_dong+"</h3>"+
                 "<h4>"+DTO.buyerboard_price+"</h4>"+
             "</div>"+
             "<div class=hover>"+
@@ -74,6 +76,7 @@ let renderList = function(mode, DTO){
     console.log(mode)
     
     $('.hover a').addClass('addcart');
+    $('.new_arrivals_list>li').addClass(['col-md-3', category]);
     
     /*
     if( mode ){
