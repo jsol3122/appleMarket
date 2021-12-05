@@ -47,8 +47,8 @@ let fetchList = function(){
 }
 
 let renderList = function(mode, DTO){
-	if(DTO.location1_addr2 == undefined){ //임시로 지역 넣어놓고 gps위치 개발하면 위치값 넣어놓기
-       DTO.location1_addr2 = '강남구'; 
+	if(DTO.location_dong == undefined){ //임시로 지역 넣어놓고 gps위치 개발하면 위치값 넣어놓기
+       DTO.location_dong = '강남구'; 
        //DTO.location1_addr2.replace(/null/g, '');
     }
     
@@ -59,9 +59,9 @@ let renderList = function(mode, DTO){
         "<div class=list_contents>"+
             "<div class=default onclick=location.href='/appleMarket/view/saleboard/saleboardView.jsp?sale_seq="+DTO.sale_seq+"'>"+
                 //"<img src='/appleMarket/storage/"+DTO.sale_image1+"' style=width:200px;height:180px; alt=img>"+
-                "<img src='/appleMarket/img/food4.jpg' style=width:200px;height:180px; alt=img>"+
+                "<img src='/appleMarket/storage/"+DTO.sale_image1+"' style=width:200px;height:180px; alt=img>"+
                 "<h3>"+DTO.sale_subject+"</h3>"+
-                "<h3>"+DTO.location1_addr2+"</h3>"+
+                "<h3>"+DTO.location_dong+"</h3>"+
                 "<h4>"+DTO.sale_price+"</h4>"+
             "</div>"+
             "<div class=hover>"+
@@ -78,14 +78,5 @@ let renderList = function(mode, DTO){
     $('.hover a').addClass('addcart');
     $('.new_arrivals_list>li').addClass(['col-md-3', category]);
     
-    /*
-    if( mode ){
-        $(".new_arrivals_list").prepend(html);
-        console.log(mode)
-    }
-    else{
-        $(".new_arrivals_list").append(html);
-        console.log(mode)
-    }
-    */
+
 }

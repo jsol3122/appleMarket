@@ -120,10 +120,16 @@ public class BuyerboardController {
 		return "/buyerboard/buyerboardView";
 	}
 	
-	@PostMapping("/buyerboard/buyerboardGetView")
+	@PostMapping("/buyerboard/buyerboardGetView") @ResponseBody
 	public List<BuyerboardDTO> buyerboardGetView(@RequestParam int buyerboard_seq){
 		return buyerboardService.buyerboardGetView(buyerboard_seq);	
 	}	
+	
+	@PostMapping("/buyerboard/buyerboardGetListId")
+	@ResponseBody
+	public List<BuyerboardDTO> saleboardGetListId(@RequestParam String member_id, int buyerboard_seq) {
+		return buyerboardService.buyerboardGetListId(member_id, buyerboard_seq);
+	}
 	
 	@PostMapping("/buyerboard/buyerboardHit")
 	@ResponseBody

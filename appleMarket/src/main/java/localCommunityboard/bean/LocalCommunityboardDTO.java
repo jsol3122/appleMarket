@@ -8,7 +8,7 @@ import lombok.Data;
 public class LocalCommunityboardDTO {
 	private int localcommunity_seq;
 	private String localcommunity_subject;
-	private String localcommunity_dong;
+	private String location_dong;
 	private String localcommunity_content;
 	private String localcommunity_image;
 	private int localcommunity_hit;

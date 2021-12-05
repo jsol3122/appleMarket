@@ -27,6 +27,8 @@ public interface SaleboardService {
 	public void saleboardHit(int sale_seq);
 
 	public void saleboardFollow(Map<String, String> map);
+
+	public List<SaleboardDTO> saleboardGetListId(String member_id, int sale_seq);
 	
 //	public void saleboardChat(String sale_id); //  판매자 아이디, 매개 변수 수정하기
 //	
