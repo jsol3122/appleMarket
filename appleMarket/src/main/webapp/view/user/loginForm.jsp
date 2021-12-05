@@ -25,8 +25,13 @@
 	         </div>
 	         <div>
 
+<<<<<<< HEAD
 	         	<a href="/appleMarket/searchIdForm" onclick="window.open(this.href, '_blank', 'width=600, height=500'); return false;">아이디 찾기</a>
 	         	<a href="/appleMarket/searchPwdForm" onclick="window.open(this.href, '_blank', 'width=600, height=500'); return false;">비밀번호 찾기</a>
+=======
+	         	<a href="/appleMarket/view/user/searchIdForm" onclick="window.open(this.href, '_blank', 'width=400, height=300'); return false;">아이디 찾기</a>
+	         	 | <a href="/appleMarket/view/user/searchPwdForm" onclick="window.open(this.href, '_blank', 'width=400, height=300'); return false;">비밀번호 찾기</a>
+>>>>>>> f594b73d422a1e571e0c4a73f72d43fcfe3af157
 
 	         </div>
 	         <div style="padding:0 5px;">

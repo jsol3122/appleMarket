@@ -22,7 +22,7 @@
     <!-- fontawesome -->
     <script src="/appleMarket/js/all.min.js"></script>
 
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.m	in.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
@@ -46,8 +46,8 @@
                     <div class="gnb">
                         <h1 class="logo"><a href="/appleMarket/index.jsp">Shopy Logo</a></h1>
                         <ul>
-                            <li><a href="">사과마켓</a></li>
-                            <li><a href="">사고/팔기</a></li>
+                            <li><a href="/appleMarket/view/buyerboard/buyerboardList.jsp">사고</a></li>
+                            <li><a href="/appleMarket/view/saleboard/saleboardList.jsp">팔기</a></li>
                             <li><a href="">조잘조잘</a></li>
                             <li><a href="">우리동네</a></li>
                         </ul>
