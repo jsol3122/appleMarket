@@ -63,6 +63,7 @@ public class SaleboardController {
 		HttpSession loginSession = request.getSession();
 		String member_id = (String)loginSession.getAttribute("member_id");
 		System.out.println(member_id);
+		saleboardDTO.setMember_id(member_id);
 		
 		String uuid = UUID.randomUUID().toString();
 		
@@ -180,6 +181,25 @@ public class SaleboardController {
 		saleboardService.saleboardFollow(map);
 	}
 	
-
+	
+	@PostMapping("/saleboard/saleboardChat") 
+	@ResponseBody
+	public void saleboardChat(@ModelAttribute SaleboardDTO saleboardDTO, HttpServletRequest request) {
+		HttpSession loginSession = request.getSession();
+		int sale_seq = saleboardDTO.getSale_seq();
+		String member_id = saleboardDTO.getMember_id();
+		String user_id = (String)loginSession.getAttribute("member_id");
+		
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("sale_seq", sale_seq+"");
+		map.put("member_id", member_id); // 글 작성자 (채팅 걸리는 사람)
+		map.put("user_id", user_id); // 로그인 세션 아이디 (채팅 거는 사람)		
+		
+		saleboardService.saleboardChat(map);
+		
+	}
+	
+	
+	
 	
 }

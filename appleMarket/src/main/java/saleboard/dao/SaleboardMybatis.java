@@ -105,6 +105,21 @@ public class SaleboardMybatis implements SaleboardDAO {
 		sqlSession.insert("saleboardSQL.saleboardFollow", map);
 		
 	}
+
+	@Override
+	public void saleboardChat(Map<String, String> map) {
+		String sale_seq = map.get("sale_seq");
+		String member_id = map.get("member_id");
+		String user_id = map.get("user_id"); // 로그인 세션 값 받아오기
+		
+		map.put("sale_seq", sale_seq+"");
+		map.put("member_id", member_id);
+		map.put("user_id", user_id);
+		
+		// 첫 채팅과 아닌 경우 구분해줘야 한다. 
+		sqlSession.insert("saleboardSQL.saleboardChat", map);		
+		
+	}
 	
 
 	/*

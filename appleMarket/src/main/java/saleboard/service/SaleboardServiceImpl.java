@@ -136,6 +136,11 @@ public class SaleboardServiceImpl implements SaleboardService {
 		saleboardDAO.saleboardFollow(map);
 	}
 
+	@Override
+	public void saleboardChat(Map<String, String> map) {
+		saleboardDAO.saleboardChat(map);		
+	}
+
 	
 //	@Override
 //	public void saleboardChat(String sale_id) {

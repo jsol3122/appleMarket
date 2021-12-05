@@ -121,5 +121,5 @@
 	<insert id="saleboardFollow" parameterType="java.util.Map">
 		insert into follow(member_id, following_id) values(#{member_id},#{following_id})
 	</insert>
-
+	
  </mapper>
