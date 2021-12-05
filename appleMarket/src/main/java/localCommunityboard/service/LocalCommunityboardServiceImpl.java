@@ -25,8 +25,8 @@ public class LocalCommunityboardServiceImpl implements LocalCommunityboardServic
 	@Override
 	public JSONObject localCommunityboardGetList(Map<String, Object> map) {
 		int pg = Integer.valueOf((String) map.get("pg"));
-		int endNum =  pg * 5;
-		int startNum = endNum - 4;
+		int endNum =  pg * 10;
+		int startNum = endNum - 9;
 		
 		map.put("startNum", startNum);
 		map.put("endNum", endNum);
@@ -34,8 +34,8 @@ public class LocalCommunityboardServiceImpl implements LocalCommunityboardServic
 		
 		int totalA = localCommunityboardDAO.getTotalA();
 		boardPaging.setCurrentPage(pg);
-		boardPaging.setPageBlock(3);
-		boardPaging.setPageSize(5);
+		//boardPaging.setPageBlock(3);
+		boardPaging.setPageSize(10);
 		boardPaging.setTotalA(totalA);
 		boardPaging.makePagingHTML();
 		
@@ -62,7 +62,7 @@ public class LocalCommunityboardServiceImpl implements LocalCommunityboardServic
 			json.put("list", array);
 		}
 		
-		json.put("boardPaging", boardPaging.getPagingHTML());
+		json.put("boardPaging", boardPaging.getPagingHTML().toString());
 		
 		return json;
 	}

@@ -11,7 +11,7 @@
 	 			<if test="localcommunity_user_id != null">
 	 				where location_dong=(select location_dong from locationConfirm where member_id=#{localcommunity_user_id})
 				</if>
-	 			order by localcommunity_seq desc) 
+				order by localcommunity_seq desc) 
  			tt)
 	 	where rn between #{startNum} and #{endNum}
 	 </select>

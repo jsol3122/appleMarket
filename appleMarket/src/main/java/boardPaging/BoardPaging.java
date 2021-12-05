@@ -19,27 +19,25 @@ public class BoardPaging {
 		pagingHTML = new StringBuffer();
 		
 		int totalP = (totalA+(pageSize-1))/pageSize; //총페이지 수
+//		
+//		int startPage = (currentPage-1)/pageBlock*pageBlock+1;
+//		int endPage = startPage+pageBlock -1;
+//		if(endPage>totalP) {
+//			endPage = totalP;
+//		}
 		
-		int startPage = (currentPage-1)/pageBlock*pageBlock+1;
-		int endPage = startPage+pageBlock -1;
-		if(endPage>totalP) {
-			endPage = totalP;
-		}
-		if(startPage>pageBlock) {
-			pagingHTML.append("<span id='paging' onclick='boardPaging("+(startPage-1)+")'>[이전]</span>");
-		}
-
-		for(int i=startPage; i<=endPage; i++) {
+		pagingHTML.append("<a class='direction prev' ><i class='fa fa-angle-left'></i> Prev</a>");
+		
+		for(int i=1; i<=totalP; i++) {
 			if(i==currentPage) {
-				pagingHTML.append("[<span id='currentPaging' onclick='boardPaging("+i+")'>"+i+"</span>]");
+				pagingHTML.append("<a class='paging' value="+i+">"+i+"</a>");
 			}else {
-				pagingHTML.append("[<span id='paging' onclick='boardPaging("+i+")'>"+i+"</span>]");
+				pagingHTML.append("<a class='paging' value="+i+">"+i+"</a>");
 			}
 		}//for
 		
-		if(endPage<totalP) {
-			pagingHTML.append("<span id='paging' onclick='boardPaging("+(endPage+1)+")'>[다음]</span>");
-		}
+		pagingHTML.append("<a class='direction next' >Next <i class='fa fa-angle-right'></i></a>");
+		
 		
 		
 		

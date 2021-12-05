@@ -240,6 +240,7 @@ public class MemberController{
 	@ResponseBody
 	public void logout(HttpSession session) {
 		session.removeAttribute("login_info");
+		session.removeAttribute("member_id");
 	}
 	
 	//탈퇴하기 폼
