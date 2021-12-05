@@ -57,4 +57,9 @@ public class BuyerboardMybatis implements BuyerboardDAO {
 		sqlSession.update("buyerboardSQL.buyerboardHit",buyerboard_seq);
 	}
 
+	@Override
+	public List<BuyerboardDTO> buyerboardGetListId(Map<String, Object> map) {
+		return sqlSession.selectList("buyerboardSQL.buyerboardGetListId",map);
+	}
+
 }

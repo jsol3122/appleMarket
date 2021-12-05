@@ -8,7 +8,7 @@ import net.sf.json.JSONObject;
 
 public interface LocalCommunityboardService {
 
-	public JSONObject localCommunityboardGetList(Map<String, String> map);
+	public JSONObject localCommunityboardGetList(Map<String, Object> map);
 
 
 	public void localCommunityboardWrite(LocalCommunityboardDTO localCommunityboardDTO);

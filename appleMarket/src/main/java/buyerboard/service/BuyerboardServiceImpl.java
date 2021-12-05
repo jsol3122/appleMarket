@@ -52,7 +52,7 @@ public class BuyerboardServiceImpl implements BuyerboardService {
 				temp.put("buyerboard_seq", buyerboardDTO.getBuyerboard_seq());
 				temp.put("member_id", buyerboardDTO.getMember_id());
 
-				temp.put("member_dong", buyerboardDTO.getMember_dong());
+				temp.put("location_dong", buyerboardDTO.getLocation_dong());
 				temp.put("buyerboard_category", buyerboardDTO.getBuyerboard_category());
 				temp.put("buyerboard_price", buyerboardDTO.getBuyerboard_price());
 				temp.put("buyerboard_subject", buyerboardDTO.getBuyerboard_subject());
@@ -97,7 +97,6 @@ public class BuyerboardServiceImpl implements BuyerboardService {
 
 	@Override
 	public List<BuyerboardDTO> buyerboardGetView(int buyerboard_seq) {
-		// TODO Auto-generated method stub
 		return buyerboardDAO.buyerboardGetView(buyerboard_seq);
 	}
 
@@ -105,6 +104,17 @@ public class BuyerboardServiceImpl implements BuyerboardService {
 	public void buyerboardHit(int buyerboard_seq) {
 		
 		buyerboardDAO.buyerboardHit(buyerboard_seq);
+	}
+
+
+	@Override
+	public List<BuyerboardDTO> buyerboardGetListId(String member_id, int buyerboard_seq) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("startNum", 1);
+		map.put("endNum", 12);
+		map.put("member_id", member_id);
+		map.put("buyerboard_seq", buyerboard_seq);
+		return buyerboardDAO.buyerboardGetListId(map);
 	}
 	
 	
