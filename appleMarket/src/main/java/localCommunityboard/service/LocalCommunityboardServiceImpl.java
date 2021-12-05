@@ -32,7 +32,7 @@ public class LocalCommunityboardServiceImpl implements LocalCommunityboardServic
 		map.put("endNum", endNum);
 		List<LocalCommunityboardDTO> list = localCommunityboardDAO.localCommunityboardGetList(map);
 		
-		int totalA = localCommunityboardDAO.getTotalA();
+		int totalA = localCommunityboardDAO.getTotalA(map);
 		boardPaging.setCurrentPage(pg);
 		//boardPaging.setPageBlock(3);
 		boardPaging.setPageSize(10);

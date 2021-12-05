@@ -16,9 +16,11 @@
 	 	where rn between #{startNum} and #{endNum}
 	 </select>
 	 
-	 <select id="getTotalA" parameterType="Integer" resultType="Integer">
+	 <select id="getTotalA" parameterType="java.util.Map" resultType="Integer">
 	 	select count(*) from localcommunityboard
-
+				<if test="localcommunity_user_id != null">
+	 				where location_dong=(select location_dong from locationConfirm where member_id=#{localcommunity_user_id})
+				</if>
 	 </select>
 	 
 	 <select id="searchDong" parameterType="String" resultType="String">
