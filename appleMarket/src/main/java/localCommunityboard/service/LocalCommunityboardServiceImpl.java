@@ -48,7 +48,7 @@ public class LocalCommunityboardServiceImpl implements LocalCommunityboardServic
 				
 				temp.put("localcommunity_seq", localCommunityboardDTO.getLocalcommunity_seq());
 				temp.put("localcommunity_subject", localCommunityboardDTO.getLocalcommunity_subject());
-				temp.put("localcommunity_dong", localCommunityboardDTO.getLocalcommunity_dong());
+				temp.put("location_dong", localCommunityboardDTO.getLocation_dong());
 				temp.put("localcommunity_content", localCommunityboardDTO.getLocalcommunity_content());
 				temp.put("localcommunity_image", localCommunityboardDTO.getLocalcommunity_image());
 				temp.put("localcommunity_hit", localCommunityboardDTO.getLocalcommunity_hit());

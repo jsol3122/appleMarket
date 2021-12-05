@@ -26,7 +26,8 @@
 	<context:component-scan base-package="localCommunityboard.controller"/>
 	<context:component-scan base-package="saleboard.controller"/>
 	<context:component-scan base-package="buyerboard.controller"/>
-
+	<context:component-scan base-package="myPage.controller"/>
+	
 	<context:component-scan base-package="member.controller" />
 	<context:component-scan base-package="spring.conf" />
 	<context:component-scan base-package="handler" />

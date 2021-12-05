@@ -63,7 +63,7 @@ public class SaleboardServiceImpl implements SaleboardService {
 				
 				temp.put("member_profilePic", saleboardDTO.getMember_profilePic());
 				temp.put("member_id", saleboardDTO.getMember_id());
-				temp.put("location1_addr2", saleboardDTO.getLocation1_addr2());
+				temp.put("location_dong", saleboardDTO.getLocation_dong());
 				
 				temp.put("sale_heart_count", saleboardDTO.getSale_heart_count());
 				temp.put("sale_hit", saleboardDTO.getSale_hit());
