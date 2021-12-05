@@ -351,4 +351,15 @@ public class MemberController{
 		memberSerivce.recommendCoupon(member_id);
 	}
 	
+	
+	//추천하기 쿠폰 발송
+	@GetMapping("/recommendSMS")
+	@ResponseBody
+	public void recommendSMS(@ModelAttribute MemberDTO memberDTO) {
+		//돈나가서 잠시 주석
+		//messageService.smsCoupon(memberDTO);
+	
+	}
+	
+	
 }
