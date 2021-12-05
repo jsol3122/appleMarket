@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import member.bean.MemberDTO;
+import member.bean.RecommendDTO;
 import member.bean.ZipcodeDTO;
 
 public interface MemberService {
@@ -36,12 +37,12 @@ public interface MemberService {
 
 	public void recommended(Map<String, String> map);
 
-	public String chkRecommended(Map<String, String> map); 
-	
 	public int recommendChk(Map<String, String> map);
 	
 	public int emailChk(String member_email);
 
-	public int phoneChk(MemberDTO memberDTO);
+	public List<RecommendDTO> recommendList(String member_id);
+
+	public void recommendCoupon(String member_id);
 
 }

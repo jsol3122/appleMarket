@@ -168,16 +168,6 @@ public class MemberServiceImpl implements MemberService {
 		memberDAO.recommended(map);			
 	}
 	
-	@Override
-	public String chkRecommended(Map<String, String> map) {
-		String recommend_1 = memberDAO.chkRecommended(map);
-		
-		if(recommend_1 == null) {
-			return "non_exist"; 
-		}else {
-			return "exist";
-		}
-	}
 
 	@Override
 	public int emailChk(String member_email) {
@@ -186,15 +176,22 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public int phoneChk(MemberDTO memberDTO) {
-		
-		return memberDAO.phoneChk(memberDTO);
-	}
-
-	@Override
 	public int recommendChk(Map<String, String> map) {
 		
 		return memberDAO.recommendChk(map);
+	}
+
+	@Override
+	public List<RecommendDTO> recommendList(String member_id) {
+		
+		return memberDAO.recommendList(member_id);
+	}
+
+	@Override
+	public void recommendCoupon(String member_id) {
+		
+		memberDAO.recommendCoupon(member_id);
+		
 	}
 
 

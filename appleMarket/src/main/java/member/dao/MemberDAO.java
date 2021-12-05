@@ -33,10 +33,11 @@ public interface MemberDAO {
 
 	public int emailChk(String member_email);
 
-	public int phoneChk(MemberDTO memberDTO);
-
-	public String chkRecommended(Map<String, String> map);
-
 	public int recommendChk(Map<String, String> map);
+
+	public List<RecommendDTO> recommendList(String member_id);
+
+	public void recommendCoupon(String member_id);
+
 }
 

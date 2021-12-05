@@ -28,6 +28,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import member.bean.MemberDTO;
 import member.bean.MessageDTO;
+import member.bean.RecommendDTO;
 import member.bean.ZipcodeDTO;
 import member.service.MemberService;
 import member.service.MessageService;
@@ -85,47 +86,33 @@ public class MemberController{
 		map.put("member_id", member_id);
 		int recommendChk = memberSerivce.recommendChk(map);
 		
-		
 		System.out.println("recommend_id=" + recommend_id);
 		System.out.println("member_id="+memberDTO.getMember_id());
 		System.out.println("recommendChk="+recommendChk);
 		
 		if(Check.equals("non_exist")) {
-			
-			
 			//추천인 등록
 			if(recommend_id!=null) {
-				
-				String chkRecommended = memberSerivce.chkRecommended(map);
-				System.out.println(chkRecommended);
-				
-				if(chkRecommended.equals("non_exist") && recommendChk!=1) {
+				if(recommendChk<5) { 
 					memberSerivce.recommend(map);
-					
-				}	
-				memberSerivce.recommended(map);
+					memberSerivce.recommended(map);
+				}
 			}
-			
+			//가입하기
 			memberSerivce.write(memberDTO);
+			//가입 후 인덱스로 가기
 			return "/index";
 		}else {
 			return "/user/writeForm";
 		}
 	}
 	
+
 	//이메일 중복체크
 	@PostMapping("/emailChk")
 	@ResponseBody
 	public int emailChk(@RequestParam("member_email") String member_email) {
 		int result = memberSerivce.emailChk(member_email);
-		return result;
-	}
-	
-	//핸드폰 중복체크
-	@PostMapping("/phoneChk")
-	@ResponseBody
-	public int phoneChk(@ModelAttribute MemberDTO memberDTO) {
-		int result = memberSerivce.phoneChk(memberDTO);
 		return result;
 	}
 	
@@ -155,7 +142,7 @@ public class MemberController{
 			messageService.certificationCheck(messageDTO);
 		}else if(message=="exist"){
 			messageService.phoneUpdate(messageDTO);
-		}
+		}		
 		return Integer.toString(randomNumber); 
 		
 	}
@@ -341,4 +328,26 @@ public class MemberController{
 		memberSerivce.chagePwd(memberDTO);
 	
 	}
+	
+	//추천하기폼
+	@GetMapping("/recommendForm")
+	public String recommendForm() {
+		return "/view/recommend/recommendForm";
+	}
+
+	
+	//추천하기 리스트
+	@PostMapping("/recommendList")
+	@ResponseBody
+	public List<RecommendDTO> recommendList(@RequestParam("member_id")String member_id) {
+		return memberSerivce.recommendList(member_id);
+	}
+	
+	//추천하기 - 쿠폰 발송 후 recommend_YN 'N' -> 'Y'로 바꾸기 
+	@PostMapping("/recommendCoupon")
+	@ResponseBody
+	public void recommendCoupon(@RequestParam("member_id")String member_id) {
+		memberSerivce.recommendCoupon(member_id);
+	}
+	
 }

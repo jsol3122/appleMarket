@@ -81,6 +81,13 @@ public class MemberDAOMybatis implements MemberDAO {
 		
 	}
 
+	//이메일 중복체크
+	@Override
+	public int emailChk(String member_email) {
+		
+		return sqlSession.selectOne("memberSQL.emailChk", member_email);
+	}
+
 	@Override
 	public void recommend(Map<String, String> map) {
 		sqlSession.insert("memberSQL.recommend", map);
@@ -90,28 +97,20 @@ public class MemberDAOMybatis implements MemberDAO {
 	public void recommended(Map<String, String> map) {		
 		sqlSession.insert("memberSQL.recommended", map);	
 	}
-	//이메일 중복체크
-	@Override
-	public int emailChk(String member_email) {
-		
-		return sqlSession.selectOne("memberSQL.emailChk", member_email);
-	}
-
-	@Override
-	public int phoneChk(MemberDTO memberDTO) {
-		
-		return sqlSession.selectOne("memberSQL.phoneChk", memberDTO);
-	}
-
-	@Override
-	public String chkRecommended(Map<String, String> map) {
-		
-		return sqlSession.selectOne("memberSQL.chkRecommended", map);
-	}
-
+	
 	@Override
 	public int recommendChk(Map<String, String> map) {
 		return sqlSession.selectOne("memberSQL.recommendChk", map);
+	}
+
+	@Override
+	public List<RecommendDTO> recommendList(String member_id) {
+		return sqlSession.selectList("memberSQL.recommendList",member_id);
+	}
+
+	@Override
+	public void recommendCoupon(String member_id) {
+		sqlSession.update("memberSQL.recommendCoupon",member_id);		
 	}
 
 }
