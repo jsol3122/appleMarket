@@ -59,6 +59,13 @@
  		select * from buyerboard where buyerboard_seq=#{buyerboard_seq}
  	</select>
  	
+	<select id="buyerboardGetListId" parameterType="java.util.Map" resultType="buyerboard.bean.BuyerboardDTO">
+ 		select * from 
+	 		(select rownum rn, tt.* from 
+	 			(select * from buyerboard order by buyerboard_seq desc) 
+ 			tt)
+	 	where member_id=#{member_id} and rn between #{startNum} and #{endNum} and buyerboard_seq != #{buyerboard_seq}
+ 	</select>
 
  	<update id="buyerboardHit" parameterType="int">
  		update buyerboard set buyerboard_hit = buyerboard_hit + 1

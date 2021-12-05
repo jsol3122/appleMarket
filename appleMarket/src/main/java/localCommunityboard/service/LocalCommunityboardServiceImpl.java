@@ -23,13 +23,13 @@ public class LocalCommunityboardServiceImpl implements LocalCommunityboardServic
 	private BoardPaging boardPaging;
 
 	@Override
-	public JSONObject localCommunityboardGetList(Map<String, String> map) {
-		int pg = Integer.parseInt(map.get("pg"));
+	public JSONObject localCommunityboardGetList(Map<String, Object> map) {
+		int pg = Integer.valueOf((String) map.get("pg"));
 		int endNum =  pg * 5;
 		int startNum = endNum - 4;
 		
-		map.put("startNum", startNum+"");
-		map.put("endNum", endNum+"");
+		map.put("startNum", startNum);
+		map.put("endNum", endNum);
 		List<LocalCommunityboardDTO> list = localCommunityboardDAO.localCommunityboardGetList(map);
 		
 		int totalA = localCommunityboardDAO.getTotalA();
@@ -48,7 +48,7 @@ public class LocalCommunityboardServiceImpl implements LocalCommunityboardServic
 				
 				temp.put("localcommunity_seq", localCommunityboardDTO.getLocalcommunity_seq());
 				temp.put("localcommunity_subject", localCommunityboardDTO.getLocalcommunity_subject());
-				temp.put("localcommunity_dong", localCommunityboardDTO.getLocalcommunity_dong());
+				temp.put("location_dong", localCommunityboardDTO.getLocation_dong());
 				temp.put("localcommunity_content", localCommunityboardDTO.getLocalcommunity_content());
 				temp.put("localcommunity_image", localCommunityboardDTO.getLocalcommunity_image());
 				temp.put("localcommunity_hit", localCommunityboardDTO.getLocalcommunity_hit());

@@ -115,6 +115,7 @@ public class MemberController{
 		int result = memberSerivce.emailChk(member_email);
 		return result;
 	}
+
 	
 	/*
 	 * 인증번호 전송 api

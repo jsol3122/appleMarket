@@ -21,4 +21,6 @@ public interface BuyerboardDAO {
 
 	public void buyerboardHit(int buyerboard_seq);
 
+	public List<BuyerboardDTO> buyerboardGetListId(Map<String, Object> map);
+
 }
