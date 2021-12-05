@@ -198,9 +198,6 @@ public class KakaoController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        return userInfo;
-       
-       
+        return userInfo; 
     }
  }

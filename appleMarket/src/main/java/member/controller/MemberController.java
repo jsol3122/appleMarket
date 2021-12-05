@@ -1,6 +1,5 @@
 package member.controller;
 
-import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -8,9 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
 import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -18,8 +15,8 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -75,30 +72,30 @@ public class MemberController{
 //			return;
 //		}
 //	}
-	
-	//회원가입 - index 이동(맞는지 확인 요망)
-	@RequestMapping("/write")
-	public String write(@ModelAttribute @Valid MemberDTO memberDTO,@RequestParam("recommend_id")String recommend_id) {
-		String Check = memberSerivce.checkId(memberDTO.getMember_id());
-		if(Check.equals("non_exist")) {
-			memberSerivce.write(memberDTO);
-			
-			//추천인 등록
-			String member_id=memberDTO.getMember_id();
-			System.out.println("recommend_id=" + recommend_id);
-			System.out.println("member_id="+memberDTO.getMember_id());
-			Map<String, String> map = new HashMap<String,String>();
-			map.put("recommend_id", recommend_id);
-			map.put("member_id", member_id);
-			
-			memberSerivce.recommend(map);
-			memberSerivce.recommended(map);
-			
-			return "/index";
-		}else {
-			return "/user/writeForm";
-		}
-}
+	   //회원가입 - index 이동(맞는지 확인 요망)
+	   @RequestMapping("/write")
+	   public String write(@ModelAttribute @Valid MemberDTO memberDTO,@Nullable @RequestParam("recommend_id") String recommend_id) {
+	      String Check = memberSerivce.checkId(memberDTO.getMember_id());
+	      if(Check.equals("non_exist")) {
+	         memberSerivce.write(memberDTO);
+	         
+	         //추천인 등록
+	         if(recommend_id!=null) {
+	            String member_id=memberDTO.getMember_id();
+	            System.out.println("recommend_id=" + recommend_id);
+	            System.out.println("member_id="+memberDTO.getMember_id());
+	            Map<String, String> map = new HashMap<String,String>();
+	            map.put("recommend_id", recommend_id);
+	            map.put("member_id", member_id);
+	            
+	            memberSerivce.recommend(map);
+	            memberSerivce.recommended(map);
+	         }
+	         return "/index";
+	      }else {
+	         return "/user/writeForm";
+	      }
+	   }
 	
 	/*
 	 * 인증번호 전송 api
@@ -190,6 +187,7 @@ public class MemberController{
 		return memberSerivce.checkId(member_id);
 	}
 	
+	
 	//우편번호폼
 	@GetMapping("/view/user/checkPost")
 	public String checkPost() {
@@ -254,10 +252,10 @@ public class MemberController{
 	}
 
 	
-	//수정하기 폼
+	//수정하기 폼 -- userupdate
 	@GetMapping(value="/modifyForm")
 	public String modifyForm() {
-		return "/modifyForm";
+		return "WEB-INF/views/myPage/modifyForm";
 	}
 	
 	//수정하기 
@@ -270,7 +268,7 @@ public class MemberController{
 	//아이디찾기 폼
 	@GetMapping(value="/searchIdForm")
 	public String searchIdForm() {
-		return "/searchIdForm";
+		return "view/user/searchIdForm";
 	}
 	
 	//아이디찾기 
@@ -283,7 +281,7 @@ public class MemberController{
 	//비밀번호찾기 폼
 	@GetMapping(value="/searchPwdForm")
 	public String searchPwdForm() {
-		return "/searchPwdForm";
+		return "view/user/searchPwdForm";
 	}
 	
 	
@@ -311,5 +309,21 @@ public class MemberController{
 
 		memberSerivce.chagePwd(memberDTO);
 	
+	}
+	
+	//이메일 중복체크
+	@PostMapping("/emailChk")
+	@ResponseBody
+	public int emailChk(@RequestParam("member_email") String member_email) {
+		int result = memberSerivce.emailChk(member_email);
+		return result;
+	}
+		
+	//핸드폰 중복체크
+	@PostMapping("/phoneChk")
+	@ResponseBody
+	public int phoneChk(@ModelAttribute MemberDTO memberDTO) {
+		int result = memberSerivce.phoneChk(memberDTO);
+		return result;
 	}
 }

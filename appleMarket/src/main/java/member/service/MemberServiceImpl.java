@@ -71,7 +71,7 @@ public class MemberServiceImpl implements MemberService {
 		memberDAO.modify(memberDTO);
 		
 	}
-
+	//아이디찾기 이메일 중복체크 
 	@Override
 	public String searchId(String member_email) {
 		MemberDTO memberDTO = memberDAO.searchId(member_email);
@@ -79,7 +79,7 @@ public class MemberServiceImpl implements MemberService {
 		if(memberDTO == null) {
 			return "non_exist"; 
 		}else {
-			return "exist";
+			return memberDTO.getMember_id();
 		}
 	}
 	
@@ -170,6 +170,18 @@ public class MemberServiceImpl implements MemberService {
 		memberDAO.recommended(map);
 		
 		
+	}
+	
+	@Override
+	public int phoneChk(MemberDTO memberDTO) {
+		
+		return memberDAO.phoneChk(memberDTO);
+	}
+
+	@Override
+	public int emailChk(String member_email) {
+		
+		return memberDAO.emailChk(member_email);
 	}
 
 
