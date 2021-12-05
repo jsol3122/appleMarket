@@ -17,8 +17,7 @@ public class LocalCommunityboardDAOMybatis implements LocalCommunityboardDAO {
 	private SqlSession sqlSession;
 
 	@Override
-	public List<LocalCommunityboardDTO> localCommunityboardGetList(Map<String, String> map) {
-		
+	public List<LocalCommunityboardDTO> localCommunityboardGetList(Map<String, Object> map) {
 		return sqlSession.selectList("localCommunityboardSQL.localCommunityboardGetList",map);
 	}
 

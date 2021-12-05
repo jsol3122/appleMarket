@@ -105,6 +105,11 @@ public class SaleboardMybatis implements SaleboardDAO {
 		sqlSession.insert("saleboardSQL.saleboardFollow", map);
 		
 	}
+
+	@Override
+	public List<SaleboardDTO> saleboardGetListId(Map<String, Object> map) {
+		return sqlSession.selectList("saleboardSQL.saleboardGetListId",map);
+	}
 	
 
 	/*

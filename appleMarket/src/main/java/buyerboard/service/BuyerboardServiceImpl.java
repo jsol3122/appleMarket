@@ -97,7 +97,6 @@ public class BuyerboardServiceImpl implements BuyerboardService {
 
 	@Override
 	public List<BuyerboardDTO> buyerboardGetView(int buyerboard_seq) {
-		// TODO Auto-generated method stub
 		return buyerboardDAO.buyerboardGetView(buyerboard_seq);
 	}
 
@@ -105,6 +104,17 @@ public class BuyerboardServiceImpl implements BuyerboardService {
 	public void buyerboardHit(int buyerboard_seq) {
 		
 		buyerboardDAO.buyerboardHit(buyerboard_seq);
+	}
+
+
+	@Override
+	public List<BuyerboardDTO> buyerboardGetListId(String member_id, int buyerboard_seq) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("startNum", 1);
+		map.put("endNum", 12);
+		map.put("member_id", member_id);
+		map.put("buyerboard_seq", buyerboard_seq);
+		return buyerboardDAO.buyerboardGetListId(map);
 	}
 	
 	

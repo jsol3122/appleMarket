@@ -37,10 +37,10 @@ public class LocalCommunityboardController {
 	
 	@GetMapping("/localCommunityboard/localCommunityboardGetList")
 	@ResponseBody
-	public JSONObject localCommunityboardGetList(@RequestParam String pg, @RequestParam String localcommunity_user_id) {
-		Map<String,String> map = new HashMap<String,String>();
+	public JSONObject localCommunityboardGetList(@RequestParam String pg, HttpSession session) {
+		Map<String,Object> map = new HashMap<String,Object>();
 		map.put("pg", pg);
-		map.put("localcommunity_user_id", localcommunity_user_id);
+		map.put("localcommunity_user_id", session.getAttribute("member_id"));
 		
 		return localCommunityboardService.localCommunityboardGetList(map);
 	}

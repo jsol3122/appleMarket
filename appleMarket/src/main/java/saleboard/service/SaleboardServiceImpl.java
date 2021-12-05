@@ -63,8 +63,7 @@ public class SaleboardServiceImpl implements SaleboardService {
 				
 				temp.put("member_profilePic", saleboardDTO.getMember_profilePic());
 				temp.put("member_id", saleboardDTO.getMember_id());
-				temp.put("location_dong", saleboardDTO.getLocation_dong());
-				
+				temp.put("location_dong", saleboardDTO.getLocation_dong());				
 				temp.put("sale_heart_count", saleboardDTO.getSale_heart_count());
 				temp.put("sale_hit", saleboardDTO.getSale_hit());
 				temp.put("sale_free_YN", saleboardDTO.getSale_free_YN());
@@ -111,6 +110,16 @@ public class SaleboardServiceImpl implements SaleboardService {
 	}
 	
 	@Override
+	public List<SaleboardDTO> saleboardGetListId(String member_id, int sale_seq) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("startNum", 1);
+		map.put("endNum", 12);
+		map.put("member_id", member_id);
+		map.put("sale_seq", sale_seq);
+		return saleboardDAO.saleboardGetListId(map);
+	}
+	
+	@Override
 	public void saleboardPick(Map<String, String> map) {
 		saleboardDAO.saleboardPick(map);		
 	}
@@ -135,6 +144,8 @@ public class SaleboardServiceImpl implements SaleboardService {
 	public void saleboardFollow(Map<String, String> map) {
 		saleboardDAO.saleboardFollow(map);
 	}
+
+
 
 	
 //	@Override
