@@ -284,53 +284,7 @@
 </head>
 
 <body>
-    <header id="headBox">
-        <div class="inner">
-            <h1>
-                <a href="#"><img class="logo" src="/appleMarket/img/logo-basic.png" alt="사과마켓"></a>
-            </h1>
-            <form action="#" method="get" class="search_box">
-                <fieldset>
-                    <legend>검색창</legend>
-                    <label class="hidden" for="searchPrd">지역, 상품, 업체등을 검색해보세요.</label>
-                    <input type="text" id="searchPrd" name="searchPrd" placeholder="지역, 상품, 업체등을 검색해보세요.">
-                    <button type="submit"><i class="fas fa-search"></i><span class="hidden">검색버튼</span></button>
-                </fieldset>
-            </form>
-            <ul class="category">
-                <li><a href="#">사고/팔고</a></li>
-                <li><a href="#">조잘조잘</a></li>
-                <li><a href="#">우리동네</a></li>
-                <li><a href="#">문의하기</a></li>
-            </ul>
-            <ul class="login">
-                <li><a href="userUpdataForm.html" rel="modal:open">회원정보수정</a></li>
-                <li><a href="index.html">로그아웃</a></li>
-
-            </ul>
-            <!-- <div class="btnbox_search"> 수정해야하지만 일단 잘 돌아감 -->
-            <div class="btnbox_search">
-                <!-- 캐러셀 -->
-                <button type="button"><i class="fas fa-search"></i><span class="hidden">검색창 펼치기</span></button>
-            </div>
-
-            <nav id="nav">
-                <!-- <h1></h1> -->
-                <div class="ham">
-                    <span class="bar1"></span>
-                    <span class="bar2"></span>
-                    <span class="bar3"></span>
-                </div>
-                <ul class="menu">
-                    <li class="active"><a href="#">사고/팔고</a></li>
-                    <li><a href="#">조잘조잘</a></li>
-                    <li><a href="#">우리동네</a></li>
-                    <li><a href="#">문의하기</a></li>
-                </ul>
-            </nav>
-
-        </div>
-    </header>
+    <%@include file="/includes/header.jsp" %>
 
     <div class="memberup">
         <div class="main">
@@ -346,6 +300,7 @@
 
                                             <div class="bd_tl">
                                                 <h1 class="ngeb clear"><i class="bg_color"></i><a href="#">조잘조잘 - 자유게시판</a></h1>
+                                            	<input type="hidden" id="session_id" value="${member_id}" />
                                             </div>
                                         </div>
                                         <div class="cnb_n_list">
@@ -436,33 +391,7 @@
             </div>
         </div>
     </div>
-    <footer id="footBox">
-        <h1 class="hidden">사과마켓 하단 정보</h1>
-        <ul id="inb">
-            <li><a href="">이용약관</a></li>
-            <li><a href="">개인정보처리방침</a></li>
-            <li><a href="">위치기반서비스 이용약관</a></li>
-            <li><a href="">광고주센터</a></li>
-            <li><a href="">ABOUT US</a></li>
-        </ul>
-        <ul class="addresss_list">
-            <li>사업자 등록번호 : XXX-XX-XXXXX</li>
-            <li>서울 강남구 강남대로94길 20 삼오빌딩 903호</li>
-            <li>
-                <p>고객문의 : <a href="mailto:xx@xxxxxxx.com">cs@xxxxxxx.com</a></p>
-                <p>제휴문의 : <a href="mailto:xx@xxxxxxx.com">contact@xxxxxxx.com</a></p>
-            </li>
-        </ul>
-        <p>(주)사과마켓 대표 전진솔, 이지현, 유혜림, 김현정, 맹주혁, 이상진</p>
-        <small class="copyright">
-            Copyright &copy; Apple Market Inc. All rights reserved.
-        </small>
-        <ul class="sns_list">
-            <li><a href=""><i class="fab fa-facebook-square"></i><span class="hidden">페이스북</span></a></li>
-            <li><a href=""><i class="fab fa-instagram"></i><span class="hidden">인스타그램</span></a></li>
-            <li><a href=""><i class="fas fa-blog"></i><span class="hidden">블로그</span></a></li>
-        </ul>
-    </footer>
+    <%@include file="/includes/footer.jsp" %>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js'></script>

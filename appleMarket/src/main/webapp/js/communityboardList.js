@@ -58,3 +58,13 @@ function make_list(list){
   $('.bd_lst tbody').append(html);
     
 }
+
+// 글쓰기 버튼 클릭 - 로그인 했을때만 글쓰기화면 진입 가능
+$('.fr a').click(function(){
+  if($('#session_id').val() == ''){
+    alert('로그인이 필요한 서비스입니다');
+    return false;
+  }else
+    location.href = '/appleMarket/view/communityboard/communityboardWriteForm.jsp';
+  
+});

@@ -19,8 +19,8 @@ $(function(){
     dataType: 'json',
     success: function(data){
     	console.log('우리동네 목록 잘 불러옴');
-    	console.log(JSON.stringify(data))
       $.each(data.list, function(index, list){
+        // 글목록 html 생성&삽입 함수 호출
         make_list(list);
       });
       $('form fieldset').append(data.boardPaging);
@@ -61,3 +61,13 @@ function make_list(list){
   $('#dong').text(' - '+list.location_dong);
     
 }
+
+// 글쓰기 버튼 클릭 - 로그인 했을때만 글쓰기화면 진입 가능
+$('.fr a').click(function(){
+  if($('#session_id').val() == ''){
+    alert('로그인이 필요한 서비스입니다');
+    return false;
+  }else
+    location.href = '/appleMarket/view/localCommunityboard/localCommunityboardWriteForm.jsp';
+  
+});

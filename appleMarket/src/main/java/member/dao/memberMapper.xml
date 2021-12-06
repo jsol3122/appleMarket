@@ -77,7 +77,7 @@
  	
  	<!-- 회원탈퇴  -->
  	<delete id="delete" parameterType="member">
- 		delete appleMarket where member_id=#{member_id} and member_pwd=#{member_pwd}
+ 		delete from appleMarket where member_id=#{member_id} and member_pwd=#{member_pwd}
  	</delete>
  	
  	<!-- 회원수정  -->
@@ -114,5 +114,15 @@
 	<insert id="recommended" parameterType="java.util.Map">
 		insert into recommend(recommend_id, recommend_1) values(#{member_id}, #{recommend_id})
 	</insert>	
+	
+	<!-- 이메일 중복체크  -->
+ 	<select id="emailChk" parameterType="String" resultType="Integer">
+ 		select count(*) from appleMarket where member_email=#{member_email}
+ 	</select>
+ 	
+ 	<!-- 핸드폰 중복체크  -->
+ 	<select id="phoneChk" parameterType="member" resultType="Integer">
+ 		select count(*) from appleMarket where member_tel1=#{member_tel1} and member_tel2=#{member_tel2} and member_tel3=#{member_tel3}
+ 	</select>
 
  </mapper>

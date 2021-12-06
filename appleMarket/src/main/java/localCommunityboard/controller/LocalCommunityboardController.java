@@ -53,30 +53,8 @@ public class LocalCommunityboardController {
 	
 	@PostMapping("/localCommunityboard/localCommunityboardWrite")
 	@ResponseBody
-	public void localCommunityboardWrite(@ModelAttribute LocalCommunityboardDTO localCommunityboardDTO
-									,@RequestParam MultipartFile img, HttpSession session) {
-		String uuid = UUID.randomUUID().toString();
-		
-		String filePath = session.getServletContext().getRealPath("storage");
-		
-		System.out.println(filePath);
-		
-		String fileName = uuid+"_"+img.getOriginalFilename();
-		File file = new File(filePath,fileName);
-		//file copy
-			try {
-				
-				FileCopyUtils.copy(img.getInputStream(), new FileOutputStream(file));
-				
-			}catch (IOException e) {
-				
-				e.printStackTrace();
-				
-			}	
-			localCommunityboardDTO.setLocalcommunity_image(fileName);
-			
-			localCommunityboardService.localCommunityboardWrite(localCommunityboardDTO);
-		
+	public void localCommunityboardWrite(@ModelAttribute LocalCommunityboardDTO localCommunityboardDTO) {
+		localCommunityboardService.localCommunityboardWrite(localCommunityboardDTO);
 	}
 	
 	

@@ -35,7 +35,6 @@ public class LocalCommunityboardDAOMybatis implements LocalCommunityboardDAO {
 
 		localCommunityboardDTO.setLocation_dong(dong);
 		sqlSession.insert("localCommunityboardSQL.localCommunityboardWrite", localCommunityboardDTO);
-		
 	}
 
 
