@@ -34,11 +34,9 @@
 		            <li><a href="/appleMarket/mypageMainForm">마이페이지</a></li>	   
 		           <li><a href="https://kauth.kakao.com/oauth/logout?client_id=ab83dfbd7b35d430c0fcb3a8f27f07ed&logout_redirect_uri=http://localhost:8080/appleMarket/logout">로그아웃</a></li>
             	</c:when>
-            	<c:otherwise>
-            		
+            	<c:otherwise>            		
 		                <li><a href="/appleMarket/view/user/writeForm.jsp" rel="modal:open">회원가입</a></li>
-		                <li><a href="/appleMarket/view/user/loginForm.jsp" rel="modal:open">로그인</a></li>
-         
+		                <li><a href="/appleMarket/view/user/loginForm.jsp" rel="modal:open">로그인</a></li>         
             	</c:otherwise>  
             </c:choose>
           </ul>

@@ -14,11 +14,10 @@
  		select * from locationConfirm where member_id=#{member_id}
  	</select>
  	
- 	<select id="gpsUpdate" parameterType="location">
+  	<select id="gpsUpdate" parameterType="location">
  		update locationConfirm set location_addr=#{location_addr}, location_dong=#{location_dong},
  								   location_latitude=#{location_latitude}, location_longitude=#{location_longitude},
  								   location_logtime=sysdate
- 							   where member_id=#{member_id}
+ 							  	 where member_id=#{member_id}
  	</select>
- 	
  </mapper>

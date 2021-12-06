@@ -8,14 +8,13 @@
     
 </head>
 <body>
-<div class="box-header with-border" id="address" style="width:500px;height:500px;;position:relative;overflow:hidden;">
-
-</div>	  
+<div class="box-header with-border" id="address" style="width:500px;height:500px;;position:relative;overflow:hidden;"></div>
+<div><h3> 회원님의 현재 위치를 받아옵니다. 이 창은 3초 후 자동으로 종료 됩니다.</h3></div>	  
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=75b263d76606aaf650816f233cd5f1c9"></script>
 <script>
+setTimeout("window.close();", 3000);
 
-//setInterval(function(){
 $(function(){
 	//현재 접속한 브라우저의 위도와 경도 출력하기 
 
@@ -75,7 +74,6 @@ $(function(){
 
 	});
 
-//},10000);
 });	
 </script>
 </body>
