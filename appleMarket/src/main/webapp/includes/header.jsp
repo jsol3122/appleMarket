@@ -32,6 +32,7 @@
             		 <ul class="login">
 		                <li><a href="/appleMarket/view/user/writeForm.jsp" rel="modal:open">회원가입</a></li>
 		                <li><a href="/appleMarket/view/user/loginForm.jsp" rel="modal:open">로그인</a></li>
+		                <li><a href="/appleMarket/view/user/loginForm2.jsp" rel="modal:open">아이디찾기</a></li>
 		
 		            </ul>
             	</c:otherwise>  

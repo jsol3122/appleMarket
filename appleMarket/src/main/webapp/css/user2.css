@@ -1,0 +1,178 @@
+@charset "UTF-8";
+
+/* -------------------- 회원가입 ----------------------------- */
+
+
+::placeholder{
+	font-size: 0.7em;
+	vertical-align: middle;
+}
+
+form label{
+	display: inline-block;
+	width: 25%;
+	text-align: left;
+	/* padding: 0 30px; */
+	font-weight: bold;
+	font-size: 10pt;
+}
+
+form input[type=text], form input[type=email], form input[type=password]{
+	width: 210px;
+	height: 35px;
+	text-indent: 1.5em;
+}
+form input[type=text]:focus, form input[type=email]:focus, form input[type=password]:focus{
+	background: #efddff;
+}
+
+.warning{
+	font-size: 8pt;
+	color: tomato;
+	text-align: right;
+}
+.chk{
+	width: 70px;
+	height: 35px;
+	background: white;
+	font-size: 6pt;
+	font-weight: bold;
+	border: 1px solid #66269a;
+	border-radius: 4px;
+	color: #66269a;
+}
+
+.hidden{
+	display: none;
+	font-size: 12pt;
+	border: 0;
+}
+
+#modal-body{
+	width: 100%;
+	height: auto;
+}
+
+---------------------- 로그인창 --------------------------
+#member_dong, #member_address, #member_detailAddr, #id_valid{
+	margin: 10px 102px 0;
+}
+
+.sbm, #kakao_login{
+	width: 400px;
+	height: 45px;
+	margin: 20px 0;
+	background: #ff8080;
+	color: white;
+	font-size: 18px;
+	border-radius: 4px;
+	border: 0;
+}
+
+.chk_div{
+	padding: -25px 5px;
+	text-indent: 22em;
+	font-size: 8pt;
+	color: red;
+	
+}
+
+.placeholderColor::-webkit-input-placeholder{
+	color: red;
+}
+
+select{
+	width: 60px;
+	height: 35px;
+	margin-right: 0;
+	text-indent: 0.5em;
+}
+
+input[type=radio]{
+	margin: 2px 5px 0;
+	padding: 0 5px;
+	width: 12px;
+	height: 12px;
+}
+
+.radio_lbl{
+	width: 60px;
+	font-size: 10pt;
+	margin-bottom: 3px;
+}
+
+#kakao_login{
+	background: #ffe812;
+	color: black;
+}
+
+input.loginInput{
+	margin: 10px 30px;
+}
+
+.modal a.close-modal {
+	top: 9.5px;
+	right: 7.5px;
+}
+
+/*------------*/
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.button-wrap {
+    width: 250px;
+    height: 44px;
+    margin: 35px auto;
+    position: relative;
+    box-shadow: 0 0 600px 9px #fcae8f;
+    border-radius: 30px;
+}
+.togglebtn {
+    padding: 10px 30px;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    outline: none;
+    position: relative;
+}
+#btn {
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 140px;
+    height: 100%;
+    background: linear-gradient(to right, #ff105f, #ffad06);
+    border-radius: 30px;
+    transition: .5s;
+}
+.input-group {
+    top: 180px;
+    position: absolute;
+    width: 413px;
+    transition: .5s;
+}
+.input-field {
+    width: 100%;
+    padding: 10px 0;
+    margin: 5px 0;
+    border: none;
+    border-bottom: 1px solid #999;
+    outline: none;
+    background: transparent;
+}
+#loginForm {
+    left: 50px;
+}
+#registerForm {
+    left: 450px;
+}
+
+
+
+
+
+
