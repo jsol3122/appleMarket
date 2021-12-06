@@ -107,9 +107,15 @@
                                 <li><a href="/appleMarket/view/myPage/userupdatapage.jsp">회원정보수정</a></li>
                                 <li><a href="/appleMarket/view/myPage/userchangepwpage.jsp">비밀번호변경</a></li>
                                 <li><a href="/appleMarket/view/myPage/userdeletepage.jsp">회원탈퇴</a></li>
-                                <li><a href="/appleMarket/view/myPage/userupdatapage.jsp">회원정보수정</a></li>
-                                <li><a href="/appleMarket/view/myPage/userchangepwpage.jsp">비밀번호변경</a></li>
-                                <li><a href="/appleMarket/view/myPage/userdeletepage.jsp">회원탈퇴</a></li>
+                                <li><a href="/appleMarket/view/myPage/salehistory.jsp">판매내역</a></li>
+                                <li><a href="/appleMarket/view/myPage/buyhistory.jsp">구매내역</a></li>
+                                <li><a href="#">관심목록</a></li>
+                                <li><a href="#">동네인증</a></li>
+                                <li><a href="#">조잘조잘 글</a></li>
+                                <li><a href="#">조잘조잘 댓글</a></li>
+                                <li><a href="#">우리동네이야기 글</a></li>
+                                <li><a href="#">우리동네이야기 댓글</a></li>
+                                <li><a href="#">친구초대</a></li>
                             </ul>
                         </div>
                     </div>
