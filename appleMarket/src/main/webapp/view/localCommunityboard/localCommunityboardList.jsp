@@ -283,53 +283,7 @@
 </head>
 
 <body>
-    <header id="headBox">
-        <div class="inner">
-            <h1>
-                <a href="#"><img class="logo" src="/appleMarket/img/logo-basic.png" alt="사과마켓"></a>
-            </h1>
-            <form action="#" method="get" class="search_box">
-                <fieldset>
-                    <legend>검색창</legend>
-                    <label class="hidden" for="searchPrd">지역, 상품, 업체등을 검색해보세요.</label>
-                    <input type="text" id="searchPrd" name="searchPrd" placeholder="지역, 상품, 업체등을 검색해보세요.">
-                    <button type="submit"><i class="fas fa-search"></i><span class="hidden">검색버튼</span></button>
-                </fieldset>
-            </form>
-            <ul class="category">
-                <li><a href="#">사고/팔고</a></li>
-                <li><a href="#">조잘조잘</a></li>
-                <li><a href="#">우리동네</a></li>
-                <li><a href="#">문의하기</a></li>
-            </ul>
-            <ul class="login">
-                <li><a href="userUpdataForm.html" rel="modal:open">회원정보수정</a></li>
-                <li><a href="index.html">로그아웃</a></li>
-
-            </ul>
-            <!-- <div class="btnbox_search"> 수정해야하지만 일단 잘 돌아감 -->
-            <div class="btnbox_search">
-                <!-- 캐러셀 -->
-                <button type="button"><i class="fas fa-search"></i><span class="hidden">검색창 펼치기</span></button>
-            </div>
-
-            <nav id="nav">
-                <!-- <h1></h1> -->
-                <div class="ham">
-                    <span class="bar1"></span>
-                    <span class="bar2"></span>
-                    <span class="bar3"></span>
-                </div>
-                <ul class="menu">
-                    <li class="active"><a href="#">사고/팔고</a></li>
-                    <li><a href="#">조잘조잘</a></li>
-                    <li><a href="#">우리동네</a></li>
-                    <li><a href="#">문의하기</a></li>
-                </ul>
-            </nav>
-
-        </div>
-    </header>
+   <%@include file="/includes/header.jsp" %>
 
     <div class="memberup">
         <div class="main">

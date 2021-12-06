@@ -24,15 +24,8 @@
 	            <input type="password" id="member_pwd" name="member_pwd" class="loginInput" placeholder="비밀번호를 입력해주세요" style="width:350px; height:45px;"/>
 	         </div>
 	         <div>
-
-<<<<<<< HEAD
-	         	<a href="/appleMarket/searchIdForm" onclick="window.open(this.href, '_blank', 'width=600, height=500'); return false;">아이디 찾기</a>
-	         	<a href="/appleMarket/searchPwdForm" onclick="window.open(this.href, '_blank', 'width=600, height=500'); return false;">비밀번호 찾기</a>
-=======
-	         	<a href="/appleMarket/view/user/searchIdForm" onclick="window.open(this.href, '_blank', 'width=400, height=300'); return false;">아이디 찾기</a>
-	         	 | <a href="/appleMarket/view/user/searchPwdForm" onclick="window.open(this.href, '_blank', 'width=400, height=300'); return false;">비밀번호 찾기</a>
->>>>>>> f594b73d422a1e571e0c4a73f72d43fcfe3af157
-
+			<!--크롬은 resizeable 적용 안됨  -->
+	         <a href="/appleMarket/searchIdPwdForm" onclick="window.open(this.href, '_blank', 'width=500, height=500,scrollbars=no, resizable=no,toolbars=no, menubar=no'); return false;">아이디 찾기|비밀번호 찾기</a>
 	         </div>
 	         <div style="padding:0 5px;">
 		         <input type="button" value="로그인" class="sbm" id="loginBtn" style="cursor:pointer;"/>
@@ -41,8 +34,7 @@
 		         <div id="loginResult"></div>
 	         </div>
 	         
-	     <!-- 로그아웃 -->    
-   		 <a href="https://kauth.kakao.com/oauth/logout?client_id=ab83dfbd7b35d430c0fcb3a8f27f07ed&logout_redirect_uri=http://localhost:8080/appleMarket/index">로그아웃</a>
+	     
 
 	      </form>
 	    </div>

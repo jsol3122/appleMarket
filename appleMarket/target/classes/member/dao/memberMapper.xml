@@ -77,7 +77,7 @@
  	
  	<!-- 회원탈퇴  -->
  	<delete id="delete" parameterType="member">
- 		delete appleMarket where member_id=#{member_id} and member_pwd=#{member_pwd}
+ 		delete from appleMarket where member_id=#{member_id} and member_pwd=#{member_pwd}
  	</delete>
  	
  	<!-- 회원수정  -->

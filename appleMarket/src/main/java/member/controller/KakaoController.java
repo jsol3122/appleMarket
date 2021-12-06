@@ -67,12 +67,13 @@ public class KakaoController {
         String id =(String)userInfo.get("id");
         
         System.out.println("id="+id);
+        session.setAttribute("kakaoInfo", kakaoInfo);
         session.setAttribute("member_id", id);
         session.setAttribute("member_siteCheck", 1);
         
         String Check=memberSerivce.checkId(id);
         
-        if (userInfo.get("email") != null) {
+        if (userInfo.get("email") != null) {        
             session.setAttribute("userId", userInfo.get("email"));
             session.setAttribute("access_Token", access_Token);
         }
