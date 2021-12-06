@@ -105,7 +105,7 @@
                                 <li><a href="/appleMarket/view/myPage/userdeletepage.jsp">회원탈퇴</a></li>
                                 <li><a href="/appleMarket/view/myPage/salehistory.jsp">판매내역</a></li>
                                 <li><a href="/appleMarket/view/myPage/buyhistory.jsp">구매내역</a></li>
-                                <li><a href="#">관심목록</a></li>
+                                <li><a href="/appleMarket/view/myPage/wishlist.jsp">관심목록</a></li>
                                 <li><a href="#">동네인증</a></li>
                                 <li><a href="#">조잘조잘 글</a></li>
                                 <li><a href="#">조잘조잘 댓글</a></li>

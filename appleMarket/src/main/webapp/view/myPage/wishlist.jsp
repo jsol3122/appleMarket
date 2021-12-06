@@ -91,7 +91,7 @@
                                     <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-0">
                                         <!-- Recently Favorited -->
                                         <div class="widget dashboard-container my-adslist" style="width: 730px;">
-                                            <h3 class="widget-header">구매내역</h3>
+                                            <h3 class="widget-header">관심목록</h3>
                                             <table class="table table-responsive product-dashboard-table">
                                                 <thead>
                                                     <tr>
@@ -104,9 +104,9 @@
                                                 <tbody>
                                                     <tr>
                                                         <td class="product-thumb">
-                                                            <img width="80px" height="auto" src="/appleMarket/img/에어팟1-3.jpg" alt="image description"></td>
+                                                            <img width="80px" height="auto" src="/appleMarket/img/가구2-1.jpg" alt="image description"></td>
                                                         <td class="product-details">
-                                                            <h3 class="title">A급 에어팟 싸게 파라요!~~</h3>
+                                                            <h3 class="title">깔끔한 디자인 가구 싸게 넘겨요~</h3>
                                                             <span class="add-id"><strong>ID:</strong>itgdtd@apple.maket</span>
                                                             <span><strong>날짜: </strong><time>2017/11/08</time> </span>
                                                             <span class="status active"><strong>가격:</strong>110000</span>
@@ -117,7 +117,12 @@
                                                             <div class="">
                                                                 <ul class="list-inline justify-content-center">
                                                                     <li class="list-inline-item">
-                                                                        <a data-toggle="tooltip" data-placement="top" title="Delete" class="delete" href="">
+                                                                        <a data-toggle="tooltip" data-placement="top" title="보기" class="view" href="category.html">
+                                                                            <i class="fa fa-eye"></i>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="list-inline-item">
+                                                                        <a data-toggle="tooltip" data-placement="top" title="삭제" class="delete" href="">
                                                                             <i class="fa fa-trash"></i>
                                                                         </a>
                                                                     </li>
@@ -127,9 +132,9 @@
                                                     </tr>
                                                     <tr>
                                                         <td class="product-thumb">
-                                                            <img width="80px" height="auto" src="/appleMarket/img/자전거1-1.jpg" alt="image description"></td>
+                                                            <img width="80px" height="auto" src="/appleMarket/img/화분1.jpg" alt="image description"></td>
                                                         <td class="product-details">
-                                                            <h3 class="title">반년쓴 최신 자전거 싸게 팝니다!</h3>
+                                                            <h3 class="title">이동식 화분 팔아용~~</h3>
                                                             <span class="add-id"><strong>ID:</strong>abc@aplle.maket</span>
                                                             <span><strong>날짜: </strong><time>2017/10/21</time> </span>
                                                             <span class="status active"><strong>가격:</strong>100000</span>
@@ -140,7 +145,12 @@
                                                             <div class="">
                                                                 <ul class="list-inline justify-content-center">
                                                                     <li class="list-inline-item">
-                                                                        <a data-toggle="tooltip" data-placement="top" title="Delete" class="delete" href="">
+                                                                        <a data-toggle="tooltip" data-placement="top" title="보기" class="view" href="category.html">
+                                                                            <i class="fa fa-eye"></i>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="list-inline-item">
+                                                                        <a data-toggle="tooltip" data-placement="top" title="삭제" class="delete" href="">
                                                                             <i class="fa fa-trash"></i>
                                                                         </a>
                                                                     </li>
@@ -150,9 +160,9 @@
                                                     </tr>
                                                     <tr>
                                                         <td class="product-thumb">
-                                                            <img width="80px" height="auto" src="/appleMarket/img/자전거1-1.jpg" alt="image description"></td>
+                                                            <img width="80px" height="auto" src="/appleMarket/img/화분1.jpg" alt="image description"></td>
                                                         <td class="product-details">
-                                                            <h3 class="title">반년쓴 최신 자전거 싸게 팝니다!</h3>
+                                                            <h3 class="title">이동식 화분 팔아용~~</h3>
                                                             <span class="add-id"><strong>ID:</strong>abc@aplle.maket</span>
                                                             <span><strong>날짜: </strong><time>2017/10/21</time> </span>
                                                             <span class="status active"><strong>가격:</strong>100000</span>
@@ -163,7 +173,12 @@
                                                             <div class="">
                                                                 <ul class="list-inline justify-content-center">
                                                                     <li class="list-inline-item">
-                                                                        <a data-toggle="tooltip" data-placement="top" title="Delete" class="delete" href="">
+                                                                        <a data-toggle="tooltip" data-placement="top" title="보기" class="view" href="category.html">
+                                                                            <i class="fa fa-eye"></i>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="list-inline-item">
+                                                                        <a data-toggle="tooltip" data-placement="top" title="삭제" class="delete" href="">
                                                                             <i class="fa fa-trash"></i>
                                                                         </a>
                                                                     </li>
@@ -173,9 +188,9 @@
                                                     </tr>
                                                     <tr>
                                                         <td class="product-thumb">
-                                                            <img width="80px" height="auto" src="/appleMarket/img/자전거1-1.jpg" alt="image description"></td>
+                                                            <img width="80px" height="auto" src="/appleMarket/img/화분1.jpg" alt="image description"></td>
                                                         <td class="product-details">
-                                                            <h3 class="title">반년쓴 최신 자전거 싸게 팝니다!</h3>
+                                                            <h3 class="title">이동식 화분 팔아용~~</h3>
                                                             <span class="add-id"><strong>ID:</strong>abc@aplle.maket</span>
                                                             <span><strong>날짜: </strong><time>2017/10/21</time> </span>
                                                             <span class="status active"><strong>가격:</strong>100000</span>
@@ -186,7 +201,12 @@
                                                             <div class="">
                                                                 <ul class="list-inline justify-content-center">
                                                                     <li class="list-inline-item">
-                                                                        <a data-toggle="tooltip" data-placement="top" title="Delete" class="delete" href="">
+                                                                        <a data-toggle="tooltip" data-placement="top" title="보기" class="view" href="category.html">
+                                                                            <i class="fa fa-eye"></i>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="list-inline-item">
+                                                                        <a data-toggle="tooltip" data-placement="top" title="삭제" class="delete" href="">
                                                                             <i class="fa fa-trash"></i>
                                                                         </a>
                                                                     </li>
@@ -196,9 +216,9 @@
                                                     </tr>
                                                     <tr>
                                                         <td class="product-thumb">
-                                                            <img width="80px" height="auto" src="/appleMarket/img/자전거1-1.jpg" alt="image description"></td>
+                                                            <img width="80px" height="auto" src="/appleMarket/img/화분1.jpg" alt="image description"></td>
                                                         <td class="product-details">
-                                                            <h3 class="title">반년쓴 최신 자전거 싸게 팝니다!</h3>
+                                                            <h3 class="title">이동식 화분 팔아용~~</h3>
                                                             <span class="add-id"><strong>ID:</strong>abc@aplle.maket</span>
                                                             <span><strong>날짜: </strong><time>2017/10/21</time> </span>
                                                             <span class="status active"><strong>가격:</strong>100000</span>
@@ -209,7 +229,12 @@
                                                             <div class="">
                                                                 <ul class="list-inline justify-content-center">
                                                                     <li class="list-inline-item">
-                                                                        <a data-toggle="tooltip" data-placement="top" title="Delete" class="delete" href="">
+                                                                        <a data-toggle="tooltip" data-placement="top" title="보기" class="view" href="category.html">
+                                                                            <i class="fa fa-eye"></i>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="list-inline-item">
+                                                                        <a data-toggle="tooltip" data-placement="top" title="삭제" class="delete" href="">
                                                                             <i class="fa fa-trash"></i>
                                                                         </a>
                                                                     </li>
