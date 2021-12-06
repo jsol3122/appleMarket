@@ -340,6 +340,11 @@ public class MyPageServiceImpl implements MyPageService {
 		
 	}
 
+	@Override
+	public BuyerboardDTO myBuyerGetView(int buyerboard_seq) {
+		return myPageDAO.myBuyerGetView(buyerboard_seq);
+	}
+
 	
 	
 	

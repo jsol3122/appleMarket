@@ -19,6 +19,7 @@ public class BuyerboardDTO {
 	private Date buyerboard_logtime;
 	private int buyerboard_chat_count;
 	private int buyerboard_hit;
+	private String buyer_status;
 
 	
 }

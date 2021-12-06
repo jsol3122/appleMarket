@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import buyerboard.bean.BuyerboardDTO;
 import communityboard.bean.CommunityboardDTO;
 import communityboardComment.bean.CommunityboardCommentDTO;
 import localCommunityboard.bean.LocalCommunityboardDTO;
@@ -200,7 +201,7 @@ public class MyPageController {
 	
 	@PostMapping("/myBuyerGetList")
 	@ResponseBody
-	public JSONObject myBuyerGetList(@RequestParam String pg, HttpSession session
+	public JSONObject myBuyerGetList(@RequestParam String pg,@RequestParam String buyer_status, HttpSession session
 			, HttpServletRequest request) {
 		HttpSession loginSession = request.getSession();
 		String member_id = (String)loginSession.getAttribute("member_id");
@@ -208,11 +209,25 @@ public class MyPageController {
 		Map<String, String> map = new HashMap<String, String>();
 		
 		map.put("pg", pg);
+		map.put("buyer_status", buyer_status);
 		map.put("member_id", member_id);
 		
 		return myPageService.myBuyerGetList(map);
 		
 	}
+	
+	@GetMapping("/myBuyerView")
+	public String myBuyerView() {
+		
+		return "/myBuyerView";
+	}
+	
+	@PostMapping("/myBuyerGetView")
+	@ResponseBody
+	public BuyerboardDTO myBuyerGetView(@RequestParam int buyerboard_seq) {
+		return myPageService.myBuyerGetView(buyerboard_seq);
+	}
+	
 	
 	
 	

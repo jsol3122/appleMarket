@@ -43,6 +43,8 @@ public interface MyPageDAO {
 
 	public int myBuyerTotalA(String member_id);
 
+	public BuyerboardDTO myBuyerGetView(int buyerboard_seq);
+
 	
 
 	

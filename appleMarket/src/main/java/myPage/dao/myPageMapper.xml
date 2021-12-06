@@ -65,6 +65,17 @@
  	</select>
  	
  	
- 	<select id=""></select>
+ 	<select id="myBuyerGetList" parameterType="java.util.Map" resultType="buyerboard.bean.BuyerboardDTO">
+ 		select * from 
+	 	(select rownum rn, tt.* from 
+	 	(select * from buyerboard where member_id=#{member_id} and buyer_status=#{buyer_status} order by buyerboard_seq desc ) tt)
+	 	where rn between #{startNum} and #{endNum}
+ 	</select>
+ 	
+ 	<select id="myBuyerTotalA" parameterType="String" resultType="int">
+ 		select count(*) from buyerboard where member_id=#{member_id}
+ 	</select>
+ 	
+ 	
  	
  </mapper>

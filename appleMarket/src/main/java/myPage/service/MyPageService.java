@@ -3,6 +3,7 @@ package myPage.service;
 import java.util.List;
 import java.util.Map;
 
+import buyerboard.bean.BuyerboardDTO;
 import communityboard.bean.CommunityboardDTO;
 import communityboardComment.bean.CommunityboardCommentDTO;
 import localCommunityboard.bean.LocalCommunityboardDTO;
@@ -28,6 +29,8 @@ public interface MyPageService {
 	public SaleboardDTO mySaleGetView(int sale_seq);
 
 	public JSONObject myBuyerGetList(Map<String, String> map);
+
+	public BuyerboardDTO myBuyerGetView(int buyerboard_seq);
 
 	
 

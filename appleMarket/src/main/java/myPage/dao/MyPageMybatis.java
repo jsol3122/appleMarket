@@ -113,6 +113,12 @@ public class MyPageMybatis implements MyPageDAO {
 		return sqlSession.selectOne("myPageSQL.myBuyerTotalA",member_id);
 	}
 
+	@Override
+	public BuyerboardDTO myBuyerGetView(int buyerboard_seq) {
+		
+		return sqlSession.selectOne("buyerboardSQL.buyerboardGetView",buyerboard_seq);
+	}
+
 	
 	
 	
