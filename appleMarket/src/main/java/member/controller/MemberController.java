@@ -130,7 +130,7 @@ public class MemberController{
 		int randomNumber = (int)((Math.random()* (9999 - 1000 + 1)) + 1000);
 		System.out.println(randomNumber);
 		//돈 나가서 잠시 주석
-		//messageService.certifiedPhoneNumber(userPhoneNumber,randomNumber); 
+		messageService.certifiedPhoneNumber(userPhoneNumber,randomNumber); 
 		
 		
 		MessageDTO messageDTO = new MessageDTO();
@@ -317,14 +317,14 @@ public class MemberController{
 	//비밀번호찾기
 	@PostMapping(value="/searchPwd")
 	@ResponseBody 
-	public void searchPwd(@ModelAttribute MemberDTO memberDTO,
-		 HttpServletResponse response) { memberSerivce.searchPwd(memberDTO, response);
+	public void searchPwd(@ModelAttribute MemberDTO memberDTO,HttpServletResponse response) {
+		memberSerivce.searchPwd(memberDTO, response);
 	}
 
 	//비밀번호찾기- 비밀번호변경
 	@GetMapping(value="/searchPwdForm")
-		public String changePwdForm(){			
-			return "/view/user/searchPwdForm";
+	public String changePwdForm(){			
+		return "/view/user/searchPwdForm";
 	}
 	//마이페이지 비밀번호 변경 폼
 	@GetMapping(value="/changePwdForm")
@@ -373,7 +373,7 @@ public class MemberController{
 	@ResponseBody
 	public void recommendSMS(@ModelAttribute MemberDTO memberDTO) {
 		//돈나가서 잠시 주석
-		//messageService.smsCoupon(memberDTO);
+		messageService.smsCoupon(memberDTO);
 	
 	}
 	

@@ -34,6 +34,7 @@ public class MemberServiceImpl implements MemberService {
 			return "non_exist"; 
 		}else {
 			return "exist";
+			
 		}
 	}
 
@@ -86,12 +87,15 @@ public class MemberServiceImpl implements MemberService {
 	
 	 //비밀번호찾기
 	 
-	 @Override public void searchPwd(MemberDTO memberDTO,HttpServletResponse
-	 response) { 
-	 response.setContentType("text/html;charset=utf-8");
-	 
-	 try { sendEmail(memberDTO, "findpw"); } catch (Exception e) {
-	 e.printStackTrace(); }
+	 @Override 
+	 public void searchPwd(MemberDTO memberDTO,HttpServletResponse response) { 
+		 response.setContentType("text/html;charset=utf-8");
+		 
+		 try { 
+			 sendEmail(memberDTO, "findpw"); 
+		} catch (Exception e) {
+			e.printStackTrace(); 
+		}
 	 }
 	
 	 

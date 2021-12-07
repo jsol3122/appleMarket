@@ -25,13 +25,13 @@
                <c:when test="${not empty sessionScope.login_info}">
                  
                     <li> ${sessionScope.login_info.member_id}님</li>               
-                    <li><a href="/appleMarket/modifyForm">마이페이지</a></li>
+                    <li><a href="/appleMarket/mypageMainForm">마이페이지</a></li>
                     <li><a href="#" class="logout">로그아웃</a></li><!-- ajax 쓰기..화면넘어가게 하지 않기 위해서 -->   
                  
                </c:when>
                <c:when test="${not empty sessionScope.kakaoInfo}">   
                 <li> ${member_id}님</li>      
-                   <li><a href="/appleMarket/modifyForm">마이페이지</a></li>                 
+                   <li><a href="/appleMarket/mypageMainForm">마이페이지</a></li>                 
                    <li><a href="https://kauth.kakao.com/oauth/logout?client_id=ab83dfbd7b35d430c0fcb3a8f27f07ed&logout_redirect_uri=http://localhost:8080/appleMarket/logout">로그아웃</a></li>
                     
 				<!-- ajax 쓰기..화면넘어가게 하지 않기 위해서 -->          
