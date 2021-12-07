@@ -12,6 +12,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <script src="/appleMarket/js/buyhistory.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 
     <!-- 구매내역 -->
@@ -26,171 +27,80 @@
 </head>
  
    <section class="dashboard section" style="padding-top: 0px;">
-                            <!-- Container Start -->
-                            <div class="container">
-                                <!-- Row Start -->
-                                <div class="row">
-                                    <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-0">
-                                        <!-- Recently Favorited -->
-                                        <div class="widget dashboard-container my-adslist" style="width: 610px;">
-                                            <h3 class="widget-header">구매내역</h3>
-                                            <table class="table table-responsive product-dashboard-table">
-                                                <thead>
-                                                    <tr>
-                                                        <th>물품</th>
-                                                        <th>상세내역</th>
-                                                        <th class="text-center">거래상황</th>
-                                                        <th class="text-center">관리</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td class="product-thumb">
-                                                            <img width="80px" height="auto" src="/appleMarket/img/에어팟1-3.jpg" alt="image description"></td>
-                                                        <td class="product-details">
-                                                            <h3 class="title">A급 에어팟 싸게 파라요!~~</h3>
-                                                            <span class="add-id"><strong>ID:</strong>itgdtd@apple.maket</span>
-                                                            <span><strong>날짜: </strong><time>2017/11/08</time> </span>
-                                                            <span class="status active"><strong>가격:</strong>110000</span>
-                                                            <span class="location"><strong>장소:</strong>서울시 종로구 사직동</span>
-                                                        </td>
-                                                        <td class="product-category"><span class="categories">거래완료</span></td>
-                                                        <td class="action" data-title="Action">
-                                                            <div class="">
-                                                                <ul class="list-inline justify-content-center">
-                                                                    <li class="list-inline-item">
-                                                                        <a data-toggle="tooltip" data-placement="top" title="Delete" class="delete" href="">
-                                                                            <i class="fa fa-trash"></i>
-                                                                        </a>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="product-thumb">
-                                                            <img width="80px" height="auto" src="/appleMarket/img/자전거1-1.jpg" alt="image description"></td>
-                                                        <td class="product-details">
-                                                            <h3 class="title">반년쓴 최신 자전거 싸게 팝니다!</h3>
-                                                            <span class="add-id"><strong>ID:</strong>abc@aplle.maket</span>
-                                                            <span><strong>날짜: </strong><time>2017/10/21</time> </span>
-                                                            <span class="status active"><strong>가격:</strong>100000</span>
-                                                            <span class="location"><strong>장소:</strong>경기도 안양시 동안구</span>
-                                                        </td>
-                                                        <td class="product-category"><span class="categories">거래완료</span></td>
-                                                        <td class="action" data-title="Action">
-                                                            <div class="">
-                                                                <ul class="list-inline justify-content-center">
-                                                                    <li class="list-inline-item">
-                                                                        <a data-toggle="tooltip" data-placement="top" title="Delete" class="delete" href="">
-                                                                            <i class="fa fa-trash"></i>
-                                                                        </a>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="product-thumb">
-                                                            <img width="80px" height="auto" src="/appleMarket/img/자전거1-1.jpg" alt="image description"></td>
-                                                        <td class="product-details">
-                                                            <h3 class="title">반년쓴 최신 자전거 싸게 팝니다!</h3>
-                                                            <span class="add-id"><strong>ID:</strong>abc@aplle.maket</span>
-                                                            <span><strong>날짜: </strong><time>2017/10/21</time> </span>
-                                                            <span class="status active"><strong>가격:</strong>100000</span>
-                                                            <span class="location"><strong>장소:</strong>경기도 안양시 동안구</span>
-                                                        </td>
-                                                        <td class="product-category"><span class="categories">거래중</span></td>
-                                                        <td class="action" data-title="Action">
-                                                            <div class="">
-                                                                <ul class="list-inline justify-content-center">
-                                                                    <li class="list-inline-item">
-                                                                        <a data-toggle="tooltip" data-placement="top" title="Delete" class="delete" href="">
-                                                                            <i class="fa fa-trash"></i>
-                                                                        </a>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="product-thumb">
-                                                            <img width="80px" height="auto" src="/appleMarket/img/자전거1-1.jpg" alt="image description"></td>
-                                                        <td class="product-details">
-                                                            <h3 class="title">반년쓴 최신 자전거 싸게 팝니다!</h3>
-                                                            <span class="add-id"><strong>ID:</strong>abc@aplle.maket</span>
-                                                            <span><strong>날짜: </strong><time>2017/10/21</time> </span>
-                                                            <span class="status active"><strong>가격:</strong>100000</span>
-                                                            <span class="location"><strong>장소:</strong>경기도 안양시 동안구</span>
-                                                        </td>
-                                                        <td class="product-category"><span class="categories">거래중</span></td>
-                                                        <td class="action" data-title="Action">
-                                                            <div class="">
-                                                                <ul class="list-inline justify-content-center">
-                                                                    <li class="list-inline-item">
-                                                                        <a data-toggle="tooltip" data-placement="top" title="Delete" class="delete" href="">
-                                                                            <i class="fa fa-trash"></i>
-                                                                        </a>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="product-thumb">
-                                                            <img width="80px" height="auto" src="/appleMarket/img/자전거1-1.jpg" alt="image description"></td>
-                                                        <td class="product-details">
-                                                            <h3 class="title">반년쓴 최신 자전거 싸게 팝니다!</h3>
-                                                            <span class="add-id"><strong>ID:</strong>abc@aplle.maket</span>
-                                                            <span><strong>날짜: </strong><time>2017/10/21</time> </span>
-                                                            <span class="status active"><strong>가격:</strong>100000</span>
-                                                            <span class="location"><strong>장소:</strong>경기도 안양시 동안구</span>
-                                                        </td>
-                                                        <td class="product-category"><span class="categories">거래중</span></td>
-                                                        <td class="action" data-title="Action">
-                                                            <div class="">
-                                                                <ul class="list-inline justify-content-center">
-                                                                    <li class="list-inline-item">
-                                                                        <a data-toggle="tooltip" data-placement="top" title="Delete" class="delete" href="">
-                                                                            <i class="fa fa-trash"></i>
-                                                                        </a>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
+     <!-- Container Start -->
+     <div class="container">
+         <!-- Row Start -->
+         <div class="row">
+             <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-0">
+                 <!-- Recently Favorited -->
+                 <div class="widget dashboard-container my-adslist" style="width: 610px;">
+                     <h3 class="widget-header">구매내역</h3>
+                     <table class="table table-responsive product-dashboard-table">
+                         <thead>
+                             <tr>
+                                 <th>물품</th>
+                                 <th>상세내역</th>
+                                 <th class="text-center">거래상황</th>
+                                 <th class="text-center">관리</th>
+                             </tr>
+                         </thead>
+                         <tbody>
+                             <!-- ajax로 아이디 검색해서 구매내역 띄우기 -->
+                             <tr>
+                                 <td class="product-thumb">
+                                     <img width="80px" height="auto" src="/appleMarket/img/에어팟1-3.jpg" alt="image description"></td>
+                                 <td class="product-details">
+                                     <h3 class="title">A급 에어팟 싸게 파라요!~~</h3>
+                                     <span class="add-id"><strong>ID:</strong>itgdtd@apple.maket</span>
+                                     <span><strong>날짜: </strong><time>2017/11/08</time> </span>
+                                     <span class="status active"><strong>가격:</strong>110000</span>
+                                     <span class="location"><strong>장소:</strong>서울시 종로구 사직동</span>
+                                 </td>
+                                 <td class="product-category"><span class="categories">거래완료</span></td>
+                                 <td class="action" data-title="Action">
+                                     <div class="">
+                                         <ul class="list-inline justify-content-center">
+                                             <li class="list-inline-item">
+                                                 <a data-toggle="tooltip" data-placement="top" title="Delete" class="delete" href="">
+                                                     <i class="fa fa-trash"></i>
+                                                 </a>
+                                             </li>
+                                         </ul>
+                                     </div>
+                                 </td>
+                             </tr>                             
+                         </tbody>
+                     </table>
 
-                                        </div>
+                 </div>
 
-                                        <!-- pagination -->
-                                        <div class="pagination justify-content-center">
-                                            <nav aria-label="Page navigation example">
-                                                <ul class="pagination">
-                                                    <li class="page-item">
-                                                        <a class="page-link" href="#" aria-label="Previous">
-                                                            <span aria-hidden="true">&laquo;</span>
-                                                            <span class="sr-only">Previous</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                                    <li class="page-item active"><a class="page-link" href="#">2</a></li>
-                                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                                    <li class="page-item">
-                                                        <a class="page-link" href="#" aria-label="Next">
-                                                            <span aria-hidden="true">&raquo;</span>
-                                                            <span class="sr-only">Next</span>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </nav>
-                                        </div>
-                                        <!-- pagination -->
+                 <!-- pagination -->
+                 <div class="pagination justify-content-center">
+                     <nav aria-label="Page navigation example">
+                         <ul class="pagination">
+                             <li class="page-item">
+                                 <a class="page-link" href="#" aria-label="Previous">
+                                     <span aria-hidden="true">&laquo;</span>
+                                     <span class="sr-only">Previous</span>
+                                 </a>
+                             </li>
+                             <li class="page-item"><a class="page-link" href="#">1</a></li>
+                             <li class="page-item active"><a class="page-link" href="#">2</a></li>
+                             <li class="page-item"><a class="page-link" href="#">3</a></li>
+                             <li class="page-item">
+                                 <a class="page-link" href="#" aria-label="Next">
+                                     <span aria-hidden="true">&raquo;</span>
+                                     <span class="sr-only">Next</span>
+                                 </a>
+                             </li>
+                         </ul>
+                     </nav>
+                 </div>
+                 <!-- pagination -->
 
-                                    </div>
-                                </div>
-                                <!-- Row End -->
-                            </div>
-                            <!-- Container End -->
-                        </section>
+             </div>
+         </div>
+         <!-- Row End -->
+     </div>
+     <!-- Container End -->
+ </section>

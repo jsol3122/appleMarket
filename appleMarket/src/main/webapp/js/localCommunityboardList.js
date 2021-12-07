@@ -34,7 +34,7 @@ $(function(){
 
       
     },
-    errer: function(err){
+    error: function(err){
       console.log('우리동네 목록 못불러옴')
     }
   });

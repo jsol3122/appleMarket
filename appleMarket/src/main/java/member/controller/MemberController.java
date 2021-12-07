@@ -344,11 +344,11 @@ public class MemberController{
 		int result = memberSerivce.phoneChk(memberDTO);
 		return result;
 	}
-	
+	/*
 	//마이페이지 판매내역 폼
 	@GetMapping(value="/buyhistory")
 	public String buyhistory(HttpServletRequest request, HttpServletResponse response) throws Throwable{
 		request.setAttribute("display", "/view/myPage/buyhistory.jsp");
 		return "/view/myPage/mypageMainForm";
-	}
+	}*/
 }

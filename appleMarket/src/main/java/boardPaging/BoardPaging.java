@@ -30,9 +30,9 @@ public class BoardPaging {
 		
 		for(int i=1; i<=totalP; i++) {
 			if(i==currentPage) {
-				pagingHTML.append("<a class='paging' value="+i+">"+i+"</a>");
+				pagingHTML.append("<a class='paging' >"+i+"</a>");
 			}else {
-				pagingHTML.append("<a class='paging' value="+i+">"+i+"</a>");
+				pagingHTML.append("<a class='paging' >"+i+"</a>");
 			}
 		}//for
 		
