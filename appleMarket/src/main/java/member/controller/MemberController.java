@@ -101,9 +101,9 @@ public class MemberController{
 			//가입하기
 			memberSerivce.write(memberDTO);
 			//가입 후 인덱스로 가기
-			return "/index";
+			return  "/view/user/writeFormSuccess";
 		}else {
-			return "/user/writeForm";
+			return  "/view/user/writeFormSuccess";
 		}
 	}
 	
@@ -116,7 +116,7 @@ public class MemberController{
 		return result;
 	}
 
-	
+
 	/*
 	 * 인증번호 전송 api
 	 * 1. 인증번호를 전송한다.
@@ -230,7 +230,7 @@ public class MemberController{
 	//로그인
 	@PostMapping("/login")
 	@ResponseBody
-	public String login(@RequestParam("member_id") String member_id, @RequestParam("member_pwd") String member_pwd, HttpSession session) {
+	public Map<String, Integer> login(@RequestParam("member_id") String member_id, @RequestParam("member_pwd") String member_pwd, HttpSession session) {
 		
 		String path="";
 		
@@ -239,16 +239,17 @@ public class MemberController{
 		memberDTO.setMember_id(member_id);
 		memberDTO.setMember_pwd(member_pwd);
 		
-		int result = memberSerivce.login(memberDTO);
+		Map<String, Integer> result = memberSerivce.login(memberDTO);
 		
 
 		session.setAttribute("member_id", member_id);
 		session.setAttribute("login_info", memberDTO);
+		session.setAttribute("kakaoInfo", memberDTO);
 		session.setAttribute("member_siteCheck", 0);
 		
 		path = result+"";
 		
-		return path;
+		return result;
 	}
 	
 	//로그아웃 요청 
@@ -365,7 +366,7 @@ public class MemberController{
 	public void recommendCoupon(@RequestParam("member_id")String member_id) {
 		memberSerivce.recommendCoupon(member_id);
 	}
-	
+
 	
 	//추천하기 쿠폰 발송
 	@GetMapping("/recommendSMS")
@@ -375,7 +376,6 @@ public class MemberController{
 		//messageService.smsCoupon(memberDTO);
 	
 	}
-	
 	
 
 }

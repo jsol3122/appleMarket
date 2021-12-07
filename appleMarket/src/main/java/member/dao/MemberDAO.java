@@ -13,7 +13,7 @@ public interface MemberDAO {
 	
 	public MemberDTO checkId(String member_id);
 
-	public int login(MemberDTO memberDTO);
+	public Map<String,Integer> login(MemberDTO memberDTO);
 
 	public List<ZipcodeDTO> getZipcodeList(String sido, String sigungu, String roadname);
 
@@ -40,5 +40,5 @@ public interface MemberDAO {
 	public void recommendCoupon(String member_id);
 
 
-}
 
+}

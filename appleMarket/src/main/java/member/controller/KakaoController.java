@@ -76,7 +76,7 @@ public class KakaoController {
         
         String Check=memberSerivce.checkId(id);
         
-        if (userInfo.get("email") != null) {
+        if (userInfo.get("email") != null) {        
             session.setAttribute("userId", userInfo.get("email"));
             session.setAttribute("access_Token", access_Token);
         }
@@ -202,10 +202,7 @@ public class KakaoController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        return userInfo;
-       
-       
+        return userInfo; 
     }
    
  }

@@ -32,9 +32,15 @@ public class MemberDAOMybatis implements MemberDAO {
 	}
 
 	@Override
-	public int login(MemberDTO memberDTO) {
-		return sqlSession.selectOne("memberSQL.login", memberDTO);
+	public Map<String, Integer> login(MemberDTO memberDTO) {
 		
+		Map<String,Integer>map = new HashMap<String, Integer>();
+		map.put("login", sqlSession.selectOne("memberSQL.login", memberDTO));
+		map.put("loginGPS", sqlSession.selectOne("memberSQL.loginGPS", memberDTO));
+		
+		
+		
+		 return map;
 	}
 
 	@Override

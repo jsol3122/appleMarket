@@ -519,7 +519,7 @@
     <script src="/appleMarket/js/app.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="/appleMarket/js/user.js"></script>
-
+	
 
 <!-- 검색 버튼 함수 : 아직 수정 전 --><!--
 <script type="text/javascript">

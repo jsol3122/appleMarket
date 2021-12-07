@@ -68,6 +68,11 @@
  		select count(*) from appleMarket where member_id=#{member_id} and member_pwd=#{member_pwd}
  	</select>
  	
+ 	<!-- 로그인 GPS  -->
+ 	 <select id="loginGPS" parameterType="member" resultType="Integer">
+ 		select count(*) from locationConfirm where member_id=#{member_id}
+ 	</select>
+ 	
  	<!-- 주소  -->
  	<select id="getzipcodeList" parameterType="java.util.Map" resultType="zipcode">
  		select * from newzipcode where sido like'%'||#{sido}||'%'

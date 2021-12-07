@@ -8,15 +8,15 @@
     
 </head>
 <body>
-<div class="box-header with-border" id="address" style="width:600px;height:700px;position:relative;overflow:hidden;"></div>
-<div><h3> </h3></div>	  
+<input type="button" value="위치 변경" id="addr">
+<div>
+<div class="box-header with-border" id="address" style="width:300px;height:400px;position:relative;overflow:hidden;"></div>
+<div id="addr2"></div>
+</div> 
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=75b263d76606aaf650816f233cd5f1c9"></script>
 <script>
-setTimeout("window.close();", 10000);
-alert('회원님의 현재 위치를 받아옵니다. 이 창은 10초 후 자동으로 종료 됩니다.');
-$(function(){
-
+$('#addr').click(function(){
 	//현재 접속한 브라우저의 위도와 경도 출력하기 
 
 	navigator.geolocation.getCurrentPosition(function(position){
@@ -38,7 +38,8 @@ $(function(){
 			success:function(data){
 				//alert(data.address);
 				document.getElementById("address").innerHTML="<h3>" + data.address + "</h3>";
-			
+				document.getElementById("addr2").innerHTML="<br><h3> 현재 위치의 장소로 변경합니다.<br><br><hr><h1>" + data.address + "</h1></h3>";
+				
 				//지도생성
 				var mapContainer = document.getElementById('address'), // 지도를 표시할 div  
 			    mapOption = { 
@@ -64,18 +65,23 @@ $(function(){
 			// 지도에 원을 표시합니다 
 			circle.setMap(map); 
 			
-			},
+			}
+			,
             error: function(err){
                 console.log(err);
              }
 
 		});
 
-		
+	
 
 	});
+	
+		
 
 });	
+
 </script>
+
 </body>
 </html>

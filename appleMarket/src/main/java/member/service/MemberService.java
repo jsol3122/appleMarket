@@ -17,7 +17,7 @@ public interface MemberService {
 
 	public String checkId(String member_id);
 
-	public int login(MemberDTO memberDTO);
+	public Map<String,Integer> login(MemberDTO memberDTO);
 
 	public List<ZipcodeDTO> checkPostSearch(ZipcodeDTO zipcodeDTO);
 
