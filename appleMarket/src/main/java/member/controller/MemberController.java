@@ -76,7 +76,8 @@ public class MemberController{
 
 	   //회원가입 - index 이동(맞는지 확인 요망)
 	   @RequestMapping("/write")
-	   public String write(@ModelAttribute @Valid MemberDTO memberDTO,@Nullable @RequestParam("recommend_id") String recommend_id) {
+	   public String write(@ModelAttribute @Valid MemberDTO memberDTO,@Nullable @RequestParam("recommend_id") String recommend_id){
+
 	      String Check = memberSerivce.checkId(memberDTO.getMember_id());
 	      if(Check.equals("non_exist")) {
 	         memberSerivce.write(memberDTO);
@@ -93,9 +94,10 @@ public class MemberController{
 	            memberSerivce.recommend(map);
 	            memberSerivce.recommended(map);
 	         }
-	         return "/index";
+	         return "/view/user/writeFormSuccess";
 	      }else {
-	         return "/user/writeForm";
+	    	
+	         return "/view/user/writeFormSuccess";
 	      }
 	   }
 	
@@ -212,7 +214,7 @@ public class MemberController{
 	//로그인
 	@PostMapping("/login")
 	@ResponseBody
-	public String login(@RequestParam("member_id") String member_id, @RequestParam("member_pwd") String member_pwd, HttpSession session) {
+	public Map<String, Integer> login(@RequestParam("member_id") String member_id, @RequestParam("member_pwd") String member_pwd, HttpSession session) {
 		
 		String path="";
 		
@@ -221,16 +223,17 @@ public class MemberController{
 		memberDTO.setMember_id(member_id);
 		memberDTO.setMember_pwd(member_pwd);
 		
-		int result = memberSerivce.login(memberDTO);
+		Map<String, Integer> result = memberSerivce.login(memberDTO);
 		
 
 		session.setAttribute("member_id", member_id);
 		session.setAttribute("login_info", memberDTO);
+		session.setAttribute("kakaoInfo", memberDTO);
 		session.setAttribute("member_siteCheck", 0);
 		
 		path = result+"";
 		
-		return path;
+		return result;
 	}
 	
 	//로그아웃 요청 
@@ -344,11 +347,13 @@ public class MemberController{
 		int result = memberSerivce.phoneChk(memberDTO);
 		return result;
 	}
+	
 	/*
-	//마이페이지 판매내역 폼
-	@GetMapping(value="/buyhistory")
-	public String buyhistory(HttpServletRequest request, HttpServletResponse response) throws Throwable{
-		request.setAttribute("display", "/view/myPage/buyhistory.jsp");
-		return "/view/myPage/mypageMainForm";
-	}*/
+	 * //마이페이지 판매내역 폼
+	 * 
+	 * @GetMapping(value="/buyhistory") public String buyhistory(HttpServletRequest
+	 * request, HttpServletResponse response) throws Throwable{
+	 * request.setAttribute("display", "/view/myPage/buyhistory.jsp"); return
+	 * "/view/myPage/mypageMainForm"; }
+	 */
 }

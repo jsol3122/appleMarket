@@ -130,6 +130,8 @@ public class LocationService {
 	}
 	
 	public void gpsUpdate(LocationDTO locationDTO) {
-		locationDAO.gpsUpdate(locationDTO);
+			locationDAO.gpsUpdate(locationDTO);
+
+		
 	}
 }

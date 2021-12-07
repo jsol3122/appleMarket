@@ -29,6 +29,7 @@ public class LocationDAOMybatis implements LocationDAO{
 	@Override
 	public void gpsUpdate(LocationDTO locationDTO) {
 		sqlSession.update("locationSQL.gpsUpdate", locationDTO);
+		
 	}
 
 }
