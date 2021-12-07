@@ -1,12 +1,11 @@
-// 회원가입 유효성 검사
-$('#writeBtn').click(function(){
-	// 공백 체크
 	var writeForm = document.querySelector('#writeForm');
 	var id_valid = /^[a-zA-Z0-9]{5,20}$/;
 	var pwd_valid = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,30}$/;
 	var email_valid = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
 	var tel_valid = /^[0-9]{3,4}$/;
-	
+// 회원가입 유효성 검사
+$('#writeBtn').click(function(){
+	// 공백 체크
 	writeForm.querySelector('#member_id').placeholder = '5자 이상 입력해주세요';
 	writeForm.querySelector('#member_pwd').placeholder = '8자 이상의 영문과 숫자를 조합';
 	writeForm.querySelector('#member_rePwd').placeholder = '비밀번호를 한번 더 입력해주세요';
@@ -97,39 +96,72 @@ $('#id_chk').click(function(){
 	}
 });
 
+// 이메일 중복 체크
+$('#member_email').on("focusout",function(event){
+	//$(this).css("backgroundColor","red");		
+		$.ajax({
+			url: '/appleMarket/emailChk',
+			type: 'post',
+			data: 'member_email='+$('#member_email').val(),
+			dataType: 'text',
+			success: function(data){				
+			if(data == 1){		
+			writeForm.querySelector("#member_email").value = '';
+			writeForm.querySelector("#member_email").placeholder = "사용 불가능한 이메일 입니다.";
+			writeForm.querySelector('#member_email').classList.add("placeholderColor");
+			}
+			},
+			error: function(err){
+				console.log(err);
+			}
+		});
+});
+
 
 // 휴대폰 본인 인증
 var timer = null;
 var isRunning = false;
 $("#tel_chk").click(function(e){
-	var writeForm = document.querySelector('#writeForm');
-	var display = $('.time');
-	var leftSec = 180;
-	// 남은 시간
-	// 이미 타이머가 작동중이면 중지
-	if (isRunning){
-		clearInterval(timer);
-		display.val("");
-		startTimer(leftSec, display);
-	}else{
-		startTimer(leftSec, display);
-	}
-	// 숨겨놨던 인증번호 관련 3개 띄우기
-	writeForm.querySelector('#phone2').classList.remove('hidden');
-	writeForm.querySelector('#timer').classList.remove('hidden');
-	writeForm.querySelector('#tel_valid').classList.remove('hidden');
-
-	$.ajax({
-		url: '/appleMarket/phoneCheck',
-		type: 'get',
-		data: 'phone='+$('#member_tel1').val()+$('#member_tel2').val()+$('#member_tel3').val(),
-		success: function(){
-			console.log('인증번호 전송 완료');
-		},
-		error: function(err){
-			console.log(err);
+	
+		var display = $('.time');
+		var leftSec = 180;
+		// 남은 시간
+		// 이미 타이머가 작동중이면 중지
+		if (isRunning){
+			clearInterval(timer);
+			display.val("");
+			startTimer(leftSec, display);
+		}else{
+			startTimer(leftSec, display);
 		}
-	});
+		
+	if(!tel_valid.test(writeForm.querySelector('#member_tel2').value)){
+			writeForm.querySelector("#member_tel2").value = '';
+			writeForm.querySelector("#member_tel2").placeholder = "숫자만 입력";
+			writeForm.querySelector('#member_tel2').classList.add("placeholderColor");
+		}else if(!tel_valid.test(writeForm.querySelector('#member_tel3').value)){
+			writeForm.querySelector("#member_tel3").value = '';
+			writeForm.querySelector("#member_tel3").placeholder = "숫자만 입력";
+			writeForm.querySelector('#member_tel3').classList.add("placeholderColor");
+		}else{
+		
+		// 숨겨놨던 인증번호 관련 3개 띄우기
+		writeForm.querySelector('#phone2').classList.remove('hidden');
+		writeForm.querySelector('#timer').classList.remove('hidden');
+		writeForm.querySelector('#tel_valid').classList.remove('hidden');
+		$.ajax({
+			url: '/appleMarket/phoneCheck',
+			type: 'get',
+			data: 'phone='+$('#member_tel1').val()+$('#member_tel2').val()+$('#member_tel3').val(),
+			success: function(){
+				console.log('인증번호 전송 완료');
+			},
+			error: function(err){
+				console.log(err);
+			}
+		});
+	}
+	
 });
     
 function startTimer(count, display) {
@@ -153,8 +185,10 @@ function startTimer(count, display) {
     }, 1000);
     isRunning = true;
 }
-
+//휴대폰인증번호 버튼
 $('#tel_valid').click(function(){
+
+//중복체크 여기서
 	$.ajax({
 		url: '/appleMarket/phoneCheckNum',
 		type: 'post',
@@ -173,8 +207,9 @@ $('#tel_valid').click(function(){
 		},
 		error: function(err){
 			console.log(err);
-		}
-	});
+			}
+		});
+	
 });
 
 

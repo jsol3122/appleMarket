@@ -284,7 +284,11 @@
 </head>
 
 <body>
+<<<<<<< HEAD
+   <%@include file="/includes/header.jsp" %>
+=======
     <%@include file="/includes/header.jsp" %>
+>>>>>>> branch 'master' of https://github.com/jsol3122/appleMarket.git
 
     <div class="memberup">
         <div class="main">
