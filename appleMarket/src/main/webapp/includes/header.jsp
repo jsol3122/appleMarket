@@ -17,7 +17,7 @@
             <ul class="category">
                 <li><a href="/appleMarket/view/buyerboard/buyerboardList.jsp">사고</a></li>
                 <li><a href="/appleMarket/view/saleboard/saleboardList.jsp">팔고</a></li>
-                <li><a href="#">조잘조잘</a></li>
+                <li><a href="/appleMarket/view/communityboard/communityboardList.jsp?pg=1">조잘조잘</a></li>
                 <li><a href="/appleMarket/view/localCommunityboard/localCommunityboardList.jsp?pg=1">우리동네</a></li>
             </ul>
          <ul class="login">

@@ -2,8 +2,11 @@
 <<<<<<<=HEAD
 >>>>>>>=ad8d99bb62fe8ad49d3558463da3a86bdb310553
 eclipse.preferences.version=1
+<<<<<<< HEAD
 encoding//src/main/webapp/includes/footer.jsp=UTF-8
 encoding//src/main/webapp/includes/header.jsp=UTF-8
 encoding//src/main/webapp/view/myPage/changePwdForm.jsp=UTF-8
 encoding//src/main/webapp/view/myPage/deleteForm.jsp=UTF-8
 encoding//src/main/webapp/view/myPage/modifyForm.jsp=UTF-8
+=======
+>>>>>>> branch 'master' of https://github.com/jsol3122/appleMarket.git

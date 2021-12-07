@@ -21,4 +21,8 @@
                                     <input type="password" name="member_rePwd" id="member_rePwd" placeholder="비밀번호를 한번 더 입력해주세요" />
                                 </div>
                                 <input type="button" value="비밀변호변경" id="writeBtn" class="sbm" />
+<<<<<<< HEAD
                             </form>
+=======
+                            </form>
+>>>>>>> branch 'master' of https://github.com/jsol3122/appleMarket.git

@@ -1,6 +1,5 @@
 package member.controller;
 
-import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -349,10 +348,12 @@ public class MemberController{
 		return result;
 	}
 	
-	//마이페이지 판매내역 폼
-	@GetMapping(value="/buyhistory")
-	public String buyhistory(HttpServletRequest request, HttpServletResponse response) throws Throwable{
-		request.setAttribute("display", "/view/myPage/buyhistory.jsp");
-		return "/view/myPage/mypageMainForm";
-	}
+	/*
+	 * //마이페이지 판매내역 폼
+	 * 
+	 * @GetMapping(value="/buyhistory") public String buyhistory(HttpServletRequest
+	 * request, HttpServletResponse response) throws Throwable{
+	 * request.setAttribute("display", "/view/myPage/buyhistory.jsp"); return
+	 * "/view/myPage/mypageMainForm"; }
+	 */
 }

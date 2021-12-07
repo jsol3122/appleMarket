@@ -33,7 +33,10 @@ public interface MemberDAO {
 	public int phoneChk(MemberDTO memberDTO);
 
 	public int emailChk(String member_email);
+<<<<<<< HEAD
 	
 	
+=======
+>>>>>>> branch 'master' of https://github.com/jsol3122/appleMarket.git
 }
 
