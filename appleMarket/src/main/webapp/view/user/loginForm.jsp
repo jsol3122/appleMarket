@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +12,8 @@
 	<div id="modal-content">
 	
 		<div class="modal-body"> <!-- modal body -->
-	      <form id="loginForm">
+	      <form id="loginForm" action="<c:url value="/j_spring_security_check" />" method="post">
+
 	         <h3>로그인</h3>
 	         <hr>
 	         <br>
@@ -49,8 +50,6 @@
 <script type="text/javascript">
 //로그인 유효성 검사   
 $('#loginBtn').click(function(){
-   var loginForm = document.querySelector('#loginForm');
-   var id = document.querySelector('#member_id').value;
    loginForm.querySelector('#member_id').classList.remove("placeholderColor");
    loginForm.querySelector('#member_pwd').classList.remove("placeholderColor");
 

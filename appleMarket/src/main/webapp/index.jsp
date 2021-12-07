@@ -215,6 +215,7 @@
                                 <span>채팅 </span>
                                 <span class="count">0</span>
                             </p>
+                            
                         </div>
                     </div>
                 </a>

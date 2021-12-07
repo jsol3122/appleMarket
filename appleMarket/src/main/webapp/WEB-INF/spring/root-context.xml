@@ -36,6 +36,8 @@
 	<!-- Connection Pool : 여기서 해도 된다. -> spring configuration으로 할거다.  -->
 	<context:component-scan base-package="spring.conf"/>
 	
-
+	<!-- 관리자페이지  -->
+	<context:component-scan base-package="admin.controller"/>
 	
+	<context:component-scan base-package="security.controller"></context:component-scan>
 </beans>

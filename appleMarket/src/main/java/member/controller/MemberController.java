@@ -252,9 +252,10 @@ public class MemberController{
 	
 	//로그아웃 요청 
 	@GetMapping("/logout")
-	@ResponseBody
-	public void logout(HttpSession session) {
+	public String logout(HttpSession session) {
 		session.removeAttribute("login_info");
+		session.removeAttribute("kakaoInfo");
+		return "/index";
 	}
 	
 	//탈퇴하기 폼
