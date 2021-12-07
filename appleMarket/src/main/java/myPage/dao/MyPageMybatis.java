@@ -119,6 +119,16 @@ public class MyPageMybatis implements MyPageDAO {
 		return sqlSession.selectOne("buyerboardSQL.buyerboardGetView",buyerboard_seq);
 	}
 
+	@Override
+	public void buyhistoryDelete(int buyerboard_seq) {
+		sqlSession.delete("myPageSQL.buyhistoryDelete", buyerboard_seq);
+	}
+
+	@Override
+	public void salehistoryDelete(int sale_seq) {
+		sqlSession.delete("myPageSQL.salehistoryDelete", sale_seq);
+	}
+
 	
 	
 	

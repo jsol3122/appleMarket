@@ -159,11 +159,11 @@ public class MyPageController {
 	}
 	
 	
-	@GetMapping("/mySaleList")
-	public String mySaleList() {
-		
-		return "/mySaleList";
-		
+	//마이페이지 판매내역 폼
+	@GetMapping(value="/salehistory")
+	public String salehistory(HttpServletRequest request, HttpServletResponse response) throws Throwable{
+		request.setAttribute("display", "/view/myPage/salehistory.jsp");
+		return "/view/myPage/mypageMainForm";
 	}
 	
 	@PostMapping("/mySaleGetList")
@@ -192,6 +192,11 @@ public class MyPageController {
 		return myPageService.mySaleGetView(sale_seq);
 	}
 	
+	@PostMapping("/salehistoryDelete") @ResponseBody
+	public void salehistoryDelete(@RequestParam String sale_seq) {
+		myPageService.salehistoryDelete(Integer.parseInt(sale_seq));
+	}
+	
 	//마이페이지 구매내역 폼
 	@GetMapping(value="/buyhistory")
 	public String buyhistory(HttpServletRequest request, HttpServletResponse response) throws Throwable{
@@ -210,6 +215,11 @@ public class MyPageController {
 		map.put("member_id", member_id);
 		return myPageService.myBuyerGetList(map);
 		
+	}
+	
+	@PostMapping("/buyhistoryDelete") @ResponseBody
+	public void buyhistoryDelete(@RequestParam String buyerboard_seq) {
+		myPageService.buyhistoryDelete(Integer.parseInt(buyerboard_seq));
 	}
 	
 	@GetMapping("/myBuyerView")

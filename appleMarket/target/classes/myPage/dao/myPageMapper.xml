@@ -76,6 +76,13 @@
  		select count(*) from buyerboard where member_id=#{member_id}
  	</select>
  	
+ 	<delete id="buyhistoryDelete" parameterType="int">
+ 		delete from buyerboard where buyerboard_seq=#{buyerboard_seq}
+ 	</delete>
+ 	
+ 	<delete id="salehistoryDelete" parameterType="int">
+ 		delete from saleboard where sale_seq=#{sale_seq}
+ 	</delete>
  	
  	
  </mapper>

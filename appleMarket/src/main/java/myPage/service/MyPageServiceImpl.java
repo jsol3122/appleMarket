@@ -229,8 +229,8 @@ public class MyPageServiceImpl implements MyPageService {
 	public JSONObject mySaleGetList(Map<String, String> map) {
 
 		int pg = Integer.parseInt(map.get("pg"));
-		int endNum = pg * 5;
-		int startNum = endNum - 4;
+		int endNum = pg * 6;
+		int startNum = endNum - 5;
 
 		map.put("endNum", endNum + "");
 		map.put("startNum", startNum + "");
@@ -241,8 +241,9 @@ public class MyPageServiceImpl implements MyPageService {
 
 		boardPaging.setCurrentPage(pg);
 
-		boardPaging.setPageSize(12);
+		boardPaging.setPageSize(6);
 		boardPaging.setTotalA(mySaleTotalA);
+		boardPaging.makePagingHTML();
 
 		JSONObject json = new JSONObject();
 		if (list != null) {
@@ -279,6 +280,7 @@ public class MyPageServiceImpl implements MyPageService {
 
 			
 		}
+		json.put("boardPaging", boardPaging.getPagingHTML().toString());
 		return json;
 	}
 
@@ -292,8 +294,8 @@ public class MyPageServiceImpl implements MyPageService {
 	public JSONObject myBuyerGetList(Map<String, String> map) {
 		
 		int pg = Integer.parseInt(map.get("pg"));
-		int endNum = pg * 5;
-		int startNum = endNum - 4;
+		int endNum = pg * 6;
+		int startNum = endNum - 5;
 
 		map.put("endNum", endNum + "");
 		map.put("startNum", startNum + "");
@@ -304,8 +306,9 @@ public class MyPageServiceImpl implements MyPageService {
 
 		boardPaging.setCurrentPage(pg);
 
-		boardPaging.setPageSize(12);
+		boardPaging.setPageSize(6);
 		boardPaging.setTotalA(myBuyerTotalA);
+		boardPaging.makePagingHTML();
 		
 		JSONObject json = new JSONObject();
 		if(list != null) {
@@ -334,7 +337,7 @@ public class MyPageServiceImpl implements MyPageService {
 			json.put("list", array);
 			
 		}
-		//json.put("boardPaging", boardPaging);
+		json.put("boardPaging", boardPaging.getPagingHTML().toString());
 		return json;
 
 		
@@ -343,6 +346,16 @@ public class MyPageServiceImpl implements MyPageService {
 	@Override
 	public BuyerboardDTO myBuyerGetView(int buyerboard_seq) {
 		return myPageDAO.myBuyerGetView(buyerboard_seq);
+	}
+
+	@Override
+	public void buyhistoryDelete(int buyerboard_seq) {
+		myPageDAO.buyhistoryDelete(buyerboard_seq);
+	}
+
+	@Override
+	public void salehistoryDelete(int sale_seq) {
+		myPageDAO.salehistoryDelete(sale_seq);
 	}
 
 	

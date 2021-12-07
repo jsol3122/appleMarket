@@ -12,7 +12,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
-    <script src="/appleMarket/js/buyhistory.js"></script>
+    <script src="/appleMarket/js/salehistory.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 
     <!-- 구매내역 -->
@@ -35,13 +35,13 @@
              <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-0">
                  <!-- Recently Favorited -->
                  <div class="widget dashboard-container my-adslist" style="width: 610px;">
-                     <h3 class="widget-header">구매내역</h3>
+                     <h3 class="widget-header">판매내역</h3>
                      <table class="table table-responsive product-dashboard-table">
                          <thead>
                              <tr>
                                  <th>물품</th>
                                  <th>상세내역</th>
-                                 <th class="text-center">카테고리</th>
+                                 <th class="text-center">거래상태</th>
                                  <th class="text-center">관리</th>
                              </tr>
                          </thead>

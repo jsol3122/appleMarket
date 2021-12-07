@@ -32,6 +32,10 @@ public interface MyPageService {
 
 	public BuyerboardDTO myBuyerGetView(int buyerboard_seq);
 
+	public void buyhistoryDelete(int buyerboard_seq);
+
+	public void salehistoryDelete(int sale_seq);
+
 	
 
 	
