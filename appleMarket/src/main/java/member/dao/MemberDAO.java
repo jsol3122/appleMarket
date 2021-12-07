@@ -29,5 +29,9 @@ public interface MemberDAO {
 	public void recommend(Map<String, String> map);
 
 	public void recommended(Map<String, String> map);
+
+	public int phoneChk(MemberDTO memberDTO);
+
+	public int emailChk(String member_email);
 }
 

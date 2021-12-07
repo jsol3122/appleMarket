@@ -11,17 +11,20 @@
 	 			<if test="localcommunity_user_id != null">
 	 				where location_dong=(select location_dong from locationConfirm where member_id=#{localcommunity_user_id})
 				</if>
-	 			order by localcommunity_seq desc) 
+				order by localcommunity_seq desc) 
  			tt)
 	 	where rn between #{startNum} and #{endNum}
 	 </select>
 	 
-	 <select id="getTotalA" parameterType="Integer" resultType="Integer">
+	 <select id="getTotalA" parameterType="java.util.Map" resultType="Integer">
 	 	select count(*) from localcommunityboard
+				<if test="localcommunity_user_id != null">
+	 				where location_dong=(select location_dong from locationConfirm where member_id=#{localcommunity_user_id})
+				</if>
 	 </select>
 	 
 	 <select id="searchDong" parameterType="String" resultType="String">
-	 	select location_dong from LOCATIONCONFIRM where member_id = #{user_id}
+	 	select location_dong from locationconfirm where member_id = #{user_id}
 	 </select>
 	 
 
@@ -34,7 +37,7 @@
 	 									,localcommunity_logtime
 	 									,localcommunity_user_id
 	 									)values(
-	 									seq_localcommunityboard.nextval
+	 									seq_localcommunity.nextval
 	 									,#{localcommunity_subject}
 	 									,#{location_dong}
 	 									,#{localcommunity_content}

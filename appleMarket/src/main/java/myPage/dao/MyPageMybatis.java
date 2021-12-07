@@ -103,7 +103,6 @@ public class MyPageMybatis implements MyPageDAO {
 
 	@Override
 	public List<BuyerboardDTO> myBuyerGetList(Map<String, String> map) {
-		
 		return sqlSession.selectList("myPageSQL.myBuyerGetList", map);
 	}
 

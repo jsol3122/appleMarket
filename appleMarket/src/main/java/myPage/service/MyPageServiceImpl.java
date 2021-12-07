@@ -334,7 +334,9 @@ public class MyPageServiceImpl implements MyPageService {
 			json.put("list", array);
 			
 		}
-		json.put("boardPaging", boardPaging);
+
+		//json.put("boardPaging", boardPaging);
+
 		return json;
 
 		

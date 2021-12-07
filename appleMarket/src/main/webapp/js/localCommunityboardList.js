@@ -19,18 +19,27 @@ $(function(){
     dataType: 'json',
     success: function(data){
     	console.log('우리동네 목록 잘 불러옴');
-    	console.log(JSON.stringify(data))
-      	$.each(data.list, function(index, list){
-       	 	make_list(list);
-      	});
+      $.each(data.list, function(index, list){
+        // 글목록 html 생성&삽입 함수 호출
+        make_list(list);
+      });
+      $('form fieldset').append(data.boardPaging);
+      $('a.prev').attr('href', '/appleMarket/view/localCommunityboard/localCommunityboardList.jsp?pg='+(parseInt(result.pg)-1));
+      $('a.next').attr('href', '/appleMarket/view/localCommunityboard/localCommunityboardList.jsp?pg='+(parseInt(result.pg)+1));
+      for(step=1; step<$('.bd_pg a').length; step++){
+        $('a.paging').eq(step).attr('href', '/appleMarket/view/localCommunityboard/localCommunityboardList.jsp?pg='+(step-1));
+      }
+      $('.bd_pg a').removeClass('this');
+      $('.bd_pg a').eq(parseInt(result.pg)).addClass('this');
+
+      
     },
-    errer: function(err){
+    error: function(err){
       console.log('우리동네 목록 못불러옴')
     }
   });
 });
 
-// 목록 html태그 생성 후 삽입 함수
 function make_list(list){
   let html =
   "<tr>"+
@@ -43,13 +52,22 @@ function make_list(list){
       list.localcommunity_user_id+
       "</a></span>"+
     "</td>"+
-    "<td class=time title=''>21.11.11"+ // 임시로 날짜 고정
+    "<td class=time title=''>21.12.05"+
     "</td>"+
     "<td class=m_no>"+list.localcommunity_hit+"</td>"+
   "</tr>";
 
   $('.bd_lst tbody').append(html);
+  $('#dong').text(' - '+list.location_dong);
     
 }
 
-// 페이징 처리 html 태그 생성 및 삽입
+// 글쓰기 버튼 클릭 - 로그인 했을때만 글쓰기화면 진입 가능
+$('.fr a').click(function(){
+  if($('#session_id').val() == ''){
+    alert('로그인이 필요한 서비스입니다');
+    return false;
+  }else
+    location.href = '/appleMarket/view/localCommunityboard/localCommunityboardWriteForm.jsp';
+  
+});

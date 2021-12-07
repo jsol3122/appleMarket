@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -167,9 +168,7 @@ public class MyPageController {
 	
 	@PostMapping("/mySaleGetList")
 	@ResponseBody
-	public JSONObject mySaleGetList(@RequestParam String pg, HttpSession session
-			, HttpServletRequest request) {
-		
+	public JSONObject mySaleGetList(@RequestParam String pg, HttpSession session, HttpServletRequest request) {	
 		HttpSession loginSession = request.getSession();
 		String member_id = (String)loginSession.getAttribute("member_id");
 		
@@ -179,7 +178,6 @@ public class MyPageController {
 		map.put("member_id", member_id);
 		
 		return myPageService.mySaleGetList(map);
-		
 	}
 	
 	@GetMapping("/mySaleView")
@@ -193,23 +191,24 @@ public class MyPageController {
 		return myPageService.mySaleGetView(sale_seq);
 	}
 	
-	@GetMapping("/myBuyerList")
-	public String myBuyerList() {
-		return "/myBuyerList";
+
+	//마이페이지 구매내역 폼
+	@GetMapping(value="/buyhistory")
+	public String buyhistory(HttpServletRequest request, HttpServletResponse response) throws Throwable{
+		request.setAttribute("display", "/view/myPage/buyhistory.jsp");
+		return "/view/myPage/mypageMainForm";
 	}
 	
 	@PostMapping("/myBuyerGetList")
 	@ResponseBody
-	public JSONObject myBuyerGetList(@RequestParam String pg, HttpSession session
-			, HttpServletRequest request) {
+	public JSONObject myBuyerGetList(@RequestParam String pg, HttpSession session, HttpServletRequest request) {
 		HttpSession loginSession = request.getSession();
 		String member_id = (String)loginSession.getAttribute("member_id");
 		
 		Map<String, String> map = new HashMap<String, String>();
-		
+
 		map.put("pg", pg);
 		map.put("member_id", member_id);
-		
 		return myPageService.myBuyerGetList(map);
 		
 	}
