@@ -296,10 +296,10 @@
                                 <li><a href="/appleMarket/view/myPage/buyhistory.jsp">구매내역</a></li>
                                 <li><a href="/appleMarket/view/myPage/wishlist.jsp">관심목록</a></li>
                                 <li><a href="#">동네인증</a></li>
-                                <li><a href="#">조잘조잘 글</a></li>
-                                <li><a href="#">조잘조잘 댓글</a></li>
-                                <li><a href="#">우리동네이야기 글</a></li>
-                                <li><a href="#">우리동네이야기 댓글</a></li>
+                                <li><a href="/appleMarket/view/myPage/communityboardhistory.jsp">조잘조잘 글</a></li>
+                                <li><a href="/appleMarket/view/myPage/communityboardcommenthistory.jsp">조잘조잘 댓글</a></li>
+                                <li><a href="/appleMarket/view/myPage/localcommunityboardhistory.jsp">우리동네이야기 글</a></li>
+                                <li><a href="/appleMarket/view/myPage/localcommunityboardcommenthistory.jsp">우리동네이야기 댓글</a></li>
                                 <li><a href="#">친구초대</a></li>
                             </ul>
                         </div>
