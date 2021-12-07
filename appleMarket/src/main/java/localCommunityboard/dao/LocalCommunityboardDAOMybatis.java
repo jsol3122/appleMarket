@@ -22,9 +22,9 @@ public class LocalCommunityboardDAOMybatis implements LocalCommunityboardDAO {
 	}
 
 	@Override
-	public int getTotalA() {
+	public int getTotalA(Map<String, Object> map) {
 		
-		return sqlSession.selectOne("localCommunityboardSQL.getTotalA");
+		return sqlSession.selectOne("localCommunityboardSQL.getTotalA", map);
 	}
 
 	@Override
@@ -35,7 +35,6 @@ public class LocalCommunityboardDAOMybatis implements LocalCommunityboardDAO {
 
 		localCommunityboardDTO.setLocation_dong(dong);
 		sqlSession.insert("localCommunityboardSQL.localCommunityboardWrite", localCommunityboardDTO);
-		
 	}
 
 

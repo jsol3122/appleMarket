@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,32 +41,7 @@
 </head>
 
 <body>
-    <header>
-        <nav class="main_navigation">
-            <div class="container">
-                <div class="row justify-content-between">
-                    <div class="gnb">
-                        <h1 class="logo"><a href="/appleMarket/index.jsp">Shopy Logo</a></h1>
-                        <ul>
-                            <li><a href="/appleMarket/view/buyerboard/buyerboardList.jsp">사고</a></li>
-			                <li><a href="/appleMarket/view/saleboard/saleboardList.jsp">팔고</a></li>
-			                <li><a href="#">조잘조잘</a></li>
-			                <li><a href="#">우리동네</a></li>
-                        </ul>
-                    </div>
-                    <ul class="shopping_nav">
-                        <li><span class="search_btn sprites">search</span></li>
-                        <li><a href="" class="mypage sprites">mypage</a></li>
-                        <li><a href="" class="cart sprites" data-cart="5">cart</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <form action="#" method="get">
-            <input type="text">
-            <input type="submit" value="검색" class="search_btn sprites">
-        </form>
-    </header>
+    <%@include file="/includes/header.jsp" %>
     <section class="product_info">
         <h2 class="hidden">product_info</h2>
         <div class="container"> 
@@ -83,7 +59,7 @@
         </section>
 
     </main>
-    <footer></footer>
+    <%@include file="/includes/footer.jsp" %>
 </body>
 
 </html>

@@ -9,7 +9,7 @@ public interface LocalCommunityboardDAO {
 
 	public List<LocalCommunityboardDTO> localCommunityboardGetList(Map<String, Object> map);
 
-	public int getTotalA();
+	public int getTotalA(Map<String, Object> map);
 
 
 	public void localCommunityboardWrite(LocalCommunityboardDTO localCommunityboardDTO);
