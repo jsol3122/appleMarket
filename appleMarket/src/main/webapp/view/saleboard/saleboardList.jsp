@@ -6,8 +6,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/674d94d429.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="img/shortcut_icon.png" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+
+    <link rel="stylesheet" href="/appleMarket/css/userupdatapage.css">
+    
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>사과마켓 팔기</title>
+    <title>사과마켓 사고</title>
     <meta name="keywords" content="shopping mall, jacket, men, women">
     <meta name="description" content="shop any where for women and men's ware">
     <meta name="robots" content="index, follow">
@@ -21,49 +33,22 @@
 
     <!-- fontawesome -->
     <script src="/appleMarket/js/all.min.js"></script>
-
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
     <script src="/appleMarket/js/isotope.pkgd.min.js"></script>
     <script src="/appleMarket/js/buyandsell.js"></script>
-	<script src="/appleMarket/js/saleboardList.js"></script>
+    <script type="text/javascript" src="/appleMarket/js/buyerboardList.js"></script>
 
     <!-- bootstrap grid -->
     <link rel="stylesheet" href="/appleMarket/css/bootstrap-grid.min.css">
     <link rel="stylesheet" href="/appleMarket/css/star-rating.min.css">
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="/appleMarket/css/buyandsell.css">
-
 </head>
 <body>
-    <header>
-        <nav class="main_navigation">
-            <div class="container">
-                <div class="row justify-content-between">
-                    <div class="gnb">
-                        <h1 class="logo"><a href="/appleMarket/index.jsp">Shopy Logo</a></h1>
-                        <ul>
-                            <li><a href="/appleMarket/view/buyerboard/buyerboardList.jsp">사고</a></li>
-                            <li><a href="/appleMarket/view/saleboard/saleboardList.jsp">팔기</a></li>
-                            <li><a href="">조잘조잘</a></li>
-                            <li><a href="">우리동네</a></li>
-                        </ul>
-                    </div>
-                    <ul class="shopping_nav">
-                        <li><span class="search_btn sprites">search</span></li>
-                        <li><a href="" class="mypage sprites">mypage</a></li>
-                        <li><a href="" class="cart sprites" data-cart="5">cart</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <form action="#" method="get">
-            <input type="text">
-            <input type="submit" value="검색" class="search_btn sprites">
-        </form>
-    </header>
+   <%@include file="/includes/header.jsp" %>
 
     <main class="container">
         <section class="filters">

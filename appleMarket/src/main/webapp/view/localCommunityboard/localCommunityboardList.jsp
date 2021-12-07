@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -283,53 +284,7 @@
 </head>
 
 <body>
-    <header id="headBox">
-        <div class="inner">
-            <h1>
-                <a href="#"><img class="logo" src="/appleMarket/img/logo-basic.png" alt="사과마켓"></a>
-            </h1>
-            <form action="#" method="get" class="search_box">
-                <fieldset>
-                    <legend>검색창</legend>
-                    <label class="hidden" for="searchPrd">지역, 상품, 업체등을 검색해보세요.</label>
-                    <input type="text" id="searchPrd" name="searchPrd" placeholder="지역, 상품, 업체등을 검색해보세요.">
-                    <button type="submit"><i class="fas fa-search"></i><span class="hidden">검색버튼</span></button>
-                </fieldset>
-            </form>
-            <ul class="category">
-                <li><a href="#">사고/팔고</a></li>
-                <li><a href="#">조잘조잘</a></li>
-                <li><a href="#">우리동네</a></li>
-                <li><a href="#">문의하기</a></li>
-            </ul>
-            <ul class="login">
-                <li><a href="userUpdataForm.html" rel="modal:open">회원정보수정</a></li>
-                <li><a href="index.html">로그아웃</a></li>
-
-            </ul>
-            <!-- <div class="btnbox_search"> 수정해야하지만 일단 잘 돌아감 -->
-            <div class="btnbox_search">
-                <!-- 캐러셀 -->
-                <button type="button"><i class="fas fa-search"></i><span class="hidden">검색창 펼치기</span></button>
-            </div>
-
-            <nav id="nav">
-                <!-- <h1></h1> -->
-                <div class="ham">
-                    <span class="bar1"></span>
-                    <span class="bar2"></span>
-                    <span class="bar3"></span>
-                </div>
-                <ul class="menu">
-                    <li class="active"><a href="#">사고/팔고</a></li>
-                    <li><a href="#">조잘조잘</a></li>
-                    <li><a href="#">우리동네</a></li>
-                    <li><a href="#">문의하기</a></li>
-                </ul>
-            </nav>
-
-        </div>
-    </header>
+    <%@include file="/includes/header.jsp" %>
 
     <div class="memberup">
         <div class="main">
@@ -344,7 +299,12 @@
                                         <div class="tl_srch clear">
 
                                             <div class="bd_tl">
-                                                <h1 class="ngeb clear"><i class="bg_color"></i><a href="#">우리동네게시판</a></h1>
+                                                <h1 class="ngeb clear"><i class="bg_color"></i><a href="#">우리동네게시판</a>
+                                                	<c:if test="${member_id ne null}">
+                                                		<span id='dong' style='font-size:8pt'></span>
+                                                	</c:if>
+                                                	<input type="hidden" id="session_id" value="${member_id}" />
+                                                </h1>
                                             </div>
                                         </div>
                                         <div class="cnb_n_list">
@@ -422,31 +382,7 @@
                                         </div>
                                         <form action="./" method="get" class="bd_pg clear"><input type="hidden" name="error_return_url" value="/freebd"><input type="hidden" name="act" value="">
                                             <fieldset>
-                                                <legend class="blind">Board Pagination</legend>
-                                                <input type="hidden" name="vid" value="">
-                                                <input type="hidden" name="mid" value="freebd">
-                                                <input type="hidden" name="category" value="">
-                                                <input type="hidden" name="search_keyword" value="">
-                                                <input type="hidden" name="search_target" value="">
-                                                <input type="hidden" name="listStyle" value="list">
-                                                <strong class="direction"><i class="fa fa-angle-left"></i> Prev</strong> <a class="frst_last bubble this" href="http://www.reva.kr/freebd" title="첫 페이지">1</a>
-
-                                                <a href="#">2</a>
-                                                <a href="#">3</a>
-                                                <a href="#">4</a>
-                                                <a href="#">5</a>
-                                                <a href="#">6</a>
-                                                <a href="#">7</a>
-                                                <a href="#">8</a>
-                                                <a href="#">9</a>
-                                                <a href="#">10</a> <span class="bubble"><a href="#" class="tg_btn2" data-href=".bd_go_page" title="페이지 직접 이동">...</a></span> <a class="frst_last bubble" href="#" title="끝 페이지">724</a> <a href="#" class="direction">Next <i class="fa fa-angle-right"></i></a>
-                                                <div class="bd_go_page tg_cnt2 wrp">
-                                                    <button type="button" class="tg_blur2"></button>
-                                                    <input type="text" name="page" class="itx">/ 724 <button type="submit" class="bd_btn">GO</button>
-                                                    <span class="edge"></span>
-                                                    <i class="ie8_only bl"></i><i class="ie8_only br"></i>
-                                                    <button type="button" class="tg_blur2"></button>
-                                                </div>
+                                                <!-- 페이징처리 ajax로 뿌리기 -->
                                             </fieldset>
                                         </form>
                                     </div>
@@ -459,33 +395,7 @@
             </div>
         </div>
     </div>
-    <footer id="footBox">
-        <h1 class="hidden">사과마켓 하단 정보</h1>
-        <ul id="inb">
-            <li><a href="">이용약관</a></li>
-            <li><a href="">개인정보처리방침</a></li>
-            <li><a href="">위치기반서비스 이용약관</a></li>
-            <li><a href="">광고주센터</a></li>
-            <li><a href="">ABOUT US</a></li>
-        </ul>
-        <ul class="addresss_list">
-            <li>사업자 등록번호 : XXX-XX-XXXXX</li>
-            <li>서울 강남구 강남대로94길 20 삼오빌딩 903호</li>
-            <li>
-                <p>고객문의 : <a href="mailto:xx@xxxxxxx.com">cs@xxxxxxx.com</a></p>
-                <p>제휴문의 : <a href="mailto:xx@xxxxxxx.com">contact@xxxxxxx.com</a></p>
-            </li>
-        </ul>
-        <p>(주)사과마켓 대표 전진솔, 이지현, 유혜림, 김현정, 맹주혁, 이상진</p>
-        <small class="copyright">
-            Copyright &copy; Apple Market Inc. All rights reserved.
-        </small>
-        <ul class="sns_list">
-            <li><a href=""><i class="fab fa-facebook-square"></i><span class="hidden">페이스북</span></a></li>
-            <li><a href=""><i class="fab fa-instagram"></i><span class="hidden">인스타그램</span></a></li>
-            <li><a href=""><i class="fas fa-blog"></i><span class="hidden">블로그</span></a></li>
-        </ul>
-    </footer>
+    <%@include file="/includes/footer.jsp" %>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js'></script>

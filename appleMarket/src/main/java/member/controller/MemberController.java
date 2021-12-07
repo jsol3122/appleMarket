@@ -1,6 +1,5 @@
 package member.controller;
 
-import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -8,9 +7,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
 import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -20,7 +18,6 @@ import javax.validation.constraints.Pattern;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -76,7 +73,7 @@ public class MemberController{
 //			return;
 //		}
 //	}
-	
+
 	   //회원가입 - index 이동(맞는지 확인 요망)
 	   @RequestMapping("/write")
 	   public String write(@ModelAttribute @Valid MemberDTO memberDTO,@Nullable @RequestParam("recommend_id") String recommend_id) {
@@ -192,6 +189,7 @@ public class MemberController{
 		return memberSerivce.checkId(member_id);
 	}
 	
+	
 	//우편번호폼
 	@GetMapping("/view/user/checkPost")
 	public String checkPost() {
@@ -237,29 +235,44 @@ public class MemberController{
 	
 	//로그아웃 요청 
 	@GetMapping("/logout")
-	@ResponseBody
-	public void logout(HttpSession session) {
+	//@ResponseBody //string으로 받을떄만씀
+	public String logout(HttpSession session) {
 		session.removeAttribute("login_info");
+		session.removeAttribute("kakaoInfo");
+		session.removeAttribute("member_id");
+		
+		return "/index";
 	}
 	
 	//탈퇴하기 폼
 	@GetMapping(value="/deleteForm")
-	public String deleteForm() {
-		return "/deleteForm";
+	public String deleteForm(HttpServletRequest request, HttpServletResponse response) throws Throwable{
+		request.setAttribute("display", "/view/myPage/deleteForm.jsp");
+		return "/view/myPage/mypageMainForm";
+		
 	}
 	
 	//탈퇴하기 
 	@PostMapping("/delete")
 	@ResponseBody
-	public void delete(@ModelAttribute MemberDTO memberDTO) {
+	public void delete(@ModelAttribute MemberDTO memberDTO,HttpSession session) {
+		System.out.println(memberDTO);
 		memberSerivce.delete(memberDTO);
+		session.removeAttribute("login_info");
+		session.removeAttribute("kakaoInfo");
+		session.removeAttribute("member_id");
 	}
 
-	
-	//수정하기 폼
-	@GetMapping(value="/modifyForm")
-	public String modifyForm() {
-		return "/modifyForm";
+	//마이페이지 메인 폼
+	@GetMapping(value="/mypageMainForm")
+	public String mypageMainForm() {
+		return "/view/myPage/mypageMainForm";
+	}
+	//수정하기 폼 
+	@GetMapping(value="/modifyForm")	
+	public String modifyForm(HttpServletRequest request, HttpServletResponse response) throws Throwable{
+		request.setAttribute("display", "/view/myPage/modifyForm.jsp");
+		return "/view/myPage/mypageMainForm";
 	}
 	
 	//수정하기 
@@ -269,10 +282,10 @@ public class MemberController{
 		memberSerivce.modify(memberDTO);
 	}
 	
-	//아이디찾기 폼
-	@GetMapping(value="/searchIdForm")
+	//아이디찾기, 비밀번호찾기 폼
+	@GetMapping(value="/searchIdPwdForm")
 	public String searchIdForm() {
-		return "/searchIdForm";
+		return "view/user/searchIdPwdForm";
 	}
 	
 	//아이디찾기 
@@ -281,25 +294,26 @@ public class MemberController{
 	public String idSearch(@RequestParam("member_email") String member_email) {
 		return memberSerivce.searchId(member_email);
 	}
+
 	
-	//비밀번호찾기 폼
-	@GetMapping(value="/searchPwdForm")
-	public String searchPwdForm() {
-		return "/searchPwdForm";
+	 //비밀번호찾기
+	
+	 @PostMapping(value="/searchPwd")
+	@ResponseBody 
+	public void searchPwd(@ModelAttribute MemberDTO memberDTO,
+		 HttpServletResponse response) { memberSerivce.searchPwd(memberDTO, response);
 	}
-	
-	
-	//비밀번호찾기
-	@PostMapping(value="/searchPwd")
-	@ResponseBody
-	public void searchPwd(@ModelAttribute MemberDTO memberDTO, HttpServletResponse response) {
-		memberSerivce.searchPwd(memberDTO, response);
+
+	//비밀번호찾기- 비밀번호변경
+		@GetMapping(value="/searchPwdForm")
+		public String changePwdForm(){			
+		return "/view/user/searchPwdForm";
 	}
-	
-	//비밀번호 변경 폼 
+	//마이페이지 비밀번호 변경 폼
 	@GetMapping(value="/changePwdForm")
-	public String changePwdForm() {
-		return "/changePwdForm";
+	public String changePwdForm(HttpServletRequest request, HttpServletResponse response) throws Throwable{
+		request.setAttribute("display", "/view/myPage/changePwdForm.jsp");
+		return "/view/myPage/mypageMainForm";
 	}
 	
 	//비밀번호 변경 
@@ -311,7 +325,30 @@ public class MemberController{
 		memberDTO.setMember_id(member_id);
 		memberDTO.setMember_pwd(member_pwd);
 
-		memberSerivce.chagePwd(memberDTO);
+		memberSerivce.changePwd(memberDTO);
 	
 	}
+	
+	//이메일 중복체크
+	@PostMapping("/emailChk")
+	@ResponseBody
+	public int emailChk(@RequestParam("member_email") String member_email) {
+		int result = memberSerivce.emailChk(member_email);
+		return result;
+	}
+		
+	//핸드폰 중복체크
+	@PostMapping("/phoneChk")
+	@ResponseBody
+	public int phoneChk(@ModelAttribute MemberDTO memberDTO) {
+		int result = memberSerivce.phoneChk(memberDTO);
+		return result;
+	}
+	/*
+	//마이페이지 판매내역 폼
+	@GetMapping(value="/buyhistory")
+	public String buyhistory(HttpServletRequest request, HttpServletResponse response) throws Throwable{
+		request.setAttribute("display", "/view/myPage/buyhistory.jsp");
+		return "/view/myPage/mypageMainForm";
+	}*/
 }

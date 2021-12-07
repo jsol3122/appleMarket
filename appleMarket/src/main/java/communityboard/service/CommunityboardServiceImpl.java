@@ -27,8 +27,8 @@ public class CommunityboardServiceImpl implements CommunityboardService {
 		
 		// DB 
 		//1페이지당 n개씩
-		int endNum = pg * 5;
-		int startNum = endNum - 4;
+		int endNum = pg * 10;
+		int startNum = endNum - 9;
 		
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		map.put("startNum", startNum);
@@ -39,8 +39,8 @@ public class CommunityboardServiceImpl implements CommunityboardService {
 		
 		
 		boardPaging.setCurrentPage(pg);
-		boardPaging.setPageBlock(3);
-		boardPaging.setPageSize(5);
+		//boardPaging.setPageBlock(3);
+		boardPaging.setPageSize(10);
 		boardPaging.setTotalA(totalA);
 		boardPaging.makePagingHTML();
 		

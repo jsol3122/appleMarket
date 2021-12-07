@@ -728,17 +728,14 @@
                                                 <input type="hidden" name="search_keyword" value="">
                                                 <input type="hidden" name="search_target" value="">
                                                 <input type="hidden" name="listStyle" value="list">
-                                                <strong class="direction"><i class="fa fa-angle-left"></i> Prev</strong> <a class="frst_last bubble this" href="http://www.reva.kr/freebd" title="첫 페이지">1</a>
-
+                                                <a href="#" class="direction"><i class="fa fa-angle-left"></i> Prev</a> 
+                                                
+                                                <a class="frst_last bubble this" href="http://www.reva.kr/freebd" title="첫 페이지">1</a>
                                                 <a href="#">2</a>
                                                 <a href="#">3</a>
-                                                <a href="#">4</a>
-                                                <a href="#">5</a>
-                                                <a href="#">6</a>
-                                                <a href="#">7</a>
-                                                <a href="#">8</a>
-                                                <a href="#">9</a>
-                                                <a href="#">10</a> <span class="bubble"><a href="#" class="tg_btn2" data-href=".bd_go_page" title="페이지 직접 이동">...</a></span> <a class="frst_last bubble" href="#" title="끝 페이지">724</a> <a href="#" class="direction">Next <i class="fa fa-angle-right"></i></a>
+                                                <a class="frst_last bubble" href="#" title="끝 페이지">724</a> 
+                                                
+                                                <a href="#" class="direction">Next <i class="fa fa-angle-right"></i></a>
                                                 <div class="bd_go_page tg_cnt2 wrp">
                                                     <button type="button" class="tg_blur2"></button>
                                                     <input type="text" name="page" class="itx">/ 724 <button type="submit" class="bd_btn">GO</button>
