@@ -77,7 +77,7 @@
  	
  	<!-- 회원탈퇴  -->
  	<delete id="delete" parameterType="member">
- 		delete appleMarket where member_id=#{member_id} and member_pwd=#{member_pwd}
+ 		delete from appleMarket where member_id=#{member_id} and member_pwd=#{member_pwd}
  	</delete>
  	
  	<!-- 회원수정  -->
@@ -114,7 +114,7 @@
 	<insert id="recommended" parameterType="java.util.Map">
 		insert into recommend(recommend_id, recommended_id, recommend_logtime) values(#{member_id}, #{recommend_id}, sysdate)
 	</insert>	
-		
+
 	<!-- 추천하기 5개체크  -->
 	<select id="recommendChk" parameterType="java.util.Map" resultType="Integer">
  		select count(*) from recommend where recommend_id=#{recommend_id} and recommend_YN='N'
@@ -129,7 +129,7 @@
  	<update id="recommendCoupon" parameterType="String">
  		update recommend set recommend_YN='Y' where recommend_id=#{member_id}
  	</update>
- 	
+ 
 	<!-- 이메일 중복체크  -->
  	<select id="emailChk" parameterType="String" resultType="Integer">
  		select count(*) from appleMarket where member_email=#{member_email}

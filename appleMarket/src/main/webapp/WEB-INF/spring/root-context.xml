@@ -33,6 +33,10 @@
 	<context:component-scan base-package="location.service"/>
 	<context:component-scan base-package="location.dao"/>
 	
+	<!-- MyPage -->
+	<context:component-scan base-package="myPage.service"/>
+	<context:component-scan base-package="myPage.dao"/>
+	
 	<!-- Connection Pool : 여기서 해도 된다. -> spring configuration으로 할거다.  -->
 	<context:component-scan base-package="spring.conf"/>
 	

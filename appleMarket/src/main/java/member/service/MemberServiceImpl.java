@@ -3,6 +3,7 @@ package member.service;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.mail.HtmlEmail;
@@ -70,7 +71,7 @@ public class MemberServiceImpl implements MemberService {
 		memberDAO.modify(memberDTO);
 		
 	}
-
+	//아이디찾기 이메일 중복체크 
 	@Override
 	public String searchId(String member_email) {
 		MemberDTO memberDTO = memberDAO.searchId(member_email);
@@ -78,22 +79,22 @@ public class MemberServiceImpl implements MemberService {
 		if(memberDTO == null) {
 			return "non_exist"; 
 		}else {
-			return "exist";
+			return memberDTO.getMember_id();
 		}
 	}
 	
-	@Override
-	public void searchPwd(MemberDTO memberDTO,HttpServletResponse response) {
-		response.setContentType("text/html;charset=utf-8");
-		
-		try {
-			sendEmail(memberDTO, "findpw");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-			
-	}
-
+	
+	 //비밀번호찾기
+	 
+	 @Override public void searchPwd(MemberDTO memberDTO,HttpServletResponse
+	 response) { 
+	 response.setContentType("text/html;charset=utf-8");
+	 
+	 try { sendEmail(memberDTO, "findpw"); } catch (Exception e) {
+	 e.printStackTrace(); }
+	 }
+	
+	 
 	//비밀번호 찾기 이메일발송
 	@Override
 	public void sendEmail(MemberDTO memberDTO, String div) throws Exception {
@@ -120,7 +121,7 @@ public class MemberServiceImpl implements MemberService {
 			msg += "<h2>AppleMarket password reset</h2>";
 			msg += "We heard that you lost your AppleMarket password, Sorry about it that!";
 			msg += "But don't worry! You can use the following button to reset your password :) ";
-			msg += "<br><br><a href='http://localhost:8080/appleMarket/changePwdForm'><input type='button' value='Reset your password'/>";
+			msg += "<br><br><a href='http://localhost:8080/appleMarket/searchPwdForm' onclick='window.open(this.href, '_blank,' 'width=500, height=500,scrollbars=no, resizable=no,toolbars=no, menubar=no'); return false;\"><input type='button' value='Reset your password'/>";
 			msg += "<br><br>";
 			msg += "<p>Thanks,<br>The AppleMarket Team<br></p>";
 			msg += "</div>";
@@ -153,7 +154,7 @@ public class MemberServiceImpl implements MemberService {
 
 	//비밀번호 변경
 	@Override
-	public void chagePwd(MemberDTO memberDTO) {
+	public void changePwd(MemberDTO memberDTO) {
 		memberDAO.changePwd(memberDTO);
 		
 	}
@@ -168,7 +169,6 @@ public class MemberServiceImpl implements MemberService {
 		memberDAO.recommended(map);			
 	}
 	
-
 	@Override
 	public int emailChk(String member_email) {
 		
@@ -193,7 +193,7 @@ public class MemberServiceImpl implements MemberService {
 		memberDAO.recommendCoupon(member_id);
 		
 	}
-
+	
 
 }
 

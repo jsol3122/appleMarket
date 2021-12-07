@@ -39,5 +39,6 @@ public interface MemberDAO {
 
 	public void recommendCoupon(String member_id);
 
+
 }
 

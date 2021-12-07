@@ -52,39 +52,8 @@ public class CommunityboardController {
 	
 	@PostMapping("/communityboard/communityboardWrite")
 	@ResponseBody
-	public void communityboardWrite(@ModelAttribute CommunityboardDTO communityboardDTO 
-									, @RequestParam MultipartFile img, HttpSession session) {
-		
-		String uuid = UUID.randomUUID().toString();
-		
-		String filePath = session.getServletContext().getRealPath("storage");
-		System.out.println(filePath);
-		
-		String fileName = uuid+"_"+img.getOriginalFilename();
-		
-
-		File file = new File(filePath,fileName);
-		System.out.println(fileName);
-
-		System.out.println("여기까지 오는지 확인");
-
-		//file copy
-		try {
-			
-			FileCopyUtils.copy(img.getInputStream(), new FileOutputStream(file));
-			
-		}catch (IOException e) {
-			
-			e.printStackTrace();
-			
-		}	
-		
-		communityboardDTO.setCommunityboard_image(fileName);
-		
-		System.out.println(communityboardDTO);
-	
+	public void communityboardWrite(@ModelAttribute CommunityboardDTO communityboardDTO) {
 		communityboardService.communityboardWrite(communityboardDTO);
-		
 	}
 	
 	@GetMapping("/communityboard/communityboardModifyForm")

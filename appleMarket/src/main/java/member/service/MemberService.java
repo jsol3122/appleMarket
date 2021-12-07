@@ -3,6 +3,7 @@ package member.service;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
@@ -27,11 +28,15 @@ public interface MemberService {
 	public String searchId(String member_email);
 
 	public void searchPwd(MemberDTO memberDTO,HttpServletResponse response);
+	/*
+	 * public String searchPwd(String member_id, String
+	 * member_email,HttpServletResponse response);
+	 */
 	
 	//이메일발송
 	public void sendEmail(MemberDTO memberDTO, String div) throws Exception;
 
-	public void chagePwd(MemberDTO memberDTO);
+	public void changePwd(MemberDTO memberDTO);
 
 	public void recommend(Map<String, String> map);
 
@@ -44,5 +49,7 @@ public interface MemberService {
 	public List<RecommendDTO> recommendList(String member_id);
 
 	public void recommendCoupon(String member_id);
+
+
 
 }
