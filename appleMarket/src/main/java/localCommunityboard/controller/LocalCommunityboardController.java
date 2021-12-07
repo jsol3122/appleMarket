@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,7 +55,14 @@ public class LocalCommunityboardController {
 	@PostMapping("/localCommunityboard/localCommunityboardWrite")
 	@ResponseBody
 	public void localCommunityboardWrite(@ModelAttribute LocalCommunityboardDTO localCommunityboardDTO
-									,@RequestParam MultipartFile img, HttpSession session) {
+									,@RequestParam MultipartFile img, HttpSession session
+									, HttpServletRequest request) {
+		HttpSession loginSession = request.getSession();
+		String member_id = (String)loginSession.getAttribute("member_id");
+		System.out.println(member_id);
+		localCommunityboardDTO.setLocalcommunity_user_id(member_id);
+		
+		
 		String uuid = UUID.randomUUID().toString();
 		
 		String filePath = session.getServletContext().getRealPath("storage");

@@ -53,7 +53,12 @@ public class CommunityboardController {
 	@PostMapping("/communityboard/communityboardWrite")
 	@ResponseBody
 	public void communityboardWrite(@ModelAttribute CommunityboardDTO communityboardDTO 
-									, @RequestParam MultipartFile img, HttpSession session) {
+									, @RequestParam MultipartFile img, HttpSession session
+									, HttpServletRequest request) {
+		HttpSession loginSession = request.getSession();
+		String member_id = (String)loginSession.getAttribute("member_id");
+		System.out.println(member_id);
+		communityboardDTO.setCommunityboard_user_id(member_id);
 		
 		String uuid = UUID.randomUUID().toString();
 		

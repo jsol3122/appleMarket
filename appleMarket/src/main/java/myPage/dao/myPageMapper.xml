@@ -56,7 +56,7 @@
  	<select id="mySaleGetList" parameterType="java.util.Map" resultType="saleboard.bean.SaleboardDTO">
  		select * from 
 	 	(select rownum rn, tt.* from 
-	 	(select * from saleboard where member_id=#{member_id} and sale_status=#{sale_status} order by sale_seq desc ) tt)
+	 	(select * from saleboard where member_id=#{member_id} order by sale_seq desc ) tt)
 	 	where rn between #{startNum} and #{endNum}
  	</select>
  	
@@ -68,7 +68,7 @@
  	<select id="myBuyerGetList" parameterType="java.util.Map" resultType="buyerboard.bean.BuyerboardDTO">
  		select * from 
 	 	(select rownum rn, tt.* from 
-	 	(select * from buyerboard where member_id=#{member_id} and buyer_status=#{buyer_status} order by buyerboard_seq desc ) tt)
+	 	(select * from buyerboard where member_id=#{member_id} order by buyerboard_seq desc ) tt)
 	 	where rn between #{startNum} and #{endNum}
  	</select>
  	

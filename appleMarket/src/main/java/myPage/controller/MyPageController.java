@@ -167,7 +167,7 @@ public class MyPageController {
 	
 	@PostMapping("/mySaleGetList")
 	@ResponseBody
-	public JSONObject mySaleGetList(@RequestParam String pg,@RequestParam String sale_status, HttpSession session
+	public JSONObject mySaleGetList(@RequestParam String pg, HttpSession session
 			, HttpServletRequest request) {
 		
 		HttpSession loginSession = request.getSession();
@@ -176,7 +176,6 @@ public class MyPageController {
 		Map<String, String> map = new HashMap<String, String>();
 		
 		map.put("pg", pg);
-		map.put("sale_status", sale_status);
 		map.put("member_id", member_id);
 		
 		return myPageService.mySaleGetList(map);
@@ -201,7 +200,7 @@ public class MyPageController {
 	
 	@PostMapping("/myBuyerGetList")
 	@ResponseBody
-	public JSONObject myBuyerGetList(@RequestParam String pg,@RequestParam String buyer_status, HttpSession session
+	public JSONObject myBuyerGetList(@RequestParam String pg, HttpSession session
 			, HttpServletRequest request) {
 		HttpSession loginSession = request.getSession();
 		String member_id = (String)loginSession.getAttribute("member_id");
@@ -209,7 +208,6 @@ public class MyPageController {
 		Map<String, String> map = new HashMap<String, String>();
 		
 		map.put("pg", pg);
-		map.put("buyer_status", buyer_status);
 		map.put("member_id", member_id);
 		
 		return myPageService.myBuyerGetList(map);

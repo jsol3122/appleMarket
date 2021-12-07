@@ -21,7 +21,7 @@
 	 </select>
 	 
 	 <select id="searchDong" parameterType="String" resultType="String">
-	 	select location_dong from applemarket where member_id = #{user_id}
+	 	select location_dong from LOCATIONCONFIRM where member_id = #{user_id}
 	 </select>
 	 
 
