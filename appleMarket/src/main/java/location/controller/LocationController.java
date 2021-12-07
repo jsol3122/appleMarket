@@ -4,14 +4,17 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import location.bean.LocationDTO;
 import location.service.LocationService;
 
 @Controller
@@ -48,6 +51,20 @@ public class LocationController {
 	@ResponseBody
 	public String checkGPS(@RequestParam String member_id) {//location_id
 		return locationService.checkGPS(member_id);
+	}
+	
+	@PostMapping("/gpsUpdate")
+	@ResponseBody
+	public String gpsUpdate(@RequestParam LocationDTO locationDTO) {//location_id
+		System.out.println("gps");
+		locationService.gpsUpdate(locationDTO);
+		return locationDTO.getLocation_dong();
+	}
+	
+	@GetMapping(value="/myMap")	
+	public String modifyForm(HttpServletRequest request, HttpServletResponse response) throws Throwable{
+		request.setAttribute("display", "/view/myPage/myMap.jsp");
+		return "/view/myPage/mypageMainForm";
 	}
 
 
