@@ -40,7 +40,7 @@
                              <tr>
                                  <th>물품</th>
                                  <th>상세내역</th>
-                                 <th class="text-center">거래상황</th>
+                                 <th class="text-center">카테고리</th>
                                  <th class="text-center">관리</th>
                              </tr>
                          </thead>

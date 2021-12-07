@@ -298,7 +298,7 @@ public class MemberController{
 	
 	 //비밀번호찾기
 	
-	 @PostMapping(value="/searchPwd")
+	@PostMapping(value="/searchPwd")
 	@ResponseBody 
 	public void searchPwd(@ModelAttribute MemberDTO memberDTO,
 		 HttpServletResponse response) { memberSerivce.searchPwd(memberDTO, response);
