@@ -18,4 +18,5 @@ public class ChatDTO implements Serializable{
 	private Date sendDate;
 	private int chatRoom_id;
 	private String vaildYN;
+	private String board_seq;
 }

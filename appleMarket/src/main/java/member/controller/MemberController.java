@@ -73,6 +73,7 @@ public class MemberController{
 //		}
 //	}
 	
+
 	  //회원가입 - index 이동(맞는지 확인 요망)
 	   @RequestMapping("/write")
 	   public String write(@ModelAttribute @Valid MemberDTO memberDTO,@Nullable @RequestParam("recommend_id") String recommend_id) {

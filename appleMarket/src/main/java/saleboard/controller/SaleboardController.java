@@ -31,7 +31,7 @@ public class SaleboardController {
 	@Autowired
 	private SaleboardService saleboardService;
 
-	@PostMapping("/saleboard/saleboardList")
+	@GetMapping("/saleboard/saleboardList")
 	public String saleboardList() {
 		return "/saleboard/saleboardList";
 	}
@@ -136,6 +136,12 @@ public class SaleboardController {
 		return saleboardService.saleboardGetView(sale_seq);	
 	}	
 	
+	@PostMapping("/saleboard/saleboardGetListId")
+	@ResponseBody
+	public List<SaleboardDTO> saleboardGetListId(@RequestParam String member_id, int sale_seq) {
+		return saleboardService.saleboardGetListId(member_id, sale_seq);
+	}
+	
 	@PostMapping("/saleboard/saleboardPick")
 	public void saleboardPick(@ModelAttribute SaleboardDTO saleboardDTO) {
 		int sale_seq = saleboardDTO.getSale_seq();
@@ -193,7 +199,7 @@ public class SaleboardController {
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("sale_seq", sale_seq+"");
 		map.put("member_id", member_id); // 글 작성자 (채팅 걸리는 사람)
-		map.put("user_id", user_id); // 로그인 세션 아이디 (채팅 거는 사람)		
+		map.put("user_id", user_id); // 로그인 세션 아이디 (채팅 거는 사람)	
 		
 		saleboardService.saleboardChat(map);
 		

@@ -110,59 +110,21 @@ public class SaleboardMybatis implements SaleboardDAO {
 	public void saleboardChat(Map<String, String> map) {
 		String sale_seq = map.get("sale_seq");
 		String member_id = map.get("member_id");
-		String user_id = map.get("user_id"); // 로그인 세션 값 받아오기
+		String user_id = map.get("user_id"); 
 		
 		map.put("sale_seq", sale_seq+"");
 		map.put("member_id", member_id);
 		map.put("user_id", user_id);
 		
 		// 첫 채팅과 아닌 경우 구분해줘야 한다. 
-		sqlSession.insert("saleboardSQL.saleboardChat", map);		
+		sqlSession.insert("saleboardSQL.saleboardChat", map);	
+	}	
 		
-	}
 	
 
-	/*
-	@Override
-	public List<SaleboardDTO> saleboardGetList() {
-		return sqlSession.selectList("saleboardSQL.SaleboardGetList");
+	public List<SaleboardDTO> saleboardGetListId(Map<String, Object> map) {
+		return sqlSession.selectList("saleboardSQL.saleboardGetListId",map);
 	}
-	/*
-	@Override
-	public void searchSale_id(String sale_id) {
-		sqlSession.selectOne("saleboardSQL.searchSale_id", sale_id);	}
-
 	
-	
-	@Override
-	public void searchSale_subject(String sale_subject) {
-		sqlSession.selectOne("saleboardSQL.searchSale_subject", sale_subject);				
-	}
-
-	@Override
-	public void searchSale_content(String sale_content) {
-		sqlSession.selectOne("saleboardSQL.searchSale_content", sale_content);
-	}
-
-	@Override
-	public List<SaleboardDTO> getSale_idList() {
-		return sqlSession.selectList("saleboardSQL.getSale_idList");	}
-
-	}
-
-	@Override
-	public void saleboardPick(SaleboardDTO saleboardDTO) {
-		sqlSession.insert("saleboardSQL.saleboardPick", saleboardDTO);		
-	}
-
-	
-	  @Override public void saleboardChat(String sale_id) {
-	  sqlSession.insert("saleboardSQL.saleboardChat", sale_id);
-	  
-	  }
-	 */
-
-
-
 
 }

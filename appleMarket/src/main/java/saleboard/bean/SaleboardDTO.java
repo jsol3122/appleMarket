@@ -27,7 +27,7 @@ public class SaleboardDTO {
 	private String sale_image5;
 	private String sale_topRank_YN;
 	private String member_profilePic;
-	private String location1_addr2;
+	private String location_dong;
 	private int sale_chat_count;
 	private int sale_heart_count;
 	private String sale_free_YN;

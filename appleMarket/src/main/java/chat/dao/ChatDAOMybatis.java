@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import chat.bean.ChatDTO;
+import chat.bean.ChatRoomDTO;
 
 @Repository
 public class ChatDAOMybatis implements ChatDAO {
@@ -25,7 +26,28 @@ public class ChatDAOMybatis implements ChatDAO {
 	}
 
 	@Override
-	public int insertChat(ChatDTO chatDTO) {
-		return sqlSession.insert("chat.insertChat",chatDTO);
+	public int checkChatRoom(Map<String, String> map) {
+		return sqlSession.selectOne("checkChatRoom", map);
+	}
+
+	@Override
+	public int newChatRoom(Map<String, String> map) {
+		sqlSession.insert("newChatRoom1", map);
+		return sqlSession.selectOne("newChatRoom2", map);
+	}
+
+	@Override
+	public List<ChatRoomDTO> chatList(String user_id) {
+		return sqlSession.selectList("chatList", user_id);
+	}
+
+	@Override
+	public List<ChatDTO> personalChatHistory(int chatRoom_id) {
+		return sqlSession.selectList("personalChatHistory", chatRoom_id);
+	}
+
+	@Override
+	public void insertChat(ChatDTO chatDTO) {
+		sqlSession.insert("insertChat",chatDTO);
 	}
 }

@@ -90,6 +90,14 @@
  		select * from saleboard where sale_seq = #{sale_seq}
  	</select> 	
 
+	<select id="saleboardGetListId" parameterType="java.util.Map" resultType="saleboard.bean.SaleboardDTO">
+ 		select * from 
+	 		(select rownum rn, tt.* from 
+	 			(select * from saleboard order by sale_seq desc) 
+ 			tt)
+	 	where member_id=#{member_id} and rn between #{startNum} and #{endNum} and sale_seq != #{sale_seq}
+ 	</select>
+
  	<select id="member_idLoad" parameterType="java.lang.String" resultType="saleboard.bean.SaleboardDTO">
  		select * from saleboard where sale_seq = #{sale_seq}
  	</select>

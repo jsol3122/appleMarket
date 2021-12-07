@@ -17,8 +17,7 @@ public class LocalCommunityboardDAOMybatis implements LocalCommunityboardDAO {
 	private SqlSession sqlSession;
 
 	@Override
-	public List<LocalCommunityboardDTO> localCommunityboardGetList(Map<String, String> map) {
-		
+	public List<LocalCommunityboardDTO> localCommunityboardGetList(Map<String, Object> map) {
 		return sqlSession.selectList("localCommunityboardSQL.localCommunityboardGetList",map);
 	}
 
@@ -34,7 +33,7 @@ public class LocalCommunityboardDAOMybatis implements LocalCommunityboardDAO {
 		String user_id =localCommunityboardDTO.getLocalcommunity_user_id();
 		String dong = sqlSession.selectOne("localCommunityboardSQL.searchDong",user_id);
 
-		localCommunityboardDTO.setLocalcommunity_dong(dong);
+		localCommunityboardDTO.setLocation_dong(dong);
 		sqlSession.insert("localCommunityboardSQL.localCommunityboardWrite", localCommunityboardDTO);
 		
 	}
