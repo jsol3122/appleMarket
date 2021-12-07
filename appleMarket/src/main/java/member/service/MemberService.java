@@ -14,7 +14,7 @@ public interface MemberService {
 	
 	public void write(MemberDTO memberDTO);
 
-	public String checkId(String member_id);
+	public MemberDTO checkId(String member_id);
 
 	public Map<String,Integer> login(MemberDTO memberDTO);
 

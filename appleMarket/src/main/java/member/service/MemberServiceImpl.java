@@ -28,13 +28,13 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public String checkId(String member_id) {
+	public MemberDTO checkId(String member_id) {
 		MemberDTO memberDTO = memberDAO.checkId(member_id);
 		
 		if(memberDTO == null) {
-			return "non_exist"; 
+			return null; 
 		}else {
-			return "exist";
+			return memberDTO;
 		}
 	}
 

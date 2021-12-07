@@ -24,6 +24,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
+import member.bean.MemberDTO;
 import member.service.MemberService;
 
 @Controller
@@ -71,14 +72,14 @@ public class KakaoController {
         session.setAttribute("member_id", id);
         session.setAttribute("member_siteCheck", 1);
         
-        String Check=memberSerivce.checkId(id);
+        MemberDTO Check=memberSerivce.checkId(id);
         
         if (userInfo.get("email") != null) {        
             session.setAttribute("userId", userInfo.get("email"));
             session.setAttribute("access_Token", access_Token);
         }
         
-        if(Check.equals("non_exist")) {
+        if(Check==null) {
         //중복체크가 안되면 여기 
         	return "redirect:/write?member_id="+id+"&member_siteCheck="+1; //본인 원하는 경로 설정
         //return "redirect:/checkId?member_id="+id;

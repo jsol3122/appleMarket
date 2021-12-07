@@ -36,7 +36,7 @@ public class MemberDAOMybatis implements MemberDAO {
 		Map<String,Integer>map = new HashMap<String, Integer>();
 		map.put("login", sqlSession.selectOne("memberSQL.login", memberDTO));
 		map.put("loginGPS", sqlSession.selectOne("memberSQL.loginGPS", memberDTO));
-		
+	
 		
 		
 		 return map;

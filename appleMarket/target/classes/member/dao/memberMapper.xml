@@ -89,10 +89,11 @@
  	<update id="update" parameterType="member">
  		update appleMarket set member_pwd=#{member_pwd}, member_email=#{member_email},
  							   member_tel1=#{member_tel1}, member_tel2=#{member_tel2},
- 							   member_tel3=#{member_tel3}, member_sido_sigungu=#{member_sido_sigungu}, 
+ 							   member_tel3=#{member_tel3} where member_id=#{member_id}	  
+ 							    <!-- member_sido_sigungu=#{member_sido_sigungu}, 
  							   member_dong=#{member_dong}, member_address=#{member_address},
- 							   member_detailAddr=#{member_detailAddr}, member_gender=#{member_gender} 
- 						   	   where member_id=#{member_id}	   
+ 							   member_detailAddr=#{member_detailAddr}, member_gender=#{member_gender} --> 
+ 						   	    
  	</update>
  	
  	<!-- 아이디 찾기 -->
@@ -129,5 +130,5 @@
  	<select id="phoneChk" parameterType="member" resultType="Integer">
  		select count(*) from appleMarket where member_tel1=#{member_tel1} and member_tel2=#{member_tel2} and member_tel3=#{member_tel3}
  	</select>
-
+ 	
  </mapper>

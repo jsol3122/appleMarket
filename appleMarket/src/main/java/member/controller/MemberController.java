@@ -78,8 +78,8 @@ public class MemberController{
 	   @RequestMapping("/write")
 	   public String write(@ModelAttribute @Valid MemberDTO memberDTO,@Nullable @RequestParam("recommend_id") String recommend_id){
 
-	      String Check = memberSerivce.checkId(memberDTO.getMember_id());
-	      if(Check.equals("non_exist")) {
+	      MemberDTO Check = memberSerivce.checkId(memberDTO.getMember_id());
+	      if(Check == null) {
 	         memberSerivce.write(memberDTO);
 	         
 	         //추천인 등록
@@ -187,8 +187,11 @@ public class MemberController{
 	//아이디 중복체크
 	@PostMapping("/user/checkId")
 	@ResponseBody
-	public String checkId(@RequestParam String member_id) {
-		return memberSerivce.checkId(member_id);
+	public MemberDTO checkId(@RequestParam String member_id) {
+		MemberDTO memberDTO = new MemberDTO();
+		memberDTO = memberSerivce.checkId(member_id);
+		System.out.println(memberDTO);
+		return memberDTO;
 	}
 	
 	
@@ -224,12 +227,14 @@ public class MemberController{
 		memberDTO.setMember_pwd(member_pwd);
 		
 		Map<String, Integer> result = memberSerivce.login(memberDTO);
-		
-
+	
 		session.setAttribute("member_id", member_id);
-		session.setAttribute("login_info", memberDTO);
+		session.setAttribute("login_info", memberDTO);		
 		session.setAttribute("kakaoInfo", memberDTO);
 		session.setAttribute("member_siteCheck", 0);
+		
+		
+
 		
 		path = result+"";
 		
@@ -240,9 +245,13 @@ public class MemberController{
 	@GetMapping("/logout")
 	//@ResponseBody //string으로 받을떄만씀
 	public String logout(HttpSession session) {
-		session.removeAttribute("login_info");
-		session.removeAttribute("kakaoInfo");
-		session.removeAttribute("member_id");
+		
+		
+		 session.removeAttribute("login_info"); 
+		 session.removeAttribute("kakaoInfo");
+		 session.removeAttribute("member_id");
+		 
+		
 		
 		return "/index";
 	}
@@ -261,9 +270,13 @@ public class MemberController{
 	public void delete(@ModelAttribute MemberDTO memberDTO,HttpSession session) {
 		System.out.println(memberDTO);
 		memberSerivce.delete(memberDTO);
-		session.removeAttribute("login_info");
-		session.removeAttribute("kakaoInfo");
-		session.removeAttribute("member_id");
+		/*
+		 * session.removeAttribute("login_info");
+		 * session.removeAttribute("kakaoInfo");
+		 * session.removeAttribute("member_id");
+		 */
+		//모든 세션 다 죽인다.
+		session.invalidate();
 	}
 
 	//마이페이지 메인 폼
