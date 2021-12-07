@@ -31,12 +31,12 @@
                                     <input type="text" name="member_tel3" id="member_tel3" maxlength="4" style="width:80px; margin: 0 10px;">
                                     <input type="text" id="user_valid" class="hidden">
                                     <input type="hidden" id="checked_user" value="">
-
                                 </div>
                                 <div class="memberupwrite">
                                     <label>이메일 </label>
                                     <input type="email" name="member_email" id="member_email" placeholder="예: appleMarket@gmail.com" />
                                 </div>
-                                <input type="button" value="수정하기" id="writeBtn" class="sbm" />
+                  
+								<input type="button" value="수정하기" id="writeBtn" class="sbm" />
                             </form>
        

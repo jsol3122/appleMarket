@@ -10,4 +10,7 @@ public interface LocationDAO {
 
 	public void gpsUpdate(LocationDTO locationDTO);
 
+	
+
+
 }

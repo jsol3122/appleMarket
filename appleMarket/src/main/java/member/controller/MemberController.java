@@ -1,5 +1,6 @@
 package member.controller;
 
+import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -76,7 +77,8 @@ public class MemberController{
 
 	   //회원가입 - index 이동(맞는지 확인 요망)
 	   @RequestMapping("/write")
-	   public String write(@ModelAttribute @Valid MemberDTO memberDTO,@Nullable @RequestParam("recommend_id") String recommend_id) {
+	   public String write(@ModelAttribute @Valid MemberDTO memberDTO,@Nullable @RequestParam("recommend_id") String recommend_id){
+
 	      String Check = memberSerivce.checkId(memberDTO.getMember_id());
 	      if(Check.equals("non_exist")) {
 	         memberSerivce.write(memberDTO);
@@ -93,9 +95,10 @@ public class MemberController{
 	            memberSerivce.recommend(map);
 	            memberSerivce.recommended(map);
 	         }
-	         return "/index";
+	         return "/view/user/writeFormSuccess";
 	      }else {
-	         return "/user/writeForm";
+	    	
+	         return "/view/user/writeFormSuccess";
 	      }
 	   }
 	
