@@ -23,8 +23,8 @@
 </head>
     <style>
     .placeholderColor::-webkit-input-placeholder{
-	color: tomato;
-	}
+   color: tomato;
+   }
     </style>
 <body>
 <!-- 상단 -->
@@ -36,18 +36,18 @@
                     <div class="mainbar">
                         <div class="article">
                             <!-- main -->
-	                     <c:if test="${empty display}">
-							 <form class="memberuptext" id="userUpdataForm" action="" method="">
-							 이미지 넣기
-							 </form>
-						</c:if >
-			  			<c:if test="${not empty display}">
-	               			<jsp:include page="${display }"/>
-	               		</c:if >	
+                        <c:if test="${empty display}">
+                      <form class="memberuptext" id="userUpdataForm" action="" method="">
+                      이미지 넣기
+                      </form>
+                  </c:if >
+                    <c:if test="${not empty display}">
+                           <jsp:include page="${display }"/>
+                        </c:if >   
                         </div>
                     </div>
-	                    <!-- sidebar -->
-	                  <%@include file="/includes/myPage_sidebar.jsp" %>
+                       <!-- sidebar -->
+                     <%@include file="/includes/myPage_sidebar.jsp" %>
                     <div class="clr"></div>
                 </div>
             </div>

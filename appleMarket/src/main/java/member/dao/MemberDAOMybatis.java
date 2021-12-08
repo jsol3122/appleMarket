@@ -40,7 +40,7 @@ public class MemberDAOMybatis implements MemberDAO {
 	
 		
 		
-		 return map;
+		return map;
 	}
 
 	@Override
@@ -90,15 +90,8 @@ public class MemberDAOMybatis implements MemberDAO {
 	//이메일 중복체크
 	@Override
 	public int emailChk(String member_email) {
-			
+		
 		return sqlSession.selectOne("memberSQL.emailChk", member_email);
-	}
-	
-	//휴대폰 중복체크
-	@Override
-	public int phoneChk(MemberDTO memberDTO) {
-			
-		return sqlSession.selectOne("memberSQL.phoneChk", memberDTO);
 	}
 	
 	@Override
@@ -127,6 +120,7 @@ public class MemberDAOMybatis implements MemberDAO {
 	}
 	
 
+	
 
 }
 

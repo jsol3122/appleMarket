@@ -74,6 +74,47 @@ public class MemberController{
 //			return;
 //		}
 //	}
+	//회원가입 - index 이동(맞는지 확인 요망)
+	@RequestMapping("/write")
+	public String write(@ModelAttribute @Valid MemberDTO memberDTO,@Nullable @RequestParam("recommend_id") String recommend_id) {
+		
+		String member_id=memberDTO.getMember_id();
+		String Check = memberSerivce.checkId(member_id);
+		
+		Map<String, String> map = new HashMap<String,String>();
+		map.put("recommend_id", recommend_id);
+		map.put("member_id", member_id);
+		int recommendChk = memberSerivce.recommendChk(map);
+		
+		System.out.println("recommend_id=" + recommend_id);
+		System.out.println("member_id="+memberDTO.getMember_id());
+		System.out.println("recommendChk="+recommendChk);
+		
+		if(Check.equals("non_exist")) {
+			//추천인 등록
+			if(recommend_id!=null) {
+				if(recommendChk<5) { 
+					memberSerivce.recommend(map); 
+					memberSerivce.recommended(map);
+				}
+			}
+			//가입하기
+			memberSerivce.write(memberDTO);
+			//가입 후 인덱스로 가기
+			return  "/view/user/writeFormSuccess";
+		}else {
+			return  "/view/user/writeFormSuccess";
+		}
+	}
+	
+
+	//이메일 중복체크
+	@PostMapping("/emailChk")
+	@ResponseBody
+	public int emailChk(@RequestParam("member_email") String member_email) {
+		int result = memberSerivce.emailChk(member_email);
+		return result;
+	}
 
 	   //회원가입 - index 이동(맞는지 확인 요망)
 	   @RequestMapping("/write")
@@ -123,7 +164,7 @@ public class MemberController{
 		int randomNumber = (int)((Math.random()* (9999 - 1000 + 1)) + 1000);
 		System.out.println(randomNumber);
 		//돈 나가서 잠시 주석
-		//messageService.certifiedPhoneNumber(userPhoneNumber,randomNumber); 
+		messageService.certifiedPhoneNumber(userPhoneNumber,randomNumber); 
 		
 		
 		MessageDTO messageDTO = new MessageDTO();
@@ -136,7 +177,7 @@ public class MemberController{
 			messageService.certificationCheck(messageDTO);
 		}else if(message=="exist"){
 			messageService.phoneUpdate(messageDTO);
-		}
+		}		
 		return Integer.toString(randomNumber); 
 		
 	}
@@ -252,7 +293,6 @@ public class MemberController{
 	
 	//로그아웃 요청 
 	@GetMapping("/logout")
-	//@ResponseBody //string으로 받을떄만씀
 	public String logout(HttpSession session) {
 		
 		
@@ -288,13 +328,14 @@ public class MemberController{
 		session.invalidate();
 	}
 
+
 	//마이페이지 메인 폼
 	@GetMapping(value="/mypageMainForm")
 	public String mypageMainForm() {
 		return "/view/myPage/mypageMainForm";
 	}
 	//수정하기 폼 
-	@GetMapping(value="/modifyForm")	
+	@GetMapping(value="/modifyForm")
 	public String modifyForm(HttpServletRequest request, HttpServletResponse response) throws Throwable{
 		request.setAttribute("display", "/view/myPage/modifyForm.jsp");
 		return "/view/myPage/mypageMainForm";
@@ -320,18 +361,17 @@ public class MemberController{
 		return memberSerivce.searchId(member_email);
 	}
 
-	
-	 //비밀번호찾기
-	
-	 @PostMapping(value="/searchPwd")
+
+	//비밀번호찾기
+	@PostMapping(value="/searchPwd")
 	@ResponseBody 
-	public void searchPwd(@ModelAttribute MemberDTO memberDTO,
-		 HttpServletResponse response) { memberSerivce.searchPwd(memberDTO, response);
+	public void searchPwd(@ModelAttribute MemberDTO memberDTO,HttpServletResponse response) {
+		memberSerivce.searchPwd(memberDTO, response);
 	}
 
 	//비밀번호찾기- 비밀번호변경
-		@GetMapping(value="/searchPwdForm")
-		public String changePwdForm(){			
+	@GetMapping(value="/searchPwdForm")
+	public String changePwdForm(){			
 		return "/view/user/searchPwdForm";
 	}
 	//마이페이지 비밀번호 변경 폼
@@ -354,21 +394,7 @@ public class MemberController{
 	
 	}
 	
-	//이메일 중복체크
-	@PostMapping("/emailChk")
-	@ResponseBody
-	public int emailChk(@RequestParam("member_email") String member_email) {
-		int result = memberSerivce.emailChk(member_email);
-		return result;
-	}
-		
-	//핸드폰 중복체크
-	@PostMapping("/phoneChk")
-	@ResponseBody
-	public int phoneChk(@ModelAttribute MemberDTO memberDTO) {
-		int result = memberSerivce.phoneChk(memberDTO);
-		return result;
-	}
+
 	
 		//추천하기폼
 		@GetMapping("/recommendForm")

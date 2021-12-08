@@ -32,7 +32,6 @@ public interface MemberService {
 	 * public String searchPwd(String member_id, String
 	 * member_email,HttpServletResponse response);
 	 */
-
 	
 	//이메일발송
 	public void sendEmail(MemberDTO memberDTO, String div) throws Exception;
@@ -52,6 +51,7 @@ public interface MemberService {
 	public void recommend(Map<String, String> map);
 
 	public void recommended(Map<String, String> map);
+
 
 
 

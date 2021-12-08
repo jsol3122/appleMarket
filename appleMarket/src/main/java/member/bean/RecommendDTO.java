@@ -11,4 +11,8 @@ public class RecommendDTO {
 	public Date recommend_logtime;
 	public String recommend_YN;
 	
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 0e1c727bdf19e5fe0ae4d6e0d8f990f9b2dff7a4

@@ -103,11 +103,11 @@
 				        <li><a href="/appleMarket/buyhistory">구매내역</a></li>
 				        <li><a href="/appleMarket/buyhistory">판매내역</a></li>
 				        <li><a href="/appleMarket/myMap">동네인증</a></li>
-				        <li><a href="/appleMarket/modifyForm">조잘조잘 글</a></li>
-				        <li><a href="/appleMarket/modifyForm">조잘조잘 댓글</a></li>
-				        <li><a href="/appleMarket/modifyForm">우리동네이야기 글</a></li>
-				        <li><a href="/appleMarket/modifyForm">우리동네이야기 댓글</a></li>
-				        <li><a href="/appleMarket/modifyForm">친구 초대</a></li>				    
+				        <li><a href="">조잘조잘 글</a></li>
+				        <li><a href="">조잘조잘 댓글</a></li>
+				        <li><a href="">우리동네이야기 글</a></li>
+				        <li><a href="">우리동네이야기 댓글</a></li>
+				        <li><a href="">친구 초대</a></li>				    
 				        <li><a href="/appleMarket/modifyForm">회원정보수정</a></li>	
 				        <li><a href="/appleMarket/deleteForm">회원탈퇴</a></li>        
 				     	</ul>
