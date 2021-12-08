@@ -945,8 +945,34 @@ ul.sb_menu li a:hover {
     height: 130px;
 }
 
-.memberupwrite3 {
-    margin-left: 100px;
+.stamp1 {
+    position: absolute;
+    top: 620px;
+    left: 615px;
+}
+
+.stamp2 {
+    position: absolute;
+    top: 620px;
+    left: 740px;
+}
+
+.stamp3 {
+    position: absolute;
+    top: 620px;
+    left: 865px;
+}
+
+.stamp4 {
+    position: absolute;
+    top: 620px;
+    left: 990px;
+}
+
+.stamp5 {
+    position: absolute;
+    top: 620px;
+    left: 1110px;
 }
 
 .memberupwriteid3>label {

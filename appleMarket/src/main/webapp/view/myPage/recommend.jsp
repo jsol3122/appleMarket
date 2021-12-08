@@ -90,11 +90,11 @@
                                     <label>현재 받은 사과 </label>
                                 </div>
                                 <div class="memberupwrite">
-                                    <img class="logo" src="/appleMarket/img/recommend/1번대기중.png" alt="사과마켓" style="width: 100px; margin-left: 70px;">
-                                    <img class="logo" src="/appleMarket/img/recommend/2번대기중.png" alt="사과마켓" style="width: 100px;">
-                                    <img class="logo" src="/appleMarket/img/recommend/3번대기중.png" alt="사과마켓" style="width: 100px;">
-                                    <img class="logo" src="/appleMarket/img/recommend/4번대기중.png" alt="사과마켓" style="width: 100px;">
-                                    <img class="logo" src="/appleMarket/img/recommend/5번대기중.png" alt="사과마켓" style="width: 100px;">
+                                    <img class="logo" src="/appleMarket/img/recommend/1번대기중.png" alt="사과마켓" style="width: 100px; margin-left: 20px;">
+                                    <img class="logo" src="/appleMarket/img/recommend/2번대기중.png" alt="사과마켓" style="width: 100px; margin-left: 20px;">
+                                    <img class="logo" src="/appleMarket/img/recommend/3번대기중.png" alt="사과마켓" style="width: 100px; margin-left: 20px;">
+                                    <img class="logo" src="/appleMarket/img/recommend/4번대기중.png" alt="사과마켓" style="width: 100px; margin-left: 20px;">
+                                    <img class="logo" src="/appleMarket/img/recommend/5번대기중.png" alt="사과마켓" style="width: 100px; margin-left: 20px;">
                                 </div>
                                 <input type="button" disabled="disabled" value="쿠폰 받기" id="writeBtn" class="sbm2" />
                                 <hr>

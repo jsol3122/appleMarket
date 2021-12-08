@@ -45,18 +45,18 @@
                                     <label>현재 받은 사과 </label>
                                 </div>
                                 <div class="memberupwrite2">
-                                    <img class="logo" src="img/사과스탬프.png" alt="사과마켓" style="width: 100px; margin-left: 70px;">
-                                    <img class="logo" src="img/사과스탬프.png" alt="사과마켓" style="width: 100px;">
-                                    <img class="logo" src="img/사과스탬프.png" alt="사과마켓" style="width: 100px;">
-                                    <img class="logo" src="img/사과스탬프.png" alt="사과마켓" style="width: 100px;">
-                                    <img class="logo" src="img/5개사과스탬프.png" alt="사과마켓" style="width: 100px; margin-bottom: 50px;">
+                                    <img class="logo" src="/appleMarket/img/recommend/사과스탬프.png" alt="사과마켓" style="width: 100px; margin-left: 20px;">
+                                    <img class="logo" src="/appleMarket/img/recommend/사과스탬프.png" alt="사과마켓" style="width: 100px; margin-left: 20px;">
+                                    <img class="logo" src="/appleMarket/img/recommend/사과스탬프.png" alt="사과마켓" style="width: 100px; margin-left: 20px;">
+                                    <img class="logo" src="/appleMarket/img/recommend/사과스탬프.png" alt="사과마켓" style="width: 100px; margin-left: 20px;">
+                                    <img class="logo" src="/appleMarket/img/recommend/5개사과스탬프.png" alt="사과마켓" style="width: 100px; margin-left: 20px; margin-bottom: 50px;">
                                 </div>
                                 <div class="memberupwrite3">
-                                    <label>전진솔 </label>
-                                    <label style="margin-left: 65px;">유혜림 </label>
-                                    <label style="margin-left: 65px;">김현정 </label>
-                                    <label style="margin-left: 65px;">이지현 </label>
-                                    <label style="margin-left: 65px;">맹주혁 </label>
+                                    <label class="stamp1">aaaaaaaaa1 </label>
+                                    <label class="stamp2">aaaaaaaaa2 </label>
+                                    <label class="stamp3">aaaaaaaaa3 </label>
+                                    <label class="stamp4">aaaaaaaaa4 </label>
+                                    <label class="stamp5">aaaaaaaaa5 </label>
                                 </div>
                                 <input type="button" value="쿠폰 받기" id="writeBtn" class="sbm2" />
                                 <hr>
