@@ -17,8 +17,8 @@ public class AdminDAOMybatis implements AdminDAO{
 	private SqlSession sqlSession;
 	
 	@Override
-	public List<MemberDTO> adminMemberList() {
-		return sqlSession.selectList("adminSQL.adminMemberList");
+	public List<MemberDTO> getAdminMemberList() {
+		return sqlSession.selectList("adminSQL.getAdminMemberList");
 	}
 
 	@Override

@@ -1,58 +1,62 @@
 @charset "UTF-8";
 /* GOOGLE FONTS */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap") ;
 
 /* VARIABLES CSS */
 :root {
     --nav--width: 92px;
 
     /* Colores */
-    --first-color: #0c5df4;
-    --bg-color: #12192c;
-    --sub-color: #b6cefc;
-    --white-color: #fff;
+    --first-color: #0c5df4 ;
+    --bg-color: #12192c ;
+    --sub-color: #b6cefc ;
+    --white-color: #fff ;
 
     /* Fuente y tipografia */
-    --body-font: 'Poppins', sans-serif;
-    --normal-font-size: 1rem;
-    --small-font-size: .875rem;
+    --body-font: 'Poppins', sans-serif ;
+    --normal-font-size: 1rem ;
+    --small-font-size: .875rem ;
 
     /* z index */
-    --z-fixed: 100;
+    --z-fixed: 100 ;
 }
 
 /* BASE */
 *, ::before, ::after {
-    box-sizing: border-box;
+    box-sizing: border-box; 
 }
-
-body {
-    position: relative;
-    margin: 0;
-    padding: 2rem 0 0 6.75rem;
-    font-family: var(--body-font);
-    font-size: var(--normal-font-size);
-    transition: .5s;
+html {
+    font-size: 100%;
 }
-
+#body-pd {
+    position: relative ;
+    margin: 0 ;
+    padding: 2rem 0 0 6.75rem ;
+    font-family: var(--body-font) ;
+    font-size: var(--normal-font-size) ;
+    transition: .5s ;
+}
+th {
+    text-align: center;
+}
 h1 {
-    margin: 0;
+    margin: 0 ;
 }
 
-ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
+.collapse__menu {
+    margin: 0 ;
+    padding: 0 ;
+    list-style: none ;
 }
 
 a {
-    text-decoration: none;
+    text-decoration: none ;
 }
 
 /* l NAV */
 .l-navbar {
-    position: fixed;
-    top: 0;
+    position: fixed ;
+    top: 0 ;
     left: 0;
     width: var(--nav--width);
     height: 100vh;
@@ -64,7 +68,7 @@ a {
 }
 
 /* NAV */
-.nav {
+.nav_admin {
     height: 100%;
     display: flex;
     flex-direction: column;

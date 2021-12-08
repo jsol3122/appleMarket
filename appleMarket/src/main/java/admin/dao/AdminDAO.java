@@ -6,7 +6,7 @@ import member.bean.MemberDTO;
 
 public interface AdminDAO {
 
-	public List<MemberDTO> adminMemberList();
+	public List<MemberDTO> getAdminMemberList();
 	
 	public void adminMemberDelete(MemberDTO memberDTO);
 

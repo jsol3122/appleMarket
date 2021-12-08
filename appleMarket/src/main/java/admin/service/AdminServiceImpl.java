@@ -15,9 +15,9 @@ public class AdminServiceImpl implements AdminService {
 	private AdminDAO adminDAO;
 	
 	@Override
-	public List<MemberDTO> adminMemberList() {
+	public List<MemberDTO> getAdminMemberList() {
 		
-		return adminDAO.adminMemberList();
+		return adminDAO.getAdminMemberList();
 	}
 
 	@Override
