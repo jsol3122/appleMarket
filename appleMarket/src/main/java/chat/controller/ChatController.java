@@ -15,6 +15,7 @@ import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -44,23 +45,26 @@ public class ChatController {
 	
 	// 새로운 채팅 시작 : 작성글에서 "채팅으로 거래하기"  
 	// => 글번호, user 두명 초대해서 return "redirect:/personalChat/" + chatRoom_id; 여기로 연결
-	@PostMapping("/chat/newChat")
+	@RequestMapping("/chat/newChat")
 	public String newChat(@ModelAttribute SaleboardDTO saleboardDTO, @ModelAttribute BuyerboardDTO buyerboardDTO, HttpServletRequest request){
 		HttpSession loginSession = request.getSession();
-		int board_seq;
-		String member_id;
 		String user_id = (String)loginSession.getAttribute("member_id");
-		
-		if(saleboardDTO != null) {
-			board_seq = saleboardDTO.getSale_seq();
+		System.out.println(user_id + " 세션 받았다!");
+		String board_seq;
+		String member_id;
+		int board_name=0;
+	
+		if(board_name==1) {
+			board_seq = String.valueOf(saleboardDTO.getSale_seq());
 			member_id = saleboardDTO.getMember_id();
 		} else {
-			board_seq = buyerboardDTO.getBuyerboard_seq();
+			board_seq = String.valueOf(buyerboardDTO.getBuyerboard_seq());
 			member_id = buyerboardDTO.getMember_id();		
 		}
+		System.out.println(board_seq+member_id + board_name + " 데이터 받았다!222");
 		
 		Map<String, String> map = new HashMap<String, String>();
-		map.put("board_seq", board_seq+"");
+		map.put("board_seq", board_seq);
 		map.put("member_id", member_id); // 글 작성자 (채팅 걸리는 사람)
 		map.put("user_id", user_id); // 로그인 세션 아이디 (채팅 거는 사람)			
 		
