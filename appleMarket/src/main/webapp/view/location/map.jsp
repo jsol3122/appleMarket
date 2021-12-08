@@ -14,7 +14,7 @@
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=75b263d76606aaf650816f233cd5f1c9"></script>
 <script>
 setTimeout("window.close();", 10000);
-alert('회원님의 현재 위치를 받아옵니다. 이 창은 3초 후 자동으로 종료 됩니다.');
+alert('회원님의 현재 위치를 받아옵니다. 이 창은 10초 후 자동으로 종료 됩니다.');
 $(function(){
 
 	//현재 접속한 브라우저의 위도와 경도 출력하기 
