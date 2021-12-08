@@ -1,0 +1,19 @@
+--신고게시판
+create table warningBoard(
+    warning_seq number, 
+    board_seq number,
+    board_name varchar2(20),
+    comment_YN varchar2(2) default 'N',
+    warning_id varchar2(20), 
+    warning_category varchar2(50), 
+    warning_subject varchar2(200),
+    warning_content varchar2(4000),
+    warning_image varchar2(4000),
+    member_id varchar2(20), 
+    warning_logtime Date default sysdate, 
+    warning_status_YN varchar2(2) default 'N',
+    constraint warningBoard_pk01 primary key(warning_seq, board_seq, board_name, comment_YN, warning_id)
+);
+
+
+CREATE SEQUENCE seq_WarningBoard NOCACHE NOCYCLE;
