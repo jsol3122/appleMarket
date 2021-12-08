@@ -334,6 +334,8 @@
                                                     <div class="rd_nav img_tx fr m_btn_wrp">
                                                         <a class="back_to bubble m_no" href="#bd_112_668947" title="위로"><i class="fa fa-arrow-up"></i><b class="tx">위로</b></a>
                                                         <a class="back_to bubble m_no" href="#rd_end_668947" title="(목록) 아래로"><i class="fa fa-arrow-down"></i><b class="tx">아래로</b></a>
+                                                        <a class="back_to bubble m_no" href="#" title="삭제"><i class="fa fa-pencil"></i><b class="tx">수정</b></a>
+                                                        <a class="back_to bubble m_no" href="#" title="삭제"><i class="fa fa-trash"></i><b class="tx">삭제</b></a>
                                                         <a class="document_668947 action bubble m_no" href="#" onclick="return false;" title="신고"><i class="fa fa-concierge-bell"></i><b class="tx">신고</b></a> 
                                                     </div>
                                                 </div>
@@ -410,6 +412,8 @@
                                                                 <div class="comment_668948_639682 xe_content">꼭 무사히 수술 마치셨으면 좋겠어요!~~</div>
                                                                 <!--AfterComment(668948,639682)-->
                                                                 <div class="fdb_nav img_tx">
+                                                                	<a class="re_comment" ><i class="fa fa-pencil"></i> 수정</a>
+                                                                	<a class="re_comment" ><i class="fa fa-trash"></i> 삭제</a>
                                                                     <a class="re_comment" onclick=""><i class="fa fa-concierge-bell"></i> 신고</a>
                                                                 </div>
                                                             </li>
@@ -425,6 +429,8 @@
                                                                 <div class="comment_102626_37507 xe_content">나도 모발이식은 처음이라 많이 떨린다 고마워요</div>
                                                                 <!--AfterComment(102626,37507)-->
                                                                 <div class="fdb_nav img_tx">
+                                                                	<a class="re_comment" ><i class="fa fa-pencil"></i> 수정</a>
+                                                                	<a class="re_comment" ><i class="fa fa-trash"></i> 삭제</a>
                                                                     <a class="re_comment" ><i class="fa fa-concierge-bell"></i> 신고</a>
                                                                 </div>
                                                             </li>
@@ -440,6 +446,8 @@
                                                                 <div class="comment_16938_10055 xe_content">ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ</div>
                                                                 <!--AfterComment(16938,10055)-->
                                                                 <div class="fdb_nav img_tx">
+                                                                	<a class="re_comment" ><i class="fa fa-pencil"></i> 수정</a>
+                                                                	<a class="re_comment" ><i class="fa fa-trash"></i> 삭제</a>
                                                                     <a class="re_comment" ><i class="fa fa-concierge-bell"></i> 신고</a>
                                                                 </div>
                                                             </li>
