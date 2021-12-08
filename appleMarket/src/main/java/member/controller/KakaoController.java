@@ -42,8 +42,10 @@ public class KakaoController {
 				+ "&redirect_uri=http://localhost:8080/appleMarket/oauth_kakao"
 				+ "&response_type=code";
 		
+	
 		return reqUrl;
 	}
+
 	
 	// 카카오 연동정보 조회
 	@RequestMapping(value = "/oauth_kakao")
@@ -70,6 +72,7 @@ public class KakaoController {
         session.setAttribute("kakaoInfo", kakaoInfo);
         session.setAttribute("member_id", id);
         session.setAttribute("member_siteCheck", 1);
+   
         
         String Check=memberSerivce.checkId(id);
         
@@ -201,4 +204,5 @@ public class KakaoController {
         }
         return userInfo; 
     }
+   
  }
