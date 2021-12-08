@@ -21,7 +21,7 @@ public class AdminController {
 	//회원 데이터 화면
 	@GetMapping("/adminindex")
 	public String adminMemberListForm() {
-		return "/ElaAdmin-master/adminindex";
+		return "/admin/adminindex";
 	}
 	
 	//회원 데이터 출력

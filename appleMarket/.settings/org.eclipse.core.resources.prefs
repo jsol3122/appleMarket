@@ -1,18 +1,10 @@
 =\=\=\=\=\=\=
 <<<<<<<=HEAD
->>>>>>>=e4efa7a8065f0e7c139510510bcb5fddfb7e3a3f
+>>>>>>>=4221a90955c63a05eb6e85b1c462ccf4358d04d6
 eclipse.preferences.version=1
-<<<<<<< HEAD
-encoding//src/main/webapp/includes/footer.jsp=UTF-8
-encoding//src/main/webapp/includes/header.jsp=UTF-8
-encoding//src/main/webapp/view/myPage/modifyForm.jsp=UTF-8
-=======
-<<<<<<< HEAD
+encoding//src/main/webapp/admin/adminindex.jsp=UTF-8
 encoding//src/main/webapp/includes/footer.jsp=UTF-8
 encoding//src/main/webapp/includes/header.jsp=UTF-8
 encoding//src/main/webapp/view/myPage/changePwdForm.jsp=UTF-8
 encoding//src/main/webapp/view/myPage/deleteForm.jsp=UTF-8
 encoding//src/main/webapp/view/myPage/modifyForm.jsp=UTF-8
-=======
->>>>>>> branch 'master' of https://github.com/jsol3122/appleMarket.git
->>>>>>> 4221a90955c63a05eb6e85b1c462ccf4358d04d6
