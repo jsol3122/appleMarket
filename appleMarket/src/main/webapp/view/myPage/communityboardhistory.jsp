@@ -325,7 +325,7 @@
                                                         <th scope="col" class="title"><span><a href="#">제목</a></span></th>
                                                         <th scope="col"><span>글쓴이</span></th>
                                                         <th scope="col"><span><a href="">날짜</a></span></th>
-                                                        <th scope="col" class="m_no"><span><a href="#">조회 수</a></span></th>
+                                                        <th scope="col" class="m_no"><span><a href="#">삭제</a></span></th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -344,7 +344,7 @@
                                                             -->
                                                             감자돌이</a></span></td>
                                                         <td class="time" title="15 시간 전">2021.11.29</td>
-                                                        <td class="m_no">1</td>
+                                                        <td class="m_no"><a href="#"><i class="fas fa-trash"></i></a></td>
                                                     </tr>
                                                     <tr>
                                                         <td class="no">
@@ -359,7 +359,7 @@
                                                             -->
                                                             감자돌이</a></span></td>
                                                         <td class="time" title="17 시간 전">2021.11.29</td>
-                                                        <td class="m_no">0</td>
+                                                        <td class="m_no"><a href="#"><i class="fas fa-trash"></i></a></td>
                                                     </tr>
                                                     <tr>
                                                         <td class="no">
@@ -374,7 +374,7 @@
                                                             -->
                                                             감자돌이</a></span></td>
                                                         <td class="time" title="17 시간 전">2021.11.29</td>
-                                                        <td class="m_no">1</td>
+                                                        <td class="m_no"><a href="#"><i class="fas fa-trash"></i></a></td>
                                                     </tr>
                                                     <tr>
                                                         <td class="no">
@@ -389,7 +389,7 @@
                                                             -->
                                                             감자돌이</a></span></td>
                                                         <td class="time" title="12:31">2021.11.29</td>
-                                                        <td class="m_no">4</td>
+                                                        <td class="m_no"><a href="#"><i class="fas fa-trash"></i></a></td>
                                                     </tr>
                                                     <tr>
                                                         <td class="no">
@@ -404,7 +404,7 @@
                                                             -->
                                                             감자돌이</a></span></td>
                                                         <td class="time" title="12:02">2021.11.29</td>
-                                                        <td class="m_no">2</td>
+                                                        <td class="m_no"><a href="#"><i class="fas fa-trash"></i></a></td>
                                                     </tr>
                                                     <tr>
                                                         <td class="no">
@@ -419,7 +419,7 @@
                                                             -->
                                                             감자돌이</a></span></td>
                                                         <td class="time" title="11:32">2021.11.29</td>
-                                                        <td class="m_no">1</td>
+                                                        <td class="m_no"><a href="#"><i class="fas fa-trash"></i></a></td>
                                                     </tr>
                                                     <tr>
                                                         <td class="no">
@@ -434,7 +434,7 @@
                                                             -->
                                                             감자돌이</a></span></td>
                                                         <td class="time" title="18:52">2021.11.28</td>
-                                                        <td class="m_no">14</td>
+                                                        <td class="m_no"><a href="#"><i class="fas fa-trash"></i></a></td>
                                                     </tr>
                                                 </tbody>
                                             </table>
