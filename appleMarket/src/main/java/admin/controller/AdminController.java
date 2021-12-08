@@ -19,9 +19,9 @@ public class AdminController {
 	private AdminService adminService;
 	
 	//회원 데이터 화면
-	@GetMapping("/adminMemberListForm")
+	@GetMapping("/adminindex")
 	public String adminMemberListForm() {
-		return "/admin/adminMemberListForm";
+		return "/ElaAdmin-master/adminindex";
 	}
 	
 	//회원 데이터 출력
@@ -37,4 +37,6 @@ public class AdminController {
 	public void adminMemberDelete(@ModelAttribute MemberDTO memberDTO) {
 		adminService.adminMemberDelete(memberDTO);
 	}
+	
+	//신고 데이터 화면 
 }

@@ -94,7 +94,7 @@ public class MemberController{
 			//추천인 등록
 			if(recommend_id!=null) {
 				if(recommendChk<5) { 
-					memberSerivce.recommend(map);
+					memberSerivce.recommend(map); 
 					memberSerivce.recommended(map);
 				}
 			}

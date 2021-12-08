@@ -13,5 +13,6 @@
 		<typeAlias type="member.bean.ZipcodeDTO" alias="zipcode"/>
 		<typeAlias type="member.bean.RecommendDTO" alias="recommend"/>
 		<typeAlias type="location.bean.LocationDTO" alias="location"/>
+		<typeAlias type="warningBoard.bean.WarningBoardDTO" alias="warningBoard"/>
 	</typeAliases> 
 </configuration>

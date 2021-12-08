@@ -44,5 +44,8 @@
 	<context:component-scan base-package="admin.service"/>
 	<context:component-scan base-package="admin.dao"/>
 	
-	<context:component-scan base-package="security.controller"></context:component-scan>
+	<!-- 신고게시판  -->
+	<context:component-scan base-package="warningBoard.service"/>
+	<context:component-scan base-package="warningBoard.dao"/>
+	
 </beans>
