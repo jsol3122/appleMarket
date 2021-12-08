@@ -194,7 +194,7 @@
         }
         
         .bd .bg_color {
-            background-color: #fffe00;
+            background-color: #e14141;
         }
         
         .bd .bg_f_color {
@@ -245,7 +245,7 @@
         .css3pie {
             behavior: url(./layouts/smart/js/PIE.htc);
         }
-    </style> 
+    </style>
 </head>
 
 <body>
@@ -265,7 +265,7 @@
                                             <div class="tl_srch clear">
 
                                                 <div class="bd_tl">
-                                                    <h1 class="ngeb clear"><i class="bg_color"></i><a href="#">My 우리동네 글</a></h1>
+                                                    <h1 class="ngeb clear"><i class="bg_color"></i><a href="#">My 조잘조잘 글</a></h1>
                                                 </div>
                                             </div>
                                             <div class="cnb_n_list">
@@ -283,7 +283,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <!-- ajax로 사용자의 우리동네 글 내역 띄우기 -->
+													<!-- ajax로 사용자의 우리동네 글 내역 띄우기 -->
                                                 </tbody>
                                             </table>
                                             
@@ -304,16 +304,14 @@
             </div>
         </div>
     </div>
-    
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js'></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="js/app.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript" src="/appleMarket/js/localCommunityHistory.js"></script>
-    
-
+    <script type="text/javascript" src="/appleMarket/js/communityHistory.js"></script>
 </body>
 
 </html>

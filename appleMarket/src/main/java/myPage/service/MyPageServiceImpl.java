@@ -31,8 +31,8 @@ public class MyPageServiceImpl implements MyPageService {
 
 		// 1페이지당 n개씩
 		int pg = Integer.parseInt(map.get("pg"));
-		int endNum = pg * 5;
-		int startNum = endNum - 4;
+		int endNum = pg * 10;
+		int startNum = endNum - 9;
 
 		map.put("endNum", endNum + "");
 		map.put("startNum", startNum + "");
@@ -42,8 +42,8 @@ public class MyPageServiceImpl implements MyPageService {
 		int myTotalA = myPageDAO.myTotalA(map.get("communityboard_user_id"));
 
 		boardPaging.setCurrentPage(pg);
-		boardPaging.setPageBlock(3);
-		boardPaging.setPageSize(5);
+		//boardPaging.setPageBlock(3);
+		boardPaging.setPageSize(10);
 		boardPaging.setTotalA(myTotalA);
 		boardPaging.makePagingHTML();
 
@@ -83,8 +83,8 @@ public class MyPageServiceImpl implements MyPageService {
 	public JSONObject myCommunityCommentGetList(Map<String, String> map) {
 		// 1페이지당 n개씩
 		int pg = Integer.parseInt(map.get("pg"));
-		int endNum = pg * 5;
-		int startNum = endNum - 4;
+		int endNum = pg * 10;
+		int startNum = endNum - 9;
 
 		map.put("endNum", endNum + "");
 		map.put("startNum", startNum + "");
@@ -95,7 +95,7 @@ public class MyPageServiceImpl implements MyPageService {
 
 		boardPaging.setCurrentPage(pg);
 		boardPaging.setPageBlock(3);
-		boardPaging.setPageSize(5);
+		boardPaging.setPageSize(10);
 		boardPaging.setTotalA(myCommentTotalA);
 		boardPaging.makePagingHTML();
 
@@ -130,8 +130,8 @@ public class MyPageServiceImpl implements MyPageService {
 	@Override
 	public JSONObject myLocalGetList(Map<String, String> map) {
 		int pg = Integer.parseInt(map.get("pg"));
-		int endNum = pg * 5;
-		int startNum = endNum - 4;
+		int endNum = pg * 10;
+		int startNum = endNum - 9;
 
 		map.put("endNum", endNum + "");
 		map.put("startNum", startNum + "");
@@ -140,8 +140,8 @@ public class MyPageServiceImpl implements MyPageService {
 
 		int myLocalTotalA = myPageDAO.myLocalTotalA(map.get("localcommunity_user_id"));
 		boardPaging.setCurrentPage(pg);
-		boardPaging.setPageBlock(3);
-		boardPaging.setPageSize(5);
+		//boardPaging.setPageBlock(3);
+		boardPaging.setPageSize(10);
 		boardPaging.setTotalA(myLocalTotalA);
 		boardPaging.makePagingHTML();
 
@@ -181,8 +181,8 @@ public class MyPageServiceImpl implements MyPageService {
 	public JSONObject myLocalCommentGetList(Map<String, String> map) {
 		// 1페이지당 n개씩
 		int pg = Integer.parseInt(map.get("pg"));
-		int endNum = pg * 5;
-		int startNum = endNum - 4;
+		int endNum = pg * 10;
+		int startNum = endNum - 9;
 
 		map.put("endNum", endNum + "");
 		map.put("startNum", startNum + "");
@@ -193,7 +193,7 @@ public class MyPageServiceImpl implements MyPageService {
 
 		boardPaging.setCurrentPage(pg);
 		boardPaging.setPageBlock(3);
-		boardPaging.setPageSize(5);
+		boardPaging.setPageSize(10);
 		boardPaging.setTotalA(myLocalCommentTotalA);
 		boardPaging.makePagingHTML();
 
@@ -356,6 +356,26 @@ public class MyPageServiceImpl implements MyPageService {
 	@Override
 	public void salehistoryDelete(int sale_seq) {
 		myPageDAO.salehistoryDelete(sale_seq);
+	}
+
+	@Override
+	public void localCommunityHistoryDelete(int localcommunity_seq) {
+		myPageDAO.localCommunityHistoryDelete(localcommunity_seq);
+	}
+
+	@Override
+	public void communityHistoryDelete(int communityboard_seq) {
+		myPageDAO.communityHistoryDelete(communityboard_seq);
+	}
+
+	@Override
+	public void myLocalCommentDelete(int localcommunity_comment_seq) {
+		myPageDAO.myLocalCommentDelete(localcommunity_comment_seq);
+	}
+
+	@Override
+	public void myCommunityCommentDelete(int communityboard_comment_seq) {
+		myPageDAO.myCommunityCommentDelete(communityboard_comment_seq);
 	}
 
 	

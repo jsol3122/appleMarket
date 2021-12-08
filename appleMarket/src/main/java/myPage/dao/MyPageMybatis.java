@@ -129,6 +129,26 @@ public class MyPageMybatis implements MyPageDAO {
 		sqlSession.delete("myPageSQL.salehistoryDelete", sale_seq);
 	}
 
+	@Override
+	public void localCommunityHistoryDelete(int localcommunity_seq) {
+		sqlSession.delete("myPageSQL.localCommunityHistoryDelete", localcommunity_seq);
+	}
+
+	@Override
+	public void communityHistoryDelete(int communityboard_seq) {
+		sqlSession.delete("myPageSQL.communityHistoryDelete", communityboard_seq);
+	}
+
+	@Override
+	public void myLocalCommentDelete(int localcommunity_comment_seq) {
+		sqlSession.delete("myPageSQL.myLocalCommentDelete", localcommunity_comment_seq);
+	}
+
+	@Override
+	public void myCommunityCommentDelete(int communityboard_comment_seq) {
+		sqlSession.delete("myPageSQL.myCommunityCommentDelete", communityboard_comment_seq);
+	}
+
 	
 	
 	

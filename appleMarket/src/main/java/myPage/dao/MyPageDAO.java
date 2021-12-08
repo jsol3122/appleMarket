@@ -49,6 +49,14 @@ public interface MyPageDAO {
 
 	public void salehistoryDelete(int sale_seq);
 
+	public void localCommunityHistoryDelete(int localcommunity_seq);
+
+	public void communityHistoryDelete(int communityboard_seq);
+
+	public void myLocalCommentDelete(int localcommunity_comment_seq);
+
+	public void myCommunityCommentDelete(int communityboard_comment_seq);
+
 	
 
 	

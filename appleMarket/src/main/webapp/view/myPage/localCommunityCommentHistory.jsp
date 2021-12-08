@@ -194,7 +194,7 @@
         }
         
         .bd .bg_color {
-            background-color: #fffe00;
+            background-color: #00ff0e;
         }
         
         .bd .bg_f_color {
@@ -245,7 +245,7 @@
         .css3pie {
             behavior: url(./layouts/smart/js/PIE.htc);
         }
-    </style> 
+    </style>
 </head>
 
 <body>
@@ -265,7 +265,7 @@
                                             <div class="tl_srch clear">
 
                                                 <div class="bd_tl">
-                                                    <h1 class="ngeb clear"><i class="bg_color"></i><a href="#">My 우리동네 글</a></h1>
+                                                    <h1 class="ngeb clear"><i class="bg_color"></i><a href="#">My 우리동네 댓글</a></h1>
                                                 </div>
                                             </div>
                                             <div class="cnb_n_list">
@@ -275,21 +275,22 @@
                                                 <thead class="bg_f_f9">
 
                                                     <tr>
-                                                        <th scope="col" class="no"><span><a href="#" title="내림차순">번호</a></span></th>
-                                                        <th scope="col" class="title"><span><a href="#">제목</a></span></th>
+                                                        <th scope="col" class="no"><span><a href="#" title="내림차순">글번호</a></span></th>
+                                                        <th scope="col" class="no"><span><a href="#" title="내림차순">댓글번호</a></span></th>
+                                                        <th scope="col" class="title"><span><a href="#">내용</a></span></th>
                                                         <th scope="col"><span>글쓴이</span></th>
                                                         <th scope="col"><span><a href="">날짜</a></span></th>
-                                                        <th scope="col" class="m_no"><span><a href="#">삭제</a></span></th>
+                                                        <th scope="col"><span>삭제</span></th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <!-- ajax로 사용자의 우리동네 글 내역 띄우기 -->
+													<!-- 글목록 ajax로 뿌리기 -->		
                                                 </tbody>
                                             </table>
                                             
                                             <form action="./" method="get" class="bd_pg clear"><input type="hidden" name="error_return_url" value="/freebd"><input type="hidden" name="act" value="">
                                                 <fieldset>
-                                                    <!-- 페이징처리 ajax로 띄우기 -->
+                                                    <!-- 페이징처리 ajax로 뿌리기 -->
                                                 </fieldset>
                                             </form>
                                         </div>
@@ -304,16 +305,14 @@
             </div>
         </div>
     </div>
-    
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js'></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="js/app.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript" src="/appleMarket/js/localCommunityHistory.js"></script>
-    
-
+    <script src="/appleMarket/js/localCommunityCommentHistory.js"></script>
 </body>
 
 </html>

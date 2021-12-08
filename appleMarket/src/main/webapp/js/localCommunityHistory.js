@@ -10,32 +10,33 @@ function get_query(){
 }
 
 $(function(){
-  var result = get_query();
-  // 일반 글목록 띄우기 - 
+  let result = get_query();
+
   $.ajax({
-    url: '/appleMarket/localCommunityboard/localCommunityboardGetList',
-    type: 'get',
+    url: '/appleMarket/myLocalGetList',
+    type: 'post',
     data: 'pg='+result.pg,
-    dataType: 'json',
     success: function(data){
-    	console.log('우리동네 목록 잘 불러옴');
+      console.log(JSON.stringify(data));
       $.each(data.list, function(index, list){
         // 글목록 html 생성&삽입 함수 호출
         make_list(list);
       });
+
+      // 페이징처리
       $('form fieldset').append(data.boardPaging);
-      $('a.prev').attr('href', '/appleMarket/view/localCommunityboard/localCommunityboardList.jsp?pg='+(parseInt(result.pg)-1));
-      $('a.next').attr('href', '/appleMarket/view/localCommunityboard/localCommunityboardList.jsp?pg='+(parseInt(result.pg)+1));
-      for(step=1; step<$('.bd_pg a').length; step++){
-        $('a.paging').eq(step).attr('href', '/appleMarket/view/localCommunityboard/localCommunityboardList.jsp?pg='+(step-1));
-      }
+      $('a.prev').attr('href', '/appleMarket/localCommunityHistory?pg='+(parseInt(result.pg)-1));
+      $('a.next').attr('href', '/appleMarket/localCommunityHistory?pg='+(parseInt(result.pg)+1));
+      
+      $('a.paging').each(function (index, item){
+        item.href = '/appleMarket/localCommunityHistory?pg='+item.text;
+      });
+      
       $('.bd_pg a').removeClass('this');
       $('.bd_pg a').eq(parseInt(result.pg)).addClass('this');
-
-      
     },
     error: function(err){
-      console.log('우리동네 목록 못불러옴')
+      console.log('우리동네 마페 실패');
     }
   });
 });
@@ -54,20 +55,30 @@ function make_list(list){
     "</td>"+
     "<td class=time title=''>21.12.05"+
     "</td>"+
-    "<td class=m_no>"+list.localcommunity_hit+"</td>"+
+    "<td class=m_no><a href='' class=delete value="+list.localcommunity_seq+"><i class=fas></i></a></td>"+
   "</tr>";
-
-  $('.bd_lst tbody').append(html);
-  $('#dong').text(' - '+list.location_dong);
+    
+  $('.bd_tb_lst tbody').append(html);
+  
+  $('.fas').addClass('fa-trash');
     
 }
 
-// 글쓰기 버튼 클릭 - 로그인 했을때만 글쓰기화면 진입 가능
-$('.fr a').click(function(){
-  if($('#session_id').val() == ''){
-    alert('로그인이 필요한 서비스입니다');
-    return false;
-  }else
-    location.href = '/appleMarket/view/localCommunityboard/localCommunityboardWriteForm.jsp';
-  
-});
+// 글 삭제버튼 클릭
+$(document).on('click', '.delete',function(){
+  let seq = $(this).attr('value');
+  // 삭제여부 다시한번 확인
+  if(confirm('정말로 삭제하시겠습니까? 삭제된 글은 복구할 수 없습니다')){
+    $.ajax({
+      url: '/appleMarket/localCommunityHistoryDelete',
+      type: 'post',
+      data: 'localcommunity_seq='+seq,
+      success: function(){
+        console.log('우리동네(마페) 글삭 성공~~~~~~~');
+      },
+      error: function(){
+        console.log('우리동네(마페) 글삭 실패')
+      }
+    });
+  }else return false;
+})

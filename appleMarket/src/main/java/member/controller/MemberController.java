@@ -192,13 +192,6 @@ public class MemberController{
 		}
 
 	}
-	
-	//핸드폰 중복체크 
-	@PostMapping("/checkPhone")
-	@ResponseBody
-	public String checkPhone(@RequestParam String phone) {
-		return messageService.checkPhone(phone);
-	}
 
 	//아이디 중복체크
 	@PostMapping("/user/checkId")

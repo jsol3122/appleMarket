@@ -12,7 +12,7 @@
  	</select>
  	
  	<select id = "myTotalA" parameterType="String"   resultType="int">
- 		select count(*) from communityboard where communityboard_user_id = #{communityboard_user_id};
+ 		select count(*) from communityboard where communityboard_user_id = #{communityboard_user_id}
  	</select>
  	
  	<select id="myCommunityCommentGetList" parameterType="java.util.Map" resultType="communityboardComment.bean.CommunityboardCommentDTO">
@@ -24,7 +24,7 @@
  	</select>
  	
  	<select id="myCommentTotalA" parameterType="String" resultType="int">
- 		select count(*) from communityboard_Comment where communityboard_comment_user_id = #{communityboard_comment_user_id};
+ 		select count(*) from communityboard_Comment where communityboard_comment_user_id = #{communityboard_comment_user_id}
  	</select>
  	
  	
@@ -37,7 +37,7 @@
  	</select>
  		
  	<select id = "myLocalTotalA" parameterType="String" resultType="int">
- 		 select count(*) from localcommunityboard where localcommunity_user_id = #{localcommunity_user_id};
+ 		 select count(*) from localcommunityboard where localcommunity_user_id = #{localcommunity_user_id}
  	</select>
  	
  	<select id="myLocalCommentGetList" parameterType="java.util.Map" resultType="localCommunityboardComment.bean.LocalCommunityboardCommentDTO">
@@ -49,7 +49,7 @@
  	</select>
  	
  	<select id = "myLocalCommentTotalA" parameterType="String" resultType="int">
- 		 select count(*) from localCommunityboard_comment where localcommunity_comment_user_id = #{localcommunity_comment_user_id};
+ 		 select count(*) from localCommunityboard_comment where localcommunity_comment_user_id = #{localcommunity_comment_user_id}
  	</select>
  	
  	
@@ -84,5 +84,20 @@
  		delete from saleboard where sale_seq=#{sale_seq}
  	</delete>
  	
+ 	<delete id="localCommunityHistoryDelete" parameterType="int">
+ 		delete from localcommunityboard where localcommunity_seq=#{localcommunity_seq}
+ 	</delete>
+ 	
+ 	<delete id="communityHistoryDelete" parameterType="int">
+ 		delete from communityboard where communityboard_seq=#{communityboard_seq}
+ 	</delete>
+ 	
+ 	<delete id="myLocalCommentDelete" parameterType="int">
+ 		delete from localCommunityboard_comment where localcommunity_comment_seq=#{localcommunity_comment_seq}
+ 	</delete>
+ 	
+ 	<delete id="myCommunityCommentDelete" parameterType="int">
+ 		delete from communityboard_Comment where communityboard_comment_seq=#{communityboard_comment_seq}
+ 	</delete>
  	
  </mapper>

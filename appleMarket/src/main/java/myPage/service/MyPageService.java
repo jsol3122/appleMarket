@@ -36,6 +36,14 @@ public interface MyPageService {
 
 	public void salehistoryDelete(int sale_seq);
 
+	public void localCommunityHistoryDelete(int localcommunity_seq);
+
+	public void communityHistoryDelete(int communityboard_seq);
+
+	public void myLocalCommentDelete(int parseInt);
+
+	public void myCommunityCommentDelete(int parseInt);
+
 	
 
 	

@@ -28,12 +28,14 @@ public class MyPageController {
 	
 	@Autowired
 	private MyPageService myPageService;
-	
-	@GetMapping("/myCommunityList")
-	public String myCommunityList() {
-		return "/myCommunityList";
+	 // 조잘조잘 글 내역 폼
+	@GetMapping("/communityHistory")
+	public String communityHistory(HttpServletRequest request, HttpServletResponse response) throws Throwable{
+		request.setAttribute("display", "/view/myPage/communityHistory.jsp");
+		return "/view/myPage/mypageMainForm";
 	}
 	
+	// 조잘조잘 글 리스트 띄우기
 	@PostMapping("/myCommunityGetList")
 	@ResponseBody
 	public JSONObject myCommunityGetList(@RequestParam String pg, HttpSession session
@@ -49,6 +51,12 @@ public class MyPageController {
 		return myPageService.myCommunityGetList(map);
 	}
 	
+	// 조잘조잘 글 삭제
+	@PostMapping("/communityHistoryDelete") @ResponseBody
+	public void communityHistoryDelete(@RequestParam String communityboard_seq) {
+		myPageService.communityHistoryDelete(Integer.parseInt(communityboard_seq));
+	}
+	
 	@GetMapping("/myCommunityView")
 	public String myCommunityView() {
 		return "/myCommunityView";
@@ -60,11 +68,14 @@ public class MyPageController {
 		return myPageService.myCommunityGetView(communityboard_seq);
 	}
 	
-	@GetMapping("/myCommunityCommentList")
-	public String myCommunityCommentList() {
-		return "/myCommunityCommentList";
+	// 조잘조잘 댓글 폼
+	@GetMapping("/communityCommentHistory")
+	public String communityCommentHistory(HttpServletRequest request, HttpServletResponse response) throws Throwable{
+		request.setAttribute("display", "/view/myPage/communityCommentHistory.jsp");
+		return "/view/myPage/mypageMainForm";
 	}
 	
+	// 조잘조잘 댓글 불러오기
 	@PostMapping("/myCommunityCommentGetList")
 	@ResponseBody
 	public JSONObject myCommunityCommentGetList(@RequestParam String pg, 
@@ -78,6 +89,12 @@ public class MyPageController {
 		map.put("communityboard_comment_user_id", member_id);
 		
 		return myPageService.myCommunityCommentGetList(map);
+	}
+	
+	// 우리동네 댓글 삭제
+	@PostMapping("/myCommunityCommentDelete") @ResponseBody
+	public void myCommunityCommentDelete(@RequestParam String communityboard_comment_seq) {
+		myPageService.myCommunityCommentDelete(Integer.parseInt(communityboard_comment_seq));
 	}
 	
 	@GetMapping("/myCommunityCommentView")
@@ -116,6 +133,12 @@ public class MyPageController {
 		return myPageService.myLocalGetList(map);
 	}
 	
+	// 우리동네 글 삭제
+	@PostMapping("/localCommunityHistoryDelete") @ResponseBody
+	public void localCommunityHistoryDelete(@RequestParam String localcommunity_seq) {
+		myPageService.localCommunityHistoryDelete(Integer.parseInt(localcommunity_seq));
+	}
+	
 	@GetMapping("/myLocalView")
 	public String myLocalView() {
 		return "/myLocalView";
@@ -128,11 +151,14 @@ public class MyPageController {
 		return myPageService.myLocalGetView(localcommunity_seq);
 	}
 	
-	@GetMapping("/myLocalCommentList")
-	public String myLocalCommentList() {
-		return "/myLocalCommentList";
+	// 우리동네 댓글 폼
+	@GetMapping("/localCommunityCommentHistory")
+	public String localCommunityCommentHistory(HttpServletRequest request, HttpServletResponse response) throws Throwable{
+		request.setAttribute("display", "/view/myPage/localCommunityCommentHistory.jsp");
+		return "/view/myPage/mypageMainForm";
 	}
 	
+	// 우리동네 댓글 불러오기
 	@PostMapping("/myLocalCommentGetList")
 	@ResponseBody
 	public JSONObject myLocalCommentGetList(@RequestParam String pg, HttpSession session
@@ -148,6 +174,12 @@ public class MyPageController {
 		
 		return myPageService.myLocalCommentGetList(map);
 		
+	}
+	
+	// 우리동네 댓글 삭제
+	@PostMapping("/myLocalCommentDelete") @ResponseBody
+	public void myLocalCommentDelete(@RequestParam String localcommunity_comment_seq) {
+		myPageService.myLocalCommentDelete(Integer.parseInt(localcommunity_comment_seq));
 	}
 	
 	@GetMapping("/myLocalCommentView")
@@ -222,6 +254,7 @@ public class MyPageController {
 		
 	}
 	
+	// 사고게시판 글 삭제
 	@PostMapping("/buyhistoryDelete") @ResponseBody
 	public void buyhistoryDelete(@RequestParam String buyerboard_seq) {
 		myPageService.buyhistoryDelete(Integer.parseInt(buyerboard_seq));
