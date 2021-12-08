@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import member.bean.MemberDTO;
+import member.bean.RecommendDTO;
 import member.bean.ZipcodeDTO;
 
 @Repository
@@ -39,7 +40,7 @@ public class MemberDAOMybatis implements MemberDAO {
 		
 		
 		
-		 return map;
+		return map;
 	}
 
 	@Override
@@ -86,34 +87,38 @@ public class MemberDAOMybatis implements MemberDAO {
 		
 	}
 
-	@Override
-	public void recommend(Map<String, String> map) {
-		
-		sqlSession.insert("memberSQL.recommend", map);
-		
-	}
-
-	@Override
-	public void recommended(Map<String, String> map) {
-		
-		sqlSession.insert("memberSQL.recommended", map);
-		
-	}
-	
 	//이메일 중복체크
 	@Override
 	public int emailChk(String member_email) {
-			
+		
 		return sqlSession.selectOne("memberSQL.emailChk", member_email);
 	}
-	
-	//휴대폰 중복체크
+
 	@Override
-	public int phoneChk(MemberDTO memberDTO) {
-			
-		return sqlSession.selectOne("memberSQL.phoneChk", memberDTO);
+	public void recommend(Map<String, String> map) {
+		sqlSession.insert("memberSQL.recommend", map);
 	}
 
+	@Override
+	public void recommended(Map<String, String> map) {		
+		sqlSession.insert("memberSQL.recommended", map);	
+	}
+	
+	@Override
+	public int recommendChk(Map<String, String> map) {
+		return sqlSession.selectOne("memberSQL.recommendChk", map);
+	}
+
+	@Override
+	public List<RecommendDTO> recommendList(String member_id) {
+		return sqlSession.selectList("memberSQL.recommendList",member_id);
+	}
+
+	@Override
+	public void recommendCoupon(String member_id) {
+		sqlSession.update("memberSQL.recommendCoupon",member_id);		
+	}
+	
 
 }
 

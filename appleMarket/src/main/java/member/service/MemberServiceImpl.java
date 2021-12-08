@@ -1,7 +1,5 @@
 package member.service;
 
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import java.util.Map;
 
@@ -13,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import member.bean.MemberDTO;
+import member.bean.RecommendDTO;
 import member.bean.ZipcodeDTO;
 import member.dao.MemberDAO;
 
@@ -35,6 +34,7 @@ public class MemberServiceImpl implements MemberService {
 			return "non_exist"; 
 		}else {
 			return "exist";
+			
 		}
 	}
 
@@ -87,12 +87,15 @@ public class MemberServiceImpl implements MemberService {
 	
 	 //비밀번호찾기
 	 
-	 @Override public void searchPwd(MemberDTO memberDTO,HttpServletResponse
-	 response) { 
-	 response.setContentType("text/html;charset=utf-8");
-	 
-	 try { sendEmail(memberDTO, "findpw"); } catch (Exception e) {
-	 e.printStackTrace(); }
+	 @Override 
+	 public void searchPwd(MemberDTO memberDTO,HttpServletResponse response) { 
+		 response.setContentType("text/html;charset=utf-8");
+		 
+		 try { 
+			 sendEmail(memberDTO, "findpw"); 
+		} catch (Exception e) {
+			e.printStackTrace(); 
+		}
 	 }
 	
 	 
@@ -162,29 +165,39 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public void recommend(Map<String, String> map) {
-		memberDAO.recommend(map);
-		
+		memberDAO.recommend(map);		
 	}
 
 	@Override
 	public void recommended(Map<String, String> map) {
-		memberDAO.recommended(map);
-		
-		
+		memberDAO.recommended(map);			
 	}
 	
-	@Override
-	public int phoneChk(MemberDTO memberDTO) {
-		
-		return memberDAO.phoneChk(memberDTO);
-	}
-
 	@Override
 	public int emailChk(String member_email) {
 		
 		return memberDAO.emailChk(member_email);
 	}
 
+	@Override
+	public int recommendChk(Map<String, String> map) {
+		
+		return memberDAO.recommendChk(map);
+	}
+
+	@Override
+	public List<RecommendDTO> recommendList(String member_id) {
+		
+		return memberDAO.recommendList(member_id);
+	}
+
+	@Override
+	public void recommendCoupon(String member_id) {
+		
+		memberDAO.recommendCoupon(member_id);
+		
+	}
+	
 
 }
 
