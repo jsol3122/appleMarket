@@ -44,15 +44,15 @@
 				<input type="text" name="phone2" id="phone2" class="hidden" style="width: 135px;height: 35px; margin-left:102px;"/>
 				<input type="text" class="hidden time" id="timer" style="width: 70px;height: 35px;border:0">
 				<input type="button" value="인증확인"  class="hidden chk" id="tel_valid"/>
-				<input type="text" id="user_valid" class="hidden">
+				<input type="text" id="user_valid" class="hidden"> <!-- 사용자확인 -->
 				<input type="hidden" id="checked_user" value="">
 				
 			</div>
 			<div>
 				<label>이메일 <span class="warning">*</span></label>
-				<input type="email" name="member_email" id="member_email" placeholder="예: appleMarket@gmail.com"/>
-			</div>
-			<div>
+				<input type="email" name="member_email" id="member_email" placeholder="예: appleMarket@gmail.com"/>			
+`			</div>
+			<!-- <div>
 				<label>주소</label>
 				<input type="text" name="member_sido_sigungu" id="member_sido_sigungu" placeholder="우편번호 검색을 이용해주세요" readonly/>
 				<input type="button" value="우편번호 검색"  class="chk" id="addr_chk"/>
@@ -60,7 +60,7 @@
 				<input type="text" name="member_address" id="member_address" readonly />
 				<input type="text" name="member_detailAddr" id="member_detailAddr" placeholder="상세 주소를 입력해주세요"/>
 				
-			</div>
+			</div> -->
 			<div>
 				<label>성별</label>
 				<input type="radio" name="member_gender" id="m" value=0>

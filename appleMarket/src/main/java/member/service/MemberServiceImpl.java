@@ -39,7 +39,7 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public int login(MemberDTO memberDTO) {
+	public Map<String, Integer> login(MemberDTO memberDTO) {
 		
 		return memberDAO.login(memberDTO);
 	}

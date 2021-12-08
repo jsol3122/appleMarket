@@ -284,8 +284,7 @@
 </head>
 
 <body>
-    <%@include file="/includes/header.jsp" %>
-
+   <%@include file="/includes/header.jsp" %>
     <div class="memberup">
         <div class="main">
             <div class="content">

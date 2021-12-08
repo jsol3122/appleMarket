@@ -24,9 +24,12 @@
 	            <input type="password" id="member_pwd" name="member_pwd" class="loginInput" placeholder="비밀번호를 입력해주세요" style="width:350px; height:45px;"/>
 	         </div>
 	         <div>
+
 	         	<a href="/appleMarket/view/user/searchIdForm" onclick="window.open(this.href, '_blank', 'width=400, height=300'); return false;">아이디 찾기</a>
 	         	 | <a href="/appleMarket/view/user/searchPwdForm" onclick="window.open(this.href, '_blank', 'width=400, height=300'); return false;">비밀번호 찾기</a>
 
+
+			<!--크롬은 resizeable 적용 안됨  -->
 	         </div>
 	         <div style="padding:0 5px;">
 		         <input type="button" value="로그인" class="sbm" id="loginBtn" style="cursor:pointer;"/>
@@ -35,8 +38,7 @@
 		         <div id="loginResult"></div>
 	         </div>
 	         
-	     <!-- 로그아웃 -->    
-   		 <a href="https://kauth.kakao.com/oauth/logout?client_id=ab83dfbd7b35d430c0fcb3a8f27f07ed&logout_redirect_uri=http://localhost:8080/appleMarket/index">로그아웃</a>
+	     
 
 	      </form>
 	    </div>
@@ -71,13 +73,23 @@ $('#loginBtn').click(function(){
             type: 'post',
             data: 'member_id='+$('#member_id').val()+'&member_pwd='+$('#member_pwd').val(),
             //dataType: 'text',
-            success: function(data){            	             
-               data = data.trim();         
-              if(data==1){
+            success: function(data){  	             
+               console.log(JSON.stringify(data));
+               
+              if(data.login==1 && data.loginGPS==1){            	  
             	  alert(id+"님 반갑습니다.");
                   location.href="/appleMarket/index";      
                 
-               }else{
+               }else if(data.login==1 && data.loginGPS==0){
+            	 //var result = confirm("앗 지역인증 안하셨네요? 하실건가요?");
+	              if(!confirm("앗 지역인증 안하셨네요? 하실건가요?")){
+	            	   alert('앗 아쉽네요. 지역등록을 해야 원활한 서비스 이용이 가능합니다 😭😭');
+			           location.href="/appleMarket/index";
+	               }else{
+	            	   window.open("http://localhost:8080/appleMarket/view/location/map.jsp", '_blank', 'width=500, height=500');
+	            	   location.href="/appleMarket/index";
+	               }
+               }else{    	   
                   $('#loginResult').text('아이디 또는 비밀번호가 잘못 입력 되었습니다.아이디와 비밀번호를 정확히 입력해 주세요.');
                   $('#loginResult').css('color', 'red');
                   $('#loginResult').css('font-size', '15pt');
