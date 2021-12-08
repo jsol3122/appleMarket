@@ -29,6 +29,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import member.bean.MemberDTO;
 import member.bean.MessageDTO;
+import member.bean.RecommendDTO;
 import member.bean.ZipcodeDTO;
 import member.service.MemberService;
 import member.service.MessageService;
@@ -77,23 +78,31 @@ public class MemberController{
 	   //회원가입 - index 이동(맞는지 확인 요망)
 	   @RequestMapping("/write")
 	   public String write(@ModelAttribute @Valid MemberDTO memberDTO,@Nullable @RequestParam("recommend_id") String recommend_id){
-
+		   
+		  String member_id=memberDTO.getMember_id();
 	      MemberDTO Check = memberSerivce.checkId(memberDTO.getMember_id());
-	      if(Check == null) {
-	         memberSerivce.write(memberDTO);
-	         
-	         //추천인 등록
-	         if(recommend_id!=null) {
-	            String member_id=memberDTO.getMember_id();
-	            System.out.println("recommend_id=" + recommend_id);
-	            System.out.println("member_id="+memberDTO.getMember_id());
+	      
+	   
+	         //추천인 등록      
 	            Map<String, String> map = new HashMap<String,String>();
 	            map.put("recommend_id", recommend_id);
 	            map.put("member_id", member_id);
+	            int recommendChk = memberSerivce.recommendChk(map);
 	            
-	            memberSerivce.recommend(map);
-	            memberSerivce.recommended(map);
-	         }
+	            
+	            System.out.println("recommend_id=" + recommend_id);
+	            System.out.println("member_id="+memberDTO.getMember_id());
+	            System.out.println("recommendChk="+recommendChk);
+	            
+	            if(Check == null) {
+	            	//추천인 등록
+	    			if(recommend_id!=null) {
+	    				if(recommendChk<5) { 
+				            memberSerivce.recommend(map);
+				            memberSerivce.recommended(map);
+	    			}
+	            }
+		         memberSerivce.write(memberDTO);   
 	         return "/view/user/writeFormSuccess";
 	      }else {
 	    	
@@ -361,12 +370,36 @@ public class MemberController{
 		return result;
 	}
 	
-	/*
-	 * //마이페이지 판매내역 폼
-	 * 
-	 * @GetMapping(value="/buyhistory") public String buyhistory(HttpServletRequest
-	 * request, HttpServletResponse response) throws Throwable{
-	 * request.setAttribute("display", "/view/myPage/buyhistory.jsp"); return
-	 * "/view/myPage/mypageMainForm"; }
-	 */
+		//추천하기폼
+		@GetMapping("/recommendForm")
+		public String recommendForm() {
+			return "/view/recommend/recommendForm";
+		}
+
+		//추천하기 리스트
+		@PostMapping("/recommendList")
+		@ResponseBody
+		public List<RecommendDTO> recommendList(@RequestParam("member_id")String member_id) {
+			return memberSerivce.recommendList(member_id);
+		}
+		
+		//추천하기 - 쿠폰 발송 후 recommend_YN 'N' -> 'Y'로 바꾸기 
+		@PostMapping("/recommendCoupon")
+		@ResponseBody
+		public void recommendCoupon(@RequestParam("member_id")String member_id) {
+			memberSerivce.recommendCoupon(member_id);
+		}
+
+		
+		//추천하기 쿠폰 발송
+		@GetMapping("/recommendSMS")
+		@ResponseBody
+		public void recommendSMS(@ModelAttribute MemberDTO memberDTO) {
+			//돈나가서 잠시 주석
+			messageService.smsCoupon(memberDTO);
+		
+		}
+	
+	
+	
 }

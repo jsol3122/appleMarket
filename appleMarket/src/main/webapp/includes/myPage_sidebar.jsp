@@ -1,15 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
- <!--     <head>
+    <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        	crossorigin="anonymous">
-    	<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
-     	<link rel="stylesheet" href="/appleMarket/css/myPage.css">
-     </head> -->
+        <!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        	crossorigin="anonymous"> -->
+    	<!-- <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet"> -->
+     	<!-- <link rel="stylesheet" href="/appleMarket/css/myPage.css"> -->
+     </head>
     
-<!--   <div class="sidebar">
+   <div class="sidebar">
         <div class="clr"></div>
 	        <div class="gadget">
 		        <h2 class="star"><span>마이페이지</span></h2>
@@ -57,10 +57,10 @@
 				        <li><a href="/appleMarket/deleteForm">회원탈퇴</a></li>      
 				     	</ul>
 			        </div>
-		</div> -->
+		</div>
 
-	
-<!-- <script type="text/javascript">
+
+ <script type="text/javascript">
     jQuery(function ($) {
 
       $(".sidebar-dropdown > a").click(function() {
@@ -92,9 +92,9 @@
     });
     
 });
- </script> -->
+ </script>
 	       
-  <div class="sidebar">
+<!--   <div class="sidebar">
         <div class="clr"></div>
 	        <div class="gadget">
 		        <h2 class="star"><span>마이페이지</span></h2>
@@ -112,4 +112,4 @@
 				        <li><a href="/appleMarket/deleteForm">회원탈퇴</a></li>        
 				     	</ul>
 			        </div>
-	</div>
+	</div> -->

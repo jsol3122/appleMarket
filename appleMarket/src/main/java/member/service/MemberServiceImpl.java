@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import member.bean.MemberDTO;
+import member.bean.RecommendDTO;
 import member.bean.ZipcodeDTO;
 import member.dao.MemberDAO;
 
@@ -184,6 +185,26 @@ public class MemberServiceImpl implements MemberService {
 		
 		return memberDAO.emailChk(member_email);
 	}
+	
+	@Override
+	public int recommendChk(Map<String, String> map) {
+		
+		return memberDAO.recommendChk(map);
+	}
+
+	@Override
+	public List<RecommendDTO> recommendList(String member_id) {
+		
+		return memberDAO.recommendList(member_id);
+	}
+
+	@Override
+	public void recommendCoupon(String member_id) {
+		
+		memberDAO.recommendCoupon(member_id);
+		
+	}
+	
 
 
 }

@@ -89,10 +89,11 @@
  	<update id="update" parameterType="member">
  		update appleMarket set member_pwd=#{member_pwd}, member_email=#{member_email},
  							   member_tel1=#{member_tel1}, member_tel2=#{member_tel2},
- 							   member_tel3=#{member_tel3} where member_id=#{member_id}	  
- 							    <!-- member_sido_sigungu=#{member_sido_sigungu}, 
+ 							   member_tel3=#{member_tel3},
+ 							   member_sido_sigungu=#{member_sido_sigungu}, 
  							   member_dong=#{member_dong}, member_address=#{member_address},
- 							   member_detailAddr=#{member_detailAddr}, member_gender=#{member_gender} --> 
+ 							   member_detailAddr=#{member_detailAddr}, member_gender=#{member_gender}
+ 							   where member_id=#{member_id}
  						   	    
  	</update>
  	
@@ -130,5 +131,30 @@
  	<select id="phoneChk" parameterType="member" resultType="Integer">
  		select count(*) from appleMarket where member_tel1=#{member_tel1} and member_tel2=#{member_tel2} and member_tel3=#{member_tel3}
  	</select>
+ 	
+ 	<!-- 추천하기  -->
+	<insert id="recommend" parameterType="java.util.Map">
+		insert into recommend(recommend_id, recommended_id, recommend_logtime) values(#{recommend_id}, #{member_id}, sysdate)
+	</insert>
+	
+	<!-- 추천받기  -->
+	<insert id="recommended" parameterType="java.util.Map">
+		insert into recommend(recommend_id, recommended_id, recommend_logtime) values(#{member_id}, #{recommend_id}, sysdate)
+	</insert>	
+
+	<!-- 추천하기 5개체크  -->
+	<select id="recommendChk" parameterType="java.util.Map" resultType="Integer">
+ 		select count(*) from recommend where recommend_id=#{recommend_id} and recommend_YN='N'
+ 	</select>
+ 	
+ 	<!-- 추천하기 리스트 -->
+ 	<select id="recommendList" parameterType="String" resultType="recommend">
+ 		select recommended_id from recommend where recommend_id=#{member_id} and recommend_YN='N' order by recommend_logtime
+ 	</select>
+ 	
+ 	<!-- 추천하기 - 쿠폰 발송 후 recommend_YN 'N' -> 'Y'로 바꾸기  -->
+ 	<update id="recommendCoupon" parameterType="String">
+ 		update recommend set recommend_YN='Y' where recommend_id=#{member_id}
+ 	</update>
  	
  </mapper>
