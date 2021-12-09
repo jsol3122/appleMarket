@@ -63,49 +63,6 @@ public class MemberController{
 		return "/user/writeForm";
 	}
 	
-//	//회원가입
-//	@RequestMapping("/write")
-//	@ResponseBody
-//	public void write(@ModelAttribute @Valid MemberDTO memberDTO) {
-//		String Check = memberSerivce.checkId(memberDTO.getMember_id());
-//		if(Check.equals("non_exist")) {
-//			memberSerivce.write(memberDTO);
-//		}else {
-//			return;
-//		}
-//	}
-	//회원가입 - index 이동(맞는지 확인 요망)
-	@RequestMapping("/write")
-	public String write(@ModelAttribute @Valid MemberDTO memberDTO,@Nullable @RequestParam("recommend_id") String recommend_id) {
-		
-		String member_id=memberDTO.getMember_id();
-		String Check = memberSerivce.checkId(member_id);
-		
-		Map<String, String> map = new HashMap<String,String>();
-		map.put("recommend_id", recommend_id);
-		map.put("member_id", member_id);
-		int recommendChk = memberSerivce.recommendChk(map);
-		
-		System.out.println("recommend_id=" + recommend_id);
-		System.out.println("member_id="+memberDTO.getMember_id());
-		System.out.println("recommendChk="+recommendChk);
-		
-		if(Check.equals("non_exist")) {
-			//추천인 등록
-			if(recommend_id!=null) {
-				if(recommendChk<5) { 
-					memberSerivce.recommend(map); 
-					memberSerivce.recommended(map);
-				}
-			}
-			//가입하기
-			memberSerivce.write(memberDTO);
-			//가입 후 인덱스로 가기
-			return  "/view/user/writeFormSuccess";
-		}else {
-			return  "/view/user/writeFormSuccess";
-		}
-	}
 	
 
 	//이메일 중복체크
@@ -116,7 +73,41 @@ public class MemberController{
 		return result;
 	}
 
-
+	   //회원가입 - index 이동(맞는지 확인 요망)
+	   @RequestMapping("/write")
+	   public String write(@ModelAttribute @Valid MemberDTO memberDTO,@Nullable @RequestParam("recommend_id") String recommend_id){
+		   
+		  String member_id=memberDTO.getMember_id();
+	      MemberDTO Check = memberSerivce.checkId(memberDTO.getMember_id());
+	      
+	   
+	         //추천인 등록      
+	            Map<String, String> map = new HashMap<String,String>();
+	            map.put("recommend_id", recommend_id);
+	            map.put("member_id", member_id);
+	            int recommendChk = memberSerivce.recommendChk(map);
+	            
+	            
+	            System.out.println("recommend_id=" + recommend_id);
+	            System.out.println("member_id="+memberDTO.getMember_id());
+	            System.out.println("recommendChk="+recommendChk);
+	            
+	            if(Check == null) {
+	            	//추천인 등록
+	    			if(recommend_id!=null) {
+	    				if(recommendChk<5) { 
+				            memberSerivce.recommend(map);
+				            memberSerivce.recommended(map);
+	    			}
+	            }
+		         memberSerivce.write(memberDTO);   
+	         return "/view/user/writeFormSuccess";
+	      }else {
+	    	
+	         return "/view/user/writeFormSuccess";
+	      }
+	   }
+	
 	/*
 	 * 인증번호 전송 api
 	 * 1. 인증번호를 전송한다.
@@ -203,8 +194,11 @@ public class MemberController{
 	//아이디 중복체크
 	@PostMapping("/user/checkId")
 	@ResponseBody
-	public String checkId(@RequestParam String member_id) {
-		return memberSerivce.checkId(member_id);
+	public MemberDTO checkId(@RequestParam String member_id) {
+		MemberDTO memberDTO = new MemberDTO();
+		memberDTO = memberSerivce.checkId(member_id);
+		System.out.println(memberDTO);
+		return memberDTO;
 	}
 	
 	
@@ -240,12 +234,14 @@ public class MemberController{
 		memberDTO.setMember_pwd(member_pwd);
 		
 		Map<String, Integer> result = memberSerivce.login(memberDTO);
-		
-
+	
 		session.setAttribute("member_id", member_id);
-		session.setAttribute("login_info", memberDTO);
+		session.setAttribute("login_info", memberDTO);		
 		session.setAttribute("kakaoInfo", memberDTO);
 		session.setAttribute("member_siteCheck", 0);
+		
+		
+
 		
 		path = result+"";
 		
@@ -255,9 +251,14 @@ public class MemberController{
 	//로그아웃 요청 
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {
-		session.removeAttribute("login_info");
-		session.removeAttribute("kakaoInfo");
-		session.removeAttribute("member_id");
+		
+		
+		 session.removeAttribute("login_info"); 
+		 session.removeAttribute("kakaoInfo");
+		 session.removeAttribute("member_id");
+		 
+		
+		
 		return "/index";
 	}
 	
@@ -275,9 +276,13 @@ public class MemberController{
 	public void delete(@ModelAttribute MemberDTO memberDTO,HttpSession session) {
 		System.out.println(memberDTO);
 		memberSerivce.delete(memberDTO);
-		session.removeAttribute("login_info");
-		session.removeAttribute("kakaoInfo");
-		session.removeAttribute("member_id");
+		/*
+		 * session.removeAttribute("login_info");
+		 * session.removeAttribute("kakaoInfo");
+		 * session.removeAttribute("member_id");
+		 */
+		//모든 세션 다 죽인다.
+		session.invalidate();
 	}
 
 
@@ -346,36 +351,39 @@ public class MemberController{
 	
 	}
 	
-	//추천하기폼
-	@GetMapping("/recommendForm")
-	public String recommendForm() {
-		return "/view/recommend/recommendForm";
-	}
 
-	
-	//추천하기 리스트
-	@PostMapping("/recommendList")
-	@ResponseBody
-	public List<RecommendDTO> recommendList(@RequestParam("member_id")String member_id) {
-		return memberSerivce.recommendList(member_id);
-	}
-	
-	//추천하기 - 쿠폰 발송 후 recommend_YN 'N' -> 'Y'로 바꾸기 
-	@PostMapping("/recommendCoupon")
-	@ResponseBody
-	public void recommendCoupon(@RequestParam("member_id")String member_id) {
-		memberSerivce.recommendCoupon(member_id);
-	}
+	//====================================================마이페이지 추천인=======================================================
+		//추천하기폼
+		@GetMapping("/recommendForm")
+		public String recommendForm(HttpServletRequest request, HttpServletResponse response) throws Throwable{
+			request.setAttribute("display", "/view/myPage/recommend/recommendForm.jsp");
+			return "/view/myPage/mypageMainForm";
+		}
 
-	
-	//추천하기 쿠폰 발송
-	@GetMapping("/recommendSMS")
-	@ResponseBody
-	public void recommendSMS(@ModelAttribute MemberDTO memberDTO) {
-		//돈나가서 잠시 주석
-		messageService.smsCoupon(memberDTO);
-	
-	}
-	
+		//추천하기 리스트
+		@PostMapping("/recommendList")
+		@ResponseBody
+		public List<RecommendDTO> recommendList(@RequestParam("member_id")String member_id) {
+			return memberSerivce.recommendList(member_id);
+		}
+		
+		//추천하기 - 쿠폰 발송 후 recommend_YN 'N' -> 'Y'로 바꾸기 
+		@PostMapping("/recommendCoupon")
+		@ResponseBody
+		public void recommendCoupon(@RequestParam("member_id")String member_id) {
+			memberSerivce.recommendCoupon(member_id);
+		}
 
+		
+		//추천하기 쿠폰 발송
+		@GetMapping("/recommendSMS")
+		@ResponseBody
+		public void recommendSMS(@ModelAttribute MemberDTO memberDTO) {
+			//돈나가서 잠시 주석
+			messageService.smsCoupon(memberDTO);
+		
+		}
+	
+	
+	
 }
