@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import admin.dao.AdminDAO;
 import member.bean.MemberDTO;
+import warningBoard.bean.WarningBoardDTO;
 
 @Service
 public class AdminServiceImpl implements AdminService {
@@ -23,6 +24,11 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public void adminMemberDelete(MemberDTO memberDTO) {
 		adminDAO.adminMemberDelete(memberDTO);
+	}
+
+	@Override
+	public List<WarningBoardDTO> getAdminWarningList() {
+		return adminDAO.getAdminWarningList();
 	}
 
 }

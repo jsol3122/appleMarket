@@ -12,7 +12,7 @@ create table warningBoard(
     member_id varchar2(20), 
     warning_logtime Date default sysdate, 
     warning_status_YN varchar2(2) default 'N',
-    constraint warningBoard_pk01 primary key(warning_seq, board_seq, board_name, comment_YN, warning_id)
+    constraint warningBoard_pk01 primary key(board_seq, board_name, comment_YN, warning_id, member_id)
 );
 
 

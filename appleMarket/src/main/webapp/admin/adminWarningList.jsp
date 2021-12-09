@@ -8,14 +8,14 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   
-<title>Member Manage</title>
+<title>Warning</title>
 </head>
 <body>
 <div class="page-wrapper">
     <div class="container-fluid">
         <div class="col-lg-8"><!--게시판 넓이 -->
             <div class="col-lg-12">
-                <h1 class="page-header">Member Manage</h1>
+                <h1 class="page-header">Warning</h1>
             </div>
             <div class="row">
                   <div class="col-lg-12">
@@ -27,17 +27,16 @@
               <br>
             <div class="panel panel-default">
                 <div class="panel-heading">
-                	<ion-icon name="people-outline" class="nav__icon"></ion-icon>
+                	<ion-icon name="alert-circle-outline" class="nav__icon"></ion-icon>
                 </div>
                 <div class="panel-body">
-                    <table class="table table-hover" id="adminMember">
+                    <table class="table table-hover" id="adminWarning">
               				<tr>
-                               <th>회원번호</th>
-                               <th>아이디</th>
-                               <th>이메일</th>
-                               <th>핸드폰</th>
-                               <th>매너온도</th>
-                               <th>사이트</th>
+                               <th>No</th>
+                               <th>카테고리</th>
+                               <th>제목</th>
+                               <th>신고날짜</th>
+                               <th>처리현황</th>
                                <th>관리</th>
                            </tr>
                     </table>
@@ -48,27 +47,7 @@
 </div>
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="/appleMarket/js/adminMemberList.js"></script>
-<script type="text/javascript">
-//삭제 버튼	
-$(document).on("click", ".pull-right", function(){
+<script type="text/javascript" src="/appleMarket/js/adminWarningList.js"></script>
 
-		var member_id = $(this).parents().prev().prev().prev().prev().prev().html();
-		
-		$.ajax({
-			url: '/appleMarket/adminMemberDelete',
-			type : 'post',
-			data : {'member_id' :member_id},
-			success: function(data){
-				alert('회원 정보 삭제 완료');
-
-				location.href='/appleMarket/adminMemberList'
-				
-			},error : function(err){
-				console.log(err);
-			}
-		});
-	});
-</script>
 </body>
 </html>

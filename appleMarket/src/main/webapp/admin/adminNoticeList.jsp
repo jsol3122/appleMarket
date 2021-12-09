@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,10 +11,13 @@
 <title>boardList</title>
 </head>
 <body>
+
+<c:if test="${empty display}"> 
 <div class="page-wrapper">
     <div class="container-fluid">
         <div class="col-lg-8"><!--게시판 넓이 -->
             <div class="col-lg-12">
+            	
                 <h1 class="page-header">공지사항 관리</h1>
             </div>
             <div class="row">
@@ -50,10 +53,17 @@
                 </div>
             </div>
 
-             <!-- sidebar -->
-             <%@include file="/admin/adminindex.jsp" %>
         </div>
     </div>
 </div>
+</c:if > 
+                 <c:if test="${not empty display}">
+                           <jsp:include page="${display }"/>
+                        </c:if >  
+                        
+           <div>             
+             <!-- sidebar -->
+             <%@include file="/admin/adminindex.jsp" %> 
+            </div> 
 </body>
 </html>

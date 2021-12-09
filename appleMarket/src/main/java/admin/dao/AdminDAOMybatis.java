@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import member.bean.MemberDTO;
+import warningBoard.bean.WarningBoardDTO;
 
 @Repository
 @Transactional
@@ -24,6 +25,11 @@ public class AdminDAOMybatis implements AdminDAO{
 	@Override
 	public void adminMemberDelete(MemberDTO memberDTO) {
 		sqlSession.delete("adminSQL.adminMemberDelete",memberDTO);
+	}
+
+	@Override
+	public List<WarningBoardDTO> getAdminWarningList() {
+		return sqlSession.selectList("adminSQL.getAdminWarningList");
 	}
 
 }
