@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +8,9 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<title>boardList</title>
+  
+
+<title>adminNoticeList</title>
 </head>
 <body>
 <div class="page-wrapper">
@@ -17,39 +20,63 @@
                 <h1 class="page-header">공지사항 관리</h1>
             </div>
             <div class="row">
-                  <div class="col-lg-12">
+                  <%--  <div class="col-lg-12">
                       <button type="button" class="btn btn-outline btn-primary pull-right">
                           <i class="fa fa-edit fa-fw"></i> 공지사항 작성
                       </button>
-                  </div>
-              </div>
+                  </div> --%>
+            </div>
             <div class="panel panel-default">
                 <div class="panel-heading">공지사항 </div>
                 <div class="panel-body">
-                    <table class="table table-hover">
-                        <thead>
+                    <table class="table table-hover" id="noticeTable">
                             <tr>
-                                <th>No.1</th>
+                                <th>No</th>
                                 <th>제목</th>
-                                <th>작성자</th>
                                 <th>작성일</th>
-                                <th>조회수</th>
+                                <th>관리</th>
                             </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>제목</td>
-                                <td>작성자</td>
-                                <td>작성일</td>
-                                <td>조회수</td>
-                            </tr>
-                        </tbody>
+                        
+                        
                     </table>
                 </div>
             </div>
+
+             <!-- sidebar -->
+             <%@include file="/admin/adminindex.jsp" %>
         </div>
     </div>
 </div>
+
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="/appleMarket/js/adminNoticeList.js"></script>
+<script type="text/javascript">
+//삭제 버튼	
+$(document).on("click", ".pull-right", function(){
+
+		var admin_notice_seq = $(this).parents().prev().prev().prev().html();
+		//alert(admin_notice_seq);
+		$.ajax({
+			url:'/appleMarket/adminNoticeDelete'
+			,type:'post'
+			,data:{'admin_notice_seq' :admin_notice_seq}
+			,success:function(data){
+				alert("공지글 삭제 완료");
+				
+				location.href='/appleMarket/adminNoticeList'
+			}
+			,error:function(err){
+				console.log(err);
+			}
+		});
+	});	
+
+
+</script>
+
+
+
+
 </body>
 </html>
