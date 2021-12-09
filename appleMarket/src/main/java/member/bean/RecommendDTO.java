@@ -12,3 +12,4 @@ public class RecommendDTO {
 	public String recommend_YN;
 	
 }
+

@@ -15,7 +15,7 @@ public interface MemberService {
 	
 	public void write(MemberDTO memberDTO);
 
-	public String checkId(String member_id);
+	public MemberDTO checkId(String member_id);
 
 	public Map<String,Integer> login(MemberDTO memberDTO);
 
@@ -38,17 +38,19 @@ public interface MemberService {
 
 	public void changePwd(MemberDTO memberDTO);
 
+
+	public int emailChk(String member_email);
+	
+	public int recommendChk(Map<String, String> map);
+	
+	public List<RecommendDTO> recommendList(String member_id);
+
+	public void recommendCoupon(String member_id);
+	
 	public void recommend(Map<String, String> map);
 
 	public void recommended(Map<String, String> map);
 
-	public int recommendChk(Map<String, String> map);
-	
-	public int emailChk(String member_email);
-
-	public List<RecommendDTO> recommendList(String member_id);
-
-	public void recommendCoupon(String member_id);
 
 
 
