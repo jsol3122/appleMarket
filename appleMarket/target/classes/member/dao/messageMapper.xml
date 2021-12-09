@@ -3,8 +3,7 @@
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  <mapper namespace="phoneSQL">
- 	
-
+ 
  	<insert id="phoneCheck" parameterType="message">
  		insert into certificationCheck values(#{phone}, #{certificationNumber}, sysdate)
  	</insert>

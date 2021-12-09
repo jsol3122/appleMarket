@@ -27,14 +27,13 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public String checkId(String member_id) {
+	public MemberDTO checkId(String member_id) {
 		MemberDTO memberDTO = memberDAO.checkId(member_id);
 		
 		if(memberDTO == null) {
-			return "non_exist"; 
+			return null; 
 		}else {
-			return "exist";
-			
+			return memberDTO;
 		}
 	}
 
@@ -184,7 +183,7 @@ public class MemberServiceImpl implements MemberService {
 		
 		return memberDAO.recommendChk(map);
 	}
-
+	
 	@Override
 	public List<RecommendDTO> recommendList(String member_id) {
 		
@@ -197,6 +196,8 @@ public class MemberServiceImpl implements MemberService {
 		memberDAO.recommendCoupon(member_id);
 		
 	}
+
+
 	
 
 }

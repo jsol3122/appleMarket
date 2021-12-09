@@ -70,6 +70,7 @@
 				<input type="radio" name="member_gender" id="n" value=2 checked>
 				<label for="n" class="radio_lbl"> 선택 안함 </label>
 			</div>
+				<input type="hidden" name="recommend_id" id="recommend_id" value="" readonly/>
 			<div>
 				<input type="button" value="가입하기" id="writeBtn" class="sbm" />
 			</div>
