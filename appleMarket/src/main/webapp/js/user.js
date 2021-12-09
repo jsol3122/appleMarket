@@ -60,6 +60,61 @@ $('#writeBtn').click(function(){
 	}
 });
 
+// 회원가입 유효성 검사
+$('#userchangBtn').click(function(){
+	// 공백 체크
+	
+	writeForm.querySelector('#member_pwd').placeholder = '8자 이상의 영문과 숫자를 조합';
+	writeForm.querySelector('#member_rePwd').placeholder = '비밀번호를 한번 더 입력해주세요';
+	writeForm.querySelector('#member_email').placeholder = '예: appleMarket@gmail.com';
+	
+	writeForm.querySelector('#member_id').classList.remove("placeholderColor");
+	writeForm.querySelector('#member_pwd').classList.remove("placeholderColor");
+	writeForm.querySelector('#member_rePwd').classList.remove("placeholderColor");
+	writeForm.querySelector('#member_email').classList.remove("placeholderColor");
+	
+	if(!pwd_valid.test(writeForm.querySelector('#member_pwd').value)){
+		writeForm.querySelector("#member_pwd").value = '';
+		writeForm.querySelector("#member_pwd").placeholder = "비밀번호는 문자와 숫자를 혼용하여 8자 이상 입력해주세요";
+		writeForm.querySelector('#member_pwd').classList.add("placeholderColor");
+	}else if(writeForm.querySelector("#member_pwd").value != writeForm.querySelector("#member_rePwd").value){
+		writeForm.querySelector("#member_rePwd").value = '';
+		writeForm.querySelector('#member_rePwd').placeholder = "동일한 비밀번호를 입력해주세요";
+		writeForm.querySelector('#member_rePwd').classList.add("placeholderColor");
+	}else if(!email_valid.test(writeForm.querySelector('#member_email').value)){
+		writeForm.querySelector("#member_email").value = '';
+		writeForm.querySelector("#member_email").placeholder = "이메일 형식에 맞게 입력해 주세요";
+		writeForm.querySelector('#member_email').classList.add("placeholderColor");
+	}else if(!tel_valid.test(writeForm.querySelector('#member_tel2').value)){
+		writeForm.querySelector("#member_tel2").value = '';
+		writeForm.querySelector("#member_tel2").placeholder = "숫자만 입력";
+		writeForm.querySelector('#member_tel2').classList.add("placeholderColor");
+	}else if(!tel_valid.test(writeForm.querySelector('#member_tel3').value)){
+		writeForm.querySelector("#member_tel3").value = '';
+		writeForm.querySelector("#member_tel3").placeholder = "숫자만 입력";
+		writeForm.querySelector('#member_tel3').classList.add("placeholderColor");
+	}else if(writeForm.querySelector("#member_beforepwd").value != writeForm.querySelector("#checked_pw").value){
+		writeForm.querySelector("#member_beforepwd").value = '';
+		writeForm.querySelector("#member_beforepwd").placeholder = "이전 비밀번호와 맞지 않습니다.";
+		writeForm.querySelector('#member_beforepwd').classList.add("placeholderColor");
+	}else{
+		 $.ajax({
+				url: '/appleMarket/modify',
+				type: 'post',
+				data: $('#writeForm').serialize(),				
+				success: function(){
+					alert('정보를 수정하였습니다.');
+			
+					
+				},
+				error: function(err){
+					console.log(err);
+				}
+			});
+	
+	}
+});
+
 // 아이디 중복 체크
 $('#id_chk').click(function(){
 	var writeForm = document.querySelector('#writeForm');
@@ -79,14 +134,15 @@ $('#id_chk').click(function(){
 			dataType: 'text',
 			success: function(data){
 			writeForm.querySelector('#id_valid').classList.remove('hidden');
-				if(data =='exist'){
-					$('#id_valid').val('사용 불가능한 아이디 입니다');
-					$('#id_valid').css('color', 'tomato');
-					$('#checked_id').val('false');
-				}else if(data =='non_exist'){ // 가능한 아이디값 hidden인풋창에 저장
+				if(!data){
 					$('#id_valid').val('사용 가능한 아이디 입니다');
 					$('#id_valid').css('color', 'blue');
 					$('#checked_id').val(writeForm.querySelector("#member_id").value);
+					
+				}else if(data){ // 가능한 아이디값 hidden인풋창에 저장
+					$('#id_valid').val('사용 불가능한 아이디 입니다');
+					$('#id_valid').css('color', 'tomato');
+					$('#checked_id').val('false');
 				}
 			},
 			error: function(err){
@@ -268,4 +324,21 @@ $('#checkPostSearchBtn').click(function(){
 		}
 	});
 });
+/*recommend_id 주소값 추출  */
+function get_query(){ 
+	  var url = document.location.href; 
+	  var qs = url.substring(url.indexOf('?') + 1).split('&'); 
+	  for(var i = 0, result = {}; i < qs.length; i++){
+	       qs[i] = qs[i].split('='); 
+	       result[qs[i][0]] = decodeURIComponent(qs[i][1]); 
+	  } 
+	  return result; 
+}
+
+$(function(){
+	  var result = get_query();
+	  $('#recommend_id').attr('value',result.recommend_id);
+  
+});
+
 	
