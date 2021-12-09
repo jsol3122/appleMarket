@@ -13,6 +13,7 @@ import communityboard.bean.CommunityboardDTO;
 @Repository
 @Transactional
 public class CommunityboardDAOMybatis implements CommunityboardDAO {
+	
 	@Autowired
 	private SqlSession sqlSession;
 

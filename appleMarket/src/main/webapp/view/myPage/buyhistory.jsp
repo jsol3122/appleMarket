@@ -31,7 +31,6 @@
     <link rel="stylesheet" href="/appleMarket/css/buysalehistory.css">
     <title>사고팔고마켓</title>
 </head>
-<<<<<<< HEAD
 
 <body>
     <header id="headBox">

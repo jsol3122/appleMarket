@@ -37,7 +37,7 @@ public class MemberDAOMybatis implements MemberDAO {
 		Map<String,Integer>map = new HashMap<String, Integer>();
 		map.put("login", sqlSession.selectOne("memberSQL.login", memberDTO));
 		map.put("loginGPS", sqlSession.selectOne("memberSQL.loginGPS", memberDTO));
-		
+	
 		
 		
 		return map;
@@ -93,7 +93,7 @@ public class MemberDAOMybatis implements MemberDAO {
 		
 		return sqlSession.selectOne("memberSQL.emailChk", member_email);
 	}
-
+	
 	@Override
 	public void recommend(Map<String, String> map) {
 		sqlSession.insert("memberSQL.recommend", map);
@@ -118,6 +118,8 @@ public class MemberDAOMybatis implements MemberDAO {
 	public void recommendCoupon(String member_id) {
 		sqlSession.update("memberSQL.recommendCoupon",member_id);		
 	}
+	
+
 	
 
 }
