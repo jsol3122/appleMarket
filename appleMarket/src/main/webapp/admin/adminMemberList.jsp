@@ -26,7 +26,9 @@
               </div>
               <br>
             <div class="panel panel-default">
-                <div class="panel-heading">회원 관리</div>
+                <div class="panel-heading">
+                	<ion-icon name="people-outline" class="nav__icon"></ion-icon>
+                </div>
                 <div class="panel-body">
                     <table class="table table-hover" id="adminMember">
               				<tr>

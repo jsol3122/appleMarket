@@ -23,9 +23,21 @@ $(function(){
 					align : 'center', 
 					text : '0'+items.member_tel1+''+items.member_tel2+''+items.member_tel3
 				})).append($('<td>',{
-					align : 'center', 
-					text : items.member_reputation
-				})).append($('<td>',{
+					align:'center',
+				}).append($('<ion-icon>',{//td의 자식 
+					name:'caret-down-outline',
+					class:'nav__icon',
+					style: 'vertical-align: bottom'
+				})).append($('<input>',{//td의 자식 
+					type:'text',
+					style:'text-align:center;border:none;background: transparent',
+					size:'1',
+					value:items.member_reputation
+				})).append($('<ion-icon>',{//td의 자식 
+					name:'caret-up-outline',
+					class:'nav__icon',
+					style:'vertical-align: bottom'
+				}))).append($('<td>',{
 					align : 'center', 
 					text : items.member_siteCheck
 				})).append($('<td>',{
@@ -36,6 +48,8 @@ $(function(){
 					class:'btn btn-outline btn-primary pull-right',
 					id:'memberDelete'
 				}))).appendTo($('#adminMember'));
+				
+				$('input').prop('readonly', true);
 });//each
 
 		},error:function(err){
