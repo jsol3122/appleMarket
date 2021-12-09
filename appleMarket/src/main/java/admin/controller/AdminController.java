@@ -70,6 +70,46 @@ public class AdminController {
 		adminService.adminMemberDelete(memberDTO);
 	}
 
+	//팔고게시판 관리
+	@GetMapping("/adminSaleBoardList")
+	public String adminSaleBoardList() {
+		return "/admin/adminSaleBoardList";
+	}
+	
+	//사고게시판 관리
+	@GetMapping("/adminBuyerBoardList")
+	public String adminBuyerBoardList() {
+		return "/admin/adminBuyerBoardList";
+	}
+	
+	
+	
+	//우리동네게시판 관리
+	@GetMapping("/adminLocalCommunityList")
+	public String adminLocalCommunityList() {
+		return"/admin/adminLocalCommunityList";
+	}
+	
+	//우리동네댓글 관리
+	@GetMapping("/adminLocalCommunityCommentList")
+	public String adminLocalCommunityCommentList() {
+		return"/admin/adminLocalCommunityCommentList";
+	}
+	
+	
+	//조잘조잘게시판 관리
+	@GetMapping("/adminCommunityList")
+	public String adminCommunityList() {
+		return"/admin/adminCommunityList";
+	}
+	
+	//조잘조잘댓글 관리
+	@GetMapping("/adminCommunityCommentList")
+	public String adminCommunityCommentList() {
+		return"/admin/adminCommunityCommentList";
+	}
+	
+	
 	
 	//신고 데이터 화면 
 }
