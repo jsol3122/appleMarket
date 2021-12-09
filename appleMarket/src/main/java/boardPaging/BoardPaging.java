@@ -29,11 +29,8 @@ public class BoardPaging {
 		pagingHTML.append("<a class='direction prev' ><i class='fa fa-angle-left'></i> Prev</a>");
 		
 		for(int i=1; i<=totalP; i++) {
-			if(i==currentPage) {
-				pagingHTML.append("<a class='paging' >"+i+"</a>");
-			}else {
-				pagingHTML.append("<a class='paging' >"+i+"</a>");
-			}
+			pagingHTML.append("<a class='paging' >"+i+"</a>");
+			
 		}//for
 		
 		pagingHTML.append("<a class='direction next' >Next <i class='fa fa-angle-right'></i></a>");

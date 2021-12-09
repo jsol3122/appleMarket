@@ -26,9 +26,9 @@ $(function(){
       $('form fieldset').append(data.boardPaging);
       $('a.prev').attr('href', '/appleMarket/view/localCommunityboard/localCommunityboardList.jsp?pg='+(parseInt(result.pg)-1));
       $('a.next').attr('href', '/appleMarket/view/localCommunityboard/localCommunityboardList.jsp?pg='+(parseInt(result.pg)+1));
-      for(step=1; step<$('.bd_pg a').length; step++){
-        $('a.paging').eq(step).attr('href', '/appleMarket/view/localCommunityboard/localCommunityboardList.jsp?pg='+(step-1));
-      }
+      $('a.paging').each(function (index, item){
+        item.href = '/appleMarket/view/localCommunityboard/localCommunityboardList.jsp?pg='+item.text;
+      });
       $('.bd_pg a').removeClass('this');
       $('.bd_pg a').eq(parseInt(result.pg)).addClass('this');
 
@@ -45,7 +45,7 @@ function make_list(list){
   "<tr>"+
     "<td class=no>"+list.localcommunity_seq+"</td>"+
     "<td class=title>"+
-      "<a href='' class=hx data-viewer=''>"+list.localcommunity_subject+"</a>"+
+      "<a href='/appleMarket/view/localCommunityboard/localCommunityboardView.jsp?localcommunity_seq="+list.localcommunity_seq+"' class=hx data-viewer=''>"+list.localcommunity_subject+"</a>"+
         "<span class=extraimages></span>"+
     "</td>"+
     "<td class=author><span><a href='#popup_menu_area' class='' onclick='return false'>"+
