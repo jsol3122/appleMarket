@@ -19,7 +19,8 @@ $(function(){
 				}).append($('<a>',{
 					href:'/appleMarket/adminWarningView?warning_seq='+items.warning_seq,
 					class:'warning_subject',
-					text : items.warning_subject
+					text : items.warning_subject,
+					style:'text-decoration:none; color: inherit',
 				}))).append($('<td>',{
 					align : 'center', 
 					text : items.warning_logtime

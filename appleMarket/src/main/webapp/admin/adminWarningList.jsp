@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  
+
 <title>Warning</title>
 </head>
 <body>
@@ -48,6 +48,32 @@
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="/appleMarket/js/adminWarningList.js"></script>
+<script type="text/javascript">
+//처리 버튼	
+$(document).on("click", ".pull-right", function(){
+
+	var warning_seq = $(this).parents().prev().prev().prev().prev().prev().html();
+	var result = confirm("신고처리 완료하시겠습니까?");
+	
+	if(result){
+		alert(warning_seq);
+		$.ajax({
+			url: '/appleMarket/adminWarningChange',
+			type : 'post',
+			data : {'warning_seq' :warning_seq},
+			success: function(data){
+				alert('처리 완료');				
+				location.href='/appleMarket/adminWarningList'
+		
+			},error : function(err){
+				console.log(err);
+			}
+		});
+	}else{
+		
+	}
+});
+</script>
 
 </body>
 </html>

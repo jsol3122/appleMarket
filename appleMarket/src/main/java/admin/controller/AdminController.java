@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import admin.bean.BlackListDTO;
 import admin.service.AdminService;
 import member.bean.MemberDTO;
 import warningBoard.bean.WarningBoardDTO;
@@ -87,4 +88,48 @@ public class AdminController {
 		return adminService.getAdminWarningView(warning_seq);
 	}
 	
+	//신고게시판 처리완료로 바꾸기 
+	@PostMapping("/adminWarningChange")
+	@ResponseBody
+	public void adminWarningChange(@ModelAttribute WarningBoardDTO warningBoardDTO) {
+		adminService.adminWarningChange(warningBoardDTO);
+	}
+	
+	//매너온도 5씩 내리기
+	@PostMapping("/adminReputationDown")
+	@ResponseBody
+	public void adminReputationDown(@ModelAttribute MemberDTO memberDTO) {
+		adminService.adminReputationDown(memberDTO);
+	}
+	
+	//매너온도 5씩 올리기
+	@PostMapping("/adminReputationUp")
+	@ResponseBody
+	public void adminReputationUp(@ModelAttribute MemberDTO memberDTO) {
+		adminService.adminReputationUp(memberDTO);
+	}
+	
+	//블랙리스트 insert, 멤버 delete (매너온도 < 20) 
+	@PostMapping("/adminBlackListDelete")
+	@ResponseBody
+	public void adminBlackListDelete(@ModelAttribute MemberDTO memberDTO) {
+		adminService.adminBlackListDelete(memberDTO);
+	}
+	
+	
+	//블랙리스트 회원 데이터 
+	@GetMapping("/adminBlackList")
+	public ModelAndView adminBlackList(){
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("display", "/admin/adminBlackList.jsp");
+		modelAndView.setViewName("/admin/adminNoticeList");
+		return modelAndView;
+	}
+	
+	//블랙리스트 회원 데이터 출력
+	@PostMapping("/getAdminBlackList")
+	@ResponseBody
+	public List<BlackListDTO> getAdminBlackList(){
+		return adminService.getAdminBlackList();
+	}
 }

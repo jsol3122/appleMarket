@@ -14,5 +14,6 @@
 		<typeAlias type="member.bean.RecommendDTO" alias="recommend"/>
 		<typeAlias type="location.bean.LocationDTO" alias="location"/>
 		<typeAlias type="warningBoard.bean.WarningBoardDTO" alias="warningBoard"/>
+		<typeAlias type="admin.bean.BlackListDTO" alias="blackList"/>
 	</typeAliases> 
 </configuration>

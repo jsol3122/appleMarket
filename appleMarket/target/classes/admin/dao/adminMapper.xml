@@ -6,7 +6,7 @@
  	
  	<!-- 회원 리스트 출력  -->
  	<select id="getAdminMemberList" resultType="member">
- 		select * from appleMarket
+ 		select * from appleMarket where member_reputation > 20
  	</select>
  	
  	<!-- 회원 삭제  -->
@@ -22,6 +22,31 @@
  	<!-- 신고내역 상세페이지 출력  -->
  	<select id="getAdminWarningView" parameterType="Integer" resultType="warningBoard">
  		select * from warningBoard where warning_seq=#{warning_seq}
+ 	</select>
+	
+	<!-- 신고내용 처리완료 바꾸기  -->
+	<update id="adminWarningChange" parameterType="warningBoard">
+		update warningBoard set warning_status_YN='Y' where warning_seq=#{warning_seq}
+	</update>
+	
+	<!-- 매너 온도 5씩 내리기  -->
+	<update id="adminReputationDown" parameterType="member">
+		update appleMarket set member_reputation=member_reputation-5 where member_id=#{member_id}
+	</update>
+	
+	<!-- 매너 온도 5씩 올리기 -->
+	<update id="adminReputationUp" parameterType="member">
+		update appleMarket set member_reputation=member_reputation+5 where member_id=#{member_id}
+	</update>
+	
+	<!-- 블랙리스트 insert  -->
+	<insert id="adminBlackInsert" parameterType="member">
+		insert into blackList values(seq_blackList.nextval, #{member_id}, #{member_siteCheck})
+	</insert>
+	
+	<!-- 블랙리스트 출력  -->
+ 	<select id="getAdminBlackList" resultType="blackList">
+ 		select * from blackList
  	</select>
 	
  </mapper>

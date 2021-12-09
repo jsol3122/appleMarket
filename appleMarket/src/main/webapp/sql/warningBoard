@@ -17,3 +17,12 @@ create table warningBoard(
 
 
 CREATE SEQUENCE seq_WarningBoard NOCACHE NOCYCLE;
+
+--블랙리스트
+create table blackList(
+    blackList_seq number, 
+    member_id varchar2(20) primary key, 
+    member_siteCheck number 
+);
+
+CREATE SEQUENCE seq_blackList NOCACHE NOCYCLE;

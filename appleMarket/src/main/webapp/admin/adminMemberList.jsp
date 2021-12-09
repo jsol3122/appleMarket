@@ -19,8 +19,8 @@
             </div>
             <div class="row">
                   <div class="col-lg-12">
-                      <button type="button" class="btn btn-outline btn-primary pull-right">
-                          <i class="fa fa-edit fa-fw"></i> 공지사항 작성
+                      <button type="button" class="btn btn-outline btn-primary pull-right" onclick="location.href='/appleMarket/adminBlackList'">
+                          <i class="fa fa-edit fa-fw"></i> 블랙리스트
                       </button>
                   </div>
               </div>
@@ -51,25 +51,91 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="/appleMarket/js/adminMemberList.js"></script>
 <script type="text/javascript">
-//삭제 버튼	
-$(document).on("click", ".pull-right", function(){
+//삭제 버튼 - 회원삭제	
+$(document).on("click", "#adminMember .pull-right", function(){
 
-		var member_id = $(this).parents().prev().prev().prev().prev().prev().html();
+		var member_id = $(this).parents().prev().prev().prev().prev().prev().prev().html();
+		var result = confirm("삭제하시겠습니까?");
+		if(result){
+			$.ajax({
+				url: '/appleMarket/adminMemberDelete',
+				type : 'post',
+				data : {'member_id' :member_id},
+				success: function(data){
+				    alert('회원 정보 삭제 완료');
+				    location.href='/appleMarket/adminMemberList';
+	
+				},error : function(err){
+					console.log(err);
+				}
+			});
 		
+		}else{
+			
+		}
+});
+
+//온도 감소 
+$(document).on("click", ".nav__icon_minus", function(){
+	var member_id = $(this).parents().prev().prev().prev().html();
+	var member_reputation = $(this).parents().prev().next().children().eq(1).val();	
+	var member_siteCheck = $(this).parents().next().html()
+	
+	if(member_reputation != 21.5){
 		$.ajax({
-			url: '/appleMarket/adminMemberDelete',
+			url: '/appleMarket/adminReputationDown',
 			type : 'post',
 			data : {'member_id' :member_id},
 			success: function(data){
-				alert('회원 정보 삭제 완료');
-
+				alert('매너온도 낮추기 완료');
+	
 				location.href='/appleMarket/adminMemberList'
 				
 			},error : function(err){
 				console.log(err);
 			}
 		});
+	}else{
+		$.ajax({
+			url: '/appleMarket/adminBlackListDelete',
+			type : 'post',
+			data : {'member_id':member_id,
+					'member_siteCheck':member_siteCheck},
+			success: function(data){
+				alert('매너온도 낮추기 완료');
+	
+				location.href='/appleMarket/adminMemberList'
+				
+			},error : function(err){
+				console.log(err);
+			}
+		});
+	}		
+		
+});
+
+//온도 증가 
+$(document).on("click", ".nav__icon_plus", function(){
+	var member_id = $(this).parents().prev().prev().prev().html();
+	$.ajax({
+		url: '/appleMarket/adminReputationUp',
+		type : 'post',
+		data : {'member_id' :member_id},
+		success: function(data){
+			alert('매너온도 올리기 완료');
+
+			location.href='/appleMarket/adminMemberList'
+			
+		},error : function(err){
+			console.log(err);
+		}
 	});
+			
+		
+});
+
+
+
 </script>
 </body>
 </html>
