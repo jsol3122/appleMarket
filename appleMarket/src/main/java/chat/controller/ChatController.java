@@ -50,25 +50,27 @@ public class ChatController {
 		HttpSession loginSession = request.getSession();
 		String user_id = (String)loginSession.getAttribute("member_id");
 		System.out.println(user_id + " 세션 받았다!");
-		String board_seq;
+		int sale_seq=0;
+		int buyerboard_seq=0;
 		String member_id;
-		int board_name=0;
-	
-		if(board_name==1) {
-			board_seq = String.valueOf(saleboardDTO.getSale_seq());
-			member_id = saleboardDTO.getMember_id();
-		} else {
-			board_seq = String.valueOf(buyerboardDTO.getBuyerboard_seq());
-			member_id = buyerboardDTO.getMember_id();		
-		}
-		System.out.println(board_seq+member_id + board_name + " 데이터 받았다!222");
+		
+		sale_seq = saleboardDTO.getSale_seq();
+		member_id = saleboardDTO.getMember_id();
+		
+		buyerboard_seq = buyerboardDTO.getBuyerboard_seq();
+		member_id = buyerboardDTO.getMember_id();		
+		
+		System.out.println(sale_seq+member_id+ "DTO 데이터 받았다!");
 		
 		Map<String, String> map = new HashMap<String, String>();
-		map.put("board_seq", board_seq);
+		if(sale_seq != 0) map.put("sale_seq", sale_seq+"");
+		else map.put("buyerboard_seq", buyerboard_seq+"");
+		
 		map.put("member_id", member_id); // 글 작성자 (채팅 걸리는 사람)
 		map.put("user_id", user_id); // 로그인 세션 아이디 (채팅 거는 사람)			
 		
 		int chatRoom_id = chatService.newRoom(map);
+		System.out.println(chatRoom_id);
 		List<ChatDTO> list = chatService.personalChatHistory(chatRoom_id);
 		
 	    return "redirect:/personalChat/" + chatRoom_id;

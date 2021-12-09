@@ -38,6 +38,7 @@
                                     <input type="email" name="member_email" id="member_email" placeholder="예: appleMarket@gmail.com" />
                                 </div>
                   
+
 								<input type="button" value="수정하기" id="writeBtn" class="sbm" />
 
                                 </div>

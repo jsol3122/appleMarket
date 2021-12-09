@@ -103,16 +103,17 @@ function get_detail(DTO){
     $('form div').eq(2).addClass('order_summary');
     $('.addcart').addClass('sprites');
 
+//saleboardDTO 변수들만 넣을 수 있다
 	var member_id = DTO.member_id;
-	var board_seq = DTO.sale_seq;
-	
+	var sale_seq = DTO.sale_seq;
+
+	// 채팅하기 버튼 클릭
 	$(document).on('click', '.chat',function(DTO){
-	 
- 	alert(member_id+" "+board_seq+"DTO 들어왔나?");  //undefined
+ 	alert(member_id+" "+sale_seq+"DTO 들어왔나?");  
 	    $.ajax({
 	      url: '/appleMarket/chat/newChat',
 	      type: 'post',
-	      data: 'member_id='+member_id+'&board_seq='+board_seq+'&board_name= 1 ',  
+	      data: 'member_id='+member_id+'&sale_seq='+sale_seq,  
 	      success: function(){
 	        console.log('dto 보내기 성공~~~~~~~');
 	      },
@@ -180,6 +181,6 @@ let renderList = function(mode, DTO){
 
 }
 
-// 채팅하기 버튼 클릭
+
 
 

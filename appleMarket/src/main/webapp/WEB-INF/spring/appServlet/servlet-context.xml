@@ -36,6 +36,8 @@
 	<context:component-scan base-package="spring.conf" />
 	<context:component-scan base-package="handler" />
 	<context:component-scan base-package="location.controller"/>
+	<context:component-scan base-package="admin.controller"/>
+	<context:component-scan base-package="warningBoard.controller"/>
 
 	<mvc:resources location="/js/" mapping="/js/**" />
 	<mvc:resources location="/img/" mapping="/img/**" />

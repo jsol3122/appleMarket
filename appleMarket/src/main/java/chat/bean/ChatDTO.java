@@ -11,12 +11,12 @@ import lombok.ToString;
 @Setter
 @ToString
 public class ChatDTO implements Serializable{
+	private int chatRoom_id;
+	private String sale_seq;
+	private String buyerboard_seq;
 	private int no;
-	private String memberId;
+	private String member_id;
 	private int srNo;
 	private String chatContent;
 	private Date sendDate;
-	private int chatRoom_id;
-	private String vaildYN;
-	private String board_seq;
-}
+	}

@@ -37,11 +37,8 @@
 		         <br>
 		         <div id="loginResult"></div>
 	         </div>
-	         
-	     
-
-	      </form>
-	    </div>
+       </form>
+       </div>
       <br>
       <br>
    </div> <!-- section -->
@@ -65,7 +62,7 @@ $('#loginBtn').click(function(){
       $('#loginResult').css('font-weight', 'bold');
       $('#loginResult').css('text-align', 'center');
    }
-   else if(loginForm.querySelector("#member_pwd").value=="")	   
+   else if(loginForm.querySelector("#member_pwd").value=="")      
       loginForm.querySelector('#member_pwd').classList.add("placeholderColor");
    else{
       $.ajax({
@@ -73,23 +70,23 @@ $('#loginBtn').click(function(){
             type: 'post',
             data: 'member_id='+$('#member_id').val()+'&member_pwd='+$('#member_pwd').val(),
             //dataType: 'text',
-            success: function(data){  	             
+            success: function(data){                  
                console.log(JSON.stringify(data));
                
-              if(data.login==1 && data.loginGPS==1){            	  
-            	  alert(id+"님 반갑습니다.");
+              if(data.login==1 && data.loginGPS==1){                 
+                 alert(id+"님 반갑습니다.");
                   location.href="/appleMarket/index";      
                 
                }else if(data.login==1 && data.loginGPS==0){
-            	 //var result = confirm("앗 지역인증 안하셨네요? 하실건가요?");
-	              if(!confirm("앗 지역인증 안하셨네요? 하실건가요?")){
-	            	   alert('앗 아쉽네요. 지역등록을 해야 원활한 서비스 이용이 가능합니다 😭😭');
-			           location.href="/appleMarket/index";
-	               }else{
-	            	   window.open("http://localhost:8080/appleMarket/view/location/map.jsp", '_blank', 'width=500, height=500');
-	            	   location.href="/appleMarket/index";
-	               }
-               }else{    	   
+                //var result = confirm("앗 지역인증 안하셨네요? 하실건가요?");
+                 if(!confirm("앗 지역인증 안하셨네요? 하실건가요?")){
+                     alert('앗 아쉽네요. 지역등록을 해야 원활한 서비스 이용이 가능합니다 😭😭');
+                    location.href="/appleMarket/index";
+                  }else{
+                     window.open("http://localhost:8080/appleMarket/view/location/map.jsp", '_blank', 'width=500, height=500');
+                     location.href="/appleMarket/index";
+                  }
+               }else{          
                   $('#loginResult').text('아이디 또는 비밀번호가 잘못 입력 되었습니다.아이디와 비밀번호를 정확히 입력해 주세요.');
                   $('#loginResult').css('color', 'red');
                   $('#loginResult').css('font-size', '15pt');
@@ -109,22 +106,22 @@ console.log(Kakao.isInitialized()); // sdk초기화여부판단
 
 //카카오로그인
 function kakaoLogin() {
-	   	$.ajax({
-	         url: '/appleMarket/login/getKakaoAuthUrl',
-	         type: 'get',
-	         //data: {'member_id' : id},
-	         dataType: 'text',
-	         success: function(data){
-	        	 location.href = data;
-	         },
-	         error: function(err){
-	            console.log(err);
-	         }
-	        });
+         $.ajax({
+            url: '/appleMarket/login/getKakaoAuthUrl',
+            type: 'get',
+            //data: {'member_id' : id},
+            dataType: 'text',
+            success: function(data){
+               location.href = data;
+            },
+            error: function(err){
+               console.log(err);
+            }
+           });
 }
 
 $(document).ready(function() {
-	
+   
     var kakaoInfo = '${kakaoInfo}';
     if(kakaoInfo != ""){
         var data = JSON.parse(kakaoInfo);

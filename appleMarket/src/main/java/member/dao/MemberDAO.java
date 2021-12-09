@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import member.bean.MemberDTO;
+import member.bean.RecommendDTO;
 import member.bean.ZipcodeDTO;
 
 public interface MemberDAO {
@@ -30,8 +31,14 @@ public interface MemberDAO {
 
 	public void recommended(Map<String, String> map);
 
-	public int phoneChk(MemberDTO memberDTO);
-
 	public int emailChk(String member_email);
+
+	public int recommendChk(Map<String, String> map);
+
+	public List<RecommendDTO> recommendList(String member_id);
+
+	public void recommendCoupon(String member_id);
+
+
 
 }

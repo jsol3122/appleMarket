@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import member.bean.MemberDTO;
+import member.bean.RecommendDTO;
 import member.bean.ZipcodeDTO;
 
 public interface MemberService {
@@ -31,7 +32,6 @@ public interface MemberService {
 	 * public String searchPwd(String member_id, String
 	 * member_email,HttpServletResponse response);
 	 */
-
 	
 	//이메일발송
 	public void sendEmail(MemberDTO memberDTO, String div) throws Exception;
@@ -42,13 +42,13 @@ public interface MemberService {
 
 	public void recommended(Map<String, String> map);
 
-	public int phoneChk(MemberDTO memberDTO);
-
+	public int recommendChk(Map<String, String> map);
+	
 	public int emailChk(String member_email);
 
+	public List<RecommendDTO> recommendList(String member_id);
 
-
-
+	public void recommendCoupon(String member_id);
 
 
 
