@@ -26,9 +26,9 @@ $(function(){
       $('form fieldset').append(data.boardPaging);
       $('a.prev').attr('href', '/appleMarket/view/localCommunityboard/localCommunityboardList.jsp?pg='+(parseInt(result.pg)-1));
       $('a.next').attr('href', '/appleMarket/view/localCommunityboard/localCommunityboardList.jsp?pg='+(parseInt(result.pg)+1));
-      for(step=1; step<$('.bd_pg a').length; step++){
-        $('a.paging').eq(step).attr('href', '/appleMarket/view/localCommunityboard/localCommunityboardList.jsp?pg='+(step-1));
-      }
+      $('a.paging').each(function (index, item){
+        item.href = '/appleMarket/view/localCommunityboard/localCommunityboardList.jsp?pg='+item.text;
+      });
       $('.bd_pg a').removeClass('this');
       $('.bd_pg a').eq(parseInt(result.pg)).addClass('this');
 

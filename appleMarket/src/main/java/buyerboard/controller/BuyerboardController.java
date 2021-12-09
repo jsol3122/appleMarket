@@ -46,9 +46,9 @@ public class BuyerboardController {
 	}
 	
 	
-	@PostMapping("/buyerboard/buyerboardWriteForm")
+	@GetMapping("/buyerboard/buyerboardWriteForm")
 	public String buyerboardWriteForm() {
-		return "/buyerboard/buyerboardWriteForm";
+		return "/view/buyerboard/buyerboardWriteForm";
 	}
 	
 	@PostMapping("/buyerboard/buyerboardWrite")
@@ -92,7 +92,7 @@ public class BuyerboardController {
 
 			}
 		} // for
-		
+		System.out.println(buyerboardDTO);
 		buyerboardService.buyerboardWrite(buyerboardDTO);
 	}
 	

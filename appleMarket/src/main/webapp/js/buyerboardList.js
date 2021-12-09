@@ -18,6 +18,11 @@ $(function(){
     })
     fetchList();
     
+    // 물품등록 버튼 클릭
+    $('#buyerboardWriteBtn').click(function(){
+	   location.href = '/appleMarket/buyerboard/buyerboardWriteForm'; 
+	});
+    
 })
 
 let fetchList = function(){
@@ -89,3 +94,7 @@ let renderList = function(mode, DTO){
     }
     */
 }
+
+
+
+
