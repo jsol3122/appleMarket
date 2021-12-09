@@ -23,11 +23,12 @@
 	<!-- value="5000000" 은 10메가 -->
 
    <!-- Websocket -->
+<!-- 
    <websocket:handlers>
 	   	<websocket:mapping handler="echoHandler" path="/echo"/>
    		<websocket:sockjs/>
    </websocket:handlers>
-
+-->
 
 	<context:component-scan base-package="communityboard.controller" />
 	<context:component-scan base-package="communityboardComment.controller" />
@@ -36,6 +37,10 @@
 	<context:component-scan base-package="buyerboard.controller"/>
 	<context:component-scan base-package="myPage.controller"/>
 	<context:component-scan base-package="chat.controller"/>
+	<context:component-scan base-package="chat.conf" />
+	<!-- 채팅 -->
+	<context:component-scan base-package="chat.service"/>
+	<context:component-scan base-package="chat.dao"/>
 
 	<context:component-scan base-package="member.controller" />
 	<context:component-scan base-package="spring.conf" />

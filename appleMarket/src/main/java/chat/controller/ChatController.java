@@ -2,36 +2,39 @@ package chat.controller;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import buyerboard.bean.BuyerboardDTO;
 import chat.bean.ChatDTO;
 import chat.bean.ChatRoomDTO;
 import chat.service.ChatService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import member.bean.MemberDTO;
 import saleboard.bean.SaleboardDTO;
 
 @Controller
 @Slf4j
+@RequiredArgsConstructor
 public class ChatController {
-	@Autowired
 	private ChatService chatService;
-	@Autowired
 	private SimpMessagingTemplate simpMessagingTemplate;
 
 	
@@ -43,6 +46,21 @@ public class ChatController {
         simpMessagingTemplate.convertAndSend("/subscribe/" + receiver,message);
     }	
 */	
+	
+	@RequestMapping(value="/chatting.do")
+	public ModelAndView chat(ModelAndView mv) {
+		mv.setViewName("chat/chattingview");
+		
+		//사용자 정보 출력(세션)
+		MemberDTO member_id = (MemberDTO) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		System.out.println("user name : " + member_id.getMember_id());
+		
+		System.out.println("normal chat page");
+		
+		mv.addObject("member_id", member_id.getMember_id());
+		
+		return mv;	
+	}
 	
 	// 새로운 채팅 시작 : 작성글에서 "채팅으로 거래하기"  
 	// => 글번호, user 두명 초대해서 return "redirect:/personalChat/" + chatRoom_id; 여기로 연결
@@ -77,7 +95,16 @@ public class ChatController {
 		map.put("member_id", member_id); // 글 작성자 (채팅 걸리는 사람)
 		map.put("user_id", user_id); // 로그인 세션 아이디 (채팅 거는 사람)			
 		
-		int chatRoom_id = chatService.newRoom(map);
+		Iterator<String> keys = map.keySet().iterator();
+        while( keys.hasNext() ){
+            String key = keys.next();
+            String value = map.get(key);
+            System.out.println("키 : "+key+", 값 : "+value);
+        }
+		
+		int chatRoom_id = 0; 
+		chatService.test();
+		chatRoom_id = chatService.newRoom(map);
 		System.out.println(chatRoom_id);
 		List<ChatDTO> list = chatService.personalChatHistory(chatRoom_id);
 		

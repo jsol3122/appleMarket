@@ -195,7 +195,7 @@ public class MemberController{
 		}
 
 	}
-	
+
 	//아이디 중복체크
 	@PostMapping("/user/checkId")
 	@ResponseBody
@@ -323,7 +323,7 @@ public class MemberController{
 		return memberSerivce.searchId(member_email);
 	}
 
-
+	
 	//비밀번호찾기
 	@PostMapping(value="/searchPwd")
 	@ResponseBody 

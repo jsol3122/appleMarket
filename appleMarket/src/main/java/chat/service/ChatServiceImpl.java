@@ -70,6 +70,13 @@ public class ChatServiceImpl implements ChatService{
 	public List<ChatDTO> personalChatHistory(int chatRoom_id) {
 		return chatDAO.personalChatHistory(chatRoom_id);
 	}
+
+
+	@Override
+	public void test() {
+	System.out.println("서비스로 왔따 !");
+	
+	}
 	
 /*
 	public int checkChatRoom(Map<String, String> map){

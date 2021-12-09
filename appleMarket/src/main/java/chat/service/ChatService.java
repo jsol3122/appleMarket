@@ -12,9 +12,11 @@ public interface ChatService {
 
 	public void insertChat(ChatDTO chatDTO); // 채팅 치기
 
-	public int newRoom(Map<String, String> map); // 새로운 방 생성
+	public int newRoom(Map<String, String> map) ; // 새로운 방 생성
 
 	public List<ChatRoomDTO> ChatList(String user_id); // 채팅방 목록
 
 	public List<ChatDTO> personalChatHistory(int chatRoom_id); // 대화 기록 불러오기
+	
+	public void test();
 }
