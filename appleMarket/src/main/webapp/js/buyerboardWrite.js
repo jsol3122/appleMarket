@@ -23,12 +23,11 @@ $('#buyerboardWriteButton').click(function(){
     $.ajax({
       url: '/appleMarket/buyerboard/buyerboardWrite',
       type: 'post',
-      enctype: 'multipart/form-data',
-      data: formData,
-      processData: false,
-      contentType: false,
-      cache: false,
-      success: function(data){
+	  enctype: 'multipart/form-data',
+	  processData: false,
+	  contentType: false,
+	  data: formData,
+      success: function(){
         alert('상품 등록이 완료되었습니다');
         location.href = '/appleMarket/buyerboard/buyerboardList?pg=1';
       },

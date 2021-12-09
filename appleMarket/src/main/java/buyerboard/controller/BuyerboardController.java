@@ -53,7 +53,7 @@ public class BuyerboardController {
 	
 	@PostMapping("/buyerboard/buyerboardWrite")
 	@ResponseBody
-	public void buyerboardWrite(@ModelAttribute BuyerboardDTO buyerboardDTO, @RequestParam MultipartFile[] img,
+	public void buyerboardWrite(@ModelAttribute BuyerboardDTO buyerboardDTO, @RequestParam("img[]") MultipartFile[] img,
 			HttpSession session) {
 		String filePath = session.getServletContext().getRealPath("storage");
 		System.out.println(filePath);
@@ -62,7 +62,7 @@ public class BuyerboardController {
 		File file;
 
 		// 파일 복사
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < img.length; i++) {
 			if (img[i] != null) {
 				fileName = img[i].getOriginalFilename();
 				file = new File(filePath, fileName);
@@ -92,6 +92,7 @@ public class BuyerboardController {
 
 			}
 		} // for
+		buyerboardDTO.setMember_id((String) session.getAttribute("member_id"));
 		System.out.println(buyerboardDTO);
 		buyerboardService.buyerboardWrite(buyerboardDTO);
 	}

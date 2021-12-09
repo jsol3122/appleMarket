@@ -15,8 +15,8 @@
 		        <h2 class="star"><span>마이페이지</span></h2>
 			        <div class="clr"></div>
 				        <ul class="sb_menu">
-				        <li><i class="fa fa-shopping-cart"></i><a href="/appleMarket/buyhistory">구매내역</a></li>
-				        <li><i class="fa fa-shopping-cart"></i><a href="/appleMarket/buyhistory">판매내역</a></li>
+				        <li><i class="fa fa-shopping-cart"></i><a href="/appleMarket/buyhistory?pg=1">구매내역</a></li>
+				        <li><i class="fa fa-shopping-cart"></i><a href="/appleMarket/salehistory?pg=1">판매내역</a></li>
 				         <li><a href="/appleMarket/myMap">동네인증</a></li>
 				        <li class="sidebar-dropdown">
 				            <a href="#">
@@ -27,10 +27,10 @@
 				            <div class="sidebar-submenu">
 				              <ul>
 				                <li>
-				                  <a href="#">조잘조잘 글</a>
+				                  <a href="/appleMarket/communityHistory?pg=1">조잘조잘 글</a>
 				                </li>
 				                <li>
-				                  <a href="#">조잘조잘 댓글</a>
+				                  <a href="/appleMarket/communityCommentHistory?pg=1">조잘조잘 댓글</a>
 				                </li>         
 				              </ul>
 				            </div>
@@ -44,10 +44,10 @@
 				            <div class="sidebar-submenu">
 				              <ul>
 				                <li>
-				                  <a href="#">우리동네이야기 글</a>
+				                  <a href="/appleMarket/localCommunityHistory?pg=1">우리동네이야기 글</a>
 				                </li>
 				                <li>
-				                  <a href="#">우리동네이야기 댓글</a>
+				                  <a href="/appleMarket/localCommunityCommentHistory?pg=1">우리동네이야기 댓글</a>
 				                </li>         
 				              </ul>
 				            </div>
