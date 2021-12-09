@@ -224,7 +224,6 @@ public class MyPageController {
 		return myPageService.myBuyerGetView(buyerboard_seq);
 	}
 	
-	
-	
+
 	
 }

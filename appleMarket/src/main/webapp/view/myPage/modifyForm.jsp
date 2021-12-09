@@ -32,8 +32,6 @@
                               <input type="text" name="member_tel3" id="member_tel3" maxlength="4" style="width:80px; margin: 0 10px;" value="">
                               <input type="text" id="user_valid" class="hidden">
                               <input type="hidden" id="checked_user" value="">
-
-<<<<<<< HEAD
                           </div>
                           <div class="memberupwrite">
                               <label>이메일 </label>
@@ -43,15 +41,7 @@
             
 						<input type="button" value="수정하기" id="userchangBtn" class="sbm" name="writeBtn" />
 
-=======
-                                </div>
-                                <div class="memberupwrite">
-                                    <label>이메일 </label>
-                                    <input type="email" name="member_email" id="member_email" placeholder="예: appleMarket@gmail.com" />
-                                </div>
-                  
-                        <input type="button" value="수정하기" id="writeBtn" class="sbm" />
->>>>>>> 0e1c727bdf19e5fe0ae4d6e0d8f990f9b2dff7a4
+
 
                       </form>
 <script type="text/javascript" src="/appleMarket/js/user.js"></script>

@@ -52,7 +52,7 @@
 				              </ul>
 				            </div>
 			          	</li>
-				        <li><a href="#">친구 초대</a></li>				        
+				        <li><a href="/appleMarket/recommendForm">친구 초대</a></li>				        
 				        <li><a href="/appleMarket/modifyForm">회원정보수정</a></li>	
 				        <li><a href="/appleMarket/deleteForm">회원탈퇴</a></li>      
 				     	</ul>

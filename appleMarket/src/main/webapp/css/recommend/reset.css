@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap');
+
+/* reset */
+body,
+h1, h2, h3, h4, h5, h6{margin: 0;}
+ul, ol, dl, dd, 
+fieldset, legend,
+p, form, fieldset{margin: 0; padding: 0;}
+table, th, td { border-collapse: collapse; }
+ul, ol{list-style:none;}
+a{text-decoration: none; color: inherit;}
+button{border:none; cursor: pointer;}
+fieldset {border: none;}
+main { display: block; width: 100%; }
+
+html, body{height: 100%;}
+
+.wrap::after{ content:' '; display:block; clear:both;}
+.hidden, legend {display: block; width: 0px; height:0px; overflow: hidden; position: fixed; z-index: -999; top: -999px; left: -999px;}
+body{font-family: 'Nanum Gothic', sans-serif; color: #333;}
+::selection{background-color: #ff843d; color: #fff;}

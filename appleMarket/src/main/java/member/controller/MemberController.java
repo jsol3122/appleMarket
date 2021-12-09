@@ -63,49 +63,6 @@ public class MemberController{
 		return "/user/writeForm";
 	}
 	
-//	//회원가입
-//	@RequestMapping("/write")
-//	@ResponseBody
-//	public void write(@ModelAttribute @Valid MemberDTO memberDTO) {
-//		String Check = memberSerivce.checkId(memberDTO.getMember_id());
-//		if(Check.equals("non_exist")) {
-//			memberSerivce.write(memberDTO);
-//		}else {
-//			return;
-//		}
-//	}
-	//회원가입 - index 이동(맞는지 확인 요망)
-	@RequestMapping("/write")
-	public String write(@ModelAttribute @Valid MemberDTO memberDTO,@Nullable @RequestParam("recommend_id") String recommend_id) {
-		
-		String member_id=memberDTO.getMember_id();
-		String Check = memberSerivce.checkId(member_id);
-		
-		Map<String, String> map = new HashMap<String,String>();
-		map.put("recommend_id", recommend_id);
-		map.put("member_id", member_id);
-		int recommendChk = memberSerivce.recommendChk(map);
-		
-		System.out.println("recommend_id=" + recommend_id);
-		System.out.println("member_id="+memberDTO.getMember_id());
-		System.out.println("recommendChk="+recommendChk);
-		
-		if(Check.equals("non_exist")) {
-			//추천인 등록
-			if(recommend_id!=null) {
-				if(recommendChk<5) { 
-					memberSerivce.recommend(map); 
-					memberSerivce.recommended(map);
-				}
-			}
-			//가입하기
-			memberSerivce.write(memberDTO);
-			//가입 후 인덱스로 가기
-			return  "/view/user/writeFormSuccess";
-		}else {
-			return  "/view/user/writeFormSuccess";
-		}
-	}
 	
 
 	//이메일 중복체크
@@ -395,11 +352,12 @@ public class MemberController{
 	}
 	
 
-	
+	//====================================================마이페이지 추천인=======================================================
 		//추천하기폼
 		@GetMapping("/recommendForm")
-		public String recommendForm() {
-			return "/view/recommend/recommendForm";
+		public String recommendForm(HttpServletRequest request, HttpServletResponse response) throws Throwable{
+			request.setAttribute("display", "/view/myPage/recommend/recommendForm.jsp");
+			return "/view/myPage/mypageMainForm";
 		}
 
 		//추천하기 리스트

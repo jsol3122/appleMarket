@@ -40,12 +40,6 @@ public interface MemberDAO {
 	public void recommendCoupon(String member_id);
 
 
-	public int recommendChk(Map<String, String> map);
-
-	public List<RecommendDTO> recommendList(String member_id);
-
-	public void recommendCoupon(String member_id);
-
 
 
 }

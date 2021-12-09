@@ -183,17 +183,12 @@ public class MemberServiceImpl implements MemberService {
 		
 		return memberDAO.recommendChk(map);
 	}
-
-
+	
 	@Override
 	public List<RecommendDTO> recommendList(String member_id) {
 		
 		return memberDAO.recommendList(member_id);
 	}
-
-
-	
-
 
 	@Override
 	public void recommendCoupon(String member_id) {
@@ -201,6 +196,8 @@ public class MemberServiceImpl implements MemberService {
 		memberDAO.recommendCoupon(member_id);
 		
 	}
+
+
 	
 
 }

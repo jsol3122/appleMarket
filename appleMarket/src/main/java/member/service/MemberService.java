@@ -38,7 +38,6 @@ public interface MemberService {
 
 	public void changePwd(MemberDTO memberDTO);
 
-	public int phoneChk(MemberDTO memberDTO);
 
 	public int emailChk(String member_email);
 	
