@@ -13,7 +13,7 @@
 <body>
 
 <c:if test="${empty display}"> 
-<div class="page-wrapper">
+<div class="page-wrapper" id="test">
     <div class="container-fluid">
         <div class="col-lg-8"><!--게시판 넓이 -->
             <div class="col-lg-12">
@@ -65,5 +65,8 @@
              <!-- sidebar -->
              <%@include file="/admin/adminindex.jsp" %> 
             </div> 
+
 </body>
+
+
 </html>

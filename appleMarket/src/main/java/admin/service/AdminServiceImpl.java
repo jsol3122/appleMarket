@@ -31,4 +31,9 @@ public class AdminServiceImpl implements AdminService {
 		return adminDAO.getAdminWarningList();
 	}
 
+	@Override
+	public WarningBoardDTO getAdminWarningView(int warning_seq) {
+		return adminDAO.getAdminWarningView(warning_seq);
+	}
+
 }

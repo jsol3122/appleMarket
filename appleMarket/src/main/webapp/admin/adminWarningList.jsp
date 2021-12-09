@@ -13,7 +13,7 @@
 <body>
 <div class="page-wrapper">
     <div class="container-fluid">
-        <div class="col-lg-8"><!--게시판 넓이 -->
+        <div class="col-lg-9"><!--게시판 넓이 -->
             <div class="col-lg-12">
                 <h1 class="page-header">Warning</h1>
             </div>

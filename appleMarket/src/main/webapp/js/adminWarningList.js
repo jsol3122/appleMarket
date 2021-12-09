@@ -4,19 +4,23 @@ $(function(){
 		type: 'post',
 		dataType: 'json', 
 		success: function(data){
-			alert(JSON.stringify(data));
+			//alert(JSON.stringify(data));
 			
 			$.each(data, function(index,items){
 				$('<tr>').append($('<td>',{
 					align : 'center', 
+					id:'warning_seq',
 					text : items.warning_seq
 				})).append($('<td>',{
 					align : 'center', 
 					text : items.warning_category
 				})).append($('<td>',{
-					align : 'center', 
+					align:'center',
+				}).append($('<a>',{
+					href:'/appleMarket/adminWarningView?warning_seq='+items.warning_seq,
+					class:'warning_subject',
 					text : items.warning_subject
-				})).append($('<td>',{
+				}))).append($('<td>',{
 					align : 'center', 
 					text : items.warning_logtime
 				})).append($('<td>',{

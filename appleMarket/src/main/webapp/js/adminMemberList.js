@@ -41,6 +41,9 @@ $(function(){
 					align : 'center', 
 					text : items.member_siteCheck
 				})).append($('<td>',{
+					align : 'center', 
+					text : items.member_entryLogtime
+				})).append($('<td>',{
 					align:'center',
 				}).append($('<input>',{//td의 자식 
 					type: 'button',

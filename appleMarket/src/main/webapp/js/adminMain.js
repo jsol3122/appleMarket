@@ -18,7 +18,6 @@ showMenu('nav-toggle', 'navbar', 'body-pd')
 /* LINK ACTIVE */
 const linkColor = document.querySelectorAll('.nav__link')
 function colorLink() {
-	alert('확인');
     linkColor.forEach(l=> l.classList.remove('active'))
     this.classList.add('active')
 }
@@ -37,4 +36,3 @@ for(i=0;i<linkCollapse.length;i++) {
         rotate.classList.toggle('rotate')
     });
 }
-

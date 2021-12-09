@@ -32,4 +32,9 @@ public class AdminDAOMybatis implements AdminDAO{
 		return sqlSession.selectList("adminSQL.getAdminWarningList");
 	}
 
+	@Override
+	public WarningBoardDTO getAdminWarningView(int warning_seq) {
+		return sqlSession.selectOne("adminSQL.getAdminWarningView",warning_seq);
+	}
+
 }

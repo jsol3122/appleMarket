@@ -18,6 +18,11 @@
  	<select id="getAdminWarningList" resultType="warningBoard">
  		select * from warningBoard where warning_status_YN='N'
  	</select>
+ 	
+ 	<!-- 신고내역 상세페이지 출력  -->
+ 	<select id="getAdminWarningView" parameterType="Integer" resultType="warningBoard">
+ 		select * from warningBoard where warning_seq=#{warning_seq}
+ 	</select>
 	
  </mapper>
  	

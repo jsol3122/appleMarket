@@ -8,6 +8,8 @@ import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.Data;
 
 @Data
@@ -38,6 +40,7 @@ public class MemberDTO {
 	private double member_reputation; 
 	private int member_warning; 
 	private String member_profilePic;
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy.MM.dd")
 	private Date member_entryLogtime;
 	private String member_gps;
 	private int member_siteCheck;

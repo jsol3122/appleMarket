@@ -13,7 +13,7 @@
 <body>
 <div class="page-wrapper">
     <div class="container-fluid">
-        <div class="col-lg-8"><!--게시판 넓이 -->
+        <div class="col-lg-9"><!--게시판 넓이 -->
             <div class="col-lg-12">
                 <h1 class="page-header">Member Manage</h1>
             </div>
@@ -38,6 +38,7 @@
                                <th>핸드폰</th>
                                <th>매너온도</th>
                                <th>사이트</th>
+                               <th>가입일</th>
                                <th>관리</th>
                            </tr>
                     </table>

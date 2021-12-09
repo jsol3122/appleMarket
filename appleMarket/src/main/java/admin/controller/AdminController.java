@@ -55,7 +55,7 @@ public class AdminController {
 		adminService.adminMemberDelete(memberDTO);
 	}
 	
-	//신고게시판 데이터 
+	//신고게시판 데이터 화면
 	@GetMapping(value="/adminWarningList")
 	public ModelAndView adminWarningList() {
 		ModelAndView modelAndView = new ModelAndView();
@@ -71,7 +71,20 @@ public class AdminController {
 		return adminService.getAdminWarningList();
 	}
 	
+	//신고게시판 데이터 상세 화면
+	@GetMapping(value="/adminWarningView")
+	public ModelAndView adminWarningView() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("display", "/admin/adminWarningView.jsp");
+		modelAndView.setViewName("/admin/adminNoticeList");
+		return modelAndView;
+	}
 
+	//신고게시판 데이터 상세 출력
+	@PostMapping("/getAdminWarningView")
+	@ResponseBody
+	public WarningBoardDTO getadminWarningView(int warning_seq){
+		return adminService.getAdminWarningView(warning_seq);
+	}
 	
-	//신고 데이터 화면 
 }

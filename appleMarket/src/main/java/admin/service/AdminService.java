@@ -13,4 +13,6 @@ public interface AdminService {
 
 	public List<WarningBoardDTO> getAdminWarningList();
 
+	public WarningBoardDTO getAdminWarningView(int warning_seq);
+
 }
