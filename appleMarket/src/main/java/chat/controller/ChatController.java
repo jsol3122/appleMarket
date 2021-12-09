@@ -22,7 +22,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import buyerboard.bean.BuyerboardDTO;
 import chat.bean.ChatDTO;
 import chat.bean.ChatRoomDTO;
-import chat.service.ChatMessageService;
 import chat.service.ChatService;
 import lombok.extern.slf4j.Slf4j;
 import saleboard.bean.SaleboardDTO;
@@ -31,9 +30,11 @@ import saleboard.bean.SaleboardDTO;
 @Slf4j
 public class ChatController {
 	@Autowired
-	private SimpMessagingTemplate simpMessagingTemplate;
-	private ChatMessageService chatMessageService;
 	private ChatService chatService;
+	@Autowired
+	private SimpMessagingTemplate simpMessagingTemplate;
+
+	
 /*	
 	@MessageMapping("/chat/send")
     public void sendMsg(ChatMessageForm message) throws Exception {
@@ -50,22 +51,29 @@ public class ChatController {
 		HttpSession loginSession = request.getSession();
 		String user_id = (String)loginSession.getAttribute("member_id");
 		System.out.println(user_id + " 세션 받았다!");
-		int sale_seq=0;
-		int buyerboard_seq=0;
+		String sale_seq;
+		String buyerboard_seq;
 		String member_id;
 		
-		sale_seq = saleboardDTO.getSale_seq();
+		sale_seq = saleboardDTO.getSale_seq()+"";
+		buyerboard_seq = buyerboardDTO.getBuyerboard_seq()+"";
 		member_id = saleboardDTO.getMember_id();
 		
-		buyerboard_seq = buyerboardDTO.getBuyerboard_seq();
+		System.out.println(buyerboard_seq);
+		
+		if (sale_seq != null) {
+			buyerboard_seq = "0";
+		} else {
+			sale_seq = "0";
+		}
 		member_id = buyerboardDTO.getMember_id();		
 		
-		System.out.println(sale_seq+member_id+ "DTO 데이터 받았다!");
+		System.out.println(sale_seq+member_id+ "sale DTO 데이터 받았다!");
+		System.out.println(buyerboard_seq+user_id+ "buyer DTO 데이터 받았다!");
 		
 		Map<String, String> map = new HashMap<String, String>();
-		if(sale_seq != 0) map.put("sale_seq", sale_seq+"");
-		else map.put("buyerboard_seq", buyerboard_seq+"");
-		
+		map.put("sale_seq", sale_seq+"");
+		map.put("buyerboard_seq", buyerboard_seq+"");
 		map.put("member_id", member_id); // 글 작성자 (채팅 걸리는 사람)
 		map.put("user_id", user_id); // 로그인 세션 아이디 (채팅 거는 사람)			
 		

@@ -15,6 +15,7 @@ public class ChatDTO implements Serializable{
 	private String sale_seq;
 	private String buyerboard_seq;
 	private int no;
+	private String user_id;
 	private String member_id;
 	private int srNo;
 	private String chatContent;

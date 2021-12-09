@@ -36,9 +36,11 @@ public class ChatServiceImpl implements ChatService{
 
 	@Override
 	public int newRoom(Map<String, String> map) {
-		String board_seq = map.get("board_seq");
+		String sale_seq = map.get("sale_seq");
+		String buyerboard_seq = map.get("buyerboard_seq");
 		String member_id = map.get("member_id");
 		String user_id = map.get("user_id"); 
+		System.out.println(sale_seq+" "+member_id+""+user_id);
 		
 		int chatRoom_id = 0;
 		chatRoom_id = checkChatRoom(map); // check : 전에 만들어진 방이 있는지 중복 체크

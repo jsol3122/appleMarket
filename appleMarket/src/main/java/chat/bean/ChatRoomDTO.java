@@ -10,8 +10,10 @@ import lombok.ToString;
 @Setter
 @ToString
 public class ChatRoomDTO {
-	private int chatRoom_id;
+	private int chatRoom_id; //chatRoom seq
 	private String user_id;
 	private String sale_seq;
 	private String buyerboard_seq;
+	private String member_id;
+	private Date sendDate;
 }
