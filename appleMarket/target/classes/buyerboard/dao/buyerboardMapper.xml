@@ -14,9 +14,14 @@
  		select count(*) from buyerboard
  	</select>
  	
+ 	<select id="searchLocationDong" parameterType="buyerboard.bean.BuyerboardDTO" resultType="String">
+ 		select location_dong from locationconfirm where member_id=#{member_id}
+ 	</select>
+ 	
  	<insert id="buyerboardWrite" parameterType="buyerboard.bean.BuyerboardDTO">
  		insert into buyerboard(buyerboard_seq
  								,member_id
+ 								,location_dong
  								,buyerboard_category
  								,buyerboard_price
  								,buyerboard_subject
@@ -28,6 +33,7 @@
  								)values(
  										seq_buyerboard.nextval
  										,#{member_id}
+ 										,#{location_dong}
  										,#{buyerboard_category}
  										,#{buyerboard_price}
  										,#{buyerboard_subject}

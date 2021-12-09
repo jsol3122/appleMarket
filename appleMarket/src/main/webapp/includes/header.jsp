@@ -2,11 +2,13 @@
     pageEncoding="UTF-8"%>
    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-   
-    <link rel="stylesheet" href="/appleMarket/css/style.css">
+ <head>
 
-    <title>사고팔고마켓</title>
+   <link rel="stylesheet" href="/appleMarket/css/style.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 
+   <title>사고팔고마켓</title>
+</head>
    
     
 <header id="headBox">
