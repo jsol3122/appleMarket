@@ -54,8 +54,11 @@ function get_detail(DTO){
             // 캐러셀????????써서 상세페이지 이미지 5개 슬라이드처리
             "<ul class=thumb_img>"+
                 "<li class=active>"+
-                    "<img src=/appleMarket/storage/"+DTO.sale_image2+"' style=width:30px;height:57px; data-target="+DTO.sale_image2+" alt=상세사진2>"+
-                "</li>"+
+                  "<img src='/appleMarket/storage/"+DTO.sale_image1+"' style=width:57px;height:57px; data-target="+DTO.sale_image1+" alt=상세사진1>"+
+              "</li>"+
+              "<li class=''>"+
+                  "<img src='/appleMarket/storage/"+DTO.sale_image2+"' style=width:57px;height:57px; data-target="+DTO.sale_image2+" alt=상세사진2>"+
+              "</li>"+
             "</ul>"+
         "</div>"+
         "<div class=product_specs>"+
@@ -111,12 +114,19 @@ function get_detail(DTO){
 // 사진 갯수만큼 동적 li삽입
 function make_li(imgNum){
     let li = 
-        "<li>"+
-            "<img src=/appleMarket/storage/"+imgNum+"' style=width:30px;height:57px; data-target="+imgNum+" alt="+imgNum+">"+
+        "<li class=''>"+
+            "<img src='/appleMarket/storage/"+imgNum+"' style=width:30px;height:57px; data-target="+imgNum+" alt="+imgNum+">"+
         "</li>";
     
     $('.thumb_img').append(li);
 }
+
+// 사진 리스트 중 클릭 시 상단 큰 이미지로 변경
+$(document).on('click', '.thumb_img li', function(){
+  $('.big_img').attr('src', $(this).children().attr('src'));
+  $('.thumb_img li').removeClass('active');
+  $(this).addClass('active');
+});
 
 // 리스트 출력 함수
 let renderList = function(mode, DTO){

@@ -49,20 +49,20 @@ public class SaleboardController {
 		return saleboardService.saleboardSearch(saleboardDTO);
 	}	
 	
-	@PostMapping(value="/saleboard/saleboardWriteForm")
+	@GetMapping(value="/saleboard/saleboardWriteForm")
 	public String saleboardWriteForm() {
-		return "/saleboard/saleboardWriteForm";
+		return "/view/saleboard/saleboardWriteForm";
 	}
 
 	@PostMapping(value="/saleboard/saleboardWrite")
 	@ResponseBody
 	public void saleboardWrite(@ModelAttribute SaleboardDTO saleboardDTO,
-							   @RequestParam MultipartFile[] img,
+								@RequestParam("img[]") MultipartFile[] img,
 							   HttpSession session
 							   , HttpServletRequest request) { 
 		HttpSession loginSession = request.getSession();
 		String member_id = (String)loginSession.getAttribute("member_id");
-		System.out.println(member_id);
+		saleboardDTO.setMember_id(member_id);
 		
 		String uuid = UUID.randomUUID().toString();
 		
@@ -74,7 +74,7 @@ public class SaleboardController {
 		File file;
 		
 		//파일 복사
-		for(int i=0; i<5; i++) {
+		for(int i=0; i<img.length; i++) {
 			if(img[i] != null) {
 				fileName = uuid+"_"+img[i].getOriginalFilename();
 				file = new File(filePath, fileName);
@@ -102,7 +102,7 @@ public class SaleboardController {
 				if(i==4) saleboardDTO.setSale_image5("");
 			}
 		}//for
-
+		System.out.println(saleboardDTO);
 		saleboardService.saleboardWrite(saleboardDTO);	
 	}
 	

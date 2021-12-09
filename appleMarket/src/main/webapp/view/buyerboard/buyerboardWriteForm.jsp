@@ -61,6 +61,10 @@
         #buyerboardWriteForm input::-ms-input-placeholder { color: #f00; }
 		#buyerboardWriteForm input::-webkit-input-placeholder { color: #f00; }
 		#buyerboardWriteForm input::-moz-placeholder { color: #f00; }
+		
+		#buyerboardWriteForm textarea::-ms-input-placeholder { color: #f00; }
+		#buyerboardWriteForm textarea::-webkit-input-placeholder { color: #f00; }
+		#buyerboardWriteForm textarea::-moz-placeholder { color: #f00; }
         
         .filebox input[type="file"] {
             position: absolute;
@@ -185,18 +189,18 @@
                 var fileTarget = $('.filebox .upload-hidden');
                 fileTarget.on('change', function() { // 값이 변경되면 
                     if (window.FileReader) { // modern browser 
-                    	// 이미지 등록 수 제한
+                    	// 이미지 등록 수 제한 & 추출한 파일명 삽입 
                     	if(parseInt($(this)[0].files.length) > 3){
                     		alert('이미지는 최대 3장까지만 등록 가능합니다')
                     		return false;
                     	}else if(parseInt($(this)[0].files.length) == 1){
                     	  var filename1 = $(this)[0].files[0].name;
                     	  $(this).siblings('.upload-name').val(filename1);
-                      }else if(parseInt($(this)[0].files.length) == 2){
+                        }else if(parseInt($(this)[0].files.length) == 2){
                     	  var filename1 = $(this)[0].files[0].name;
                           var filename2 = $(this)[0].files[1].name;
                           $(this).siblings('.upload-name').val(filename1+', '+filename2);
-                      }else {
+                        }else {
                     	  var filename1 = $(this)[0].files[0].name;
                           var filename2 = $(this)[0].files[1].name;
                           var filename3 = $(this)[0].files[2].name;
@@ -205,7 +209,6 @@
                     } else { // old IE 
                         var filename = $(this).val().split('/').pop().split('\\').pop();
                         // 파일명만 추출 
-                    } // 추출한 파일명 삽입 
                 });
             });
         </script>  

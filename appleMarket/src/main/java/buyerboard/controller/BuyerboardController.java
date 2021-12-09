@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
+import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -55,6 +56,8 @@ public class BuyerboardController {
 	@ResponseBody
 	public void buyerboardWrite(@ModelAttribute BuyerboardDTO buyerboardDTO, @RequestParam("img[]") MultipartFile[] img,
 			HttpSession session) {
+		String uuid = UUID.randomUUID().toString();
+		
 		String filePath = session.getServletContext().getRealPath("storage");
 		System.out.println(filePath);
 
@@ -64,7 +67,7 @@ public class BuyerboardController {
 		// 파일 복사
 		for (int i = 0; i < img.length; i++) {
 			if (img[i] != null) {
-				fileName = img[i].getOriginalFilename();
+				fileName = uuid+"_"+img[i].getOriginalFilename();
 				file = new File(filePath, fileName);
 				System.out.println(fileName + "확인");
 				try {
