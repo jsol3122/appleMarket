@@ -116,6 +116,12 @@ public class BuyerboardServiceImpl implements BuyerboardService {
 		map.put("buyerboard_seq", buyerboard_seq);
 		return buyerboardDAO.buyerboardGetListId(map);
 	}
+
+	//카테고리 조회
+	@Override
+	public List<BuyerboardDTO> boardcategoryFilter(String buyerboard_category) {		
+		return buyerboardDAO.boardcategoryFilter(buyerboard_category);
+	}
 	
 	
 	

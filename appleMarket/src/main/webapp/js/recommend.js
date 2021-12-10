@@ -33,7 +33,7 @@ $(function(){
 	});
 	
 	
-	 /* sms 쿠폰 발송 버튼  */
+ /* sms 쿠폰 발송 버튼  */
 $('#recommendSMS').click(function(){
 
 	if($('#recommended_id5').val() == 'exist'){

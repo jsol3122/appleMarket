@@ -78,6 +78,9 @@
 	  	 where buyerboard_seq=#{buyerboard_seq}
  	</update>
  	
+ 	<select id="boardcategoryFilter" parameterType="String" resultType="buyerboard.bean.BuyerboardDTO">
+ 	select * from buyerboard where buyerboard_category=#{buyerboard_category};
  	
+ 	</select>
  	
  </mapper>

@@ -53,7 +53,7 @@ let fetchList = function(){
 
 let renderList = function(mode, DTO){
 	if(DTO.location_dong == undefined){ //임시로 지역 넣어놓고 gps위치 개발하면 위치값 넣어놓기
-       DTO.location_dong = '강남구'; 
+       DTO.location_dong = '역삼동'; 
        //DTO.location1_addr2.replace(/null/g, '');
     }
     
@@ -68,11 +68,12 @@ let renderList = function(mode, DTO){
                 "<h3>"+DTO.buyerboard_subject+"</h3>"+
                 "<h3>"+DTO.location_dong+"</h3>"+
                 "<h4>"+DTO.buyerboard_price+"</h4>"+
+                "<input type=hidden id=buyerboard_category value="+category+">"+
             "</div>"+
             "<div class=hover>"+
                 "<ul>"+
                     "<li><a href='#' class=sprites>addcart</a></li>"+
-                "</ul>"+
+                "</ul>"+                
             "</div>"+
         "</div>"+
     "</li>";
@@ -81,19 +82,10 @@ let renderList = function(mode, DTO){
     console.log(mode)
     
     $('.hover a').addClass('addcart');
-    $('.new_arrivals_list>li').addClass(['col-md-3', category]);
+    $('.new_arrivals_list>li').addClass(['col-md-3',category]);
     
-    /*
-    if( mode ){
-        $(".new_arrivals_list").prepend(html);
-        console.log(mode)
-    }
-    else{
-        $(".new_arrivals_list").append(html);
-        console.log(mode)
-    }
-    */
 }
+
 
 
 

@@ -56,57 +56,57 @@
             <h2 class="hidden">category filter</h2>
             <div class="list_filters">
                 <div class="combi_filters">
-                    <div class="category_filter" data-filter-group="category">
+                    <div class="category_filter" data-filter-group="category_filter">
                         <h3>카테고리</h3>
-                        <input type="checkbox" id="buyerboard_category_all" name="buyerboard_category" value="*">
+                        <input type="checkbox" id="buyerboard_category" name="buyerboard_category" value="*" data-filter="*"/>
                         <span class="box">box</span>
                         <label for="buyerboard_category_all">All</label>
 
-                        <input type="checkbox" id="tech" name="buyerboard_category" value=".tech">
+                        <input type="checkbox" id="buyerboard_category" name="buyerboard_category" value="tech" data-filter=".tech"/>
                         <span class="box">box</span>
                         <label for="tech">디지털기기/생활가전</label>
 
-                        <input type="checkbox" id="furniture" name="buyerboard_category" value=".furniture">
+                        <input type="checkbox" id="buyerboard_category" name="buyerboard_category" value="furniture" data-filter=".furniture"/>
                         <span class="box">box</span>
                         <label for="furniture">가구/인테리어</label>
 
-                        <input type="checkbox" id="baby" name="buyerboard_category" value=".baby">
+                        <input type="checkbox" id="buyerboard_category" name="buyerboard_category" value="baby" data-filter=".baby"/>
                         <span class="box">box</span>
                         <label for="baby">유아동</label>
 
-                        <input type="checkbox" id="living" name="buyerboard_category" value=".living">
+                        <input type="checkbox" id="buyerboard_category" name="buyerboard_category" value="living" data-filter=".living"/>
                         <span class="box">box</span>
                         <label for="living">생활/가공식품</label>
                         
-                        <input type="checkbox" id="female" name="buyerboard_category" value=".female">
+                        <input type="checkbox" id="buyerboard_category" name="buyerboard_category" value="female" data-filter=".female"/>
                         <span class="box">box</span>
                         <label for="female">여성패션/잡화</label>
                         
-                        <input type="checkbox" id="male" name="buyerboard_category" value=".male">
+                        <input type="checkbox" id="buyerboard_category" name="buyerboard_category" value="male" data-filter=".male"/>
                         <span class="box">box</span>
                         <label for="male">남성패션/잡화</label>
                         
-                        <input type="checkbox" id="hobby" name="buyerboard_category" value=".hobby">
+                        <input type="checkbox" id="buyerboard_category" name="buyerboard_category" value="hobby" data-filter=".hobby"/>
                         <span class="box">box</span>
                         <label for="hobby">게임/취미</label>
                         
-                        <input type="checkbox" id="sports" name="buyerboard_category" value=".sports">
+                        <input type="checkbox" id="buyerboard_category" name="buyerboard_category" value="sports" data-filter=".sports"/>
                         <span class="box">box</span>
                         <label for="sports">스포츠/레저</label>
                         
-                        <input type="checkbox" id="beauty" name="buyerboard_category" value=".beauty">
+                        <input type="checkbox" id="buyerboard_category" name="buyerboard_category" value="beauty" data-filter=".beauty"/>
                         <span class="box">box</span>
                         <label for="beauty">뷰티/미용</label>
                         
-                        <input type="checkbox" id="pet" name="buyerboard_category" value=".pet">
+                        <input type="checkbox" id="buyerboard_category" name="buyerboard_category" value="pet" data-filter=".pet"/>
                         <span class="box">box</span>
                         <label for="pet">반려동물용품</label>
                         
-                        <input type="checkbox" id="book" name="buyerboard_category" value=".book">
+                        <input type="checkbox" id="buyerboard_category" name="buyerboard_category" value="book" data-filter=".book"/>
                         <span class="box">box</span>
                         <label for="book">도시/티켓/음반</label>
                         
-                        <input type="checkbox" id="etc" name="buyerboard_category" value=".etc">
+                        <input type="checkbox" id="buyerboard_category" name="buyerboard_category" value="etc" data-filter=".etc"/>
                         <span class="box">box</span>
                         <label for="etc">기타중고물품</label>
 
@@ -123,13 +123,6 @@
        
     </main>
     <footer></footer>
+
 </body>
-<!-- <script type="text/javascript">
-
-$('#buyerboardWriteBtn').click(function(){
-	alert("????????????");
-   location.href = '/appleMarket/buyerboard/buyerboardWriteForm'; 
-});
-</script> -->
-
 </html>

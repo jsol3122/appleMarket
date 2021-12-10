@@ -62,5 +62,11 @@ public class BuyerboardMybatis implements BuyerboardDAO {
 	public List<BuyerboardDTO> buyerboardGetListId(Map<String, Object> map) {
 		return sqlSession.selectList("buyerboardSQL.buyerboardGetListId",map);
 	}
+	//카테고리 조회
+	@Override
+	public List<BuyerboardDTO> boardcategoryFilter(String buyerboard_category) {
+		return sqlSession.selectList("buyerboardSQL.boardcategoryFilter",buyerboard_category);
+		
+	}
 
 }

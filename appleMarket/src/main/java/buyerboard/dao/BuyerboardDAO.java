@@ -23,4 +23,6 @@ public interface BuyerboardDAO {
 
 	public List<BuyerboardDTO> buyerboardGetListId(Map<String, Object> map);
 
+	public List<BuyerboardDTO> boardcategoryFilter(String buyerboard_category);
+
 }

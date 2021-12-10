@@ -137,6 +137,14 @@ public class BuyerboardController {
 	public void buyerboardHit(@RequestParam int buyerboard_seq) {
 		buyerboardService.buyerboardHit(buyerboard_seq);
 	}
+	
+	//카테고리 조회
+	@PostMapping("/boardcategoryFilter")
+	@ResponseBody
+	public List<BuyerboardDTO> boardcategoryFilter(@RequestParam String buyerboard_category) {
+		return buyerboardService.boardcategoryFilter(buyerboard_category);
+	}
+
 
 	
 }

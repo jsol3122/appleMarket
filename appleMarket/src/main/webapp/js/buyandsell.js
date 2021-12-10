@@ -151,13 +151,14 @@ $(function() {
     }); //sizeFilter.click --9:13--
 
     */
-
+    //카테고리
     // init Isotope
-    var $filters = $('.combi_filters input');
+    var $filters = $('.category_filter input');
     var filters = {};
 
     var $grid = $('.new_arrivals_list').isotope({
-        itemSelector: '.new_arrivals_list > li'
+        itemSelector: '.new_arrivals_list > li',
+        stagger: 30
     });
 
    $filters.click(function() {
@@ -173,7 +174,7 @@ $(function() {
         var filterValue = concatValues(filters);
         // set filter for Isotope
         $grid.isotope({ filter: filterValue });
-        $grid.isotope( 'updateSortData', filterValue );
+        // $grid.isotope( 'updateSortData', filterValue );
 
         if ($button.val() == '*') {
             $button.parent('div').find('input').prop('checked', false);
@@ -182,84 +183,84 @@ $(function() {
             $button.parent('div').find('input').eq(0).prop('checked', false);
         }
 
-        if ($button.val() == '.tech') {
+        if ($button.val() == 'tech') {
             $button.parent('div').find('input').prop('checked', false);
             $button.prop('checked', true);
         } else {
             $button.parent('div').find('input').eq(1).prop('checked', false);
         }
 
-        if ($button.val() == '.furniture') {
+        if ($button.val() == 'furniture') {
             $button.parent('div').find('input').prop('checked', false);
             $button.prop('checked', true);
         } else {
             $button.parent('div').find('input').eq(2).prop('checked', false);
         }
 
-        if ($button.val() == '.baby') {
+        if ($button.val() == 'baby') {
             $button.parent('div').find('input').prop('checked', false);
             $button.prop('checked', true);
         } else {
             $button.parent('div').find('input').eq(3).prop('checked', false);
         }
 
-        if ($button.val() == '.living') {
+        if ($button.val() == 'living') {
             $button.parent('div').find('input').prop('checked', false);
             $button.prop('checked', true);
         } else {
             $button.parent('div').find('input').eq(4).prop('checked', false);
         }
 
-        if ($button.val() == '.female') {
+        if ($button.val() == 'female') {
             $button.parent('div').find('input').prop('checked', false);
             $button.prop('checked', true);
         } else {
             $button.parent('div').find('input').eq(5).prop('checked', false);
         }
 
-        if ($button.val() == '.male') {
+        if ($button.val() == 'male') {
             $button.parent('div').find('input').prop('checked', false);
             $button.prop('checked', true);
         } else {
             $button.parent('div').find('input').eq(6).prop('checked', false);
         }
         
-        if ($button.val() == '.hobby') {
+        if ($button.val() == 'hobby') {
             $button.parent('div').find('input').prop('checked', false);
             $button.prop('checked', true);
         } else {
             $button.parent('div').find('input').eq(7).prop('checked', false);
         }
         
-        if ($button.val() == '.sports') {
+        if ($button.val() == 'sports') {
             $button.parent('div').find('input').prop('checked', false);
             $button.prop('checked', true);
         } else {
             $button.parent('div').find('input').eq(8).prop('checked', false);
         }
         
-        if ($button.val() == '.beauty') {
+        if ($button.val() == 'beauty') {
             $button.parent('div').find('input').prop('checked', false);
             $button.prop('checked', true);
         } else {
             $button.parent('div').find('input').eq(9).prop('checked', false);
         }
         
-        if ($button.val() == '.pet') {
+        if ($button.val() == 'pet') {
             $button.parent('div').find('input').prop('checked', false);
             $button.prop('checked', true);
         } else {
             $button.parent('div').find('input').eq(10).prop('checked', false);
         }
         
-        if ($button.val() == '.book') {
+        if ($button.val() == 'book') {
             $button.parent('div').find('input').prop('checked', false);
             $button.prop('checked', true);
         } else {
             $button.parent('div').find('input').eq(11).prop('checked', false);
         }
         
-        if ($button.val() == '.etc') {
+        if ($button.val() == 'etc') {
             $button.parent('div').find('input').prop('checked', false);
             $button.prop('checked', true);
         } else {

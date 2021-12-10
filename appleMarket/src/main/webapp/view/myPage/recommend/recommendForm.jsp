@@ -51,7 +51,7 @@ a.sbm{
 	     
 		     <a id="kakao-link-btn" href="javascript:kakaoShare()" class="sbm"> 카카오톡으로 초대하기  </a>
 	     
-		     <a id="url_invite" href="#" class="sbm2" data-clipboard-text="http://localhost:8080/appleMarket/index?recommend_id=${member_id}"> URL 링크로 초대하기  </a>
+		     <a id="url_invite"  href="#" class="sbm2" data-clipboard-text="http://localhost:8080/appleMarket/index?recommend_id=${member_id}"> URL 링크로 초대하기  </a>
 		   
 	   
 	     <hr>
@@ -95,9 +95,7 @@ a.sbm{
 	         <label>11. 초대하기 관련하여 문의사항이 있으시면 쳇봇을 이용해 주세요! </label>
 	     </div>
 	 </form>
-	 <%-- <div>	   
-	  	<input type="text" id="foo" value='http://localhost:8080/appleMarket/index?recommend_id=${member_id}'/>
-	 </div> --%>
+	 
  <script>
  var clipboard = new ClipboardJS('#url_invite');
 
@@ -114,7 +112,6 @@ a.sbm{
      console.error('Action:', e.action);
      console.error('Trigger:', e.trigger);
  });
-
  </script>   
 </body>
 
