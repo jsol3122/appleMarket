@@ -48,6 +48,40 @@
  	<select id="getAdminBlackList" resultType="blackList">
  		select * from blackList
  	</select>
-	
+ 	
+ 	<!-- 판매게시판 출력  -->
+ 	<select id="getAdminSaleBoardList" resultType="saleboard">
+ 		select * from saleboard
+ 	</select>
+ 	
+ 	<!-- 판매게시판 상세페이지 출력  -->
+ 	<select id="getAdminSaleBoardView" parameterType="Integer" resultType="saleboard">
+ 		select * from saleboard where sale_seq=#{sale_seq}
+ 	</select>
+ 	
+ 	<!-- 사고게시판 출력  -->
+ 	<select id="getAdminBuyerBoardList" resultType="buyerboard">
+ 		select * from buyerboard
+ 	</select>
+ 	
+ 	<!-- 사고게시판 상세페이지 출력  -->
+ 	<select id="getAdminBuyerBoardView" parameterType="Integer" resultType="buyerboard">
+ 		select * from buyerboard where buyerboard_seq=#{buyerboard_seq}
+ 	</select>
+
+	<!-- 판매게시판 글 삭제  -->
+ 	<delete id="adminSaleBoardDelete" parameterType="Integer">
+ 		delete from saleboard where sale_seq=#{sale_seq}
+ 	</delete>
+ 	
+ 	<!-- 사고게시판 글 삭제  -->
+ 	<delete id="adminBuyerBoardDelete" parameterType="Integer">
+ 		delete from buyerboard where buyerboard_seq=#{buyerboard_seq}
+ 	</delete>
+ 
+ 	<!-- 판매게시판(동네마다) 출력  -->
+ 	<select id="getAdminSaleBoardListDong" parameterType="String" resultType="saleboard">
+ 		select * from saleboard where location_dong=#{location_dong}
+ 	</select>
  </mapper>
  	

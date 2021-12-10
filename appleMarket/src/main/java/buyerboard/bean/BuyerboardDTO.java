@@ -2,6 +2,8 @@ package buyerboard.bean;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.Data;
 
 @Data
@@ -17,9 +19,10 @@ public class BuyerboardDTO {
 	private String buyerboard_image1;
 	private String buyerboard_image2;
 	private String buyerboard_image3;
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy.MM.dd")
 	private Date buyerboard_logtime;
 	private int buyerboard_chat_count;
 	private int buyerboard_hit;
-
+	private String buyer_status;
 	
 }

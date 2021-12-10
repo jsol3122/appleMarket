@@ -8,7 +8,9 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import admin.bean.BlackListDTO;
+import buyerboard.bean.BuyerboardDTO;
 import member.bean.MemberDTO;
+import saleboard.bean.SaleboardDTO;
 import warningBoard.bean.WarningBoardDTO;
 
 @Repository
@@ -66,6 +68,43 @@ public class AdminDAOMybatis implements AdminDAO{
 	@Override
 	public List<BlackListDTO> getAdminBlackList() {
 		return sqlSession.selectList("adminSQL.getAdminBlackList");
+	}
+
+	@Override
+	public List<SaleboardDTO> getAdminSaleBoardList() {
+		return sqlSession.selectList("adminSQL.getAdminSaleBoardList");
+	}
+
+	@Override
+	public SaleboardDTO getAdminSaleBoardView(int sale_seq) {
+		return sqlSession.selectOne("adminSQL.getAdminSaleBoardView",sale_seq);
+	}
+
+	@Override
+	public List<BuyerboardDTO> getAdminBuyerBoardList() {
+		return sqlSession.selectList("adminSQL.getAdminBuyerBoardList");
+	}
+
+	@Override
+	public BuyerboardDTO getAdminBuyerBoardView(int buyerboard_seq) {
+		return sqlSession.selectOne("adminSQL.getAdminBuyerBoardView",buyerboard_seq);
+	}
+
+	@Override
+	public void adminSaleBoardDelete(int sale_seq) {
+		sqlSession.delete("adminSQL.adminSaleBoardDelete",sale_seq);
+		
+	}
+
+	@Override
+	public void adminBuyerBoardDelete(int buyerboard_seq) {
+		sqlSession.delete("adminSQL.adminBuyerBoardDelete",buyerboard_seq);
+		
+	}
+
+	@Override
+	public List<SaleboardDTO> getAdminSaleBoardListDong(String location_dong) {
+		return sqlSession.selectList("adminSQL.getAdminSaleBoardListDong",location_dong);
 	}
 
 }

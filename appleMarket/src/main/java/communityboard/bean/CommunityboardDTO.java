@@ -2,6 +2,8 @@ package communityboard.bean;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.Data;
 
 
@@ -13,10 +15,13 @@ public class CommunityboardDTO {
 	private String communityboard_content;
 	private String communityboard_image;
 	private int communityboard_hit;
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy.MM.dd")
 	private Date communityboard_logtime;
 	private String communityboard_user_id;
-	private String searchType;
-	private String keyword;
+
+//db랑 안맞아서 주석	
+//	private String searchType;
+//	private String keyword;
 	
 	
 }

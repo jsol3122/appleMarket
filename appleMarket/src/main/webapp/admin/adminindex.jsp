@@ -34,13 +34,13 @@
                         <span class="nav_name">Warning</span>
                     </a>
                     
-                    <a href="#" class="nav__link">
+                    <a href="/appleMarket/adminSaleBoardList" class="nav__link">
                         <ion-icon name="cash-outline" class="nav__icon"></ion-icon>
                         <span class="nav_name">SaleBoard</span>
                     </a>
 
 
-                    <a href="#" class="nav__link">
+                    <a href="/appleMarket/adminBuyerBoardList" class="nav__link">
                         <ion-icon name="wallet-outline" class="nav__icon"></ion-icon>
                         <span class="nav_name">BuyerBoard</span>
                     </a>
@@ -64,7 +64,7 @@
                         <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
 
                         <ul class="collapse__menu">
-                            <a href="#" class="collapse__sublink">board</a>
+                            <a href="/appleMarket/adminCommunityBoardList" class="collapse__sublink">board</a>
                             <a href="#" class="collapse__sublink">comment</a>
                         </ul>
                     </div>

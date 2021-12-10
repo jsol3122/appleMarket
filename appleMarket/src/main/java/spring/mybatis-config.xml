@@ -15,5 +15,7 @@
 		<typeAlias type="location.bean.LocationDTO" alias="location"/>
 		<typeAlias type="warningBoard.bean.WarningBoardDTO" alias="warningBoard"/>
 		<typeAlias type="admin.bean.BlackListDTO" alias="blackList"/>
+		<typeAlias type="saleboard.bean.SaleboardDTO" alias="saleboard"/>
+		<typeAlias type="buyerboard.bean.BuyerboardDTO" alias="buyerboard"/>
 	</typeAliases> 
 </configuration>

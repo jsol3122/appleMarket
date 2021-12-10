@@ -8,7 +8,7 @@ $(function(){
 			
 			//List로 보내면 data라고만 써야 한다. - json 에선 data.list로 보내야한다.
 			$.each(data, function(index,items){
-				$('<tr>').append($('<td>',{
+				$('#admintext').append($('<td>',{
 					align : 'center', 
 					text : items.member_seq
 				})).append($('<td>',{

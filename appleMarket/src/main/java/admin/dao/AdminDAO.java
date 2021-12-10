@@ -3,7 +3,9 @@ package admin.dao;
 import java.util.List;
 
 import admin.bean.BlackListDTO;
+import buyerboard.bean.BuyerboardDTO;
 import member.bean.MemberDTO;
+import saleboard.bean.SaleboardDTO;
 import warningBoard.bean.WarningBoardDTO;
 
 public interface AdminDAO {
@@ -25,5 +27,19 @@ public interface AdminDAO {
 	public void adminBlackListDelete(MemberDTO memberDTO);
 
 	public List<BlackListDTO> getAdminBlackList();
+
+	public List<SaleboardDTO> getAdminSaleBoardList();
+
+	public SaleboardDTO getAdminSaleBoardView(int sale_seq);
+
+	public List<BuyerboardDTO> getAdminBuyerBoardList();
+
+	public BuyerboardDTO getAdminBuyerBoardView(int buyerboard_seq);
+
+	public void adminSaleBoardDelete(int sale_seq);
+
+	public void adminBuyerBoardDelete(int buyerboard_seq);
+
+	public List<SaleboardDTO> getAdminSaleBoardListDong(String location_dong);
 
 }

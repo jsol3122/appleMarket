@@ -12,7 +12,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import admin.bean.BlackListDTO;
 import admin.service.AdminService;
+import buyerboard.bean.BuyerboardDTO;
 import member.bean.MemberDTO;
+import saleboard.bean.SaleboardDTO;
 import warningBoard.bean.WarningBoardDTO;
 
 @Controller
@@ -132,4 +134,100 @@ public class AdminController {
 	public List<BlackListDTO> getAdminBlackList(){
 		return adminService.getAdminBlackList();
 	}
+	
+	//판매게시판 리스트 화면
+	@GetMapping(value="/adminSaleBoardList")
+	public ModelAndView adminSaleBoardList() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("display", "/admin/adminSaleBoardList.jsp");
+		modelAndView.setViewName("/admin/adminNoticeList");
+		return modelAndView;
+	}
+	
+	//판매게시판 리스트 데이터 출력
+	@PostMapping("/getAdminSaleBoardList")
+	@ResponseBody
+	public List<SaleboardDTO> getAdminSaleBoardList(){
+		return adminService.getAdminSaleBoardList();
+	}
+	
+	//판매게시판 데이터 상세화면 
+	@GetMapping(value="/adminSaleBoardView")
+	public ModelAndView adminSaleBoardView() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("display", "/admin/adminSaleBoardView.jsp");
+		modelAndView.setViewName("/admin/adminNoticeList");
+		return modelAndView;
+	}
+
+	//판매게시판 데이터 상세 출력
+	@PostMapping("/getAdminSaleBoardView")
+	@ResponseBody
+	public SaleboardDTO getAdminSaleBoardView(int sale_seq){
+		return adminService.getAdminSaleBoardView(sale_seq);
+	}
+	
+	//사고게시판 리스트 화면
+	@GetMapping(value="/adminBuyerBoardList")
+	public ModelAndView adminBuyerBoardList() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("display", "/admin/adminBuyerBoardList.jsp");
+		modelAndView.setViewName("/admin/adminNoticeList");
+		return modelAndView;
+	}
+	
+	//사고게시판 리스트 데이터 출력
+	@PostMapping("/getAdminBuyerBoardList")
+	@ResponseBody
+	public List<BuyerboardDTO> getAdminBuyerBoardList(){
+		return adminService.getAdminBuyerBoardList();
+	}
+	
+	
+	//사고게시판 데이터 상세화면 
+	@GetMapping(value="/adminBuyerBoardView")
+	public ModelAndView adminBuyerBoardView() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("display", "/admin/adminBuyerBoardView.jsp");
+		modelAndView.setViewName("/admin/adminNoticeList");
+		return modelAndView;
+	}
+	
+	//사고게시판 데이터 상세 출력
+	@PostMapping("/getAdminBuyerBoardView")
+	@ResponseBody
+	public BuyerboardDTO getAdminBuyerBoardView(int buyerboard_seq){
+		return adminService.getAdminBuyerBoardView(buyerboard_seq);
+	}
+	
+	//팔고게시판 글 삭제
+	@PostMapping("/adminSaleBoardDelete")
+	@ResponseBody
+	public void adminSaleBoardDelete(int sale_seq) {
+		adminService.adminSaleBoardDelete(sale_seq);
+	}
+	
+	//사고게시판 글 삭제
+	@PostMapping("/adminBuyerBoardDelete")
+	@ResponseBody
+	public void adminBuyerBoardDelete(int buyerboard_seq) {
+		adminService.adminBuyerBoardDelete(buyerboard_seq);
+	}
+
+	//판매게시판 리스트 데이터 출력 - 동네마다
+	@PostMapping("/getAdminSaleBoardListDong")
+	@ResponseBody
+	public List<SaleboardDTO> getAdminSaleBoardListDong(String location_dong){
+		return adminService.getAdminSaleBoardListDong(location_dong);
+	}
+	
+	//조잘조잘(community) 리스트 화면
+	@GetMapping(value="/adminCommunityBoardList")
+	public ModelAndView adminCommunityBoardList() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("display", "/admin/adminCommunityBoardList.jsp");
+		modelAndView.setViewName("/admin/adminNoticeList");
+		return modelAndView;
+	}
+	
 }

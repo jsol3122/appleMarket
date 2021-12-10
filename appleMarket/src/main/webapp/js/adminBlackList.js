@@ -4,7 +4,7 @@ $(function(){
 		type: 'post',
 		dataType: 'json', 
 		success: function(data){
-			alert(JSON.stringify(data));
+			//alert(JSON.stringify(data));
 		
 		$.each(data, function(index,items){
 			$('<tr>').append($('<td>',{

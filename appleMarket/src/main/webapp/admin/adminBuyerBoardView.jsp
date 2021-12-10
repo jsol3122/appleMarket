@@ -9,18 +9,18 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   
-<title>Warning</title>
+<title>BuyerBoard</title>
 </head>
 <body>
 <div class="page-wrapper">
     <div class="container-fluid">
         <div class="col-lg-9"><!--게시판 넓이 -->
             <div class="col-lg-12">
-                <h1 class="page-header">Warning View</h1>
+                <h1 class="page-header">BuyerBoard View</h1>
             </div>
             <div class="row">
                   <div class="col-lg-12">
-                      <button type="button" class="btn btn-outline btn-primary pull-right" onclick="location.href='/appleMarket/adminWarningList'">
+                      <button type="button" class="btn btn-outline btn-primary pull-right" onclick="location.href='/appleMarket/adminBuyerBoardList'">
                           <i class="fa fa-edit fa-fw"></i> 목록
                       </button>
                   </div>
@@ -28,20 +28,13 @@
               <br>
             <div class="panel panel-default">
                 <div class="panel-heading">
-                	<ion-icon name="alert-circle-outline" class="nav__icon"></ion-icon>
+                	<ion-icon name="wallet-outline" class="nav__icon"></ion-icon>
                 </div>
                 <div class="panel-body">
-                    <table class="table table-hover" id="adminWarningView">
-            			<tr>
-                          <th>글번호</th>
-                          <th>작성일</th>
-                          <th>신고아이디</th>
-                          <th>신고게시글 번호</th>
-                          <th>게시판명</th>
-                          <th>댓글여부</th>
-                          <th>게시물(댓글)작성자</th>
-                          <th>처리현황</th>
-                         </tr>
+                    <table class="table table-hover" id="adminBuyerBoardView">
+            			<tr id="start">
+            				<th>작성자</th>
+                        </tr>
                     </table>
                 </div>
             </div>
@@ -65,71 +58,59 @@ function get_query(){
 $(function(){
 	var result = get_query();
 	$.ajax({
-		url: '/appleMarket/getAdminWarningView',
+		url: '/appleMarket/getAdminBuyerBoardView',
 		type : 'post',
-		data:'warning_seq='+result.warning_seq, 
+		data:'buyerboard_seq='+result.buyerboard_seq, 
 		dataType: 'json',
 		success:function(data){
 			//alert(JSON.stringify(data));
-				$('<tr>').append($('<td>',{
-					align : 'center', 
-					id:'warning_seq',
-					text : data.warning_seq
-				})).append($('<td>',{
-					align : 'center', 
-					id:'warning_logtime',
-					text : data.warning_logtime
-				})).append($('<td>',{
-					align : 'center', 
+				$('#start').append($('<td>',{
+					align : 'left', 
 					id:'member_id',
 					text : data.member_id
-				})).append($('<td>',{
-					align : 'center', 
-					id:'board_seq',
-					text : data.board_seq
-				})).append($('<td>',{
-					align : 'center', 
-					id:'board_name',
-					text : data.board_name
-				})).append($('<td>',{
-					align : 'center', 
-					id:'comment_YN',
-					text : data.comment_YN
-				})).append($('<td>',{
-					align : 'center',
-					id:'warning_id',
-					text : data.warning_id
-				})).append($('<td>',{
-					align : 'center',
-					id:'warning_status_YN',
-					text : data.warning_status_YN
-				})).appendTo($('#adminWarningView'));
+				})).appendTo($('#adminBuyerBoardView'));
 				
 				$('<tr>').append($('<th>',{
+					align : 'center',
+					text : '가격'
+				})).append($('<td>',{
+					align : 'left', 
+					id:'buyerboard_price',
+					text : data.buyerboard_price
+				})).appendTo($('#adminBuyerBoardView'));
+				
+			$('<tr>').append($('<th>',{
 					align : 'center',
 					text : '제목'
 				})).append($('<td>',{
 					align : 'left',
-					id:'warning_subject',
-					colspan:7,
-					text : data.warning_subject
-				})).appendTo($('#adminWarningView'));
-				
+					id:'buyerboard_subject',
+					colspan:2,
+					text : data.buyerboard_subject
+				})).appendTo($('#adminBuyerBoardView'));
+				 
 				
 			
 				$('<tr>').append($('<td>',{
 					align : 'left', 
-					id:'warning_content',
-					colspan:8,
+					id:'buyerboard_content',
+					colspan:2,
 					height:500,
-					text : data.warning_content.replace(/(?:\r\n|\r|\n)/g, '<br />') 
-				})).appendTo($('#adminWarningView'));
+					text : data.buyerboard_content.replace(/(?:\r\n|\r|\n)/g, '<br />') 
+				})).appendTo($('#adminBuyerBoardView'));
 				
-				
-				$('#warning_content').append($('<img>',{//td의 자식 
+				$('#buyerboard_content').append($('<img>',{//td의 자식 
 					alt:'이미지',
-					src:'/appleMarket/storage/'+data.warning_image,
-					style:'width: auto; height: auto; cursor: pointer;'
+					src:'/appleMarket/storage/'+data.buyerboard_image1.replace(null, '') ,
+					style:'width: 100%; height: 100%; cursor: pointer;'
+				})).append($('<img>',{//td의 자식 
+					alt:'이미지',
+					src:'/appleMarket/storage/'+data.buyerboard_image2.replace(null, '') ,
+					style:'width: 100%; height: 100%; cursor: pointer;'
+				})).append($('<img>',{//td의 자식 
+					alt:'이미지',
+					src:'/appleMarket/storage/'+data.buyerboard_image3.replace(null, '') ,
+					style:'width: 100%; height: 100%; cursor: pointer;'
 				}));
 		},error:function(err){
 			console.log(err);

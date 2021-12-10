@@ -7,7 +7,9 @@ import org.springframework.stereotype.Service;
 
 import admin.bean.BlackListDTO;
 import admin.dao.AdminDAO;
+import buyerboard.bean.BuyerboardDTO;
 import member.bean.MemberDTO;
+import saleboard.bean.SaleboardDTO;
 import warningBoard.bean.WarningBoardDTO;
 
 @Service
@@ -64,6 +66,42 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public List<BlackListDTO> getAdminBlackList() {
 		return adminDAO.getAdminBlackList();
+	}
+
+	@Override
+	public List<SaleboardDTO> getAdminSaleBoardList() {
+		return adminDAO.getAdminSaleBoardList();
+	}
+
+	@Override
+	public SaleboardDTO getAdminSaleBoardView(int sale_seq) {
+		return adminDAO.getAdminSaleBoardView(sale_seq);
+	}
+
+	@Override
+	public List<BuyerboardDTO> getAdminBuyerBoardList() {
+		return adminDAO.getAdminBuyerBoardList();
+	}
+
+	@Override
+	public BuyerboardDTO getAdminBuyerBoardView(int buyerboard_seq) {
+		return adminDAO.getAdminBuyerBoardView(buyerboard_seq);
+	}
+
+	@Override
+	public void adminSaleBoardDelete(int sale_seq) {
+		adminDAO.adminSaleBoardDelete(sale_seq);
+	}
+
+	@Override
+	public void adminBuyerBoardDelete(int buyerboard_seq) {
+		adminDAO.adminBuyerBoardDelete(buyerboard_seq);
+		
+	}
+
+	@Override
+	public List<SaleboardDTO> getAdminSaleBoardListDong(String location_dong) {
+		return adminDAO.getAdminSaleBoardListDong(location_dong);
 	}
 
 }
