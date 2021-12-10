@@ -28,12 +28,14 @@ public class MyPageController {
 	
 	@Autowired
 	private MyPageService myPageService;
-	
-	@GetMapping("/myCommunityList")
-	public String myCommunityList() {
-		return "/myCommunityList";
+	 // 조잘조잘 글 내역 폼
+	@GetMapping("/communityHistory")
+	public String communityHistory(HttpServletRequest request, HttpServletResponse response) throws Throwable{
+		request.setAttribute("display", "/view/myPage/communityHistory.jsp");
+		return "/view/myPage/mypageMainForm";
 	}
 	
+	// 조잘조잘 글 리스트 띄우기
 	@PostMapping("/myCommunityGetList")
 	@ResponseBody
 	public JSONObject myCommunityGetList(@RequestParam String pg, HttpSession session
@@ -49,6 +51,12 @@ public class MyPageController {
 		return myPageService.myCommunityGetList(map);
 	}
 	
+	// 조잘조잘 글 삭제
+	@PostMapping("/communityHistoryDelete") @ResponseBody
+	public void communityHistoryDelete(@RequestParam String communityboard_seq) {
+		myPageService.communityHistoryDelete(Integer.parseInt(communityboard_seq));
+	}
+	
 	@GetMapping("/myCommunityView")
 	public String myCommunityView() {
 		return "/myCommunityView";
@@ -60,11 +68,14 @@ public class MyPageController {
 		return myPageService.myCommunityGetView(communityboard_seq);
 	}
 	
-	@GetMapping("/myCommunityCommentList")
-	public String myCommunityCommentList() {
-		return "/myCommunityCommentList";
+	// 조잘조잘 댓글 폼
+	@GetMapping("/communityCommentHistory")
+	public String communityCommentHistory(HttpServletRequest request, HttpServletResponse response) throws Throwable{
+		request.setAttribute("display", "/view/myPage/communityCommentHistory.jsp");
+		return "/view/myPage/mypageMainForm";
 	}
 	
+	// 조잘조잘 댓글 불러오기
 	@PostMapping("/myCommunityCommentGetList")
 	@ResponseBody
 	public JSONObject myCommunityCommentGetList(@RequestParam String pg, 
@@ -80,6 +91,12 @@ public class MyPageController {
 		return myPageService.myCommunityCommentGetList(map);
 	}
 	
+	// 우리동네 댓글 삭제
+	@PostMapping("/myCommunityCommentDelete") @ResponseBody
+	public void myCommunityCommentDelete(@RequestParam String communityboard_comment_seq) {
+		myPageService.myCommunityCommentDelete(Integer.parseInt(communityboard_comment_seq));
+	}
+	
 	@GetMapping("/myCommunityCommentView")
 	public String myCommunityCommentView() {
 		return "/myCommunityCommentView";
@@ -92,11 +109,14 @@ public class MyPageController {
 		return myPageService.myCommunityGetView(communityboard_seq);
 	}
 	
-	@GetMapping("/myLocalList")
-	public String myLocalList() {
-		return "/myLocalList";
+	// 우리동네 글 내역 열기
+	@GetMapping("/localCommunityHistory")
+	public String localCommunityHistory(HttpServletRequest request, HttpServletResponse response) throws Throwable{
+		request.setAttribute("display", "/view/myPage/localCommunityHistory.jsp");
+		return "/view/myPage/mypageMainForm";
 	}
 	
+	// 우리동네 글 내역 불러오기
 	@PostMapping("/myLocalGetList")
 	@ResponseBody
 	public JSONObject myLocalGetList (@RequestParam String pg, 
@@ -113,6 +133,12 @@ public class MyPageController {
 		return myPageService.myLocalGetList(map);
 	}
 	
+	// 우리동네 글 삭제
+	@PostMapping("/localCommunityHistoryDelete") @ResponseBody
+	public void localCommunityHistoryDelete(@RequestParam String localcommunity_seq) {
+		myPageService.localCommunityHistoryDelete(Integer.parseInt(localcommunity_seq));
+	}
+	
 	@GetMapping("/myLocalView")
 	public String myLocalView() {
 		return "/myLocalView";
@@ -125,11 +151,14 @@ public class MyPageController {
 		return myPageService.myLocalGetView(localcommunity_seq);
 	}
 	
-	@GetMapping("/myLocalCommentList")
-	public String myLocalCommentList() {
-		return "/myLocalCommentList";
+	// 우리동네 댓글 폼
+	@GetMapping("/localCommunityCommentHistory")
+	public String localCommunityCommentHistory(HttpServletRequest request, HttpServletResponse response) throws Throwable{
+		request.setAttribute("display", "/view/myPage/localCommunityCommentHistory.jsp");
+		return "/view/myPage/mypageMainForm";
 	}
 	
+	// 우리동네 댓글 불러오기
 	@PostMapping("/myLocalCommentGetList")
 	@ResponseBody
 	public JSONObject myLocalCommentGetList(@RequestParam String pg, HttpSession session
@@ -147,6 +176,12 @@ public class MyPageController {
 		
 	}
 	
+	// 우리동네 댓글 삭제
+	@PostMapping("/myLocalCommentDelete") @ResponseBody
+	public void myLocalCommentDelete(@RequestParam String localcommunity_comment_seq) {
+		myPageService.myLocalCommentDelete(Integer.parseInt(localcommunity_comment_seq));
+	}
+	
 	@GetMapping("/myLocalCommentView")
 	public String myLocalCommentView() {
 		return "/myLocalCommentView";
@@ -159,13 +194,14 @@ public class MyPageController {
 	}
 	
 	
-	@GetMapping("/mySaleList")
-	public String mySaleList() {
-		
-		return "/mySaleList";
-		
+	// 팔고게시판 글 리스트 열기
+	@GetMapping(value="/salehistory")
+	public String salehistory(HttpServletRequest request, HttpServletResponse response) throws Throwable{
+		request.setAttribute("display", "/view/myPage/salehistory.jsp");
+		return "/view/myPage/mypageMainForm";
 	}
 	
+	// 팔고게시판 글 불러오기
 	@PostMapping("/mySaleGetList")
 	@ResponseBody
 	public JSONObject mySaleGetList(@RequestParam String pg, HttpSession session, HttpServletRequest request) {
@@ -192,13 +228,19 @@ public class MyPageController {
 		return myPageService.mySaleGetView(sale_seq);
 	}
 	
-	//마이페이지 구매내역 폼
+	@PostMapping("/salehistoryDelete") @ResponseBody
+	public void salehistoryDelete(@RequestParam String sale_seq) {
+		myPageService.salehistoryDelete(Integer.parseInt(sale_seq));
+	}
+	
+	// 사고게시판 글 리스트 열기
 	@GetMapping(value="/buyhistory")
 	public String buyhistory(HttpServletRequest request, HttpServletResponse response) throws Throwable{
 		request.setAttribute("display", "/view/myPage/buyhistory.jsp");
 		return "/view/myPage/mypageMainForm";
 	}
 	
+	// 사고게시판 글 리스트 불러오기
 	@PostMapping("/myBuyerGetList")
 	@ResponseBody
 	public JSONObject myBuyerGetList(@RequestParam String pg, HttpSession session, HttpServletRequest request) {
@@ -210,6 +252,12 @@ public class MyPageController {
 		map.put("member_id", member_id);
 		return myPageService.myBuyerGetList(map);
 		
+	}
+	
+	// 사고게시판 글 삭제
+	@PostMapping("/buyhistoryDelete") @ResponseBody
+	public void buyhistoryDelete(@RequestParam String buyerboard_seq) {
+		myPageService.buyhistoryDelete(Integer.parseInt(buyerboard_seq));
 	}
 	
 	@GetMapping("/myBuyerView")

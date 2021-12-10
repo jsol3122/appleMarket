@@ -124,5 +124,12 @@
     </main>
     <footer></footer>
 </body>
+<!-- <script type="text/javascript">
+
+$('#buyerboardWriteBtn').click(function(){
+	alert("????????????");
+   location.href = '/appleMarket/buyerboard/buyerboardWriteForm'; 
+});
+</script> -->
 
 </html>

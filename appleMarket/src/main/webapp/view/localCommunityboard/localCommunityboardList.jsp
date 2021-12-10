@@ -19,7 +19,6 @@
 
     <link rel="stylesheet" href="/appleMarket/css/userchangepwpage.css">
 
-    <link rel="stylesheet" href="/appleMarket/css/comboard.css">
     <link rel="stylesheet" href="/appleMarket/css/comjquery-ui.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/appleMarket/css/comboard.css">
@@ -265,7 +264,7 @@
 </head>
 
 <body>
-    <%@include file="/includes/header.jsp" %>
+   <%@include file="/includes/header.jsp" %>
     <div class="memberup">
         <div class="main">
             <div class="content">
