@@ -438,29 +438,6 @@
                                                     </tr>
                                                 </tbody>
                                             </table>
-                                            <div class="btm_mn clear">
-
-                                                <div class="fl">
-                                                    <a class="btn_img fl" href="#"><i class="fa fa-bars"></i> 목록</a>
-                                                    <form action="#" method="get" onsubmit="return procFilter(this, search)" class="bd_srch_btm"><input type="hidden" name="act" value="">
-                                                        <input type="hidden" name="vid" value="">
-                                                        <input type="hidden" name="mid" value="freebd">
-                                                        <input type="hidden" name="category" value="">
-                                                        <span class="btn_img itx_wrp">
-                                                            <button type="submit" onclick="jQuery(this).parents('form.bd_srch_btm').submit();return false;" class="ico_16px search">Search</button>
-                                                            <label for="bd_srch_btm_itx_112">검색</label>
-                                                            <input type="text" name="search_keyword" id="bd_srch_btm_itx_112" class="bd_srch_btm_itx srch_itx" value="">
-                                                        </span>
-                                                        <span class="btn_img select">
-                                                            <select name="search_target">
-                                                            <option value="title_content">제목+내용</option><option value="title">제목</option><option value="content">내용</option>
-                                                        </select>
-                                                    </span>
-                                                    </form>
-                                                </div>
-                                                <div class="fr">
-                                                    <a class="btn_img" href="#"><i class="ico_16px write"></i> 쓰기</a> </div>
-                                            </div>
                                             <form action="./" method="get" class="bd_pg clear"><input type="hidden" name="error_return_url" value="/freebd"><input type="hidden" name="act" value="">
                                                 <fieldset>
                                                     <legend class="blind">Board Pagination</legend>
