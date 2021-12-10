@@ -13,6 +13,8 @@ import org.springframework.web.servlet.ModelAndView;
 import admin.bean.BlackListDTO;
 import admin.service.AdminService;
 import buyerboard.bean.BuyerboardDTO;
+import communityboard.bean.CommunityboardDTO;
+import communityboardComment.bean.CommunityboardCommentDTO;
 import member.bean.MemberDTO;
 import saleboard.bean.SaleboardDTO;
 import warningBoard.bean.WarningBoardDTO;
@@ -230,4 +232,77 @@ public class AdminController {
 		return modelAndView;
 	}
 	
+	//조잘조잘 리스트 데이터 출력
+	@PostMapping("/getAdminCommunityBoardList")
+	@ResponseBody
+	public List<CommunityboardDTO> getAdminCommunityBoardList(){
+		return adminService.getAdminCommunityBoardList();
+	}
+	
+	//조잘조잘 데이터 상세화면 
+	@GetMapping(value="/adminCommunityBoardView")
+	public ModelAndView adminCommunityBoardView() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("display", "/admin/adminCommunityBoardView.jsp");
+		modelAndView.setViewName("/admin/adminNoticeList");
+		return modelAndView;
+	}
+	
+	//회원 데이터 출력
+	@PostMapping("/getAdminMemberListId")
+	@ResponseBody
+	public MemberDTO getAdminMemberListId(String member_id){
+		return adminService.getAdminMemberListId(member_id);
+	}
+
+	//사고게시판 리스트 데이터 출력 - 동네마다
+	@PostMapping("/getAdminBuyerBoardListDong")
+	@ResponseBody
+	public List<BuyerboardDTO> getAdminBuyerBoardListDong(String location_dong){
+		return adminService.getAdminBuyerBoardListDong(location_dong);
+	}
+	
+	//조잘조잘 데이터 상세 출력
+	@PostMapping("/getadminCommunityBoardView")
+	@ResponseBody
+	public CommunityboardDTO getadminCommunityBoardView(int communityboard_seq){
+		return adminService.getadminCommunityBoardView(communityboard_seq);
+	}
+
+	//조잘조잘게시판 글 삭제
+	@PostMapping("/adminCommunityBoardDelete")
+	@ResponseBody
+	public void adminCommunityBoardDelete(int communityboard_seq) {
+		adminService.adminCommunityBoardDelete(communityboard_seq);
+	}
+	
+	//조잘조잘 리스트출력(아이디별)
+	@PostMapping("/getAdminCommunityListId")
+	@ResponseBody
+	public List<CommunityboardDTO> getAdminCommunityListId(String communityboard_user_id){
+		return adminService.getAdminCommunityListId(communityboard_user_id);
+	}
+
+	//조잘조잘댓글(communityComment) 리스트 화면
+	@GetMapping(value="/adminCommunityCommentList")
+	public ModelAndView adminCommunityCommentList() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("display", "/admin/adminCommunityCommentList.jsp");
+		modelAndView.setViewName("/admin/adminNoticeList");
+		return modelAndView;
+	}
+	
+	//조잘조잘 댓글 리스트 데이터 출력
+	@PostMapping("/getAdminCommunityCommentList")
+	@ResponseBody
+	public List<CommunityboardCommentDTO> getAdminCommunityCommentList(){
+		return adminService.getAdminCommunityCommentList();
+	}
+	
+	//
+	@PostMapping("/adminCommunityCommentDelete")
+	@ResponseBody
+	public void adminCommunityCommentDelete(int communityboard_comment_seq) {
+		adminService.adminCommunityCommentDelete(communityboard_comment_seq);
+	}
 }

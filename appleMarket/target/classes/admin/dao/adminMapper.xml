@@ -83,5 +83,46 @@
  	<select id="getAdminSaleBoardListDong" parameterType="String" resultType="saleboard">
  		select * from saleboard where location_dong=#{location_dong}
  	</select>
+ 	
+ 	<!-- 조잘조잘 리스트 출력  -->
+ 	<select id="getAdminCommunityBoardList" resultType="communityboard">
+ 		select * from communityboard
+ 	</select>
+ 	
+ 	<!-- 회원 리스트 출력  -->
+ 	<select id="getAdminMemberListId" parameterType="String" resultType="member">
+ 		select * from appleMarket where member_reputation > 20 and member_id=#{member_id}
+ 	</select>
+ 	
+ 	<!-- 사고게시판(동네마다) 출력  -->
+ 	<select id="getAdminBuyerBoardListDong" parameterType="String" resultType="buyerboard">
+ 		select * from buyerboard where location_dong=#{location_dong}
+ 	</select>
+	
+	<!-- 조잘조잘 상세페이지 출력  -->
+	<select id="getadminCommunityBoardView" parameterType="Integer" resultType="communityboard">
+ 		select * from communityboard where communityboard_seq=#{communityboard_seq}
+ 	</select>
+ 	
+ 	<!-- 조잘조잘 글 삭제  -->
+ 	<delete id="adminCommunityBoardDelete" parameterType="Integer">
+ 		delete from communityboard where communityboard_seq=#{communityboard_seq}
+ 	</delete>
+ 	
+ 	<!-- 조잘조잘(아이디마다) 출력  -->
+ 	 <select id="getAdminCommunityListId" parameterType="String" resultType="communityboard">
+ 		select * from communityboard where communityboard_user_id=#{communityboard_user_id}
+ 	</select>
+ 	
+ 	<!-- 조잘조잘 댓글 리스트 출력  -->
+ 	<select id="getAdminCommunityCommentList" resultType="communityboardComment">
+ 		select * from communityboard_comment
+ 	</select>
+ 	
+ 	<delete id="adminCommunityCommentDelete" parameterType="Integer">
+ 		delete from communityboard_comment where communityboard_comment_seq=#{communityboard_comment_seq}
+ 	</delete>
+ 	
+ 	
  </mapper>
  	

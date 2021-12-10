@@ -1,8 +1,4 @@
 $(function(){
-	var location_dong=$('#location').val();
-	alert(location_dong);
-	
-	if(location_dong='지역'){
 		$.ajax({
 			url: '/appleMarket/getAdminSaleBoardList', 
 			type: 'post',
@@ -58,7 +54,5 @@ $(function(){
 			console.log(err);
 		}
 	});
-
-}//
 
 });

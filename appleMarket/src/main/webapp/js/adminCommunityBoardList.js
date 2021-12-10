@@ -1,8 +1,6 @@
 $(function(){
-
-	if(location_dong='지역'){
 		$.ajax({
-			url: '/appleMarket/getAdminSaleBoardList', 
+			url: '/appleMarket/getAdminCommunityBoardList', 
 			type: 'post',
 			dataType: 'json', 
 			success: function(data){
@@ -12,35 +10,22 @@ $(function(){
 				$.each(data, function(index,items){
 					$('<tr>').append($('<td>',{
 						align : 'center',
-						id:'sale_seq',
-						text : items.sale_seq
-					})).append($('<td>',{
-						align : 'center', 
-						id:'sale_category',
-						class:'sale_category',
-						text : items.sale_category
+						id:'communityboard_seq',
+						text : items.communityboard_seq
 					})).append($('<td>',{
 						align:'center',
 					}).append($('<a>',{
-						href:'/appleMarket/adminSaleBoardView?sale_seq='+items.sale_seq,
-						class:'sale_subject',
-						text : items.sale_subject,
+						href:'/appleMarket/adminCommunityBoardView?communityboard_seq='+items.communityboard_seq,
+						class:'communityboard_subject',
+						text : items.communityboard_subject,
 						style:'text-decoration:none; color: inherit',
 					}))).append($('<td>',{
 						align : 'center', 
-						text : items.location_dong
+						id:'communityboard_user_id',
+						text : items.communityboard_user_id
 					})).append($('<td>',{
 						align : 'center', 
-						text : items.sale_status
-					})).append($('<td>',{
-						align : 'center', 
-						text : items.member_id
-					})).append($('<td>',{
-						align : 'center', 
-						text : items.sale_price
-					})).append($('<td>',{
-						align : 'center', 
-						text : items.sale_logtime
+						text : items.communityboard_logtime
 					})).append($('<td>',{
 						align:'center',
 					}).append($('<input>',{//td의 자식 
@@ -48,7 +33,7 @@ $(function(){
 						value: '삭제',
 						class:'btn btn-outline btn-primary pull-right',
 						id:'saleDelete'
-					}))).appendTo($('#adminSaleBoard'));
+					}))).appendTo($('#adminCommunityBoard'));
 
 	});//each
 
@@ -57,6 +42,5 @@ $(function(){
 		}
 	});
 
-}//
 
 });

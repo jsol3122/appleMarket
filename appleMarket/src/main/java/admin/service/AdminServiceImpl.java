@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import admin.bean.BlackListDTO;
 import admin.dao.AdminDAO;
 import buyerboard.bean.BuyerboardDTO;
+import communityboard.bean.CommunityboardDTO;
+import communityboardComment.bean.CommunityboardCommentDTO;
 import member.bean.MemberDTO;
 import saleboard.bean.SaleboardDTO;
 import warningBoard.bean.WarningBoardDTO;
@@ -102,6 +104,47 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public List<SaleboardDTO> getAdminSaleBoardListDong(String location_dong) {
 		return adminDAO.getAdminSaleBoardListDong(location_dong);
+	}
+
+	@Override
+	public List<CommunityboardDTO> getAdminCommunityBoardList() {
+		return adminDAO.getAdminCommunityBoardList();
+	}
+
+	@Override
+	public MemberDTO getAdminMemberListId(String member_id) {
+		return adminDAO.getAdminMemberListId(member_id);
+	}
+
+	@Override
+	public List<BuyerboardDTO> getAdminBuyerBoardListDong(String location_dong) {
+		return adminDAO.getAdminBuyerBoardListDong(location_dong);
+	}
+
+	@Override
+	public CommunityboardDTO getadminCommunityBoardView(int communityboard_seq) {
+		return adminDAO.getadminCommunityBoardView(communityboard_seq);
+	}
+
+	@Override
+	public void adminCommunityBoardDelete(int communityboard_seq) {
+		adminDAO.adminCommunityBoardDelete(communityboard_seq);
+	}
+
+	@Override
+	public List<CommunityboardDTO> getAdminCommunityListId(String communityboard_user_id) {
+		return adminDAO.getAdminCommunityListId(communityboard_user_id);
+	}
+
+	@Override
+	public List<CommunityboardCommentDTO> getAdminCommunityCommentList() {
+		return adminDAO.getAdminCommunityCommentList();
+	}
+
+	@Override
+	public void adminCommunityCommentDelete(int communityboard_comment_seq) {
+		adminDAO.adminCommunityCommentDelete(communityboard_comment_seq);
+		
 	}
 
 }

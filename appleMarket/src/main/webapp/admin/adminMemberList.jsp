@@ -7,7 +7,13 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  
+<style type="text/css">
+.panel-body #admin_member_id{
+	text-align:center;
+	border:none;
+	background: transparent;
+}
+</style> 
 <title>Member Manage</title>
 </head>
 <body>
@@ -33,7 +39,12 @@
                     <table class="table table-hover" id="adminMember">
               				<tr>
                                <th>회원번호</th>
-                               <th>아이디</th>
+                               <th>
+                               	<input type="text" list="list" id="admin_member_id" class="admin_member_id" value="아이디"/>
+								  <datalist id ="list">
+								  	 <option value="아이디를 입력하세요"/>
+								  </datalist>
+							   </th>
                                <th>이메일</th>
                                <th>핸드폰</th>
                                <th>매너온도</th>
@@ -134,8 +145,138 @@ $(document).on("click", ".nav__icon_plus", function(){
 		
 });
 
+//아이디별로 출력
+$('#adminMember .admin_member_id').focusout(function() {
+	
+	$("#adminMember tr:gt(0)").remove(); 
+	
+	var member_id = $(this).val();
+	//alert(member_id);
+	
+	
+	if(member_id!='아이디'){
+		$.ajax({
+			url: '/appleMarket/getAdminMemberListId', 
+			type: 'post',
+			data : {'member_id' :member_id},
+			success: function(data){
+				//alert(JSON.stringify(data));
+				
+					$('<tr>').append($('<td>',{
+						align : 'center', 
+						text : data.member_seq
+					})).append($('<td>',{
+						align : 'center', 
+						id:'member_id',
+						class:'member_id',
+						text : data.member_id
+					})).append($('<td>',{
+						align : 'center', 
+						text : data.member_email
+					})).append($('<td>',{
+						align : 'center', 
+						text : '0'+data.member_tel1+''+data.member_tel2+''+data.member_tel3
+					})).append($('<td>',{
+						align:'center',
+					}).append($('<ion-icon>',{
+						name:'caret-down-outline',
+						class:'nav__icon_minus',
+						style: 'vertical-align: bottom;font-size: 1.25rem'
+					})).append($('<input>',{
+						type:'text',
+						style:'text-align:center;border:none;background: transparent',
+						size:'1',
+						class:'member_reputation',
+						value:data.member_reputation
+					})).append($('<ion-icon>',{
+						name:'caret-up-outline',
+						class:'nav__icon_plus',
+						style:'vertical-align: bottom;font-size: 1.25rem'
+					}))).append($('<td>',{
+						align : 'center', 
+						text : data.member_siteCheck
+					})).append($('<td>',{
+						align : 'center', 
+						text : data.member_entryLogtime
+					})).append($('<td>',{
+						align:'center',
+					}).append($('<input>',{//td의 자식 
+						type: 'button',
+						value: '삭제',
+						class:'btn btn-outline btn-primary pull-right',
+						id:'memberDelete'
+					}))).appendTo($('#adminMember'));
+				
+					$('.member_reputation').prop('readonly', true);			
+	
+			},error:function(err){
+				console.log(err);
+			}
+		});
+	}else{
+		$.ajax({
+			url: '/appleMarket/getAdminMemberList', 
+			type: 'post',
+			dataType: 'json', 
+			success: function(data){
+				//alert(JSON.stringify(data));
+				
+				//List로 보내면 data라고만 써야 한다. - json 에선 data.list로 보내야한다.
+				$.each(data, function(index,items){
+					$('<tr>').append($('<td>',{
+						align : 'center', 
+						text : items.member_seq
+					})).append($('<td>',{
+						align : 'center', 
+						id:'member_id',
+						class:'member_id',
+						text : items.member_id
+					})).append($('<td>',{
+						align : 'center', 
+						text : items.member_email
+					})).append($('<td>',{
+						align : 'center', 
+						text : '0'+items.member_tel1+''+items.member_tel2+''+items.member_tel3
+					})).append($('<td>',{
+						align:'center',
+					}).append($('<ion-icon>',{
+						name:'caret-down-outline',
+						class:'nav__icon_minus',
+						style: 'vertical-align: bottom;font-size: 1.25rem'
+					})).append($('<input>',{
+						type:'text',
+						style:'text-align:center;border:none;background: transparent',
+						size:'1',
+						class:'member_reputation',
+						value:items.member_reputation
+					})).append($('<ion-icon>',{
+						name:'caret-up-outline',
+						class:'nav__icon_plus',
+						style:'vertical-align: bottom;font-size: 1.25rem'
+					}))).append($('<td>',{
+						align : 'center', 
+						text : items.member_siteCheck
+					})).append($('<td>',{
+						align : 'center', 
+						text : items.member_entryLogtime
+					})).append($('<td>',{
+						align:'center',
+					}).append($('<input>',{//td의 자식 
+						type: 'button',
+						value: '삭제',
+						class:'btn btn-outline btn-primary pull-right',
+						id:'memberDelete'
+					}))).appendTo($('#adminMember'));
+					
+		$('.member_reputation').prop('readonly', true);
+	});//each
 
-
+			},error:function(err){
+				console.log(err);
+			}
+		});
+	}
+});
 </script>
 </body>
 </html>

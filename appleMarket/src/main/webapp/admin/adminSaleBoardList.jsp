@@ -8,11 +8,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style type="text/css">
-.panel-body #category{
-	text-align:center;
-	border:none;
-	background: transparent;
-}
 .panel-body #location{
 	text-align:center;
 	border:none;
@@ -48,27 +43,12 @@
                     <table class="table table-hover" id="adminSaleBoard">
               				<tr>
                                <th>No</th>
-                               <th>
-                               	  <input type="text" list="list" id="category" value="   카테고리"/>
-									  <datalist id ="list">
-									    <option value="tech" label="디지털기기/생활가전" />
-									    <option value="furniture" label="가구/인테리어"/>
-									    <option value="baby" label="유아동"/>
-									    <option value="living" label="생활/기공식품"/>
-									    <option value="male" label="여성패션/잡화"/>
-									    <option value="hobby" label="남성패션/잡화"/>
-									    <option value="hobby" label="게임/취미"/>
-									    <option value="etc" label="기타중고물품"/>
-									    <option value="sprots" label="스포츠/레저"/>
-									    <option value="beauty" label="뷰티/미용"/>
-									    <option value="pet" label="반려동물용품"/>
-									    <option value="book" label="도서/티켓/음반"/>
-									  </datalist>
-                               </th>
+                               <th>카테고리</th>
                                <th>제목</th>
                                <th>
-                               	<input type="text" list="color" id="location" class="location" value="지역"/>
-								  <datalist id ="color">
+                               	<input type="text" list="list" id="location" class="location" value="지역"/>
+								  <datalist id ="list">
+								 	<option value="지역을 입력하세요"/>
 								    <option value="역삼동"/>
 								  	<option value="독산동"/>
 								  	<option value="구로동"/>
@@ -117,69 +97,125 @@ $(document).on("click", "#adminSaleBoard .pull-right", function(){
 		} 
 });
 
-
+//지역별로 출력
 $('#adminSaleBoard .location').focusout(function() {
 	
-	$(".table-hover").empty();
-	//$(".adminSaleBoard").empty(); 
+	$("#adminSaleBoard tr:gt(0)").remove(); 
 	
 	var location_dong = $(this).parents().children().eq(0).val();
-	alert(location_dong);
+	//alert(location_dong);
 	
-	$.ajax({
-		url: '/appleMarket/getAdminSaleBoardListDong', 
-		type: 'post',
-		data : {'location_dong' :location_dong},
-		success: function(data){
-			alert(JSON.stringify(data));
-			
-			
-			$.each(data, function(index,items){
-				$('<tr>').append($('<td>',{
-					align : 'center',
-					id:'sale_seq',
-					text : items.sale_seq
-				})).append($('<td>',{
-					align : 'center', 
-					id:'sale_category',
-					class:'sale_category',
-					text : items.sale_category
-				})).append($('<td>',{
-					align:'center',
-				}).append($('<a>',{
-					href:'/appleMarket/adminSaleBoardView?sale_seq='+items.sale_seq,
-					class:'sale_subject',
-					text : items.sale_subject,
-					style:'text-decoration:none; color: inherit',
-				}))).append($('<td>',{
-					align : 'center', 
-					text : items.location_dong
-				})).append($('<td>',{
-					align : 'center', 
-					text : items.sale_status
-				})).append($('<td>',{
-					align : 'center', 
-					text : items.member_id
-				})).append($('<td>',{
-					align : 'center', 
-					text : items.sale_price
-				})).append($('<td>',{
-					align : 'center', 
-					text : items.sale_logtime
-				})).append($('<td>',{
-					align:'center',
-				}).append($('<input>',{//td의 자식 
-					type: 'button',
-					value: '삭제',
-					class:'btn btn-outline btn-primary pull-right',
-					id:'saleDelete'
-				}))).appendTo($('#adminSaleBoard'));
- });//each
+	if(location_dong!='지역'){
+		$.ajax({
+			url: '/appleMarket/getAdminSaleBoardListDong', 
+			type: 'post',
+			data : {'location_dong' :location_dong},
+			success: function(data){
+				//alert(JSON.stringify(data));
+				
+				$.each(data, function(index,items){
+					$('<tr>').append($('<td>',{
+						align : 'center',
+						id:'sale_seq',
+						text : items.sale_seq
+					})).append($('<td>',{
+						align : 'center', 
+						id:'sale_category',
+						class:'sale_category',
+						text : items.sale_category
+					})).append($('<td>',{
+						align:'center',
+					}).append($('<a>',{
+						href:'/appleMarket/adminSaleBoardView?sale_seq='+items.sale_seq,
+						class:'sale_subject',
+						text : items.sale_subject,
+						style:'text-decoration:none; color: inherit',
+					}))).append($('<td>',{
+						align : 'center', 
+						text : items.location_dong
+					})).append($('<td>',{
+						align : 'center', 
+						text : items.sale_status
+					})).append($('<td>',{
+						align : 'center', 
+						text : items.member_id
+					})).append($('<td>',{
+						align : 'center', 
+						text : items.sale_price
+					})).append($('<td>',{
+						align : 'center', 
+						text : items.sale_logtime
+					})).append($('<td>',{
+						align:'center',
+					}).append($('<input>',{//td의 자식 
+						type: 'button',
+						value: '삭제',
+						class:'btn btn-outline btn-primary pull-right',
+						id:'saleDelete'
+					}))).appendTo($('#adminSaleBoard'));
+	 });//each
+	
+			},error:function(err){
+				console.log(err);
+			}
+		});
+	}else{
+		$.ajax({
+			url: '/appleMarket/getAdminSaleBoardList', 
+			type: 'post',
+			dataType: 'json', 
+			success: function(data){
+				//alert(JSON.stringify(data));
+				
+				//List로 보내면 data라고만 써야 한다. - json 에선 data.list로 보내야한다.
+				$.each(data, function(index,items){
+					$('<tr>').append($('<td>',{
+						align : 'center',
+						id:'sale_seq',
+						text : items.sale_seq
+					})).append($('<td>',{
+						align : 'center', 
+						id:'sale_category',
+						class:'sale_category',
+						text : items.sale_category
+					})).append($('<td>',{
+						align:'center',
+					}).append($('<a>',{
+						href:'/appleMarket/adminSaleBoardView?sale_seq='+items.sale_seq,
+						class:'sale_subject',
+						text : items.sale_subject,
+						style:'text-decoration:none; color: inherit',
+					}))).append($('<td>',{
+						align : 'center', 
+						text : items.location_dong
+					})).append($('<td>',{
+						align : 'center', 
+						text : items.sale_status
+					})).append($('<td>',{
+						align : 'center', 
+						text : items.member_id
+					})).append($('<td>',{
+						align : 'center', 
+						text : items.sale_price
+					})).append($('<td>',{
+						align : 'center', 
+						text : items.sale_logtime
+					})).append($('<td>',{
+						align:'center',
+					}).append($('<input>',{//td의 자식 
+						type: 'button',
+						value: '삭제',
+						class:'btn btn-outline btn-primary pull-right',
+						id:'saleDelete'
+					}))).appendTo($('#adminSaleBoard'));
+
+	});//each
 
 		},error:function(err){
 			console.log(err);
 		}
 	});
+	}
 });
 
 

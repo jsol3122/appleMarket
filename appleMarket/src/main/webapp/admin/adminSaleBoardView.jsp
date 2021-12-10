@@ -96,31 +96,30 @@ $(function(){
 					align : 'left', 
 					id:'sale_content',
 					colspan:2,
-					height:500,
-					text : data.sale_content.replace(/(?:\r\n|\r|\n)/g, '<br />') 
+					text : data.sale_content.replace(/\\r\\n|\\n|\\r/gm,'<br>')
 				})).appendTo($('#adminSaleBoardView'));
 				
 				$('#sale_content').append($('<img>',{//td의 자식 
-					alt:'이미지',
+					alt:'이미지1',
 					src:'/appleMarket/storage/'+data.sale_image1.replace(null, '') ,
 					style:'width: 100%; height: 100%; cursor: pointer;'
 				})).append($('<img>',{//td의 자식 
-					alt:'이미지',
+					alt:'이미지2',
 					src:'/appleMarket/storage/'+data.sale_image2.replace(null, '') ,
 					style:'width: 100%; height: 100%; cursor: pointer;'
 				})).append($('<img>',{//td의 자식 
-					alt:'이미지',
+					alt:'이미지3',
 					src:'/appleMarket/storage/'+data.sale_image3.replace(null, '') ,
 					style:'width: 100%; height: 100%; cursor: pointer;'
 				})).append($('<img>',{//td의 자식 
-					alt:'이미지',
+					alt:'이미지4',
 					src:'/appleMarket/storage/'+data.sale_image4.replace(null, '') ,
 					style:'width: 100%; height: 100%; cursor: pointer;'
 				})).append($('<img>',{//td의 자식 
-					alt:'이미지',
+					alt:'이미지5',
 					src:'/appleMarket/storage/'+data.sale_image5.replace(null, '') ,
 					style:'width: 100%; height: 100%; cursor: pointer;'
-				})); 
+				}));
 		},error:function(err){
 			console.log(err);
 		}
@@ -128,6 +127,7 @@ $(function(){
 		
 	
 });
+
 
 </script>
 </body>

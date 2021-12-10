@@ -4,6 +4,8 @@ import java.util.List;
 
 import admin.bean.BlackListDTO;
 import buyerboard.bean.BuyerboardDTO;
+import communityboard.bean.CommunityboardDTO;
+import communityboardComment.bean.CommunityboardCommentDTO;
 import member.bean.MemberDTO;
 import saleboard.bean.SaleboardDTO;
 import warningBoard.bean.WarningBoardDTO;
@@ -41,5 +43,21 @@ public interface AdminDAO {
 	public void adminBuyerBoardDelete(int buyerboard_seq);
 
 	public List<SaleboardDTO> getAdminSaleBoardListDong(String location_dong);
+
+	public List<CommunityboardDTO> getAdminCommunityBoardList();
+
+	public MemberDTO getAdminMemberListId(String member_id);
+
+	public List<BuyerboardDTO> getAdminBuyerBoardListDong(String location_dong);
+
+	public CommunityboardDTO getadminCommunityBoardView(int communityboard_seq);
+
+	public void adminCommunityBoardDelete(int communityboard_seq);
+
+	public List<CommunityboardDTO> getAdminCommunityListId(String communityboard_user_id);
+
+	public List<CommunityboardCommentDTO> getAdminCommunityCommentList();
+
+	public void adminCommunityCommentDelete(int communityboard_comment_seq);
 
 }

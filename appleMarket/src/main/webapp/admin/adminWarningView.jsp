@@ -121,8 +121,7 @@ $(function(){
 					align : 'left', 
 					id:'warning_content',
 					colspan:8,
-					height:500,
-					text : data.warning_content.replace(/(?:\r\n|\r|\n)/g, '<br />') 
+					text : data.warning_content.replace(/\\r\\n|\\n|\\r/gm,'<br>')
 				})).appendTo($('#adminWarningView'));
 				
 				

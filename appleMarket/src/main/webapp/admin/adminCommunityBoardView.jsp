@@ -9,18 +9,18 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   
-<title>BuyerBoard</title>
+<title>CommunityBoard View</title>
 </head>
 <body>
 <div class="page-wrapper">
     <div class="container-fluid">
         <div class="col-lg-9"><!--게시판 넓이 -->
             <div class="col-lg-12">
-                <h1 class="page-header">BuyerBoard View</h1>
+                <h1 class="page-header">CommunityBoard View</h1>
             </div>
             <div class="row">
                   <div class="col-lg-12">
-                      <button type="button" class="btn btn-outline btn-primary pull-right" onclick="location.href='/appleMarket/adminBuyerBoardList'">
+                      <button type="button" class="btn btn-outline btn-primary pull-right" onclick="location.href='/appleMarket/adminCommunityBoardList'">
                           <i class="fa fa-edit fa-fw"></i> 목록
                       </button>
                   </div>
@@ -31,7 +31,7 @@
                 	<ion-icon name="wallet-outline" class="nav__icon"></ion-icon>
                 </div>
                 <div class="panel-body">
-                    <table class="table table-hover" id="adminBuyerBoardView">
+                    <table class="table table-hover" id="adminCommunityBoardView">
             			<tr id="start">
             				<th>작성자</th>
                         </tr>
@@ -42,6 +42,7 @@
         </div>
     </div>
 </div>
+
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 //view의 주소값에서 상품 글번호 추출
@@ -58,59 +59,51 @@ function get_query(){
 $(function(){
 	var result = get_query();
 	$.ajax({
-		url: '/appleMarket/getAdminBuyerBoardView',
+		url: '/appleMarket/getadminCommunityBoardView',
 		type : 'post',
-		data:'buyerboard_seq='+result.buyerboard_seq, 
+		data:'communityboard_seq='+result.communityboard_seq, 
 		dataType: 'json',
 		success:function(data){
 			//alert(JSON.stringify(data));
 				$('#start').append($('<td>',{
 					align : 'left', 
-					id:'member_id',
-					text : data.member_id
-				})).appendTo($('#adminBuyerBoardView'));
+					id:'communityboard_user_id',
+					text : data.communityboard_user_id
+				})).appendTo($('#adminCommunityBoardView'));
 				
 				$('<tr>').append($('<th>',{
 					align : 'center',
-					text : '가격'
+					text : '작성일'
 				})).append($('<td>',{
 					align : 'left', 
-					id:'buyerboard_price',
-					text : data.buyerboard_price
-				})).appendTo($('#adminBuyerBoardView'));
+					id:'communityboard_logtime',
+					text : data.communityboard_logtime
+				})).appendTo($('#adminCommunityBoardView'));
 				
 			$('<tr>').append($('<th>',{
 					align : 'center',
 					text : '제목'
 				})).append($('<td>',{
 					align : 'left',
-					id:'buyerboard_subject',
+					id:'communityboard_subject',
 					colspan:2,
-					text : data.buyerboard_subject
-				})).appendTo($('#adminBuyerBoardView'));
+					text : data.communityboard_subject
+				})).appendTo($('#adminCommunityBoardView'));
 				 
 				
 			
 				$('<tr>').append($('<td>',{
 					align : 'left', 
-					id:'buyerboard_content',
+					id:'communityboard_content',
 					colspan:2,
-					text : data.buyerboard_content.replace(/\\r\\n|\\n|\\r/gm,'<br>')
-				})).appendTo($('#adminBuyerBoardView'));
+					text : data.communityboard_content.replace(/\\r\\n|\\n|\\r/gm,'<br>')
+				})).appendTo($('#adminCommunityBoardView'));
 				
-				$('#buyerboard_content').append($('<img>',{//td의 자식 
+				$('#communityboard_content').append($('<img>',{//td의 자식 
 					alt:'이미지',
-					src:'/appleMarket/storage/'+data.buyerboard_image1.replace(null, '') ,
+					src:'/appleMarket/storage/'+data.communityboard_image.replace(null, '') ,
 					style:'width: 100%; height: 100%; cursor: pointer;'
-				})).append($('<img>',{//td의 자식 
-					alt:'이미지',
-					src:'/appleMarket/storage/'+data.buyerboard_image2.replace(null, '') ,
-					style:'width: 100%; height: 100%; cursor: pointer;'
-				})).append($('<img>',{//td의 자식 
-					alt:'이미지',
-					src:'/appleMarket/storage/'+data.buyerboard_image3.replace(null, '') ,
-					style:'width: 100%; height: 100%; cursor: pointer;'
-				}));
+				})); 
 		},error:function(err){
 			console.log(err);
 		}

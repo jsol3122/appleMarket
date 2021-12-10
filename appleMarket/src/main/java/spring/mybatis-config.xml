@@ -17,5 +17,7 @@
 		<typeAlias type="admin.bean.BlackListDTO" alias="blackList"/>
 		<typeAlias type="saleboard.bean.SaleboardDTO" alias="saleboard"/>
 		<typeAlias type="buyerboard.bean.BuyerboardDTO" alias="buyerboard"/>
+		<typeAlias type="communityboard.bean.CommunityboardDTO" alias="communityboard"/>		
+		<typeAlias type="communityboardComment.bean.CommunityboardCommentDTO" alias="communityboardComment"/>
 	</typeAliases> 
 </configuration>

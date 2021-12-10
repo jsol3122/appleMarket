@@ -65,7 +65,7 @@
 
                         <ul class="collapse__menu">
                             <a href="/appleMarket/adminCommunityBoardList" class="collapse__sublink">board</a>
-                            <a href="#" class="collapse__sublink">comment</a>
+                            <a href="/appleMarket/adminCommunityCommentList" class="collapse__sublink">comment</a>
                         </ul>
                     </div>
                 </div>

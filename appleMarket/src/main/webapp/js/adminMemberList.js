@@ -8,7 +8,7 @@ $(function(){
 			
 			//List로 보내면 data라고만 써야 한다. - json 에선 data.list로 보내야한다.
 			$.each(data, function(index,items){
-				$('#admintext').append($('<td>',{
+				$('<tr>').append($('<td>',{
 					align : 'center', 
 					text : items.member_seq
 				})).append($('<td>',{
@@ -53,7 +53,7 @@ $(function(){
 					id:'memberDelete'
 				}))).appendTo($('#adminMember'));
 				
-	$('input').prop('readonly', true);
+	$('.member_reputation').prop('readonly', true);
 });//each
 
 		},error:function(err){

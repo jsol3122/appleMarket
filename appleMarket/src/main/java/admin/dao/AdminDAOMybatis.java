@@ -9,6 +9,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import admin.bean.BlackListDTO;
 import buyerboard.bean.BuyerboardDTO;
+import communityboard.bean.CommunityboardDTO;
+import communityboardComment.bean.CommunityboardCommentDTO;
 import member.bean.MemberDTO;
 import saleboard.bean.SaleboardDTO;
 import warningBoard.bean.WarningBoardDTO;
@@ -105,6 +107,47 @@ public class AdminDAOMybatis implements AdminDAO{
 	@Override
 	public List<SaleboardDTO> getAdminSaleBoardListDong(String location_dong) {
 		return sqlSession.selectList("adminSQL.getAdminSaleBoardListDong",location_dong);
+	}
+
+	@Override
+	public List<CommunityboardDTO> getAdminCommunityBoardList() {
+		return sqlSession.selectList("adminSQL.getAdminCommunityBoardList");
+	}
+
+	@Override
+	public MemberDTO getAdminMemberListId(String member_id) {
+		return sqlSession.selectOne("adminSQL.getAdminMemberListId", member_id);
+	}
+
+	@Override
+	public List<BuyerboardDTO> getAdminBuyerBoardListDong(String location_dong) {
+		return sqlSession.selectList("adminSQL.getAdminBuyerBoardListDong",location_dong);
+	}
+
+	@Override
+	public CommunityboardDTO getadminCommunityBoardView(int communityboard_seq) {
+		return sqlSession.selectOne("adminSQL.getadminCommunityBoardView",communityboard_seq);
+	}
+
+	@Override
+	public void adminCommunityBoardDelete(int communityboard_seq) {
+		sqlSession.delete("adminSQL.adminCommunityBoardDelete",communityboard_seq);		
+	}
+
+	@Override
+	public List<CommunityboardDTO> getAdminCommunityListId(String communityboard_user_id) {
+		return sqlSession.selectList("adminSQL.getAdminCommunityListId",communityboard_user_id);
+	}
+
+	@Override
+	public List<CommunityboardCommentDTO> getAdminCommunityCommentList() {
+		return sqlSession.selectList("adminSQL.getAdminCommunityCommentList");
+	}
+
+	@Override
+	public void adminCommunityCommentDelete(int communityboard_comment_seq) {
+		sqlSession.delete("adminSQL.adminCommunityCommentDelete",communityboard_comment_seq);	
+		
 	}
 
 }
