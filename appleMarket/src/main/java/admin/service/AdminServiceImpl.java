@@ -38,4 +38,23 @@ public class AdminServiceImpl implements AdminService {
 		
 	}
 
+	@Override
+	public AdminNoticeDTO getadminNoticeView(int admin_notice_seq ) {
+		// TODO Auto-generated method stub
+		System.out.println("serviceImpl"+admin_notice_seq);
+		return adminDAO.getadminNoticeView(admin_notice_seq);
+		
+	}
+
+	@Override
+	public void getadminNoticeModify(AdminNoticeDTO adminNoticeDTO) {
+		adminDAO.getadminNoticeModify(adminNoticeDTO);
+		
+	}
+
+	@Override
+	public void getadminNoticeWrite(AdminNoticeDTO adminNoticeDTO) {
+		adminDAO.getadminNoticeWrite(adminNoticeDTO);
+	}
+
 }

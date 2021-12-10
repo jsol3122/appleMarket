@@ -24,6 +24,32 @@
  		delete from admin_notice where admin_notice_seq=#{admin_notice_seq}
  	</delete>
  	
+ 	<!-- 공지사항 수정전 데이터 출력 -->
+ 	<select id="getadminNoticeView" parameterType="int" resultType="admin.bean.AdminNoticeDTO">
+ 		select * from admin_notice where admin_notice_seq=#{admin_notice_seq}
+ 	</select>
  	
+ 	<!-- 공지사항 수정 -->
+ 	<update id="getadminNoticeModify" parameterType="admin.bean.AdminNoticeDTO">
+		update admin_notice set
+			admin_notice_subject = #{admin_notice_subject}
+			,admin_notice_content = #{admin_notice_content}
+			,admin_notice_logtime = sysdate
+			where admin_notice_seq = #{admin_notice_seq}
+ 	</update>
+ 	
+ 	<!-- 공지사항 작성 -->
+ 	<insert id="getadminNoticeWrite" parameterType="admin.bean.AdminNoticeDTO">
+ 		insert into admin_notice(admin_notice_seq
+ 								,admin_notice_subject
+ 								,admin_notice_content
+ 								,admin_notice_logtime)
+ 								values(
+ 								seq_admin_notice.nextval
+ 								,#{admin_notice_subject}
+ 								,#{admin_notice_content}
+ 								,sysdate
+ 								)
+ 	</insert>
  </mapper>
  	

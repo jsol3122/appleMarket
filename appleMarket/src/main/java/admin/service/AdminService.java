@@ -15,4 +15,10 @@ public interface AdminService {
 
 	public void adminNoticeDelete(AdminNoticeDTO adminNoticeDTO);
 
+	public AdminNoticeDTO getadminNoticeView(int admin_notice_seq );
+
+	public void getadminNoticeModify(AdminNoticeDTO adminNoticeDTO);
+
+	public void getadminNoticeWrite(AdminNoticeDTO adminNoticeDTO);
+
 }

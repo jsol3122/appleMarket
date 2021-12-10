@@ -36,8 +36,7 @@
                     </table>
                 </div>
             </div>
-             <!-- sidebar -->
-             <%@include file="/admin/adminindex.jsp" %>
+             
         </div>
     </div>
 </div>

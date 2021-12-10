@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import admin.bean.AdminNoticeDTO;
 import admin.service.AdminService;
@@ -41,6 +42,45 @@ public class AdminController {
 		return adminService.getAdminNoticeList();
 	}
 	
+	//공지사항 작성
+	@GetMapping("/adminNoticeWriteForm")
+	public ModelAndView adminNoticeWriteForm() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("display", "/admin/adminNoticeWriteForm.jsp");
+		modelAndView.setViewName("/admin/adminNoticeList");
+		return modelAndView;
+	}
+	
+	@PostMapping("/getadminNoticeWrite")
+	@ResponseBody
+	public void getadminNoticeWrite(@ModelAttribute AdminNoticeDTO adminNoticeDTO ) {
+		adminService.getadminNoticeWrite(adminNoticeDTO);
+	}
+	
+	//공지사항 수정
+	@GetMapping("/adminNoticeModifyForm")
+	public ModelAndView adminNoticeModifyForm(@ModelAttribute AdminNoticeDTO adminNoticeDTO ) {
+		System.out.println("adminNoticeModifyForm "+adminNoticeDTO.getAdmin_notice_seq());
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("admin_notice_seq", adminNoticeDTO.getAdmin_notice_seq());
+		modelAndView.addObject("display", "/admin/adminNoticeModifyForm.jsp");
+		modelAndView.setViewName("/admin/adminNoticeList");
+		return modelAndView;
+	}
+
+	@PostMapping("getadminNoticeModify")
+	@ResponseBody
+	public void getadminNoticeModify(@ModelAttribute AdminNoticeDTO adminNoticeDTO ) {
+		adminService.getadminNoticeModify(adminNoticeDTO);
+	}
+	
+	@PostMapping("/getadminNoticeView")
+	@ResponseBody
+	public AdminNoticeDTO getadminNoticeView(@RequestParam int admin_notice_seq ){
+		System.out.println("getadminNoticeView "+admin_notice_seq);
+		return adminService.getadminNoticeView(admin_notice_seq);
+	}
+	
 	//공지사항 삭제 
 	@PostMapping("/adminNoticeDelete")
 	@ResponseBody 
@@ -48,18 +88,15 @@ public class AdminController {
 		adminService.adminNoticeDelete(adminNoticeDTO);
 	}
 
-	//회원 데이터 폼
-	@GetMapping("/adminMemberList")
-	public String adminMemberListForm(HttpServletRequest request){
-		//request.setAttribute("display", "/admin/adminMemberList.jsp");
-		return "/admin/adminMemberList";
-	}
+
 	
-	//회원 데이터 출력
-	@PostMapping("/getAdminMemberList")
-	@ResponseBody
-	public List<MemberDTO> getAdminMemberList(){
-		return adminService.getAdminMemberList();
+	//회원 데이터 
+	@GetMapping("/adminMemberList")
+	public ModelAndView adminMemberList(){
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("display", "/admin/adminMemberList.jsp");
+		modelAndView.setViewName("/admin/adminNoticeList");
+		return modelAndView;
 	}
 
 	
@@ -70,43 +107,43 @@ public class AdminController {
 		adminService.adminMemberDelete(memberDTO);
 	}
 
-	//팔고게시판 관리
-	@GetMapping("/adminSaleBoardList")
-	public String adminSaleBoardList() {
-		return "/admin/adminSaleBoardList";
-	}
-	
-	//사고게시판 관리
-	@GetMapping("/adminBuyerBoardList")
-	public String adminBuyerBoardList() {
-		return "/admin/adminBuyerBoardList";
-	}
-	
 	
 	
 	//우리동네게시판 관리
 	@GetMapping("/adminLocalCommunityList")
-	public String adminLocalCommunityList() {
-		return"/admin/adminLocalCommunityList";
+	public ModelAndView adminLocalCommunityList() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("display", "/admin/adminLocalCommunityList.jsp");
+		modelAndView.setViewName("/admin/adminNoticeList");
+		return modelAndView;
 	}
 	
 	//우리동네댓글 관리
 	@GetMapping("/adminLocalCommunityCommentList")
-	public String adminLocalCommunityCommentList() {
-		return"/admin/adminLocalCommunityCommentList";
+	public ModelAndView adminLocalCommunityCommentList() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("display", "/admin/adminLocalCommunityCommentList.jsp");
+		modelAndView.setViewName("/admin/adminNoticeList");
+		return modelAndView;
 	}
 	
 	
 	//조잘조잘게시판 관리
 	@GetMapping("/adminCommunityList")
-	public String adminCommunityList() {
-		return"/admin/adminCommunityList";
+	public ModelAndView adminCommunityList() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("display", "/admin/adminCommunityList.jsp");
+		modelAndView.setViewName("/admin/adminNoticeList");
+		return modelAndView;
 	}
 	
 	//조잘조잘댓글 관리
 	@GetMapping("/adminCommunityCommentList")
-	public String adminCommunityCommentList() {
-		return"/admin/adminCommunityCommentList";
+	public ModelAndView adminCommunityCommentList() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("display", "/admin/adminCommunityCommentList.jsp");
+		modelAndView.setViewName("/admin/adminNoticeList");
+		return modelAndView;
 	}
 	
 	

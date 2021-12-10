@@ -4,7 +4,7 @@ $(function(){
         ,type:'post'
         ,dataType:'json'
         ,success:function(data){
-            console.log(JSON.stringify(data));
+            //console.log(JSON.stringify(data));
 
             $.each(data,function(index,items){
                 $('<tr>').append($('<td>',{
@@ -20,9 +20,16 @@ $(function(){
                     align:'center'
                 }).append($('<input>',{//td의 자식
                     type:'button'
+                    ,value:'modify'
+                    ,class:'btn btn-outline btn-primary pull-right' 
+                    ,class:'NoticeModify'
+                }))).append($('<td>',{
+                    align:'center'
+                }).append($('<input>',{//td의 자식
+                    type:'button'
                     ,value:'delete'
                     ,class:'btn btn-outline btn-primary pull-right' 
-                    ,id:'NoticeDelete'
+                    ,class:'NoticeDelete'
                 }))).appendTo($('#noticeTable'));
                 
             });

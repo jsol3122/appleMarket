@@ -39,4 +39,23 @@ public class AdminDAOMybatis implements AdminDAO{
 		
 	}
 
+	@Override
+	public AdminNoticeDTO getadminNoticeView(int admin_notice_seq) {
+		// TODO Auto-generated method stub
+		System.out.println("adminDAO"+admin_notice_seq);
+		return sqlSession.selectOne("adminSQL.getadminNoticeView", admin_notice_seq);
+	}
+
+	@Override
+	public void getadminNoticeModify(AdminNoticeDTO adminNoticeDTO) {
+		
+		sqlSession.update("adminSQL.getadminNoticeModify", adminNoticeDTO);
+		
+	}
+
+	@Override
+	public void getadminNoticeWrite(AdminNoticeDTO adminNoticeDTO) {
+		sqlSession.insert("adminSQL.getadminNoticeWrite",adminNoticeDTO);
+	}
+
 }
