@@ -3,6 +3,8 @@ package admin.service;
 import java.util.List;
 
 import admin.bean.AdminNoticeDTO;
+import localCommunityboard.bean.LocalCommunityboardDTO;
+import localCommunityboardComment.bean.LocalCommunityboardCommentDTO;
 import member.bean.MemberDTO;
 
 public interface AdminService {
@@ -20,5 +22,15 @@ public interface AdminService {
 	public void getadminNoticeModify(AdminNoticeDTO adminNoticeDTO);
 
 	public void getadminNoticeWrite(AdminNoticeDTO adminNoticeDTO);
+
+	public List<LocalCommunityboardDTO> getAdminLocalCommunityList();
+
+	public List<LocalCommunityboardDTO> getAdminLocalCommunityListDong(String location_dong);
+
+	public void adminLocalCommunityDelete(String localcommunity_seq);
+
+	public List<LocalCommunityboardCommentDTO> getAdminLocalCommunityComment();
+
+	public void adminLocalCommunityCommentList(String localcommunity_comment_seq);
 
 }

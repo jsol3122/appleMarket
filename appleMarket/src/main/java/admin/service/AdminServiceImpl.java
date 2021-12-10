@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import admin.bean.AdminNoticeDTO;
 import admin.dao.AdminDAO;
+import localCommunityboard.bean.LocalCommunityboardDTO;
+import localCommunityboardComment.bean.LocalCommunityboardCommentDTO;
 import member.bean.MemberDTO;
 
 @Service
@@ -55,6 +57,36 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public void getadminNoticeWrite(AdminNoticeDTO adminNoticeDTO) {
 		adminDAO.getadminNoticeWrite(adminNoticeDTO);
+	}
+
+	@Override
+	public List<LocalCommunityboardDTO> getAdminLocalCommunityList() {
+		
+		return adminDAO.getAdminLocalCommunityList();
+	}
+
+	@Override
+	public List<LocalCommunityboardDTO> getAdminLocalCommunityListDong(String location_dong) {
+		// TODO Auto-generated method stub
+		return adminDAO.getAdminLocalCommunityListDong(location_dong);
+	}
+
+	@Override
+	public void adminLocalCommunityDelete(String localcommunity_seq) {
+		adminDAO.adminLocalCommunityDelete(localcommunity_seq);
+		
+	}
+
+	@Override
+	public List<LocalCommunityboardCommentDTO> getAdminLocalCommunityComment() {
+		// TODO Auto-generated method stub
+		return adminDAO.getAdminLocalCommunityComment();
+	}
+
+	@Override
+	public void adminLocalCommunityCommentList(String localcommunity_comment_seq) {
+		
+		adminDAO.adminLocalCommunityCommentList(localcommunity_comment_seq);
 	}
 
 }

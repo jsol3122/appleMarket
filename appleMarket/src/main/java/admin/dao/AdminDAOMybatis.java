@@ -8,6 +8,8 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import admin.bean.AdminNoticeDTO;
+import localCommunityboard.bean.LocalCommunityboardDTO;
+import localCommunityboardComment.bean.LocalCommunityboardCommentDTO;
 import member.bean.MemberDTO;
 
 @Repository
@@ -56,6 +58,36 @@ public class AdminDAOMybatis implements AdminDAO{
 	@Override
 	public void getadminNoticeWrite(AdminNoticeDTO adminNoticeDTO) {
 		sqlSession.insert("adminSQL.getadminNoticeWrite",adminNoticeDTO);
+	}
+
+	@Override
+	public List<LocalCommunityboardDTO> getAdminLocalCommunityList() {
+		
+		return sqlSession.selectList("adminSQL.getAdminLocalCommunityList");
+	}
+
+	@Override
+	public List<LocalCommunityboardDTO> getAdminLocalCommunityListDong(String location_dong) {
+		return sqlSession.selectList("adminSQL.getAdminLocalCommunityListDong", location_dong);
+	}
+
+	@Override
+	public void adminLocalCommunityDelete(String localcommunity_seq) {
+		sqlSession.delete("adminSQL.adminLocalCommunityDelete", localcommunity_seq);
+		
+	}
+
+	@Override
+	public List<LocalCommunityboardCommentDTO> getAdminLocalCommunityComment() {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList("adminSQL.getAdminLocalCommunityComment");
+	}
+
+	@Override
+	public void adminLocalCommunityCommentList(String localcommunity_comment_seq) {
+		// TODO Auto-generated method stub
+		sqlSession.delete("adminSQL.adminLocalCommunityCommentList", localcommunity_comment_seq);
+		
 	}
 
 }

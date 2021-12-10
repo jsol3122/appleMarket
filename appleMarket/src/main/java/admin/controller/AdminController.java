@@ -15,6 +15,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import admin.bean.AdminNoticeDTO;
 import admin.service.AdminService;
+import localCommunityboard.bean.LocalCommunityboardDTO;
+import localCommunityboardComment.bean.LocalCommunityboardCommentDTO;
 import member.bean.MemberDTO;
 
 @Controller
@@ -118,6 +120,26 @@ public class AdminController {
 		return modelAndView;
 	}
 	
+	@PostMapping("/getAdminLocalCommunityList")
+	@ResponseBody
+	public List<LocalCommunityboardDTO> getAdminLocalCommunityList(){
+		return adminService.getAdminLocalCommunityList();
+	}
+	
+	@PostMapping("/getAdminLocalCommunityListDong")
+	@ResponseBody
+	public List<LocalCommunityboardDTO> getAdminLocalCommunityListDong(@RequestParam String location_dong){
+		return adminService.getAdminLocalCommunityListDong(location_dong);
+	}
+	
+	@PostMapping("/adminLocalCommunityDelete")
+	@ResponseBody
+	public void adminLocalCommunityDelete(@RequestParam String localcommunity_seq) {
+		adminService.adminLocalCommunityDelete(localcommunity_seq);
+	}
+	
+	
+	
 	//우리동네댓글 관리
 	@GetMapping("/adminLocalCommunityCommentList")
 	public ModelAndView adminLocalCommunityCommentList() {
@@ -127,23 +149,17 @@ public class AdminController {
 		return modelAndView;
 	}
 	
-	
-	//조잘조잘게시판 관리
-	@GetMapping("/adminCommunityList")
-	public ModelAndView adminCommunityList() {
-		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.addObject("display", "/admin/adminCommunityList.jsp");
-		modelAndView.setViewName("/admin/adminNoticeList");
-		return modelAndView;
+	@PostMapping("/getAdminLocalCommunityComment")
+	@ResponseBody
+	public List<LocalCommunityboardCommentDTO> getAdminLocalCommunityComment(){
+		System.out.println("1");
+		return adminService.getAdminLocalCommunityComment();
 	}
 	
-	//조잘조잘댓글 관리
-	@GetMapping("/adminCommunityCommentList")
-	public ModelAndView adminCommunityCommentList() {
-		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.addObject("display", "/admin/adminCommunityCommentList.jsp");
-		modelAndView.setViewName("/admin/adminNoticeList");
-		return modelAndView;
+	@PostMapping("/adminLocalCommunityCommentDelete")
+	@ResponseBody
+	public void adminLocalCommunityCommentList(@RequestParam String localcommunity_comment_seq) {
+		adminService.adminLocalCommunityCommentList(localcommunity_comment_seq);
 	}
 	
 	
