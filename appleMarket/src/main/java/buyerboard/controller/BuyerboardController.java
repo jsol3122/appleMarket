@@ -44,6 +44,7 @@ public class BuyerboardController {
 	public JSONObject buyerboardGetList(@RequestParam String pg, @Nullable @RequestParam("buyerboard_category") String buyerboard_category) {
 		int page = Integer.parseInt(pg);
 		System.out.println(page);
+		System.out.println(buyerboard_category);
 		return buyerboardService.buyerboardGetList(page,buyerboard_category);
 	}
 	

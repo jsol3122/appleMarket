@@ -5,16 +5,16 @@
  <mapper namespace="buyerboardSQL">
  
  	<select id="buyerboardGetList" parameterType="java.util.Map" resultType="buyerboard.bean.BuyerboardDTO">
- 		select * from 
-	 	(select rownum rn, tt.* from 
-	 	(select * from buyerboard 
-		WHERE buyerboard_category LIKE DECODE(#{buyerboard_category}, NULL, '%', #{buyerboard_category})
-	 	order by buyerboard_seq desc) tt)
-	 	where rn between #{startNum} and #{endNum}
+		 select * from 
+       (select rownum rn, tt.* from 
+       (select * from buyerboard    
+      WHERE buyerboard_category LIKE DECODE(#{buyerboard_category}, '*', '%', #{buyerboard_category})
+       order by buyerboard_seq desc) tt)
+       where rn between #{startNum} and #{endNum}
  	</select>
  	
- 	<select id="getTotalA" resultType="int">
- 		select count(*) from buyerboard
+ 	<select id="getTotalA" parameterType= "String" resultType="int">
+ 		select count(*) from buyerboard WHERE buyerboard_category LIKE DECODE(#{buyerboard_category}, '*', '%', #{buyerboard_category})
  	</select>
  	
  	<select id="searchLocationDong" parameterType="buyerboard.bean.BuyerboardDTO" resultType="String">

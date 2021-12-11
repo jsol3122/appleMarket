@@ -24,7 +24,7 @@ public class BuyerboardServiceImpl implements BuyerboardService {
 	
 
 	@Override
-	public JSONObject buyerboardGetList(int page,String buyerboard_category) {
+	public JSONObject buyerboardGetList(int page, String buyerboard_category) {
 		// DB 
 		//1페이지당 n개씩
 		int endNum = page * 12;
@@ -38,9 +38,9 @@ public class BuyerboardServiceImpl implements BuyerboardService {
 		List<BuyerboardDTO> list = buyerboardDAO.buyerboardGetList(map);
 		
 		
-		int totalA=buyerboardDAO.getTotalA();
+		int totalA=buyerboardDAO.getTotalA(buyerboard_category);
 		boardPaging.setCurrentPage(page);	
-		boardPaging.setPageSize(5);
+		boardPaging.setPageSize(12);
 		boardPaging.setTotalA(totalA);
 
 		
