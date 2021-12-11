@@ -53,6 +53,7 @@ public class BuyerboardServiceImpl implements BuyerboardService {
 				
 				temp.put("buyerboard_seq", buyerboardDTO.getBuyerboard_seq());
 				temp.put("member_id", buyerboardDTO.getMember_id());
+				temp.put("buyer_status", buyerboardDTO.getBuyer_status());
 
 				temp.put("location_dong", buyerboardDTO.getLocation_dong());
 				temp.put("buyerboard_category", buyerboardDTO.getBuyerboard_category());

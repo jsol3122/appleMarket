@@ -33,6 +33,7 @@
  								,buyerboard_image2
  								,buyerboard_image3
  								,buyerboard_logtime
+ 								,buyer_status
  								)values(
  										seq_buyerboard.nextval
  										,#{member_id}
@@ -45,6 +46,7 @@
  										,#{buyerboard_image2}
  										,#{buyerboard_image3}
  										,sysdate
+ 										,#{buyer_status}
  										)
  	</insert>
  	
@@ -57,6 +59,7 @@
  							,buyerboard_image2=#{buyerboard_image3}
  							,buyerboard_image2=#{buyerboard_image3}
  							,buyerboard_logtime=sysdate
+ 							,buyer_status=#{buyer_status}
  							where buyerboard_seq=#{buyerboard_seq}
  	</update>
  	

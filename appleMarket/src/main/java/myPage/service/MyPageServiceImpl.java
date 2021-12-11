@@ -69,7 +69,7 @@ public class MyPageServiceImpl implements MyPageService {
 		}
 
 		json.put("boardPaging", boardPaging.getPagingHTML().toString());
-		
+
 		return json;
 	}
 
@@ -337,6 +337,7 @@ public class MyPageServiceImpl implements MyPageService {
 			json.put("list", array);
 			
 		}
+
 		json.put("boardPaging", boardPaging.getPagingHTML().toString());
 		return json;
 

@@ -35,7 +35,7 @@ public class MemberDTO {
 	private String member_address; 
 	private String member_detailAddr;
 	private int member_gender; 
-	private int member_reputation; 
+	private double member_reputation; 
 	private int member_warning; 
 	private String member_profilePic;
 	private Date member_entryLogtime;
