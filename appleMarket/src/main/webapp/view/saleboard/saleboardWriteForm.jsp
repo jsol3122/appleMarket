@@ -58,7 +58,6 @@
 		#saleboardWriteForm textarea::-ms-input-placeholder { color: #f00; }
 		#saleboardWriteForm textarea::-webkit-input-placeholder { color: #f00; }
 		#saleboardWriteForm textarea::-moz-placeholder { color: #f00; }
-        
 
 		.filebox input[type="file"] {
             position: absolute;

@@ -47,7 +47,6 @@
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="/appleMarket/css/buyandsell.css">
 </head>
-
 <body>
    <%@include file="/includes/header.jsp" %>
 

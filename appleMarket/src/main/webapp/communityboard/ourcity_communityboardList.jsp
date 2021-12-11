@@ -717,7 +717,7 @@
                                                 </form>
                                             </div>
                                             <div class="fr">
-                                                <a class="btn_img" href="#"><i class="ico_16px write"></i> 쓰기</a> </div>
+                                                <a class="btn_img" href="/appleMarket/communityboard/ourcity_communityboardwriteform.jsp"><i class="ico_16px write"></i> 쓰기</a> </div>
                                         </div>
                                         <form action="./" method="get" class="bd_pg clear"><input type="hidden" name="error_return_url" value="/freebd"><input type="hidden" name="act" value="">
                                             <fieldset>
