@@ -5,7 +5,10 @@ eclipse.preferences.version=1
 <<<<<<< HEAD
 encoding//src/main/webapp/includes/footer.jsp=UTF-8
 encoding//src/main/webapp/includes/header.jsp=UTF-8
+<<<<<<< HEAD
+=======
 encoding//src/main/webapp/view/myPage/modifyForm.jsp=UTF-8
+>>>>>>> 0e1c727bdf19e5fe0ae4d6e0d8f990f9b2dff7a4
 =======
 <<<<<<< HEAD
 encoding//src/main/webapp/includes/footer.jsp=UTF-8

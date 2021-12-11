@@ -204,8 +204,7 @@ public class MyPageController {
 	// 팔고게시판 글 불러오기
 	@PostMapping("/mySaleGetList")
 	@ResponseBody
-	public JSONObject mySaleGetList(@RequestParam String pg, HttpSession session, HttpServletRequest request) {
-		
+	public JSONObject mySaleGetList(@RequestParam String pg, HttpSession session, HttpServletRequest request) {	
 		HttpSession loginSession = request.getSession();
 		String member_id = (String)loginSession.getAttribute("member_id");
 		
@@ -228,6 +227,9 @@ public class MyPageController {
 		return myPageService.mySaleGetView(sale_seq);
 	}
 	
+
+
+	//마이페이지 구매내역 폼
 	@PostMapping("/salehistoryDelete") @ResponseBody
 	public void salehistoryDelete(@RequestParam String sale_seq) {
 		myPageService.salehistoryDelete(Integer.parseInt(sale_seq));
@@ -248,6 +250,7 @@ public class MyPageController {
 		String member_id = (String)loginSession.getAttribute("member_id");
 		
 		Map<String, String> map = new HashMap<String, String>();
+
 		map.put("pg", pg);
 		map.put("member_id", member_id);
 		return myPageService.myBuyerGetList(map);

@@ -6,7 +6,7 @@
   	<select id="saleboardGetList" parameterType="java.util.Map" resultType="saleboard.bean.SaleboardDTO">
  		select * from 
 	 	(select rownum rn, tt.* from 
-	 	(select * from saleboard order by sale_seq desc) tt)
+	 	(select * from saleboard order by sale_seq desc ) tt)
 	 	where rn between #{startNum} and #{endNum}
  	</select>
  	
@@ -51,6 +51,7 @@
 			sale_image3,
 			sale_image4,
 			sale_image5,
+			member_profilePic,
 			location_dong,
 			sale_free_YN,
 			sale_ad_YN,
@@ -69,6 +70,7 @@
 			#{sale_image3},
 			#{sale_image4},
 			#{sale_image5},
+			#{member_profilePic},
 			#{location_dong},
 			#{sale_free_YN},
 			#{sale_ad_YN},

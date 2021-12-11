@@ -5,13 +5,84 @@
  <mapper namespace="adminSQL">
  	
  	<!-- 회원 리스트 출력  -->
- 	<select id="adminMemberList" resultType="member">
- 		select * from appleMarket order by member_entryLogtime
+ 	<select id="getAdminMemberList" resultType="member">
+ 		select member_seq, member_id, member_email, member_tel1, member_tel2, member_tel3, member_siteCheck, member_reputation from appleMarket
  	</select>
  	
  	<!-- 회원 삭제  -->
  	<delete id="adminMemberDelete" parameterType="member">
  		delete from appleMarket where member_id=#{member_id}
  	</delete>
+ 	
+ 	<!-- 공지사항 리스트 출력 -->
+ 	<select id="getAdminNoticeList" resultType="admin.bean.AdminNoticeDTO">
+ 		select * from admin_notice order by admin_notice_seq desc
+ 	</select>
+ 	
+ 	<!-- 공지사항 글 삭제 -->
+ 	<delete id="adminNoticeDelete" parameterType="admin.bean.AdminNoticeDTO">
+ 		delete from admin_notice where admin_notice_seq=#{admin_notice_seq}
+ 	</delete>
+ 	
+ 	<!-- 공지사항 수정전 데이터 출력 -->
+ 	<select id="getadminNoticeView" parameterType="int" resultType="admin.bean.AdminNoticeDTO">
+ 		select * from admin_notice where admin_notice_seq=#{admin_notice_seq}
+ 	</select>
+ 	
+ 	<!-- 공지사항 수정 -->
+ 	<update id="getadminNoticeModify" parameterType="admin.bean.AdminNoticeDTO">
+		update admin_notice set
+			admin_notice_subject = #{admin_notice_subject}
+			,admin_notice_content = #{admin_notice_content}
+			,admin_notice_logtime = sysdate
+			where admin_notice_seq = #{admin_notice_seq}
+ 	</update>
+ 	
+ 	<!-- 공지사항 작성 -->
+ 	<insert id="getadminNoticeWrite" parameterType="admin.bean.AdminNoticeDTO">
+ 		insert into admin_notice(admin_notice_seq
+ 								,admin_notice_subject
+ 								,admin_notice_content
+ 								,admin_notice_logtime)
+ 								values(
+ 								seq_admin_notice.nextval
+ 								,#{admin_notice_subject}
+ 								,#{admin_notice_content}
+ 								,sysdate
+ 								)
+ 	</insert>
+ 	
+ 	<!-- 우리동네게시판 리스트 출력 -->
+ 	<select id="getAdminLocalCommunityList" resultType="localCommunityboard.bean.LocalCommunityboardDTO">
+ 		select * from localcommunityboard order by localcommunity_seq desc
+ 	</select>
+ 	
+ 	<!-- 우리동네게시판 작성자로 리스트검색 -->
+ 	<select id="getAdminLocalCommunityListId" parameterType="String" resultType="localCommunityboard.bean.LocalCommunityboardDTO">
+ 		select * from localcommunityboard where localcommunity_user_id like '%' || #{localcommunity_user_id} || '%' order by localcommunity_seq desc
+ 	</select>
+ 	
+ 	<!-- 우리동네게시글 삭제 -->
+ 	<delete id="adminLocalCommunityDelete" parameterType="String">
+ 		delete from localcommunityboard where localcommunity_seq = #{localcommunity_seq}
+ 	</delete>
+ 	
+ 	<!-- 우리동네게시글 상세페이지 -->
+ 	<select id="getAdminLocalCommunityView" parameterType="String" resultType="localCommunityboard.bean.LocalCommunityboardDTO">
+ 		select * from localcommunityboard where  localcommunity_seq = #{localcommunity_seq}
+ 	</select>
+ 	
+ 	
+ 	<!-- 우리동네 댓글 리스트 출력 -->
+ 	<select id="getAdminLocalCommunityComment" resultType="localCommunityboardComment.bean.LocalCommunityboardCommentDTO">
+ 		select * from localCommunityboard_comment order by localcommunity_seq desc,localcommunity_comment_seq 
+ 	</select>
+ 	
+ 	<!-- 우리동네 댓글 삭제 -->
+ 	<delete id="adminLocalCommunityCommentList" parameterType="String">
+ 		delete from localCommunityboard_comment where localcommunity_comment_seq =#{localcommunity_comment_seq}
+ 	</delete>
+ 	
+ 	
  </mapper>
  	

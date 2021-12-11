@@ -54,13 +54,14 @@ public class BuyerboardController {
 	
 	@PostMapping("/buyerboard/buyerboardWrite")
 	@ResponseBody
+
 	public void buyerboardWrite(@ModelAttribute BuyerboardDTO buyerboardDTO, @RequestParam("img[]") MultipartFile[] img,
 			HttpSession session) {
 		String uuid = UUID.randomUUID().toString();
 		
 		String filePath = session.getServletContext().getRealPath("storage");
 		System.out.println(filePath);
-
+		
 		String fileName;
 		File file;
 
