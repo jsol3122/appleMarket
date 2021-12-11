@@ -25,11 +25,12 @@
                         <ion-icon name="clipboard-outline" class="nav__icon"></ion-icon>
                         <span class="nav_name">Notice</span>
                     </a>
-                    <a href="/appleMarket/adminMemberList" class="nav__link">
+                    <a href="/appleMarket/adminMemberList" class="nav__link" onclick="refresh()">
                         <ion-icon name="people-outline" class="nav__icon"></ion-icon>
                         <span class="nav_name">Member Manage</span>
                     </a>
-                    <a href="/appleMarket/adminNoticeList" class="nav__link">
+                    
+                    <a href="/appleMarket/adminWarningList" class="nav__link">
                         <ion-icon name="alert-circle-outline" class="nav__icon"></ion-icon>
                         <span class="nav_name">Warning</span>
                     </a>
@@ -64,7 +65,7 @@
                         <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
 
                         <ul class="collapse__menu">
-                            <a href="/appleMarket/adminCommunityList" class="collapse__sublink">board</a>
+                            <a href="/appleMarket/adminCommunityBoardList" class="collapse__sublink">board</a>
                             <a href="/appleMarket/adminCommunityCommentList" class="collapse__sublink">comment</a>
                         </ul>
                     </div>
@@ -82,6 +83,7 @@
     <!-- IONICONS -->
     <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
     <!-- JS -->
-    <script src="/appleMarket/js/adminMain.js"></script>
+	<script src="/appleMarket/js/adminMain.js"></script>
+
 </body>
 </html>

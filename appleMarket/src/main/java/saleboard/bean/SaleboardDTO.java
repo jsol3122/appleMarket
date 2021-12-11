@@ -2,6 +2,8 @@ package saleboard.bean;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.Data;
 
 @Data
@@ -15,13 +17,16 @@ public class SaleboardDTO {
 	private String sale_content;
 	private String member_id;
 	private int sale_hit;
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy.MM.dd")
 	private Date sale_logtime;
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy.MM.dd")
 	private Date sale_update_logtime;
 	private int sale_update_count;
 	private String sale_hide;
 	private String sale_buyer;
 	private String sale_image1;
 	private String sale_image2;
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "")
 	private String sale_image3;
 	private String sale_image4;
 	private String sale_image5;
