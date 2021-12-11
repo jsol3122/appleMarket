@@ -25,243 +25,16 @@
     <link rel="stylesheet" href="/appleMarket/css/comboard.css">
     <link rel="stylesheet" href="/appleMarket/css/comdefault.css">
     <link rel="stylesheet" href="/appleMarket/css/comstyle.css">
+    <!-- 우리동네 css -->
+     <link rel="stylesheet" href="/appleMarket/css/localCommunityboardView.css">
     <title>사과마켓 커뮤니티</title>
-
     <link rel="canonical" href="#">
     <meta property="og:locale" content="ko_KR">
     <meta property="og:type" content="website">
     <meta property="og:url" content="#">
     <meta property="og:site_name" content="사과마켓">
     <meta property="og:title" content="사과마켓">
-    <style type="text/css">
-        .s_header_nav {
-            height: 36px
-        }
-        
-        .s_header h1 {
-            top: 15px
-        }
-        
-        .s_header h1 {
-            left: 5px
-        }
-        
-        .s_nav li,
-        .rollNav li,
-        .dropNav li,
-        .s_navSub li,
-        .rollNavSub li,
-        .dropNav li {
-            font-family: Arial Black
-        }
-        
-        .s_nav li a,
-        .s_nav li a:hover,
-        .s_nav li a:active,
-        .s_nav li a:focus,
-        .s_nav li.active a,
-        .rollNav li a,
-        .rollNav li a:hover,
-        .rollNav li a:active,
-        .rollNav li a:focus,
-        .rollNav li.active a,
-        .dropNav li a,
-        .dropNav li a:hover,
-        .dropNav li a:active,
-        .dropNav li a:focus,
-        .dropNav li.active a {
-            color: #FFFFFF
-        }
-        
-        .s_nav li,
-        .rollNav li,
-        .dropNav li {
-            font-size: 14px
-        }
-        
-        .s_nav li a,
-        .rollNav li a,
-        .dropNav li a {
-            font-weight: bold
-        }
-        
-        .s_navSub li a,
-        .rollNavSub li a,
-        .dropNav li li a {
-            color: #CC6600 !important
-        }
-        
-        .slideWrap .slideArea #slideBar {
-            width: 200px
-        }
-        
-        .slideWrap .slideArea #slideBar {
-            right: -212px
-        }
-        
-        #s_popup {
-            top: 300px
-        }
-        
-        #s_popup {
-            left: 500px
-        }
-    </style>
-    <style type="text/css">
-        
-        .s_body {
-            padding-left: 10px;
-            padding-right: 10px
-        }
-        
-        .s_body {
-            background-color: #ffffff
-        }
-        
-        .s_content {
-            background-color: #ffffff
-        }
-        
-        #sitemapWrap {
-            padding-left: 10px;
-            padding-right: 10px
-        }
-        
-        #footer {
-            padding-left: 10px;
-            padding-right: 10px
-        }
-        
-        #footer,
-        #sitemapWrap {
-            background-color: #ffffff
-        }
-        
-        #footer {
-            -moz-border-radius: 0 0 4px 4px;
-            -webkit-border-radius: 0 0 4px 4px;
-            border-radius: 0 0 4px 4px
-        }
-        
-        #footer .footNav {
-            border-top: none
-        }
-        
-        #footer {
-            height: 10px
-        }
-    </style>
-    <!--
-    <style type="text/css">
-        A:link {
-            text-decoration: none;
-            color: #006633;
-        }
-        
-        A:visited {
-            text-decoration: none;
-            color: #006633;
-        }
-        
-        A:hover {
-            text-decoration: none;
-            color: #006633;
-        }
-        
-    -->
-    </style>
-    <style data-id="bdCss">
-        .bd a:focus,
-        .bd input:focus,
-        .bd button:focus,
-        .bd textarea:focus,
-        .bd select:focus {
-            outline-color: #4169e1;
-        }
-        
-        .bd .replyNum {
-            color: #4169e1 !important
-        }
-        
-        .bd .trackbackNum {
-            color: #646496 !important
-        }
-        
-        .bd.fdb_count .replyNum {
-            background: #4169e1;
-        }
-        
-        .bd.fdb_count .trackbackNum {
-            background: #646496;
-        }
-        
-        .bd em,
-        .bd .color {
-            color: #4169e1;
-        }
-        
-        .bd .shadow {
-            text-shadow: 1px 1px 1px #646496;
-        }
-        
-        .bd .bolder {
-            color: #4169e1;
-            text-shadow: 2px 2px 4px #646496;
-        }
-        
-        .bd .bg_color {
-            background-color: #4169e1;
-        }
-        
-        .bd .bg_f_color {
-            background-color: #4169e1;
-            background: -webkit-linear-gradient(#FFF -50%, #4169e1 50%);
-            background: linear-gradient(to bottom, #FFF -50%, #4169e1 50%);
-        }
-        
-        .bd .border_color {
-            border-color: #4169e1;
-        }
-        
-        .bd .bx_shadow {
-            box-shadow: 0 0 2px #646496;
-        }
-        
-        .viewer_with.on:before {
-            background-color: #4169e1;
-            box-shadow: 0 0 2px #4169e1;
-        }
-        
-        .bd_zine.zine li:first-child,
-        .bd_tb_lst.common_notice tr:first-child td {
-            margin-top: 2px;
-            border-top: 1px solid #DDD
-        }
-        
-        .bd_zine .info b,
-        .bd_zine .info a {
-            color: #646496;
-        }
-        
-        .bd_zine.card h3 {
-            color: #4169e1;
-        }
-        
-        .bd_tb_lst {
-            margin-top: 0
-        }
-        
-        .bd_tb_lst .cate span,
-        .bd_tb_lst .author span,
-        .bd_tb_lst .last_post small {
-            max-width: px
-        }
-    </style>
-    <style type="text/css">
-        .css3pie {
-            behavior: url(./layouts/smart/js/PIE.htc);
-        }
-    </style>
+  
 </head>
 
 <body>
@@ -328,6 +101,8 @@
                                                     <!--AfterDocument(668947,639682)-->
                                                 </article>
                                             </div>
+                                            
+                                            <!--  댓글 -->
                                             <div class="rd_ft">
                                                 <div class="rd_ft_nav clear">
                                                     <div class="rd_nav img_tx fr m_btn_wrp">
@@ -551,57 +326,12 @@
         </div>
     </div>
     <%@include file="/includes/footer.jsp" %>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js'></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="/appleMarket/js/app.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="/appleMarket/js/localCommunityboardList.js"></script>
-
-    <!-- Channel Plugin Scripts -->
-    <script>
-        (function() {
-            var w = window;
-            if (w.ChannelIO) {
-                return (window.console.error || window.console.log || function() {})('ChannelIO script included twice.');
-            }
-            var ch = function() {
-                ch.c(arguments);
-            };
-            ch.q = [];
-            ch.c = function(args) {
-                ch.q.push(args);
-            };
-            w.ChannelIO = ch;
-
-            function l() {
-                if (w.ChannelIOInitialized) {
-                    return;
-                }
-                w.ChannelIOInitialized = true;
-                var s = document.createElement('script');
-                s.type = 'text/javascript';
-                s.async = true;
-                s.src = 'https://cdn.channel.io/plugin/ch-plugin-web.js';
-                s.charset = 'UTF-8';
-                var x = document.getElementsByTagName('script')[0];
-                x.parentNode.insertBefore(s, x);
-            }
-            if (document.readyState === 'complete') {
-                l();
-            } else if (window.attachEvent) {
-                window.attachEvent('onload', l);
-            } else {
-                window.addEventListener('DOMContentLoaded', l, false);
-                window.addEventListener('load', l, false);
-            }
-        })();
-        ChannelIO('boot', {
-            "pluginKey": "8f477d11-b3a5-4a18-9f84-31eeb55cd47e"
-        });
-    </script>
-    <!-- End Channel Plugin -->
 </body>
 
 </html>

@@ -1,8 +1,23 @@
 let isEnd = false;
 let pageNum = 1;
-    
+     /* 카테고리 체크박스 눌렀을때 value값 가져오기 */
+    function getCheckboxValue(event)  {
+    	  let result = '';
+    	  if(event.target.checked)  {
+    	    result = event.target.value;
+    	  }else {
+    	    result = '';
+    	  }
+    	  document.getElementById('searchcategory_result').innerText  = result;
+    	 
+    	}
+    	
+  
+    	
 $(function(){
+
     $(window).scroll(function(){
+    
         let $window = $(this);
         let scrollTop = $window.scrollTop();
         let windowHeight = $window.height();
@@ -10,10 +25,14 @@ $(function(){
         
         // console.log("documentHeight:" + documentHeight + " | scrollTop:" + scrollTop + " | windowHeight: " + windowHeight );
         
+        
+        
         // scrollbar의 thumb가 바닥 전 30px까지 도달 하면 리스트를 가져온다.
         if( scrollTop + windowHeight + 30 > documentHeight ){
             pageNum++;
+       
             fetchList();
+           
         }
     })
     fetchList();
@@ -24,6 +43,8 @@ $(function(){
 	});
     
 })
+//카테고리값을 가져온다
+let category_value = $('#searchcategory_result').text();
 
 let fetchList = function(){
     if(isEnd == true){
@@ -34,7 +55,8 @@ let fetchList = function(){
     // renderList 함수에서 html 코드를 보면 <li> 태그에 data-no 속성이 있는 것을 알 수 있다.
     // ajax에서는 data- 속성의 값을 가져오기 위해 data() 함수를 제공.
     $.ajax({
-        url:"/appleMarket/buyerboard/buyerboardGetList?pg=" + pageNum ,
+        url:"/appleMarket/buyerboard/buyerboardGetList?pg=" + pageNum,
+        data: 'buyerboard_category='+category_value,
         type: "post",
         dataType: "json",
         success: function(result){
@@ -58,7 +80,7 @@ let renderList = function(mode, DTO){
     }
     
     let category = DTO.buyerboard_category;
-
+	
     // 리스트 html을 정의
     let html = "<li id=product_"+DTO.buyerboard_seq+">"+
         "<div class=list_contents>"+
@@ -67,8 +89,7 @@ let renderList = function(mode, DTO){
                 "<img src='/appleMarket/storage/"+DTO.buyerboard_image1+"' style=width:200px;height:180px; alt=img>"+
                 "<h3>"+DTO.buyerboard_subject+"</h3>"+
                 "<h3>"+DTO.location_dong+"</h3>"+
-                "<h4>"+DTO.buyerboard_price+"</h4>"+
-                "<input type=hidden id=buyerboard_category value="+category+">"+
+                "<h4>"+DTO.buyerboard_price+"</h4>"+               
             "</div>"+
             "<div class=hover>"+
                 "<ul>"+
@@ -83,10 +104,6 @@ let renderList = function(mode, DTO){
     
     $('.hover a').addClass('addcart');
     $('.new_arrivals_list>li').addClass(['col-md-3',category]);
-    
 }
-
-
-
-
-
+   
+  

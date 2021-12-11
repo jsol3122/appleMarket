@@ -7,7 +7,7 @@ import buyerboard.bean.BuyerboardDTO;
 
 public interface BuyerboardDAO {
 
-	public List<BuyerboardDTO> buyerboardGetList(Map<String, Integer> map);
+	public List<BuyerboardDTO> buyerboardGetList(Map<String, Object> map);
 
 	public int getTotalA();
 

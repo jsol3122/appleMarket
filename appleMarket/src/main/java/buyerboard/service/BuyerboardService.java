@@ -7,7 +7,7 @@ import net.sf.json.JSONObject;
 
 public interface BuyerboardService {
 
-	public JSONObject buyerboardGetList(int page);
+	public JSONObject buyerboardGetList(int page, String buyerboard_category);
 
 	public void buyerboardWrite(BuyerboardDTO buyerboardDTO);
 
@@ -23,5 +23,6 @@ public interface BuyerboardService {
 	public List<BuyerboardDTO> buyerboardGetListId(String member_id, int buyerboard_seq);
 
 	public List<BuyerboardDTO> boardcategoryFilter(String buyerboard_category);
+
 
 }

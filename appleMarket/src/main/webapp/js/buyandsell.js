@@ -79,87 +79,15 @@ $(function() {
 
     //category filter
 
-   /*
 
-    $(".price_range").slider({
-        range: true,
-        min: 0,
-        max: 1000,
-        values: [80, 500],
-        create: function(event, ui) {
-            var slideVal = $('.price_range span');
-            var slideFirstVal = slideVal.filter(':first-of-type');
-            var slideLastVal = slideVal.filter(':last-of-type');
-
-            slideVal.html('<i></i>');
-
-            slideFirstVal.find('i').text($(".price_range").slider("values", 0) + '$');
-            slideLastVal.find('i').text($(".price_range").slider("values", 1) + '$');
-        },
-        slide: function(event, ui) { // 값이 바뀔때 마다 할일
-            $('#from').val(ui.values[0]);
-            $('#to').val(ui.values[1]);
-
-            var slideVal = $('.price_range span');
-            var slideFirstVal = slideVal.filter(':first-of-type');
-            var slideLastVal = slideVal.filter(':last-of-type');
-
-            slideVal.html('<i></i>');
-
-            slideFirstVal.find('i').text(ui.values[0] + '$');
-            slideLastVal.find('i').text(ui.values[1] + '$');
-        }
-    });
-    $('#from').val($(".price_range").slider("values", 0)); //초기값
-    $('#to').val($(".price_range").slider("values", 1)); //초기값
-
-    $('#from').change(function() {
-        var userValue = $(this).val();
-        $(".price_range").slider("values", 0, userValue);
-
-        var slideVal = $('.price_range span');
-        var slideFirstVal = slideVal.filter(':first-of-type');
-        slideFirstVal.html('<i></i>');
-        slideFirstVal.find('i').text(userValue + '$');
-    });
-
-    $('#to').change(function() {
-        var userValue = $(this).val();
-        $(".price_range").slider("values", 1, userValue);
-
-        var slideVal = $('.price_range span');
-        var slideLastVal = slideVal.filter(':last-of-type');
-        slideLastVal.html('<i></i>');
-        slideLastVal.find('i').text(userValue + '$');
-    }); */
-
-    /*
-    var sizeFilter = $('.size_filter input');
-    var targetList = $('.new_arrivals_list li');
-
-    sizeFilter.click(function() {
-        var targetValue = [];
-        sizeFilter.filter(':checked').each(function() {
-            targetValue.push('.' + $(this).val());
-        }); //each
-        var targetClass = targetValue.join(', ');
-
-        targetList.hide();
-        $(targetClass).fadeIn();
-
-
-    }); //sizeFilter.click --9:13--
-
-    */
-    //카테고리
     // init Isotope
-    var $filters = $('.category_filter input');
+    var $filters = $('.combi_filters input');
     var filters = {};
 
     var $grid = $('.new_arrivals_list').isotope({
-        itemSelector: '.new_arrivals_list > li',
-        stagger: 30
+        itemSelector: '.new_arrivals_list > li'
     });
+    
 
    $filters.click(function() {
         var $button = $(this);
@@ -167,14 +95,14 @@ $(function() {
         //get group key
         var $buttonGroup = $button.parent('div');
         var filterGroup = $buttonGroup.attr('data-filter-group');
-
+  	
         // set filter for grouop
         filters[filterGroup] = $button.val();
+	    var filterValue = concatValues(filters);
         // combine filters
-        var filterValue = concatValues(filters);
         // set filter for Isotope
         $grid.isotope({ filter: filterValue });
-        // $grid.isotope( 'updateSortData', filterValue );
+        $grid.isotope( 'updateSortData', filterValue);
 
         if ($button.val() == '*') {
             $button.parent('div').find('input').prop('checked', false);
@@ -183,103 +111,104 @@ $(function() {
             $button.parent('div').find('input').eq(0).prop('checked', false);
         }
 
-        if ($button.val() == 'tech') {
+        if ($button.val() == '디지털기기/생활가전') {
             $button.parent('div').find('input').prop('checked', false);
             $button.prop('checked', true);
         } else {
             $button.parent('div').find('input').eq(1).prop('checked', false);
         }
 
-        if ($button.val() == 'furniture') {
+        if ($button.val() == '가구/인테리어') {
             $button.parent('div').find('input').prop('checked', false);
             $button.prop('checked', true);
         } else {
             $button.parent('div').find('input').eq(2).prop('checked', false);
         }
 
-        if ($button.val() == 'baby') {
+        if ($button.val() == '유아동') {
             $button.parent('div').find('input').prop('checked', false);
             $button.prop('checked', true);
         } else {
             $button.parent('div').find('input').eq(3).prop('checked', false);
         }
 
-        if ($button.val() == 'living') {
+        if ($button.val() == '생활/가공식품') {
             $button.parent('div').find('input').prop('checked', false);
             $button.prop('checked', true);
         } else {
             $button.parent('div').find('input').eq(4).prop('checked', false);
         }
 
-        if ($button.val() == 'female') {
+        if ($button.val() == '여성패션/잡화') {
             $button.parent('div').find('input').prop('checked', false);
             $button.prop('checked', true);
         } else {
             $button.parent('div').find('input').eq(5).prop('checked', false);
         }
 
-        if ($button.val() == 'male') {
+        if ($button.val() == '남성패션/잡화') {
             $button.parent('div').find('input').prop('checked', false);
             $button.prop('checked', true);
         } else {
             $button.parent('div').find('input').eq(6).prop('checked', false);
         }
         
-        if ($button.val() == 'hobby') {
+        if ($button.val() == '게임/취미') {
             $button.parent('div').find('input').prop('checked', false);
             $button.prop('checked', true);
         } else {
             $button.parent('div').find('input').eq(7).prop('checked', false);
         }
         
-        if ($button.val() == 'sports') {
+        if ($button.val() == '스포츠/레저') {
             $button.parent('div').find('input').prop('checked', false);
             $button.prop('checked', true);
         } else {
             $button.parent('div').find('input').eq(8).prop('checked', false);
         }
         
-        if ($button.val() == 'beauty') {
+        if ($button.val() == '뷰티/미용') {
             $button.parent('div').find('input').prop('checked', false);
             $button.prop('checked', true);
         } else {
             $button.parent('div').find('input').eq(9).prop('checked', false);
         }
         
-        if ($button.val() == 'pet') {
+        if ($button.val() == '반려동물용품') {
             $button.parent('div').find('input').prop('checked', false);
             $button.prop('checked', true);
         } else {
             $button.parent('div').find('input').eq(10).prop('checked', false);
         }
         
-        if ($button.val() == 'book') {
+        if ($button.val() == '도시/티켓/음반') {
             $button.parent('div').find('input').prop('checked', false);
             $button.prop('checked', true);
         } else {
             $button.parent('div').find('input').eq(11).prop('checked', false);
         }
         
-        if ($button.val() == 'etc') {
+        if ($button.val() == '기타중고물품') {
             $button.parent('div').find('input').prop('checked', false);
             $button.prop('checked', true);
         } else {
             $button.parent('div').find('input').eq(12).prop('checked', false);
         }
+        
+        }); //filter click
+        
+         
 
-    }); //filter click
+   
 
     // flatten object by concatting values
-    function concatValues(obj) {
+    function concatValues(obj){
         var value = '';
         for (var list in obj) {
             value += obj[list];
         }
-        console.log(value);
+        console.log("value"+value);
         return value;
     }
-
-
-
 
 }); //document ready function

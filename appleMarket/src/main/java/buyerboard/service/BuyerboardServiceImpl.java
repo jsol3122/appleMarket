@@ -24,15 +24,17 @@ public class BuyerboardServiceImpl implements BuyerboardService {
 	
 
 	@Override
-	public JSONObject buyerboardGetList(int page) {
+	public JSONObject buyerboardGetList(int page,String buyerboard_category) {
 		// DB 
 		//1페이지당 n개씩
 		int endNum = page * 12;
 		int startNum = endNum - 11;
 		
-		Map<String, Integer> map = new HashMap<String, Integer>();
+		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("startNum", startNum);
 		map.put("endNum", endNum);
+		map.put("buyerboard_category", buyerboard_category);
+		
 		List<BuyerboardDTO> list = buyerboardDAO.buyerboardGetList(map);
 		
 		
@@ -122,15 +124,5 @@ public class BuyerboardServiceImpl implements BuyerboardService {
 	public List<BuyerboardDTO> boardcategoryFilter(String buyerboard_category) {		
 		return buyerboardDAO.boardcategoryFilter(buyerboard_category);
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 }
