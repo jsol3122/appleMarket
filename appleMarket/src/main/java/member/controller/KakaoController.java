@@ -68,6 +68,7 @@ public class KakaoController {
         JSONObject kakaoInfo =  new JSONObject(userInfo);
         model.addAttribute("kakaoInfo", kakaoInfo);
         String id =(String)userInfo.get("id");
+        String email =(String)userInfo.get("email");
         
         System.out.println("id="+id);
         session.setAttribute("kakaoInfo", kakaoInfo);
@@ -84,7 +85,7 @@ public class KakaoController {
         
         if(Check==null) {
         //중복체크가 안되면 여기 
-        	return "redirect:/write?member_id="+id+"&member_siteCheck="+1; //본인 원하는 경로 설정
+        	return "redirect:/write?member_id="+id+"&member_siteCheck="+1+"&member_email="+email; //본인 원하는 경로 설정
         //return "redirect:/checkId?member_id="+id;
         //중복체크가 되면 index
         }else {
@@ -194,7 +195,7 @@ public class KakaoController {
             String nickname = properties.getAsJsonObject().get("nickname").getAsString();
             String email = kakao_account.getAsJsonObject().get("email").getAsString();
             String id = element.getAsJsonObject().get("id").getAsString();
-
+           
             userInfo.put("accessToken", access_Token);
             userInfo.put("nickname", nickname);
             userInfo.put("email", email);
