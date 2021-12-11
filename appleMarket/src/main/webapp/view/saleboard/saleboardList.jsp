@@ -47,7 +47,6 @@
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="/appleMarket/css/buyandsell.css">
 </head>
-
 <body>
    <%@include file="/includes/header.jsp" %>
 
@@ -116,6 +115,7 @@
         <section class="new_arrivals">
             <h2 class="content_title"><span>사과마켓</span> 사고/팔고</h2>
             <p class="content_desc">사과마켓은 신뢰할 수 있는 물품들만 제공합니다. </p>
+            <input type="button" value="물품등록" class="sbm" />
             <ul class="new_arrivals_list row"></ul>
         </section>
        

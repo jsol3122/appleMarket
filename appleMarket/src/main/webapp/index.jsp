@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
     
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko"> 
 <head>
 <meta charset="UTF-8">
 
@@ -526,7 +526,8 @@ $(function(){
 		$.ajax({
 			url: '/appleMarket/saleboard/saleboardSearch',
 			type: 'post',
-			data: {'searchId': $('#searchId').val()},
+			data: {'searchId': $('#searchId').va
+			l()},
 			//dataType: 'json',
 			//서버에서 받아올 데이터는 TEXT, HTML, XML, JSON 형식을 지정할 수 있다.
          	//생략하면 요청한 자료에 맞게 자동으로 형식이 설정된다.
@@ -576,6 +577,7 @@ $(function(){
 });
 </script>
 -->
+
 
 </body>
 </html>
