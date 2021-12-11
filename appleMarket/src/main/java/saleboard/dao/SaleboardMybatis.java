@@ -1,5 +1,6 @@
 package saleboard.dao;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -8,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import member.bean.MemberDTO;
+import saleboard.bean.InterestDTO;
 import saleboard.bean.SaleboardDTO;
 
 @Repository
@@ -58,19 +61,21 @@ public class SaleboardMybatis implements SaleboardDAO {
 	@Override
 	public void saleboardPick(Map<String, String> map) {
 		String sale_seq = map.get("sale_seq");
+		String member_id = map.get("member_id");
+		System.out.println("member_id="+member_id);
 		
 		SaleboardDTO saleboardDTO = member_idLoad(sale_seq);		
+		saleboardDTO.setMember_id(member_id);
 		
-		map.put("member_id", saleboardDTO.getMember_id());
-		map.put("sale_seq", saleboardDTO.getSale_seq()+""); // map.get 으로 받아왔는데 또 해줘야 하나?
-		
+		System.out.println(saleboardDTO);
 		// 게시글의 하트수 +1 증가 (update) saleboard : sale_heart_count 
 		sqlSession.update("saleboardSQL.saleboardPick1", saleboardDTO);
 		
 		// 찜테이블에 상품 새로 추가 (insert) interestList : member_id, sale_seq
-		sqlSession.insert("saleboardSQL.saleboardPick2",map);		
+		sqlSession.insert("saleboardSQL.saleboardPick2",saleboardDTO);		
 	}
 	
+	@Override
 	public SaleboardDTO member_idLoad(String sale_seq) {
 		SaleboardDTO saleboardDTO = sqlSession.selectOne("saleboardSQL.member_idLoad", sale_seq);
 		return saleboardDTO;
@@ -117,6 +122,13 @@ public class SaleboardMybatis implements SaleboardDAO {
 	@Override
 	public List<SaleboardDTO> saleboardGetListId(Map<String, Object> map) {
 		return sqlSession.selectList("saleboardSQL.saleboardGetListId",map);
+	}
+
+	@Override
+	public List<InterestDTO> getinterestList(String member_id) {
+		return sqlSession.selectList("saleboardSQL.getinterestList", member_id);
+		
+
 	}
 	
 

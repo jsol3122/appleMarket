@@ -13,6 +13,7 @@ function get_query(){
 // 추출한 글번호로 db 갔다와서 해당하는 글 내용 불러오기
 $(function(){
     var result = get_query(); //result { category: "1060192", } - 의형식으로 추출됨
+   // alert(result.sale_seq);
     
     $.ajax({
         url: '/appleMarket/saleboard/saleboardGetView',
@@ -47,6 +48,7 @@ $(function(){
 
 // 화면에 글 상세페이지 삽입하는 함수
 function get_detail(DTO){
+	var result = get_query();
     let html = 
     "<div class=row>"+
         "<div class=product_pictures>"+
@@ -81,8 +83,7 @@ function get_detail(DTO){
                     "</div>"+
                     "<div class=order_now>"+
                         "<ul>"+
-                            "<li>"+
-                                "<a href='' class=addcart>addcart</a>"+
+                            "<li>"+"<input type='button' style='border:0 ; outline:0' class='addcart' id='addcart' value='addcart'/>"+
                             "</li>"+
                         "</ul>"+
                         "<button type=submit>채팅하기</button>"+

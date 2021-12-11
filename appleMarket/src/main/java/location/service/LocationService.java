@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -134,4 +135,9 @@ public class LocationService {
 
 		
 	}
+
+	public LocationDTO getLocation(String member_id) {
+		 return locationDAO.checkGPS(member_id);
+	}
+
 }

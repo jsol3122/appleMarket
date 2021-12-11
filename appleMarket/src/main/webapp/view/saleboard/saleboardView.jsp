@@ -31,7 +31,7 @@
     
     <script src="/appleMarket/js/saleboardGetView.js"></script>
     <script src="/appleMarket/js/main.js"></script>
-
+	<script src="/appleMarket/js/saleboardPick.js"></script>
     <!-- bootstrap grid -->
     <link rel="stylesheet" href="/appleMarket/css/bootstrap-grid.min.css">
     <link rel="stylesheet" href="/appleMarket/css/star-rating.min.css">

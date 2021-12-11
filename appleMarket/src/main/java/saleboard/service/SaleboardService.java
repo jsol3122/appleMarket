@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import net.sf.json.JSONObject;
+import saleboard.bean.InterestDTO;
 import saleboard.bean.SaleboardDTO;
 
 public interface SaleboardService {
@@ -29,6 +30,10 @@ public interface SaleboardService {
 	public void saleboardFollow(Map<String, String> map);
 
 	public List<SaleboardDTO> saleboardGetListId(String member_id, int sale_seq);
+	
+	public SaleboardDTO member_idLoad(String sale_seq);
+
+	public List<InterestDTO> getinterestList(String member_id);
 	
 //	public void saleboardChat(String sale_id); //  판매자 아이디, 매개 변수 수정하기
 //	

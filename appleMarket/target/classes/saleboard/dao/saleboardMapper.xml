@@ -107,9 +107,9 @@
 	   where sale_seq = #{sale_seq}
 	</update>
 	
-	<insert id="saleboardPick2" parameterType="java.util.Map">
-	   insert into interestList (member_id, sale_seq)
-	   	values(#{member_id}, #{sale_seq})
+	<insert id="saleboardPick2" parameterType="saleboard.bean.SaleboardDTO">
+	   insert into interestList (interestList_seq, member_id, sale_seq, sale_status, sale_subject, sale_price, sale_logtime, sale_image1)
+	   	values(seq_interestList.nextval, #{member_id}, #{sale_seq}, #{sale_status}, #{sale_subject}, #{sale_price}, #{sale_logtime}, #{sale_image1} )
 	</insert> 	
  
  	<update id="saleboardPickCancel1" parameterType="saleboard.bean.SaleboardDTO">
@@ -130,4 +130,9 @@
 		insert into follow(member_id, following_id) values(#{member_id},#{following_id})
 	</insert>
 
+	<!-- 아이디별로 관심목록 출력  -->
+	<select id="getinterestList" parameterType="String" resultType="interest">
+ 		select * from interestList where member_id=#{member_id}
+ 	</select>
+	
  </mapper>

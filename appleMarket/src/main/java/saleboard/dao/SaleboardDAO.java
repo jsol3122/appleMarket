@@ -3,6 +3,7 @@ package saleboard.dao;
 import java.util.List;
 import java.util.Map;
 
+import saleboard.bean.InterestDTO;
 import saleboard.bean.SaleboardDTO;
 
 
@@ -32,7 +33,9 @@ public interface SaleboardDAO {
 
 	public List<SaleboardDTO> saleboardGetListId(Map<String, Object> map);
 
+	public SaleboardDTO member_idLoad(String sale_seq);
 
+	public List<InterestDTO> getinterestList(String member_id); 
 
 //	public void saleboardChat(String sale_id);
 

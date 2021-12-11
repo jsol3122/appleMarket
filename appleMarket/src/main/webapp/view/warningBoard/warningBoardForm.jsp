@@ -14,7 +14,7 @@
 
     <div id="contact">
         <h1>신고하기</h1>
-        <form action="#" method="post">
+        <<form id="warningWriteForm">
             <fieldset>
                 <label for="name">신고사유:</label>
                 <select name="language">
@@ -25,16 +25,52 @@
                     <option value="">불법,유해</option>
                     <option value="">기타</option>
                   </select>
+                   <div id="subjectDiv"></div>
 
                 <label for="message">신고내용:</label>
                 <textarea id="message" placeholder="신고내용을 적어주세요."></textarea>
+                <div id="contentDiv"></div>
 
-                <input type="submit" value="신고하기" />
+                <input type="button" id="WarningWriteBtn" value="신고하기">
 
             </fieldset>
-        </form>
+      	</form>
     </div>
 
-</body>
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+$('#WarningWriteBtn').click(function(){
+	//초기화 과정
+	$('#contentDiv').empty();
+	
+	
+	if($('select').val() == 'none') {
+		$('#subjectDiv').html('신고사유를 선택해주세요.'); 
+		$('#admin_notice_subject').focus();
+	}
+	
+	else if($('#message').val() == ''){
+		$('#contentDiv').html('내용 입력');
+		$('#message').focus();
+	}
+	else{ 
+		$.ajax({
+			url: '/appleMarket/warningBoardWrite',
+			type: 'post',
+			data: $('#warningWriteForm').serialize(),
+			success: function(){
+				alert("글 작성 성공");
+				location.href="/appleMarket/index"
+			},
+			error: function(err){
+				console.log(err);
+			}	
+		});
+	}	
+});
 
+
+</script>
+
+</body>
 </html>
