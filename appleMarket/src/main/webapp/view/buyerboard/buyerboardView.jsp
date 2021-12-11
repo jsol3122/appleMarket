@@ -50,6 +50,7 @@
     <%@include file="/includes/header.jsp" %>
     <section class="product_info">
         <h2 class="hidden">product_info</h2>
+        <input type="hidden" id="session_id" value="${member_id}" /> 
         <div class="container"> 
             <!-- 상품 상세페이지 ajax로 뜨는 부분 -->
         </div>
