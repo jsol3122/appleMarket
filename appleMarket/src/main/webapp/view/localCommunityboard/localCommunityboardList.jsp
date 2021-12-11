@@ -107,25 +107,6 @@
         }
     </style>
     <style type="text/css">
-
-    </style>
-    <style type="text/css">
-
-    </style>
-    <style type="text/css">
-        #mainNav {
-            background: none !important;
-            background: url(http://www.reva.kr/files/attach/images/107/e33fd1faeb8cf73de19825b96841f62a.png) repeat-x left top !important
-        }
-    </style>
-    <style type="text/css">
-        body {
-            background: url(http://www.reva.kr/files/attach/images/107/069eb8ae6e790ab1e3196548d03048a1.png) repeat center fixed
-        }
-        
-        #header_container {
-            background: url(http://www.reva.kr/files/attach/images/107/be580dededc628d702a59041f19fead1.png) repeat center 0
-        }
         
         .s_body {
             padding-left: 10px;
