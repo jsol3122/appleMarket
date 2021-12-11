@@ -61,7 +61,6 @@
         #buyerboardWriteForm input::-ms-input-placeholder { color: #f00; }
 		#buyerboardWriteForm input::-webkit-input-placeholder { color: #f00; }
 		#buyerboardWriteForm input::-moz-placeholder { color: #f00; }
-        
         .filebox input[type="file"] {
             position: absolute;
             width: 1px;
@@ -169,22 +168,36 @@
                 <label>물품 사진등록</label>
                 <input class="upload-name" value="파일선택" disabled="disabled" style="height: 15px;">
                 <label for="ex_filename" class="uploadfile" style="width: 80px; height: 15px;">사진업로드</label>
+<<<<<<< HEAD
+                <input type="file" id="ex_filename" class="upload-hidden">
+            </div>
+			<div>
+				<input type="button" value="글 등록" class="sbm" id="buyerboardWriteBtn" />
+=======
                 <input type="file" id="ex_filename" class="upload-hidden" name="img[]"  multiple>
             </div>
 			<div>
 				<input type="button" value="글 등록" class="sbm" id="buyerboardWriteButton" />
+>>>>>>> 828d14ff5aaeda518b07b3e9063452ce247cd181
 			</div>
 		</form>
 		<br>
 		<br>
 		<hr>
 		<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<<<<<<< HEAD
+		<script>
+=======
 		<script type="text/javascript" src="/appleMarket/js/buyerboardWrite.js"></script>
   		<script>
+>>>>>>> 828d14ff5aaeda518b07b3e9063452ce247cd181
             $(document).ready(function() {
                 var fileTarget = $('.filebox .upload-hidden');
                 fileTarget.on('change', function() { // 값이 변경되면 
                     if (window.FileReader) { // modern browser 
+<<<<<<< HEAD
+                        var filename = $(this)[0].files[0].name;
+=======
                     	// 이미지 등록 수 제한
                     	if(parseInt($(this)[0].files.length) > 3){
                     		alert('이미지는 최대 3장까지만 등록 가능합니다')
@@ -202,14 +215,24 @@
                           var filename3 = $(this)[0].files[2].name;
                           $(this).siblings('.upload-name').val(filename1+', '+filename2+', '+filename3);
                       }
+>>>>>>> 828d14ff5aaeda518b07b3e9063452ce247cd181
                     } else { // old IE 
                         var filename = $(this).val().split('/').pop().split('\\').pop();
                         // 파일명만 추출 
                     } // 추출한 파일명 삽입 
+<<<<<<< HEAD
+                    $(this).siblings('.upload-name').val(filename);
+                });
+            });
+        </script>
+	</div>
+	<%@include file="/includes/footer.jsp" %>
+=======
                 });
             });
         </script>  
         <%@include file="/includes/footer.jsp" %>
 	</div>
+>>>>>>> 828d14ff5aaeda518b07b3e9063452ce247cd181
 </body>
 </html>
