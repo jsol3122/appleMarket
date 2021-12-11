@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -6,11 +5,6 @@
 <!DOCTYPE html>
 <html lang="ko">
 
-=======
- <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    
->>>>>>> 828d14ff5aaeda518b07b3e9063452ce247cd181
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,10 +16,6 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
-<<<<<<< HEAD
-=======
-    <script src="/appleMarket/js/salehistory.js"></script>
->>>>>>> 828d14ff5aaeda518b07b3e9063452ce247cd181
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 
     <!-- 구매내역 -->
@@ -36,7 +26,6 @@
     <link href="/appleMarket/css/buystyle/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- CUSTOM CSS -->
     <link rel="stylesheet" href="/appleMarket/css/buysalehistory.css">
-<<<<<<< HEAD
     <title>사고팔고마켓</title>
 </head>
 
@@ -102,7 +91,7 @@
                                     <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-0">
                                         <!-- Recently Favorited -->
                                         <div class="widget dashboard-container my-adslist" style="width: 730px;">
-                                            <h3 class="widget-header">판매내역</h3>
+                                            <h3 class="widget-header">관심목록</h3>
                                             <table class="table table-responsive product-dashboard-table">
                                                 <thead>
                                                     <tr>
@@ -133,11 +122,6 @@
                                                                         </a>
                                                                     </li>
                                                                     <li class="list-inline-item">
-                                                                        <a data-toggle="tooltip" data-placement="top" title="끌올" class="edit" href="">
-                                                                            <i class="fa fa-long-arrow-up"></i>
-                                                                        </a>
-                                                                    </li>
-                                                                    <li class="list-inline-item">
                                                                         <a data-toggle="tooltip" data-placement="top" title="삭제" class="delete" href="">
                                                                             <i class="fa fa-trash"></i>
                                                                         </a>
@@ -166,8 +150,31 @@
                                                                         </a>
                                                                     </li>
                                                                     <li class="list-inline-item">
-                                                                        <a data-toggle="tooltip" data-placement="top" title="끌올" class="edit" href="">
-                                                                            <i class="fa fa-long-arrow-up"></i>
+                                                                        <a data-toggle="tooltip" data-placement="top" title="삭제" class="delete" href="">
+                                                                            <i class="fa fa-trash"></i>
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="product-thumb">
+                                                            <img width="80px" height="auto" src="/appleMarket/img/화분1.jpg" alt="image description"></td>
+                                                        <td class="product-details">
+                                                            <h3 class="title">이동식 화분 팔아용~~</h3>
+                                                            <span class="add-id"><strong>ID:</strong>abc@aplle.maket</span>
+                                                            <span><strong>날짜: </strong><time>2017/10/21</time> </span>
+                                                            <span class="status active"><strong>가격:</strong>100000</span>
+                                                            <span class="location"><strong>장소:</strong>경기도 안양시 동안구</span>
+                                                        </td>
+                                                        <td class="product-category"><span class="categories">거래중</span></td>
+                                                        <td class="action" data-title="Action">
+                                                            <div class="">
+                                                                <ul class="list-inline justify-content-center">
+                                                                    <li class="list-inline-item">
+                                                                        <a data-toggle="tooltip" data-placement="top" title="보기" class="view" href="category.html">
+                                                                            <i class="fa fa-eye"></i>
                                                                         </a>
                                                                     </li>
                                                                     <li class="list-inline-item">
@@ -199,11 +206,6 @@
                                                                         </a>
                                                                     </li>
                                                                     <li class="list-inline-item">
-                                                                        <a data-toggle="tooltip" data-placement="top" title="끌올" class="edit" href="">
-                                                                            <i class="fa fa-long-arrow-up"></i>
-                                                                        </a>
-                                                                    </li>
-                                                                    <li class="list-inline-item">
                                                                         <a data-toggle="tooltip" data-placement="top" title="삭제" class="delete" href="">
                                                                             <i class="fa fa-trash"></i>
                                                                         </a>
@@ -229,44 +231,6 @@
                                                                     <li class="list-inline-item">
                                                                         <a data-toggle="tooltip" data-placement="top" title="보기" class="view" href="category.html">
                                                                             <i class="fa fa-eye"></i>
-                                                                        </a>
-                                                                    </li>
-                                                                    <li class="list-inline-item">
-                                                                        <a data-toggle="tooltip" data-placement="top" title="끌올" class="edit" href="">
-                                                                            <i class="fa fa-long-arrow-up"></i>
-                                                                        </a>
-                                                                    </li>
-                                                                    <li class="list-inline-item">
-                                                                        <a data-toggle="tooltip" data-placement="top" title="삭제" class="delete" href="">
-                                                                            <i class="fa fa-trash"></i>
-                                                                        </a>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="product-thumb">
-                                                            <img width="80px" height="auto" src="/appleMarket/img/화분1.jpg" alt="image description"></td>
-                                                        <td class="product-details">
-                                                            <h3 class="title">이동식 화분 팔아용~~</h3>
-                                                            <span class="add-id"><strong>ID:</strong>abc@aplle.maket</span>
-                                                            <span><strong>날짜: </strong><time>2017/10/21</time> </span>
-                                                            <span class="status active"><strong>가격:</strong>100000</span>
-                                                            <span class="location"><strong>장소:</strong>경기도 안양시 동안구</span>
-                                                        </td>
-                                                        <td class="product-category"><span class="categories">거래중</span></td>
-                                                        <td class="action" data-title="Action">
-                                                            <div class="">
-                                                                <ul class="list-inline justify-content-center">
-                                                                    <li class="list-inline-item">
-                                                                        <a data-toggle="tooltip" data-placement="top" title="보기" class="view" href="category.html">
-                                                                            <i class="fa fa-eye"></i>
-                                                                        </a>
-                                                                    </li>
-                                                                    <li class="list-inline-item">
-                                                                        <a data-toggle="tooltip" data-placement="top" title="끌올" class="edit" href="">
-                                                                            <i class="fa fa-long-arrow-up"></i>
                                                                         </a>
                                                                     </li>
                                                                     <li class="list-inline-item">
@@ -436,49 +400,3 @@
 
 
 
-=======
-    <link rel="stylesheet" href="/appleMarket/css/comboard.css">
-    <title>사고팔고마켓</title>
-</head>
- 
-   <section class="dashboard section" style="padding-top: 0px;">
-     <!-- Container Start -->
-     <div class="container">
-         <!-- Row Start -->
-         <div class="row">
-             <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-0">
-                 <!-- Recently Favorited -->
-                 <div class="widget dashboard-container my-adslist" style="width: 610px;">
-                     <h3 class="widget-header">판매내역</h3>
-                     <table class="table table-responsive product-dashboard-table">
-                         <thead>
-                             <tr>
-                                 <th>물품</th>
-                                 <th>상세내역</th>
-                                 <th class="text-center">거래상태</th>
-                                 <th class="text-center">관리</th>
-                             </tr>
-                         </thead>
-                         <tbody>
-                             <!-- ajax로 아이디 검색해서 구매내역 띄우기 -->
-                                                        
-                         </tbody>
-                     </table>
-
-                 </div>
-
-                 <!-- pagination -->
-                 <form action="./" method="get" class="bd_pg clear"><input type="hidden" name="error_return_url" value="/freebd"><input type="hidden" name="act" value="">
-                    <fieldset>
-                        <!-- 페이징처리 ajax로 뿌리기 -->
-                    </fieldset>
-                 </form>
-                 <!-- pagination -->
-
-             </div>
-         </div>
-         <!-- Row End -->
-     </div>
-     <!-- Container End -->
- </section>
->>>>>>> 828d14ff5aaeda518b07b3e9063452ce247cd181

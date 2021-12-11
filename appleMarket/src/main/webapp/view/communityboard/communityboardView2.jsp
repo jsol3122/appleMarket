@@ -266,6 +266,7 @@
 
 <body>
     <%@include file="/includes/header.jsp" %>
+
     <div class="memberup">
         <div class="main">
             <div class="content">
@@ -429,7 +430,7 @@
                                                                 <!--AfterComment(102626,37507)-->
                                                                 <div class="fdb_nav img_tx">
                                                                 	<a class="re_comment" ><i class="fa fa-pencil"></i> 수정</a>
-                                                                    <a class="re_comment" ><i class="fa fa-trash"></i> 삭제</a>
+                                                                	<a class="re_comment" ><i class="fa fa-trash"></i> 삭제</a>
                                                                     <a class="re_comment" ><i class="fa fa-concierge-bell"></i> 신고</a>
                                                                 </div>
                                                             </li>
@@ -462,12 +463,8 @@
                                         <div class="tl_srch clear">
 
                                             <div class="bd_tl">
-                                                <h1 class="ngeb clear"><i class="bg_color"></i><a href="#">우리동네게시판</a>
-                                                	<c:if test="${member_id ne null}">
-                                                		<span id='dong' style='font-size:8pt'></span>
-                                                	</c:if>
-                                                	<input type="hidden" id="session_id" value="${member_id}" />
-                                                </h1>
+                                                <h1 class="ngeb clear"><i class="bg_color"></i><a href="#">조잘조잘 - 자유게시판</a></h1>
+                                            	<input type="hidden" id="session_id" value="${member_id}" />
                                             </div>
                                         </div>
                                         <div class="cnb_n_list">
@@ -565,7 +562,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="/appleMarket/js/app.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="/appleMarket/js/localCommunityboardList.js"></script>
+    <script src="/appleMarket/js/communityboardList.js"></script>
 
     <!-- Channel Plugin Scripts -->
     <script>
