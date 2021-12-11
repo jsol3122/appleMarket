@@ -7,6 +7,9 @@ import buyerboard.bean.BuyerboardDTO;
 import communityboard.bean.CommunityboardDTO;
 import communityboardComment.bean.CommunityboardCommentDTO;
 import location.bean.LocationDTO;
+import admin.bean.AdminNoticeDTO;
+import localCommunityboard.bean.LocalCommunityboardDTO;
+import localCommunityboardComment.bean.LocalCommunityboardCommentDTO;
 import member.bean.MemberDTO;
 import saleboard.bean.SaleboardDTO;
 import warningBoard.bean.WarningBoardDTO;
@@ -64,5 +67,27 @@ public interface AdminDAO {
 	public void adminlocationDelete(String member_id);
 
 	public BlackListDTO adminBlackListCheck(String member_id);
+
+	public List<AdminNoticeDTO> getAdminNoticeList();
+
+	public void adminNoticeDelete(AdminNoticeDTO adminNoticeDTO);
+
+	public AdminNoticeDTO getadminNoticeView(int admin_notice_seq);
+
+	public void getadminNoticeModify(AdminNoticeDTO adminNoticeDTO);
+
+	public void getadminNoticeWrite(AdminNoticeDTO adminNoticeDTO);
+
+	public List<LocalCommunityboardDTO> getAdminLocalCommunityList();
+
+	public List<LocalCommunityboardDTO> getAdminLocalCommunityListId(String localcommunity_user_id);
+
+	public void adminLocalCommunityDelete(String localcommunity_seq);
+
+	public List<LocalCommunityboardCommentDTO> getAdminLocalCommunityComment();
+
+	public void adminLocalCommunityCommentList(String localcommunity_comment_seq);
+
+	public LocalCommunityboardDTO getAdminLocalCommunityView(String localcommunity_seq);
 
 }

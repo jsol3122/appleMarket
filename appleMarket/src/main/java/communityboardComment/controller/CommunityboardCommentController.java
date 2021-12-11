@@ -4,6 +4,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,7 +36,16 @@ public class CommunityboardCommentController {
 	
 	@PostMapping("/comment/communityboardCommentWrite")
 	@ResponseBody
-	public void communityboardCommentWrite(@ModelAttribute CommunityboardCommentDTO communityboardCommentDTO) {
+	public void communityboardCommentWrite(@ModelAttribute CommunityboardCommentDTO communityboardCommentDTO
+											, HttpSession session
+										 , HttpServletRequest request) {
+		
+		
+		HttpSession loginSession = request.getSession();
+		String member_id = (String)loginSession.getAttribute("member_id");
+		System.out.println(member_id);
+		communityboardCommentDTO.setCommunityboard_comment_user_id(member_id);
+		
 		communityboardCommentService.communityboardCommentWrite(communityboardCommentDTO);
 	}
 	
