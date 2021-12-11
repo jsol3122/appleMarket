@@ -39,8 +39,11 @@ $(function(){
     
     // 물품등록 버튼 클릭
     $('#buyerboardWriteBtn').click(function(){
-	   location.href = '/appleMarket/buyerboard/buyerboardWriteForm'; 
-	});
+      if($('#session_id').val())
+	      location.href = '/appleMarket/buyerboard/buyerboardWriteForm'; 
+      else
+        alert('로그인이 필요한 서비스입니다')
+    });
     
 })
 //카테고리값을 가져온다

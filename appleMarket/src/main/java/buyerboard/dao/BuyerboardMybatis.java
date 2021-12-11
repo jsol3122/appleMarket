@@ -36,7 +36,8 @@ public class BuyerboardMybatis implements BuyerboardDAO {
 
 	@Override
 	public void buyerboardModify(BuyerboardDTO buyerboardDTO) {
-		
+		String location_dong = sqlSession.selectOne("buyerboardSQL.searchLocationDong", buyerboardDTO);
+		buyerboardDTO.setLocation_dong(location_dong);
 		sqlSession.update("buyerboardSQL.buyerboardModify",buyerboardDTO);
 	}
 

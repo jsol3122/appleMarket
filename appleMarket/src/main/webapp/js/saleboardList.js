@@ -18,6 +18,14 @@ $(function(){
     })
     fetchList();
     
+    // 물품등록 버튼 클릭
+    $('#saleboardWriteBtn').click(function(){
+      if($('#session_id').val())
+	      location.href = '/appleMarket/saleboard/saleboardWriteForm'; 
+      else
+        alert('로그인이 필요한 서비스입니다')
+    });
+    
 })
 
 let fetchList = function(){
