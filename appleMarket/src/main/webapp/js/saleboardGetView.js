@@ -114,8 +114,9 @@ function get_detail(DTO){
 	      url: '/appleMarket/chat/newChat',
 	      type: 'post',
 	      data: 'member_id='+member_id+'&sale_seq='+sale_seq,  
+	      async: false,
 	      success: function(data){
-	        //alert(JSON.stringify(data)); //newChat에서 JSON으로 넘어온다.
+	        alert(JSON.stringify(data)); //newChat에서 JSON으로 넘어온다.
 	        //alert({chatRoom_id}); 
 	        //const obj = JSON.parse(json);
 			//console.log(obj.chatRoom_id);
@@ -124,9 +125,10 @@ function get_detail(DTO){
 	        console.log('dto 보내기 성공~~~~~~~');
 	        location.href='/appleMarket/chat/personalChat';
 	        
-	        var newChatMap = JSON.stringify(data);
+	        
+	        //var newChatMap = JSON.stringify(data);
 	        //var obj = JSON.parse(json);
-	        alert(newChatMap);
+	        //alert(newChatMap);
 	        //var chatRoom_id = document.getElementById("newChatMap").innerHTML += newChatMap.chatRoom_id ;
 			//console.log(newChatMap.chatRoom_id);
 	        //alert(chatRoom_id);
