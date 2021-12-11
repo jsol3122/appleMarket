@@ -56,8 +56,8 @@
  							,buyerboard_subject=#{buyerboard_subject}
  							,buyerboard_content=#{buyerboard_content}
  							,buyerboard_image1=#{buyerboard_image1}
- 							,buyerboard_image2=#{buyerboard_image3}
- 							,buyerboard_image2=#{buyerboard_image3}
+ 							,buyerboard_image2=#{buyerboard_image2}
+ 							,buyerboard_image3=#{buyerboard_image3}
  							,buyerboard_logtime=sysdate
  							,buyer_status=#{buyer_status}
  							where buyerboard_seq=#{buyerboard_seq}
@@ -72,11 +72,7 @@
  	</select>
  	
 	<select id="buyerboardGetListId" parameterType="java.util.Map" resultType="buyerboard.bean.BuyerboardDTO">
- 		select * from 
-	 		(select rownum rn, tt.* from 
-	 			(select * from buyerboard order by buyerboard_seq desc) 
- 			tt)
-	 	where member_id=#{member_id} and rn between #{startNum} and #{endNum} and buyerboard_seq != #{buyerboard_seq}
+ 		select * from buyerboard where member_id=#{member_id} and buyerboard_seq != #{buyerboard_seq} order by buyerboard_seq desc
  	</select>
 
  	<update id="buyerboardHit" parameterType="int">

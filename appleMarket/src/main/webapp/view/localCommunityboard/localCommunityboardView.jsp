@@ -46,6 +46,7 @@
                     <div id="body_container">
                         <div class="s_body" style="width: 820px;">
                             <div class="s_content">
+                            <input type="hidden" id="session_id" value="${member_id}" /> 
                             <!--#JSPLUGIN:ui-->
                                     <script>
                                         //<![CDATA[
@@ -71,19 +72,7 @@
                                             <div class="rd_hd clear" style="margin:0 -15px 20px">
 
                                                 <div class="board clear ">
-                                                    <div class="top_area ngeb">
-                                                        <div class="fr">
-                                                            <span class="date m_no">2017.11.17 00:12</span> </div>
-                                                        <h1 class="np_18px"><a href="#">이번주 월요일... 나 수술하는데 다들 기도해줘.</a></h1>
-                                                    </div>
-                                                    <div class="btm_area clear">
-                                                        <div class="side">
-                                                            <a href="#" class="nick member_639682" onclick="return false">
-                                                                <img src="/appleMarket/img/temperature/36.5tem.png" alt="온도" title="온도: 36.5도" class="xe_point_level_icon" style="vertical-align:middle;margin-right:3px;">evlecrash</a>
-                                                        </div>
-                                                        <div class="side fr">
-                                                            <span>조회 수 <b>3454</b></span> <span>댓글 <b>3</b></span> </div>
-                                                    </div>
+                                                    <!-- 글제목&사용자 부분 ajax로 띄우기 -->
                                                 </div>
                                             </div>
                                             <div class="rd_body clear" style="height: auto !important;">
@@ -93,28 +82,22 @@
                                                     <br>
                                                     <!-- 이 주석 지우지마! -->
                                                     <!--BeforeDocument(668947,639682)-->
-                                                    <div class="document_668947_639682 xe_content">
-                                                        <p>몸의 일부가 떨어져 나가는 병인데, 유전병인지, 후천성인지는 밝혀지지 않았어....</p>
-                                                        <p><br></p>
-                                                        <p>내 몸의 일부를 떼어서 다시 그 자리에 봉합하는 수술인데 잘 될지 모르겠네..ㅠㅠ</p>
-                                                    </div>
+                                                    	<!-- 글 내용 부분 ajax로 뿌리기 -->
                                                     <!--AfterDocument(668947,639682)-->
                                                 </article>
                                             </div>
                                             
-                                            <!--  댓글 -->
                                             <div class="rd_ft">
                                                 <div class="rd_ft_nav clear">
                                                     <div class="rd_nav img_tx fr m_btn_wrp">
-                                                        <a class="back_to bubble m_no" href="#bd_112_668947" title="위로"><i class="fa fa-arrow-up"></i><b class="tx">위로</b></a>
-                                                        <a class="back_to bubble m_no" href="#rd_end_668947" title="(목록) 아래로"><i class="fa fa-arrow-down"></i><b class="tx">아래로</b></a>
-                                                        <a class="back_to bubble m_no" href="#" title="삭제"><i class="fa fa-pencil"></i><b class="tx">수정</b></a>
-                                                        <a class="back_to bubble m_no" href="#" title="삭제"><i class="fa fa-trash"></i><b class="tx">삭제</b></a>
+                                                        <!-- 본인 글일 때 수정&삭제 버튼 활성화 -->
+
                                                         <a class="document_668947 action bubble m_no" href="#" onclick="return false;" title="신고"><i class="fa fa-concierge-bell"></i><b class="tx">신고</b></a> 
                                                     </div>
                                                 </div>
                                             </div>
-
+											
+											<!--  댓글  -->
                                             <div class="fdb_lst_wrp  ">
                                                 <div id="668947_comment" class="fdb_lst clear fdb_nav_btm ">
                                                     <div class="cmt_editor">
@@ -174,57 +157,7 @@
                                                             <a class="ui_font bubble" href="#" onclick="jQuery(this).parent().nextAll('ul,.bd_pg').slideToggle();return false" title="댓글 보기">Comments <b>'3'</b></a>
                                                         </div>
                                                         <ul class="fdb_lst_ul ">
-                                                            <li id="comment_668948" class="fdb_itm clear">
-                                                                <div class="meta">
-                                                                    <a href="#popup_menu_area" class="member_639682" onclick="return false">
-                                                                        <img src="/appleMarket/img/temperature/60tem.png" alt="온도" title="온도: 60도" class="xe_point_level_icon" style="vertical-align:middle;margin-right:3px;">gdgdwqwqwq</a>
-                                                                    <span class="date">2017.11.17 00:13</span>
-
-                                                                </div>
-
-                                                                <!--BeforeComment(668948,639682)-->
-                                                                <div class="comment_668948_639682 xe_content">꼭 무사히 수술 마치셨으면 좋겠어요!~~</div>
-                                                                <!--AfterComment(668948,639682)-->
-                                                                <div class="fdb_nav img_tx">
-                                                                	<a class="re_comment" ><i class="fa fa-pencil"></i> 수정</a>
-                                                                	<a class="re_comment" ><i class="fa fa-trash"></i> 삭제</a>
-                                                                    <a class="re_comment" onclick=""><i class="fa fa-concierge-bell"></i> 신고</a>
-                                                                </div>
-                                                            </li>
-                                                            <li id="comment_102626" class="fdb_itm clear">
-                                                                <div class="meta">
-                                                                    <a href="#popup_menu_area" class="member_37507" onclick="return false">
-                                                                    <img src="/appleMarket/img/temperature/36.5tem.png" alt="온도" title="온도: 36.5도" class="xe_point_level_icon" style="vertical-align:middle;margin-right:3px;">evlecrash</a>
-                                                                    <span class="date">2017.11.17 01:13</span>
-
-                                                                </div>
-
-                                                                <!--BeforeComment(102626,37507)-->
-                                                                <div class="comment_102626_37507 xe_content">나도 모발이식은 처음이라 많이 떨린다 고마워요</div>
-                                                                <!--AfterComment(102626,37507)-->
-                                                                <div class="fdb_nav img_tx">
-                                                                	<a class="re_comment" ><i class="fa fa-pencil"></i> 수정</a>
-                                                                    <a class="re_comment" ><i class="fa fa-trash"></i> 삭제</a>
-                                                                    <a class="re_comment" ><i class="fa fa-concierge-bell"></i> 신고</a>
-                                                                </div>
-                                                            </li>
-                                                            <li id="comment_16938" class="fdb_itm clear">
-                                                                <div class="meta">
-                                                                    <a href="#popup_menu_area" class="member_10055" onclick="return false">
-                                                                    <img src="/appleMarket/img/temperature/40tem.png" alt="온도" title="온도: 40도" class="xe_point_level_icon" style="vertical-align:middle;margin-right:3px;">aojvrnauornvap</a>
-                                                                    <span class="date">2017.11.17 02:13</span>
-
-                                                                </div>
-
-                                                                <!--BeforeComment(16938,10055)-->
-                                                                <div class="comment_16938_10055 xe_content">ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ</div>
-                                                                <!--AfterComment(16938,10055)-->
-                                                                <div class="fdb_nav img_tx">
-                                                                	<a class="re_comment" ><i class="fa fa-pencil"></i> 수정</a>
-                                                                	<a class="re_comment" ><i class="fa fa-trash"></i> 삭제</a>
-                                                                    <a class="re_comment" ><i class="fa fa-concierge-bell"></i> 신고</a>
-                                                                </div>
-                                                            </li>
+                                                            <!-- 댓글 ajax로 불러오기 -->
                                                         </ul>
                                                     </div>
 
@@ -238,10 +171,10 @@
 
                                             <div class="bd_tl">
                                                 <h1 class="ngeb clear"><i class="bg_color"></i><a href="#">우리동네게시판</a>
-                                                	<c:if test="${member_id ne null}">
-                                                		<span id='dong' style='font-size:8pt'></span>
-                                                	</c:if>
-                                                	<input type="hidden" id="session_id" value="${member_id}" />
+                                                   <c:if test="${member_id ne null}">
+                                                      <span id='dong' style='font-size:8pt'></span>
+                                                   </c:if>
+                                                   <input type="hidden" id="session_id" value="${member_id}" />
                                                 </h1>
                                             </div>
                                         </div>
@@ -311,7 +244,7 @@
                                                     </span>
                                                     <span class="btn_img select">
                                                         <select name="search_target">
-                                                        <option value="title_content">제목+내용</option><option value="title">제목</option><option value="content">내용</option><option value="comment">댓글</option><option value="nick_name">닉네임</option><option value="user_id">아이디</option><option value="tag">태그</option>				</select>
+                                                        <option value="title_content">제목+내용</option><option value="title">제목</option><option value="content">내용</option><option value="comment">댓글</option><option value="nick_name">닉네임</option><option value="user_id">아이디</option><option value="tag">태그</option>            </select>
                                                 </span>
                                                 </form>
                                             </div>
@@ -339,7 +272,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="/appleMarket/js/app.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="/appleMarket/js/localCommunityboardList.js"></script>
+    <script src="/appleMarket/js/localCommunityboardGetView.js"></script>
 </body>
 
 </html>
