@@ -37,6 +37,10 @@ public class SaleboardMybatis implements SaleboardDAO {
 	
 	@Override
 	public void saleboardModify(SaleboardDTO saleboardDTO) {
+		String location_dong = sqlSession.selectOne("saleboardSQL.searchLocationDong", saleboardDTO);
+		double member_reputation = sqlSession.selectOne("saleboardSQL.searchReputation", saleboardDTO);
+		saleboardDTO.setLocation_dong(location_dong);
+		saleboardDTO.setMember_reputation(member_reputation);
 		sqlSession.update("saleboardSQL.saleboardModify", saleboardDTO);
 	}
 

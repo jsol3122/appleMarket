@@ -85,7 +85,7 @@ function get_detail(DTO){
                               "<a href='' class=addcart>addcart</a>"+
                           "</li>"+
                       "</ul>"+
-                      "<button type=submit>채팅하기</button>"+
+                      "<button type=submit id=chat>채팅하기</button>"+
                   "</div>"+
               "</div>"+
           "</form>"+
@@ -102,6 +102,17 @@ function get_detail(DTO){
 
   if(DTO.buyerboard_image3 != null){
       make_li(DTO.buyerboard_image3);
+  }
+
+  // 본인 작성글일 경우 글수정&글삭제 버튼 생성 - 채팅하기 버튼 비활성화
+  if(DTO.member_id == $('#session_id').val()){
+    let buttons = 
+    "<button type=button id=buyerboard_modify>글 수정</button>"+
+    "<button type=button id=buyerboard_delete>글 삭제</button>";
+
+    $('.order_now').append(buttons);
+
+    $('#chat').attr('disabled', 'true');
   }
   
   console.log('상세페이지 뜨기 완료')
@@ -123,7 +134,6 @@ $(document).on('click', '.thumb_img li', function(){
   $('.thumb_img li').removeClass('active');
   $(this).addClass('active');
 });
-
 
 // 리스트 출력 함수
 let renderList = function(mode, DTO){
@@ -160,3 +170,33 @@ if(DTO.location_dong == undefined){ //임시로 지역 넣어놓고 gps위치 �
   
 
 }
+
+// 글 수정버튼 클릭
+$(document).on('click', '#buyerboard_modify', function(){
+  // 게시글번호 추출
+  let result = get_query();
+
+  location.href = '/appleMarket/view/buyerboard/buyerboardModifyForm.jsp?buyerboard_seq='+result.buyerboard_seq;
+});
+
+// 글 삭제버튼 클릭
+$(document).on('click', '#buyerboard_delete', function(){
+  // 게시글번호 추출
+  let result = get_query();
+
+  // 삭제여부 다시한번 확인
+  if(confirm('정말로 삭제하시겠습니까? 삭제된 글은 복구할 수 없습니다')){
+    $.ajax({
+      url: '/appleMarket/buyhistoryDelete',
+      type: 'post',
+      data: 'buyerboard_seq='+result.buyerboard_seq,
+      success: function(){
+        location.href = '/appleMarket/view/buyerboard/buyerboardList.jsp?pg=1';
+        console.log('바이보드 글삭 성공~~~~~~~');
+      },
+      error: function(){
+        console.log('바이보드 글삭 실패')
+      }
+    });
+  }else return false;
+});

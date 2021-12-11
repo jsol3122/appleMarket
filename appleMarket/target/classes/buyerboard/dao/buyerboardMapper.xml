@@ -51,8 +51,8 @@
  							,buyerboard_subject=#{buyerboard_subject}
  							,buyerboard_content=#{buyerboard_content}
  							,buyerboard_image1=#{buyerboard_image1}
- 							,buyerboard_image2=#{buyerboard_image3}
- 							,buyerboard_image2=#{buyerboard_image3}
+ 							,buyerboard_image2=#{buyerboard_image2}
+ 							,buyerboard_image3=#{buyerboard_image3}
  							,buyerboard_logtime=sysdate
  							where buyerboard_seq=#{buyerboard_seq}
  	</update>

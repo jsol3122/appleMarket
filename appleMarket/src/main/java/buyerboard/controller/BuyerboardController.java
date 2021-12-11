@@ -101,7 +101,7 @@ public class BuyerboardController {
 	}
 	
 	
-	@PostMapping("/buyerboard/buyerboardModifyForm")
+	@GetMapping("/buyerboard/buyerboardModifyForm")
 	public String buyerboardModifyForm() {
 		
 		return "/buyerboard/buyerboardModifyForm";
@@ -109,7 +109,49 @@ public class BuyerboardController {
 	
 	@PostMapping("/buyerboard/buyerboardModify")
 	@ResponseBody
-	public void buyerboardModify(@ModelAttribute BuyerboardDTO buyerboardDTO) {
+	public void buyerboardModify(@ModelAttribute BuyerboardDTO buyerboardDTO, @RequestParam("img[]") MultipartFile[] img,
+			HttpSession session) {
+		String uuid = UUID.randomUUID().toString();
+		
+		String filePath = session.getServletContext().getRealPath("storage");
+		System.out.println(filePath);
+
+		String fileName;
+		File file;
+
+		// 파일 복사
+		for (int i = 0; i < img.length; i++) {
+			if (img[i] != null) {
+				fileName = uuid+"_"+img[i].getOriginalFilename();
+				file = new File(filePath, fileName);
+				System.out.println(fileName + "확인");
+				try {
+					FileCopyUtils.copy(img[i].getInputStream(), new FileOutputStream(file));
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+
+				// 문제점이 null 을 제거하고 jsp에 띄울 수 있으면 괜찮은데 그게 아니면 중간에 빈 파일 발생할 수 있다(파일 1, 3 으로 넣는
+				// 경우) css로 구현가능하면 이대로 가고 아니면 고치기
+				if (i == 0)
+					buyerboardDTO.setBuyerboard_image1(fileName);
+				if (i == 1)
+					buyerboardDTO.setBuyerboard_image2(fileName);
+				if (i == 2)
+					buyerboardDTO.setBuyerboard_image3(fileName);
+
+			} else {
+				if (i == 0)
+					buyerboardDTO.setBuyerboard_image1("");
+				if (i == 1)
+					buyerboardDTO.setBuyerboard_image2("");
+				if (i == 2)
+					buyerboardDTO.setBuyerboard_image3("");
+
+			}
+		} // for
+		buyerboardDTO.setMember_id((String) session.getAttribute("member_id"));
+		System.out.println(buyerboardDTO);
 		buyerboardService.buyerboardModify(buyerboardDTO);
 	}
 	

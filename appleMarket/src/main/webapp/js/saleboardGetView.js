@@ -108,6 +108,17 @@ function get_detail(DTO){
         make_li(DTO.sale_image5);
     }
     
+    // 본인 작성글일 경우 글수정&글삭제 버튼 생성 - 채팅하기 버튼 비활성화
+	  if(DTO.member_id == $('#session_id').val()){
+	    let buttons = 
+	    "<button type=button id=saleboard_modify>글 수정</button>"+
+	    "<button type=button id=saleboard_delete>글 삭제</button>";
+	
+	    $('.order_now').append(buttons);
+	
+	    $('#chat').attr('disabled', 'true');
+	  }
+    
     console.log('상세페이지 뜨기 완료')
 }
 
@@ -115,7 +126,7 @@ function get_detail(DTO){
 function make_li(imgNum){
     let li = 
         "<li class=''>"+
-            "<img src='/appleMarket/storage/"+imgNum+"' style=width:30px;height:57px; data-target="+imgNum+" alt="+imgNum+">"+
+            "<img src='/appleMarket/storage/"+imgNum+"' style=width:57px;height:57px; data-target="+imgNum+" alt="+imgNum+">"+
         "</li>";
     
     $('.thumb_img').append(li);
@@ -163,3 +174,37 @@ let renderList = function(mode, DTO){
     
 
 }
+
+// 글 수정버튼 클릭
+$(document).on('click', '#saleboard_modify', function(){
+  // 게시글번호 추출
+  let result = get_query();
+
+  location.href = '/appleMarket/view/saleboard/saleboardModifyForm.jsp?sale_seq='+result.sale_seq;
+});
+
+// 글 삭제버튼 클릭
+$(document).on('click', '#saleboard_delete', function(){
+  // 게시글번호 추출
+  let result = get_query();
+
+  // 삭제여부 다시한번 확인
+  if(confirm('정말로 삭제하시겠습니까? 삭제된 글은 복구할 수 없습니다')){
+    $.ajax({
+      url: '/appleMarket/salehistoryDelete',
+      type: 'post',
+      data: 'sale_seq='+result.sale_seq,
+      success: function(){
+        location.href = '/appleMarket/view/saleboard/saleboardList.jsp?pg=1';
+        console.log('세이;ㄹ보드 글삭 성공~~~~~~~');
+      },
+      error: function(){
+        console.log('세일보드 글삭 실패')
+      }
+    });
+  }else return false;
+});
+
+
+
+
