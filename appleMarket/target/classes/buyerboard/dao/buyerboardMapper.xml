@@ -3,11 +3,14 @@
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  <mapper namespace="buyerboardSQL">
+ 
  	<select id="buyerboardGetList" parameterType="java.util.Map" resultType="buyerboard.bean.BuyerboardDTO">
  		select * from 
 	 	(select rownum rn, tt.* from 
-	 	(select * from buyerboard order by buyerboard_seq desc) tt)
-	 	where rn between #{startNum} and #{endNum} 
+	 	(select * from buyerboard 
+		WHERE buyerboard_category LIKE DECODE(#{buyerboard_category}, NULL, '%', #{buyerboard_category})
+	 	order by buyerboard_seq desc) tt)
+	 	where rn between #{startNum} and #{endNum}
  	</select>
  	
  	<select id="getTotalA" resultType="int">
@@ -77,6 +80,8 @@
 	  	 where buyerboard_seq=#{buyerboard_seq}
  	</update>
  	
- 	
+ 	<select id="boardcategoryFilter" parameterType="String" resultType="buyerboard.bean.BuyerboardDTO">
+ 		select * from buyerboard where buyerboard_category=#{buyerboard_category}
+ 	</select>
  	
  </mapper>

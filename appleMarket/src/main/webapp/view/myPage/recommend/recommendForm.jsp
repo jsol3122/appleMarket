@@ -37,20 +37,21 @@ a.sbm{
 <!-- kakao sdk 호출 -->
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <script src="/appleMarket/js/recommend.js"></script>
-<body>
+<script src="/appleMarket/js/clipboard.min.js"></script>
 
+
+<body>
 	 <form class="memberuptext" name="recommend" id="recommend">
 	     <h3>친구초대</h3>
 	     <hr>
 	     <label id="member_id" hidden>${member_id}</label>
-	     
 	     <div class="memberupwriteid">
 	         <label>초대한 친구가 가입하고, 동네인증을 하면 두 사람 모두 사과 1개를 받아요, 사과 5개마다 스타벅스 커피 1잔 쿠폰을 드려요.</label>
 	     </div>
 	     
 		     <a id="kakao-link-btn" href="javascript:kakaoShare()" class="sbm"> 카카오톡으로 초대하기  </a>
 	     
-		     <a id="url_invite" href="#" class="sbm2"> URL 링크로 초대하기  </a>
+		     <a id="url_invite"  href="#" class="sbm2" data-clipboard-text="http://localhost:8080/appleMarket/index?recommend_id=${member_id}"> URL 링크로 초대하기  </a>
 		   
 	   
 	     <hr>
@@ -59,7 +60,7 @@ a.sbm{
 	     </div>
 	     <div class="memberupwrite">
        
-	         <input type="image" name="recommended_id" value="" class="logo changelog" src="/appleMarket/img/recommend/1번대기중.png" alt="사과마켓" style="width: 100px; margin-left: 20px;" disabled/> 
+	         <input type="image" name="recommended_id" value="http://localhost:8080/appleMarket/index?recommend_id=${member_id}" class="logo changelog" src="/appleMarket/img/recommend/1번대기중.png" alt="사과마켓" style="width: 100px; margin-left: 20px;" disabled/> 
 	         <input type="image" name="recommended_id" value="" class="logo changelog" src="/appleMarket/img/recommend/2번대기중.png" alt="사과마켓" style="width: 100px; margin-left: 20px;" disabled />
 	         <input type="image" name="recommended_id" value="" class="logo changelog" src="/appleMarket/img/recommend/3번대기중.png" alt="사과마켓" style="width: 100px; margin-left: 20px;" disabled/>
 	         <input type="image" name="recommended_id" value="" class="logo changelog" src="/appleMarket/img/recommend/4번대기중.png" alt="사과마켓" style="width: 100px; margin-left: 20px;" disabled/>
@@ -94,9 +95,24 @@ a.sbm{
 	         <label>11. 초대하기 관련하여 문의사항이 있으시면 쳇봇을 이용해 주세요! </label>
 	     </div>
 	 </form>
-    
+	 
+ <script>
+ var clipboard = new ClipboardJS('#url_invite');
+
+ clipboard.on('success', function(e) {
+	 alert('복사를 완료했습니다. 링크를 친구에게 전송해 주세요. 😙');	 
+     console.info('Action:', e.action);
+     console.info('Text:', e.text);
+     console.info('Trigger:', e.trigger);
+
+     e.clearSelection();
+ });
+
+ clipboard.on('error', function(e) {
+     console.error('Action:', e.action);
+     console.error('Trigger:', e.trigger);
+ });
+ </script>   
 </body>
-
-
 
 </html>

@@ -87,7 +87,6 @@
                                                 </article>
                                             </div>
                                             
-                                            
                                             <div class="rd_ft">
                                                 <div class="rd_ft_nav clear">
                                                     <div class="rd_nav img_tx fr m_btn_wrp">

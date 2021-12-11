@@ -33,7 +33,7 @@ $(function(){
 	});
 	
 	
-	 /* sms 쿠폰 발송 버튼  */
+ /* sms 쿠폰 발송 버튼  */
 $('#recommendSMS').click(function(){
 
 	if($('#recommended_id5').val() == 'exist'){
@@ -59,6 +59,9 @@ $('#recommendSMS').click(function(){
 				}
 			});	
 		}//if
+		else{
+			alert('5명에게 초대 링크를 보내주세요!! 스타벅스 기프티콘을 드립니다. 😁');
+		}
 	});
 	
 	

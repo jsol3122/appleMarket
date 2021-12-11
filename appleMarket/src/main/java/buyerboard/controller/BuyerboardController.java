@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
 
@@ -40,10 +41,10 @@ public class BuyerboardController {
 
 	@PostMapping("/buyerboard/buyerboardGetList") 
 	@ResponseBody
-	public JSONObject buyerboardGetList(@RequestParam String pg) {
+	public JSONObject buyerboardGetList(@RequestParam String pg, @Nullable @RequestParam("buyerboard_category") String buyerboard_category) {
 		int page = Integer.parseInt(pg);
 		System.out.println(page);
-		return buyerboardService.buyerboardGetList(page);
+		return buyerboardService.buyerboardGetList(page,buyerboard_category);
 	}
 	
 	
@@ -183,6 +184,14 @@ public class BuyerboardController {
 	public void buyerboardHit(@RequestParam int buyerboard_seq) {
 		buyerboardService.buyerboardHit(buyerboard_seq);
 	}
+	
+	//카테고리 조회
+	@PostMapping("/boardcategoryFilter")
+	@ResponseBody
+	public List<BuyerboardDTO> boardcategoryFilter(@RequestParam String buyerboard_category) {
+		return buyerboardService.boardcategoryFilter(buyerboard_category);
+	}
+
 
 	
 }

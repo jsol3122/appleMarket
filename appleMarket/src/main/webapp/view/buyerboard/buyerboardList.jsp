@@ -50,7 +50,6 @@
 <body>
  <!-- 상단 -->
 <%@include file="/includes/header.jsp" %>
-
     <main class="container">
         <section class="filters">
             <h2 class="hidden">category filter</h2>
@@ -58,58 +57,59 @@
                 <div class="combi_filters">
                     <div class="category_filter" data-filter-group="category">
                         <h3>카테고리</h3>
-                        <input type="checkbox" id="buyerboard_category_all" name="buyerboard_category" value="*">
+                        <input type="checkbox" id="buyerboard_category_all" name="buyerboard_category" onclick='getCheckboxValue(event)'>
                         <span class="box">box</span>
                         <label for="buyerboard_category_all">All</label>
 
-                        <input type="checkbox" id="tech" name="buyerboard_category" value=".tech">
+                        <input type="checkbox" id="tech" name="buyerboard_category" value="디지털기기/생활가전" onclick='getCheckboxValue(event)'>
                         <span class="box">box</span>
                         <label for="tech">디지털기기/생활가전</label>
 
-                        <input type="checkbox" id="furniture" name="buyerboard_category" value=".furniture">
+                        <input type="checkbox" id="furniture" name="buyerboard_category" value="가구/인테리어" onclick='getCheckboxValue(event)'>
                         <span class="box">box</span>
                         <label for="furniture">가구/인테리어</label>
 
-                        <input type="checkbox" id="baby" name="buyerboard_category" value=".baby">
+                        <input type="checkbox" id="baby" name="buyerboard_category" value="유아동" onclick='getCheckboxValue(event)'>
                         <span class="box">box</span>
                         <label for="baby">유아동</label>
 
-                        <input type="checkbox" id="living" name="buyerboard_category" value=".living">
+                        <input type="checkbox" id="living" name="buyerboard_category" value="생활/가공식품" onclick='getCheckboxValue(event)'>
                         <span class="box">box</span>
                         <label for="living">생활/가공식품</label>
                         
-                        <input type="checkbox" id="female" name="buyerboard_category" value=".female">
+                        <input type="checkbox" id="female" name="buyerboard_category" value="여성패션/잡화" onclick='getCheckboxValue(event)'>
                         <span class="box">box</span>
                         <label for="female">여성패션/잡화</label>
                         
-                        <input type="checkbox" id="male" name="buyerboard_category" value=".male">
+                        <input type="checkbox" id="male" name="buyerboard_category" value="남성패션/잡화" onclick='getCheckboxValue(event)'>
                         <span class="box">box</span>
                         <label for="male">남성패션/잡화</label>
                         
-                        <input type="checkbox" id="hobby" name="buyerboard_category" value=".hobby">
+                        <input type="checkbox" id="hobby" name="buyerboard_category" value="게임/취미" onclick='getCheckboxValue(event)'>
                         <span class="box">box</span>
                         <label for="hobby">게임/취미</label>
                         
-                        <input type="checkbox" id="sports" name="buyerboard_category" value=".sports">
+                        <input type="checkbox" id="sports" name="buyerboard_category" value="스포츠/레저" onclick='getCheckboxValue(event)'>
                         <span class="box">box</span>
                         <label for="sports">스포츠/레저</label>
                         
-                        <input type="checkbox" id="beauty" name="buyerboard_category" value=".beauty">
+                        <input type="checkbox" id="beauty" name="buyerboard_category" value="뷰티/미용" onclick='getCheckboxValue(event)'>
                         <span class="box">box</span>
                         <label for="beauty">뷰티/미용</label>
                         
-                        <input type="checkbox" id="pet" name="buyerboard_category" value=".pet">
+                        <input type="checkbox" id="pet" name="buyerboard_category" value="반려동물용품" onclick='getCheckboxValue(event)'>
                         <span class="box">box</span>
                         <label for="pet">반려동물용품</label>
                         
-                        <input type="checkbox" id="book" name="buyerboard_category" value=".book">
+                        <input type="checkbox" id="book" name="buyerboard_category" value="도시/티켓/음반" onclick='getCheckboxValue(event)'>
                         <span class="box">box</span>
                         <label for="book">도시/티켓/음반</label>
                         
-                        <input type="checkbox" id="etc" name="buyerboard_category" value=".etc">
+                        <input type="checkbox" id="etc" name="buyerboard_category" value="기타중고물품" onclick='getCheckboxValue(event)'>
                         <span class="box">box</span>
                         <label for="etc">기타중고물품</label>
-
+						<div id='searchcategory_result' ></div>
+						<!-- style="display:none;" -->
                     </div>
                 </div>
             </div>
@@ -121,16 +121,14 @@
             <input type="button" value="물품등록" class="sbm" id="buyerboardWriteBtn" />
             <ul class="new_arrivals_list row"></ul>
         </section>
-       
     </main>
-    <footer></footer>
-</body>
-<!-- <script type="text/javascript">
+    <script>
 
-$('#buyerboardWriteBtn').click(function(){
-	alert("????????????");
-   location.href = '/appleMarket/buyerboard/buyerboardWriteForm'; 
-});
-</script> -->
+
+	
+	
+
+    </script>
+</body>
 
 </html>

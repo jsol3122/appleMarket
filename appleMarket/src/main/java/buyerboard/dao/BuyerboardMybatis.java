@@ -17,7 +17,7 @@ public class BuyerboardMybatis implements BuyerboardDAO {
 	private SqlSession sqlSession;
 
 	@Override
-	public List<BuyerboardDTO> buyerboardGetList(Map<String, Integer> map) {
+	public List<BuyerboardDTO> buyerboardGetList(Map<String, Object> map) {
 		return sqlSession.selectList("buyerboardSQL.buyerboardGetList",map);
 	}
 
@@ -62,6 +62,12 @@ public class BuyerboardMybatis implements BuyerboardDAO {
 	@Override
 	public List<BuyerboardDTO> buyerboardGetListId(Map<String, Object> map) {
 		return sqlSession.selectList("buyerboardSQL.buyerboardGetListId",map);
+	}
+	//카테고리 조회
+	@Override
+	public List<BuyerboardDTO> boardcategoryFilter(String buyerboard_category) {
+		return sqlSession.selectList("buyerboardSQL.boardcategoryFilter",buyerboard_category);
+		
 	}
 
 }
