@@ -52,7 +52,6 @@ public class SaleboardServiceImpl implements SaleboardService {
 			
 			for(SaleboardDTO saleboardDTO : list) {
 				JSONObject temp = new JSONObject();
-				
 				temp.put("sale_seq", saleboardDTO.getSale_seq());
 				
 				temp.put("sale_image1", saleboardDTO.getSale_image1());
@@ -64,7 +63,6 @@ public class SaleboardServiceImpl implements SaleboardService {
 				temp.put("member_profilePic", saleboardDTO.getMember_profilePic());
 				temp.put("member_id", saleboardDTO.getMember_id());
 				temp.put("location_dong", saleboardDTO.getLocation_dong());
-				
 				temp.put("sale_heart_count", saleboardDTO.getSale_heart_count());
 				temp.put("sale_hit", saleboardDTO.getSale_hit());
 				temp.put("sale_free_YN", saleboardDTO.getSale_free_YN());
