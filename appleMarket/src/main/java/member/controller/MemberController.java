@@ -27,6 +27,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import admin.bean.BlackListDTO;
+import admin.service.AdminService;
 import member.bean.MemberDTO;
 import member.bean.MessageDTO;
 import member.bean.RecommendDTO;
@@ -43,7 +45,9 @@ public class MemberController{
 	private MemberService memberSerivce;
 	@Autowired
 	private MessageService messageService;
-	
+	@Autowired
+	private AdminService adminService;
+
 	
 	//메인창
 	@GetMapping("/index")
@@ -60,7 +64,13 @@ public class MemberController{
 	//회원가입 폼
 	@GetMapping("/writeForm")
 	public String writeForm() {
-		return "/user/writeForm";
+		return "/view/user/writeForm";
+	}
+	
+	//회원가입 실패 폼
+	@GetMapping("/view/user/writeFail")
+	public String writeFail() {
+		return "/view/user/writeFail";
 	}
 	
 	
@@ -73,40 +83,47 @@ public class MemberController{
 		return result;
 	}
 
-	   //회원가입 - index 이동(맞는지 확인 요망)
-	   @RequestMapping("/write")
-	   public String write(@ModelAttribute @Valid MemberDTO memberDTO,@Nullable @RequestParam("recommend_id") String recommend_id){
-		   
-		  String member_id=memberDTO.getMember_id();
-	      MemberDTO Check = memberSerivce.checkId(memberDTO.getMember_id());
-	      
+   //회원가입 - index 이동(맞는지 확인 요망)
+   @RequestMapping("/write")
+   public String write(@ModelAttribute @Valid MemberDTO memberDTO,@Nullable @RequestParam("recommend_id") String recommend_id){
 	   
-	         //추천인 등록      
-	            Map<String, String> map = new HashMap<String,String>();
-	            map.put("recommend_id", recommend_id);
-	            map.put("member_id", member_id);
-	            int recommendChk = memberSerivce.recommendChk(map);
-	            
-	            
-	            System.out.println("recommend_id=" + recommend_id);
-	            System.out.println("member_id="+memberDTO.getMember_id());
-	            System.out.println("recommendChk="+recommendChk);
-	            
-	            if(Check == null) {
-	            	//추천인 등록
-	    			if(recommend_id!=null) {
-	    				if(recommendChk<5) { 
-				            memberSerivce.recommend(map);
-				            memberSerivce.recommended(map);
-	    			}
-	            }
-		         memberSerivce.write(memberDTO);   
-	         return "/view/user/writeFormSuccess";
-	      }else {
-	    	
-	         return "/view/user/writeFormSuccess";
-	      }
-	   }
+	   String member_id=memberDTO.getMember_id();
+	   MemberDTO Check = memberSerivce.checkId(memberDTO.getMember_id());
+	   BlackListDTO blackListDTO = adminService.adminBlackListCheck(memberDTO.getMember_id());
+	   
+		 //추천인 등록      
+		Map<String, String> map = new HashMap<String,String>();
+		map.put("recommend_id", recommend_id);
+		map.put("member_id", member_id);
+		int recommendChk = memberSerivce.recommendChk(map);
+		
+		
+		System.out.println("recommend_id=" + recommend_id);
+		System.out.println("member_id="+memberDTO.getMember_id());
+		System.out.println("recommendChk="+recommendChk);
+		
+		if(blackListDTO == null){
+			if(Check == null) {
+				//추천인 등록
+				if(recommend_id!=null) {
+					if(recommendChk<5) { 
+			            memberSerivce.recommend(map);
+			            memberSerivce.recommended(map);
+					}
+				}
+				
+					System.out.println(blackListDTO);
+					memberSerivce.write(memberDTO); 
+					return "/view/writeFail";
+				}
+			return "/view/user/writeFormSuccess";
+      }else {
+    	
+         return "/view/user//writeFail";
+      }
+   }
+   
+   
 	
 	/*
 	 * 인증번호 전송 api
@@ -121,7 +138,7 @@ public class MemberController{
 		int randomNumber = (int)((Math.random()* (9999 - 1000 + 1)) + 1000);
 		System.out.println(randomNumber);
 		//돈 나가서 잠시 주석
-		messageService.certifiedPhoneNumber(userPhoneNumber,randomNumber); 
+		//messageService.certifiedPhoneNumber(userPhoneNumber,randomNumber); 
 		
 		
 		MessageDTO messageDTO = new MessageDTO();
@@ -269,11 +286,8 @@ public class MemberController{
 	public void delete(@ModelAttribute MemberDTO memberDTO,HttpSession session) {
 		System.out.println(memberDTO);
 		memberSerivce.delete(memberDTO);
-		/*
-		 * session.removeAttribute("login_info");
-		 * session.removeAttribute("kakaoInfo");
-		 * session.removeAttribute("member_id");
-		 */
+		adminService.adminlocationDelete(memberDTO.getMember_id());
+		
 		//모든 세션 다 죽인다.
 		session.invalidate();
 	}
@@ -376,7 +390,7 @@ public class MemberController{
 			messageService.smsCoupon(memberDTO);
 		
 		}
-	
+	//============================================================================================
 	
 	
 }

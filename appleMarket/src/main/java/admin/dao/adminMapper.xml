@@ -119,10 +119,20 @@
  		select * from communityboard_comment
  	</select>
  	
+ 	<!-- 조잘조잘 글 삭제  -->
  	<delete id="adminCommunityCommentDelete" parameterType="Integer">
  		delete from communityboard_comment where communityboard_comment_seq=#{communityboard_comment_seq}
  	</delete>
  	
- 	
+ 	<!-- 지역인증에서 삭제(블랙리스트되면)  -->
+ 	<delete id="adminlocationDelete" parameterType="String">
+ 		delete from locationConfirm where member_id=#{member_id}
+ 	</delete>
+ 	 	
+ 	 <!-- 블랙리스트 여부 체크  -->
+ 	 <select id="adminBlackListCheck" resultType="blackList">
+ 		select * from blackList where member_id=#{member_id}
+ 	</select>
+ 	 	
  </mapper>
  	

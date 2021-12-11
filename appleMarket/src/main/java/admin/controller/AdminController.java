@@ -15,6 +15,7 @@ import admin.service.AdminService;
 import buyerboard.bean.BuyerboardDTO;
 import communityboard.bean.CommunityboardDTO;
 import communityboardComment.bean.CommunityboardCommentDTO;
+import location.bean.LocationDTO;
 import member.bean.MemberDTO;
 import saleboard.bean.SaleboardDTO;
 import warningBoard.bean.WarningBoardDTO;
@@ -52,12 +53,14 @@ public class AdminController {
 	public List<MemberDTO> getAdminMemberList(){
 		return adminService.getAdminMemberList();
 	}
+
 	
 	//회원탈퇴
 	@PostMapping("/adminMemberDelete")
 	@ResponseBody
 	public void adminMemberDelete(@ModelAttribute MemberDTO memberDTO) {
 		adminService.adminMemberDelete(memberDTO);
+		adminlocationDelete(memberDTO.getMember_id());
 	}
 	
 	//신고게시판 데이터 화면
@@ -113,11 +116,12 @@ public class AdminController {
 		adminService.adminReputationUp(memberDTO);
 	}
 	
-	//블랙리스트 insert, 멤버 delete (매너온도 < 20) 
+	//블랙리스트 insert, 멤버 delete, 지역인증 delete (매너온도 < 20) 
 	@PostMapping("/adminBlackListDelete")
 	@ResponseBody
 	public void adminBlackListDelete(@ModelAttribute MemberDTO memberDTO) {
 		adminService.adminBlackListDelete(memberDTO);
+		adminlocationDelete(memberDTO.getMember_id());
 	}
 	
 	
@@ -136,6 +140,7 @@ public class AdminController {
 	public List<BlackListDTO> getAdminBlackList(){
 		return adminService.getAdminBlackList();
 	}
+	
 	
 	//판매게시판 리스트 화면
 	@GetMapping(value="/adminSaleBoardList")
@@ -304,5 +309,19 @@ public class AdminController {
 	@ResponseBody
 	public void adminCommunityCommentDelete(int communityboard_comment_seq) {
 		adminService.adminCommunityCommentDelete(communityboard_comment_seq);
+	}
+	
+	//회원탈퇴시 지역인증 삭제 
+	@PostMapping("/adminlocationDelete")
+	@ResponseBody
+	public void adminlocationDelete(String member_id) {
+		adminService.adminlocationDelete(member_id);
+	}
+	
+	//블랙리스트 회원 확인여부 
+	@PostMapping("/adminBlackListCheck")
+	@ResponseBody
+	public BlackListDTO adminBlackListCheck(String member_id) {
+		return adminService.adminBlackListCheck(member_id);
 	}
 }

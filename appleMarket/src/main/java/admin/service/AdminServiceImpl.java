@@ -147,4 +147,16 @@ public class AdminServiceImpl implements AdminService {
 		
 	}
 
+	@Override
+	public void adminlocationDelete(String member_id) {
+		adminDAO.adminlocationDelete(member_id);
+		
+	}
+
+	@Override
+	public BlackListDTO adminBlackListCheck(String member_id) {
+		return adminDAO.adminBlackListCheck(member_id);
+	
+	}
+
 }

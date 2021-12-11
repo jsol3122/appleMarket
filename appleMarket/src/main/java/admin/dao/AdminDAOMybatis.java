@@ -11,6 +11,7 @@ import admin.bean.BlackListDTO;
 import buyerboard.bean.BuyerboardDTO;
 import communityboard.bean.CommunityboardDTO;
 import communityboardComment.bean.CommunityboardCommentDTO;
+import location.bean.LocationDTO;
 import member.bean.MemberDTO;
 import saleboard.bean.SaleboardDTO;
 import warningBoard.bean.WarningBoardDTO;
@@ -148,6 +149,17 @@ public class AdminDAOMybatis implements AdminDAO{
 	public void adminCommunityCommentDelete(int communityboard_comment_seq) {
 		sqlSession.delete("adminSQL.adminCommunityCommentDelete",communityboard_comment_seq);	
 		
+	}
+
+	@Override
+	public void adminlocationDelete(String member_id) {
+		sqlSession.delete("adminSQL.adminlocationDelete",member_id);
+		
+	}
+
+	@Override
+	public BlackListDTO adminBlackListCheck(String member_id) {
+		return sqlSession.selectOne("adminSQL.adminBlackListCheck", member_id);
 	}
 
 }

@@ -29,8 +29,8 @@
  		</if>
  		
  		<if test="member_pwd == null">
- 		insert into appleMarket(member_seq, member_id, member_siteCheck, member_entryLogtime) 
-		values(seq_member.nextval,	#{member_id}, #{member_siteCheck}, 
+ 		insert into appleMarket(member_seq, member_id, member_siteCheck, member_email, member_entryLogtime) 
+		values(seq_member.nextval,	#{member_id}, #{member_siteCheck}, #{member_email},
  									sysdate
  		)
  		</if>
@@ -82,7 +82,7 @@
  	
  	<!-- 회원탈퇴  -->
  	<delete id="delete" parameterType="member">
- 		delete from appleMarket where member_id=#{member_id} and member_pwd=#{member_pwd}
+		delete from appleMarket where member_id=#{member_id}
  	</delete>
  	
  	<!-- 회원수정  -->

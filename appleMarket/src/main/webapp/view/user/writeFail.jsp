@@ -16,30 +16,29 @@
     <link rel="stylesheet" href="/appleMarket/css/userupdatapage.css">
     <title>사고팔고마켓</title>
 <style type="text/css">
-
-</style>    
+.box{
+	align : center;
+	border : 1px solid white;
+	
+}
+</style>
 </head>
-
 <%@include file="/includes/header.jsp" %>
-<br>
-<br>
-<br>
-<br>
+<hr id="mainNavAfter">
         <div id="section">
-			<p align="center" style="color:#333; font-size:20pt;"><br>회원가입</p><br>
-			<p align="center"><img src="../img/write_step3.png" width="500" alt="회원가입_스탭3"/></p>
+        	<br>
+        	<br>
+        	<br>
+        	<br>
 			<div class="box">
 				<br>
-				<p class="username" align="center">${sessionScope.memName } 고객님  </p>
 				<br>
 				<p class ="icon" align="center">
-					<img src="/appleMarket/img/writeFormSuccess.jpg" width="200" alt="회원가입_아이콘"/><br><br><br>
+					<img src="/appleMarket/img/writefail.png" width="200" alt="회원가입실패_아이콘"/><br><br><br>
 				</p>
-				<p align="center">회원가입을 진심으로 축하합니다.</p><br><br>
+				<h3 align="center" style="color:red;">회원가입 실패</h3><br><br>
 			</div>
 			<br>
-			<p align="center"><button class="btn" onclick="location.href='/appleMarket/view/user/loginForm.jsp' rel='modal:open'" style=" color: white; background: #39210D;font-size : 13pt;">
-			로그인</button></p><br>
+			
  </div><!--section-->
-
 <%@include file="/includes/footer.jsp" %>

@@ -6,6 +6,7 @@ import admin.bean.BlackListDTO;
 import buyerboard.bean.BuyerboardDTO;
 import communityboard.bean.CommunityboardDTO;
 import communityboardComment.bean.CommunityboardCommentDTO;
+import location.bean.LocationDTO;
 import member.bean.MemberDTO;
 import saleboard.bean.SaleboardDTO;
 import warningBoard.bean.WarningBoardDTO;
@@ -59,5 +60,9 @@ public interface AdminService {
 	public List<CommunityboardCommentDTO> getAdminCommunityCommentList();
 
 	public void adminCommunityCommentDelete(int communityboard_comment_seq);
+
+	public void adminlocationDelete(String member_id);
+
+	public BlackListDTO adminBlackListCheck(String member_id);
 
 }
