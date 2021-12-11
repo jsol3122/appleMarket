@@ -56,7 +56,7 @@
 $(document).on("click", ".localCommunityDelete", function(){
 
 		var localcommunity_seq = $(this).parents().prev().prev().prev().prev().prev().prev().html();
-		alert(localcommunity_seq+"삭제");
+		//alert(localcommunity_seq+"삭제");
 		
 		  $.ajax({
 			url:'/appleMarket/adminLocalCommunityDelete'
@@ -78,7 +78,7 @@ $('#localCommunityTable .admin_localcommunity_user_id').focusout(function(){
     $("#localCommunityTable tr:gt(0)").remove(); 
 
     var localcommunity_user_id = $(this).val();
-    alert(localcommunity_user_id);
+    //alert(localcommunity_user_id);
 
     if(location_dong!='지역'){
         $.ajax({

@@ -47,7 +47,7 @@
 //삭제 버튼	
 $(document).on("click", ".localCommunityboard_comment_delete", function(){
 		var localcommunity_comment_seq = $(this).parents().prev().prev().prev().prev().prev().html();
-		alert(localcommunity_comment_seq);
+		//alert(localcommunity_comment_seq);
 		
 	    var result = confirm("삭제하시겠습니까?");
 		if(result){
