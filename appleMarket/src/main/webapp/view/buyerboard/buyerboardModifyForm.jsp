@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>사고게시판 글 등록</title>
+<title>사고게시판 글 수정</title>
 	<style>
         #wrap {
             width: 100%;
@@ -133,8 +133,8 @@
 <body>
 <%@include file="/includes/header.jsp" %>
 	<div id="wrap">
-		<form name="buyerboardWriteForm" id="buyerboardWriteForm">
-			<h1>사고게시판 글 등록</h1>
+		<form name="buyerboardModifyForm" id="buyerboardModifyForm">
+			<h1>사고게시판 글 수정</h1>
 			<hr>
 			<br>
 			<br>
@@ -176,21 +176,21 @@
                 <input type="file" id="ex_filename" class="upload-hidden" name="img[]"  multiple>
             </div>
 			<div>
-				<input type="button" value="글 등록" class="sbm" id="buyerboardWriteButton" />
+				<input type="hidden" value="" id="seq" name="buyerboard_seq"/>
+				<input type="button" value="글 수정" class="sbm" id="buyerboardModifyButton" />
 			</div>
 		</form>
 		<br>
 		<br>
 		<hr>
 		<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-		<script type="text/javascript" src="/appleMarket/js/buyerboardWrite.js"></script>
+		<script type="text/javascript" src="/appleMarket/js/buyerboardModify.js"></script>
   		<script>
             $(document).ready(function() {
                 var fileTarget = $('.filebox .upload-hidden');
                 fileTarget.on('change', function() { // 값이 변경되면 
                     if (window.FileReader) { // modern browser 
-                        var filename = $(this)[0].files[0].name;
-                    	// 이미지 등록 수 제한
+                    	// 이미지 등록 수 제한 & 추출한 파일명 삽입 
                     	if(parseInt($(this)[0].files.length) > 3){
                     		alert('이미지는 최대 3장까지만 등록 가능합니다')
                     		return false;
@@ -209,12 +209,12 @@
                       }
                     } else { // old IE 
                         var filename = $(this).val().split('/').pop().split('\\').pop();
-                    } // 추출한 파일명 삽입 
-                    $(this).siblings('.upload-name').val(filename);
+                        // 파일명만 추출 
+                    }
                 });
             });
-        </script>
-		<%@include file="/includes/footer.jsp" %>
+        </script>  
+        <%@include file="/includes/footer.jsp" %>
 	</div>
 </body>
 </html>
