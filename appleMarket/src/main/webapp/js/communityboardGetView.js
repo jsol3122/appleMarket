@@ -170,7 +170,7 @@ let commentList = function(mode, DTO){
   let comment2 = 
   "<li class=fdb_itm>"+
     "<div class=meta>"+
-      "<a href='#popup_menu_area' onclick='return false;'>"+DTO.localcommunity_comment_user_id+"</a>"+
+      "<a href='#popup_menu_area' onclick='return false;'>"+DTO.communityboard_comment_user_id+"</a>"+
       "<span class=date>"+DTO.communityboard_comment_logtime+"</span>"+
     "</div>"+
     "<div class=xe_content>"+DTO.communityboard_comment_content+"</div>"+
