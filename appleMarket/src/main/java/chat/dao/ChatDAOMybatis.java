@@ -26,12 +26,12 @@ public class ChatDAOMybatis implements ChatDAO {
 	}
 
 	@Override
-	public int checkChatRoom(Map<String, String> map) {
+	public Integer checkChatRoom(Map<String, String> map) {
 		return sqlSession.selectOne("checkChatRoom", map);
 	}
 
 	@Override
-	public int newChatRoom(Map<String, String> map) {
+	public Integer newChatRoom(Map<String, String> map) {
 		sqlSession.insert("newChatRoom1", map);
 		return sqlSession.selectOne("newChatRoom2", map);
 	}

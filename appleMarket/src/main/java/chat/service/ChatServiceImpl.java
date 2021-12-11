@@ -1,15 +1,18 @@
 package chat.service;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import chat.bean.ChatDTO;
 import chat.bean.ChatRoomDTO;
 import chat.dao.ChatDAO;
+import lombok.RequiredArgsConstructor;
 
+@Service
+@RequiredArgsConstructor
 public class ChatServiceImpl implements ChatService{
 	@Autowired
 	private ChatDAO chatDAO;
@@ -40,24 +43,22 @@ public class ChatServiceImpl implements ChatService{
 		String buyerboard_seq = map.get("buyerboard_seq");
 		String member_id = map.get("member_id");
 		String user_id = map.get("user_id"); 
+		Integer chatRoom_id = Integer.parseInt(map.get("chatRoom_id"));
 		System.out.println(sale_seq+" "+member_id+""+user_id);
 		
-		int chatRoom_id = 0;
 		chatRoom_id = checkChatRoom(map); // check : 전에 만들어진 방이 있는지 중복 체크
+		System.out.println(chatRoom_id + " null이면 새로운 채팅방 생성");
 		
-	    if(chatRoom_id != 0) { //이미 존재하는 방(chatRoom_id != 0)이면 해당 방 번호 리턴
-	    	
+	    if(chatRoom_id != null) { //이미 존재하는 방(chatRoom_id != 0)이면 해당 방 번호 리턴
 	    	return chatRoom_id; 
-	    
-	    } else {
-	    // 새로운 방이라면
+	    } else { 				  //새로운 방이라면
 	    	chatRoom_id = chatDAO.newChatRoom(map);
 		    return chatRoom_id;
 	    }
 	}
 	
 	//방 중복체크
-	private int checkChatRoom(Map<String, String> map) {
+	private Integer checkChatRoom(Map<String, String> map) {
 		return chatDAO.checkChatRoom(map);
 	}
 

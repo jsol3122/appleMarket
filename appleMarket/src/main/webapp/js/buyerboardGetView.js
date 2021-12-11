@@ -82,7 +82,7 @@ function get_detail(DTO){
                                 "<a href='' class=addcart>addcart</a>"+
                             "</li>"+
                         "</ul>"+
-                        "<button type=submit>채팅하기</button>"+
+                        "<button type='button' class='chat'>채팅하기</button>"+
                     "</div>"+
                 "</div>"+
             "</form>"+
@@ -96,6 +96,26 @@ function get_detail(DTO){
     $('.option').addClass(['row', 'justify-content-between']);
     $('form div').eq(2).addClass('order_summary');
     $('.addcart').addClass('sprites');
+
+//buyerboardDTO 변수들만 넣을 수 있다
+	var member_id = DTO.member_id;
+	var buyerboard_seq = DTO.buyerboard_seq;
+
+	// 채팅하기 버튼 클릭
+	$(document).on('click', '.chat',function(DTO){
+ 	alert(member_id+" "+buyerboard_seq+"DTO 들어왔나?");  
+	    $.ajax({
+	      url: '/appleMarket/chat/newChat',
+	      type: 'post',
+	      data: 'member_id='+member_id+'&buyerboard_seq='+buyerboard_seq,  
+	      success: function(){
+	        console.log('dto 보내기 성공~~~~~~~');
+	      },
+	      error: function(){
+	        console.log('dto 보내기 실패')
+	      }
+        });      
+	});
 
     if(DTO.buyerboard_image3 != null){
         make_li(DTO.buyerboard_image3);

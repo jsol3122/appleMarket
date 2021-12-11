@@ -3,6 +3,8 @@ package chat.service;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.web.servlet.ModelAndView;
+
 import chat.bean.ChatDTO;
 import chat.bean.ChatRoomDTO;
 
@@ -19,4 +21,5 @@ public interface ChatService {
 	public List<ChatDTO> personalChatHistory(int chatRoom_id); // 대화 기록 불러오기
 	
 	public void test();
+
 }

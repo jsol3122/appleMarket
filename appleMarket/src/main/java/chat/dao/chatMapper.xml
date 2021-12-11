@@ -63,23 +63,44 @@ where rownum <=10 order by no
  	
  </insert>
   -->
- <select id="checkChatRoom" resultType="Integer">
-	select chatRoom_id from ChatRoom where board_seq = #{board_seq} and user_id = #{user_id}
+ <select id="checkChatRoom" parameterType="java.util.Map" resultType="Integer">
+	<if test='"0".equals(sale_seq)'>
+		select chatRoom_id from ChatRoom where buyerboard_seq = #{buyerboard_seq} and user_id = #{user_id}
+	</if>
+	<if test='"0".equals(buyerboard_seq)'>
+		select chatRoom_id from ChatRoom where sale_seq = #{sale_seq} and user_id = #{user_id}
+	</if>
   </select>
  
  
  <insert id="newChatRoom1" parameterType="java.util.Map">
- 	insert into chatRoom 
+ 	insert into chatRoom (
+ 						chatRoom_id,
+						user_id,
+						member_id,
+						sale_seq,
+						buyerboard_seq,
+						sendDate)
  	values (
- 		chatRoom_id.nextval,
-		#{member_id},
-		#{user_id},
-		#{board_seq}
+ 			chatRoom_id.nextval,
+			#{user_id},
+			#{member_id},
+			#{sale_seq},
+			#{buyerboard_seq},
+			systimestamp
  	)
  </insert>
+ 
+ <!-- 왜 checkChatRoom 이랑 중복되지?
+ 
+  -->
  <select id="newChatRoom2" parameterType="java.util.Map" resultType="Integer">
- 	select chatRoom_id from chatRoom 
- 		where user_id = #{user_id} and board_seq = #{board_seq}
+	<if test='sale_seq == "0" '>
+		select chatRoom_id from ChatRoom where buyerboard_seq = #{buyerboard_seq} and user_id = #{user_id}
+	</if>
+	<if test='buyerboard_seq == "0"'>
+		select chatRoom_id from ChatRoom where sale_seq = #{sale_seq} and user_id = #{user_id}
+	</if>
 </select>
 
 <select id="chatList" resultType="chat.bean.ChatRoomDTO">
@@ -97,12 +118,13 @@ where rownum <=10 order by no
  </select>
  
  <insert id="insertChat" parameterType="chat.bean.ChatDTO">
-	insert into chat (member_id, sendDate, chat_message, board_seq, chatRoom_id)
+	insert into chat (member_id, sendDate, chatContent, sale_seq, buyerboard_seq,chatRoom_id)
 		values (	
 				#{member_id},
 				#{sendDate},
-				#{chat_message},
+				#{chatContent},
 				#{sale_seq},
+				#{buyerboard_seq},
 				#{chatRoom_id}
 				) 
  </insert>

@@ -36,9 +36,10 @@
 	<context:component-scan base-package="saleboard.controller"/>
 	<context:component-scan base-package="buyerboard.controller"/>
 	<context:component-scan base-package="myPage.controller"/>
+
+	<!-- 채팅 -->
 	<context:component-scan base-package="chat.controller"/>
 	<context:component-scan base-package="chat.conf" />
-	<!-- 채팅 -->
 	<context:component-scan base-package="chat.service"/>
 	<context:component-scan base-package="chat.dao"/>
 

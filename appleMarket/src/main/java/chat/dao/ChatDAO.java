@@ -14,9 +14,9 @@ public interface ChatDAO {
 
 	public void insertChat(ChatDTO chatDTO); // 채팅메세지 입력
 
-	public int checkChatRoom(Map<String, String> map); // 채팅방 중복 확인
+	public Integer checkChatRoom(Map<String, String> map); // 채팅방 중복 확인
 
-	public int newChatRoom(Map<String, String> map);
+	public Integer newChatRoom(Map<String, String> map);
 
 	public List<ChatRoomDTO> chatList(String user_id);
 

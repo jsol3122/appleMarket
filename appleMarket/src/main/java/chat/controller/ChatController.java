@@ -8,7 +8,9 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.validation.constraints.NotNull;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
@@ -34,7 +36,10 @@ import saleboard.bean.SaleboardDTO;
 @Slf4j
 @RequiredArgsConstructor
 public class ChatController {
+	@NotNull
+	@Autowired
 	private ChatService chatService;
+	@NotNull
 	private SimpMessagingTemplate simpMessagingTemplate;
 
 	
@@ -64,20 +69,23 @@ public class ChatController {
 	
 	// 새로운 채팅 시작 : 작성글에서 "채팅으로 거래하기"  
 	// => 글번호, user 두명 초대해서 return "redirect:/personalChat/" + chatRoom_id; 여기로 연결
-	@RequestMapping("/chat/newChat")
-	public String newChat(@ModelAttribute SaleboardDTO saleboardDTO, @ModelAttribute BuyerboardDTO buyerboardDTO, HttpServletRequest request){
-		HttpSession loginSession = request.getSession();
+	
+	@PostMapping("/chat/newChat")
+	@ResponseBody
+	public Map newChat(@ModelAttribute SaleboardDTO saleboardDTO, @ModelAttribute BuyerboardDTO buyerboardDTO, HttpSession loginSession){
+		//HttpSession loginSession = request.getSession();
 		String user_id = (String)loginSession.getAttribute("member_id");
 		System.out.println(user_id + " 세션 받았다!");
 		String sale_seq;
 		String buyerboard_seq;
 		String member_id;
+		int chatRoom_id=0;
 		
 		sale_seq = saleboardDTO.getSale_seq()+"";
 		buyerboard_seq = buyerboardDTO.getBuyerboard_seq()+"";
 		member_id = saleboardDTO.getMember_id();
-		
-		System.out.println(buyerboard_seq);
+		System.out.println("sale_seq"+sale_seq);
+		System.out.println("buyerboard_seq"+buyerboard_seq);
 		
 		if (sale_seq != null) {
 			buyerboard_seq = "0";
@@ -93,7 +101,8 @@ public class ChatController {
 		map.put("sale_seq", sale_seq+"");
 		map.put("buyerboard_seq", buyerboard_seq+"");
 		map.put("member_id", member_id); // 글 작성자 (채팅 걸리는 사람)
-		map.put("user_id", user_id); // 로그인 세션 아이디 (채팅 거는 사람)			
+		map.put("user_id", user_id); // 로그인 세션 아이디 (채팅 거는 사람)	
+		map.put("chatRoom_id", chatRoom_id+"");
 		
 		Iterator<String> keys = map.keySet().iterator();
         while( keys.hasNext() ){
@@ -101,17 +110,33 @@ public class ChatController {
             String value = map.get(key);
             System.out.println("키 : "+key+", 값 : "+value);
         }
-		
-		int chatRoom_id = 0; 
+				 
 		chatService.test();
-		chatRoom_id = chatService.newRoom(map);
-		System.out.println(chatRoom_id);
+		chatRoom_id = chatService.newRoom(map); // 여기까지 해결
+		System.out.println("newRoom을 다녀온"+chatRoom_id);
 		List<ChatDTO> list = chatService.personalChatHistory(chatRoom_id);
+		map.put("chatRoom_id", chatRoom_id+"");
+		/*
+		ModelAndView mv = new ModelAndView(); 
+		mv.setView(null)
+		*/
+		System.out.println("return 전까진 작동한다.");
 		
-	    return "redirect:/personalChat/" + chatRoom_id;
+		//chatService.personalChat(map);
+		//personalChat(chatRoom_id);
+		//System.out.println("personalChat 서비스까지 작동한다.");
+		return map;
+		//"/view/personalChat";
 	}
 
-	
+	@PostMapping("/chat/personalChat/{chatRoom_id}")
+	private void personalChat(@RequestParam int chatRoom_id) {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("/chat/personalChat"); // 뷰의 이름 
+		mv.addObject("chatRoom_id", chatRoom_id); // 뷰로 보낼 데이터 값
+		mv.getView();
+	}
+
 	// 채팅방들 목록 :  1) index 페이지에서 채팅 ui 클릭하면 보이게
 	//				2) /personalChat/chatRoom_id/ 에서 목록으로 돌아가기 버튼을 부를 때
 	@PostMapping("/chat/chatList")
@@ -129,6 +154,7 @@ public class ChatController {
 	// 채팅방 목록 하나 클릭할 때 거기서 js 로 chatRoom_id 보내야 한다. 
 	@PostMapping("/chat/enter") // 지금 endpoint 랑 chat, chat namespace 이 두개가 겹치는데 그냥 써도 되나?
 	public String enterChat(@RequestParam int chatRoom_id){
+		
 		List<ChatDTO> list = chatService.personalChatHistory(chatRoom_id); 
 	    return "redirect:/personalChat/" + chatRoom_id;
 	}	
@@ -169,38 +195,56 @@ public class ChatController {
 	}
 */
 	
-/*	
+	
+
+	@PostMapping("/chat/personalChat")
+	public ModelAndView personalChat() {
+		
+		
+		
+		return null;
+	}
+	
+	
 	// 채팅 메세지 전달
     @MessageMapping("/personalChat/{chatRoom_id}") // sender
     @SendTo("/subscribe/chat/{chatRoom_id}") // send to subscriber
     public ChatDTO broadcasting(ChatDTO chatDTO) {
+    	System.out.println("브로드캐스팅 여기까지 오나?");
     	log.debug("받아온 data={}",chatDTO); // log는 @Slf4j 이용해서 기록
+ 
+    	String receiver = chatDTO.getMember_id();	
+       	simpMessagingTemplate.convertAndSend("/subscribe/" + receiver, chatDTO);
+        
     	Map<String,Object> map = new HashMap<>();
     	map.put("chatDTO", chatDTO);
    	
         chatDTO.setSendDate(new Date()); // 채팅 보내는 시간 설정
-        int result = chatService.insertChat(chatDTO); // 아직 result가 뭔지 모르겠다.
+        //int result = chatService.insertChat(chatDTO); // 아직 result가 뭔지 모르겠다.
+        chatService.insertChat(chatDTO);
         log.info("selectkey 사용 = {}",chatDTO);
         return chatDTO;
     }
- */
-    
+ 
+/*    
 	
 	// 채팅 메세지 전달
     @MessageMapping("/personalChat/{chatRoom_id}") // sender
     @SendTo("/subscribe/chat/{chatRoom_id}") // send to subscriber
     public void sendChat(ChatDTO chatDTO) {
+ */
     	/*
     	String receiver = message.getReceiver();
     	simpMessagingTemplate.convertAndSend("/subscribe/" + receiver,message);
     	*/
+ /*
     	chatDTO.setSendDate(new Date());
     	Map<String,Object> map = new HashMap<>();
     	map.put("chatDTO", chatDTO);
     	
     	chatService.insertChat(chatDTO);
     }
-    
+*/    
     
     
  /*   
