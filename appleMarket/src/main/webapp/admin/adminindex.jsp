@@ -1,323 +1,87 @@
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Responsive layout with advanced sidebar menu built with SCSS and vanilla Javascript"
-    />
-    <link rel="shortcut icon" type="image/png" href="assets/images/favicon.png" />
-    <link rel="stylesheet" href="./main.css" />
-    <title>Pro Sidebar</title>
-  </head>
-  <body>
-    <div class="layout has-sidebar fixed-sidebar fixed-header">
-      <aside id="sidebar" class="sidebar break-point-lg has-bg-image">
-        <div class="image-wrapper">
-          <img src="assets/images/sidebar-bg.jpg" alt="sidebar background" />
-        </div>
-        <div class="sidebar-layout">
-          <div class="sidebar-header">
-            <span
-              style="
-                text-transform: uppercase;
-                font-size: 15px;
-                letter-spacing: 3px;
-                font-weight: bold;
-              "
-              >Pro Sidebar</span
-            >
-          </div>
-          <div class="sidebar-content">
-            <nav class="menu open-current-submenu">
-              <ul>
-                <li class="menu-item sub-menu">
-                  <a href="#">
-                    <span class="menu-icon">
-                      <i class="ri-vip-diamond-fill"></i>
-                    </span>
-                    <span class="menu-title">Components</span>
-                    <span class="menu-suffix">&#x1F525;</span>
-                  </a>
-                  <div class="sub-menu-list">
-                    <ul>
-                      <li class="menu-item">
-                        <a href="#">
-                          <span class="menu-title">Grid</span>
-                        </a>
-                      </li>
-                      <li class="menu-item">
-                        <a href="#">
-                          <span class="menu-title">Layout</span>
-                        </a>
-                      </li>
-                      <li class="menu-item sub-menu">
-                        <a href="#">
-                          <span class="menu-title">Forms</span>
-                        </a>
-                        <div class="sub-menu-list">
-                          <ul>
-                            <li class="menu-item">
-                              <a href="#">
-                                <span class="menu-title">Input</span>
-                              </a>
-                            </li>
-                            <li class="menu-item">
-                              <a href="#">
-                                <span class="menu-title">Select</span>
-                              </a>
-                            </li>
-                            <li class="menu-item sub-menu">
-                              <a href="#">
-                                <span class="menu-title">More</span>
-                              </a>
-                              <div class="sub-menu-list">
-                                <ul>
-                                  <li class="menu-item">
-                                    <a href="#">
-                                      <span class="menu-title">CheckBox</span>
-                                    </a>
-                                  </li>
-                                  <li class="menu-item">
-                                    <a href="#">
-                                      <span class="menu-title">Radio</span>
-                                    </a>
-                                  </li>
-                                  <li class="menu-item sub-menu">
-                                    <a href="#">
-                                      <span class="menu-title">Want more ?</span>
-                                      <span class="menu-suffix">&#x1F914;</span>
-                                    </a>
-                                    <div class="sub-menu-list">
-                                      <ul>
-                                        <li class="menu-item">
-                                          <a href="#">
-                                            <span class="menu-prefix">&#127881;</span>
-                                            <span class="menu-title">You made it </span>
-                                          </a>
-                                        </li>
-                                      </ul>
-                                    </div>
-                                  </li>
-                                </ul>
-                              </div>
-                            </li>
-                          </ul>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="menu-item sub-menu">
-                  <a href="#">
-                    <span class="menu-icon">
-                      <i class="ri-bar-chart-2-fill"></i>
-                    </span>
-                    <span class="menu-title">Charts</span>
-                  </a>
-                  <div class="sub-menu-list">
-                    <ul>
-                      <li class="menu-item">
-                        <a href="#">
-                          <span class="menu-title">Pie chart</span>
-                        </a>
-                      </li>
-                      <li class="menu-item">
-                        <a href="#">
-                          <span class="menu-title">Line chart</span>
-                        </a>
-                      </li>
-                      <li class="menu-item">
-                        <a href="#">
-                          <span class="menu-title">Bar chart</span>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="menu-item sub-menu">
-                  <a href="#">
-                    <span class="menu-icon">
-                      <i class="ri-shopping-cart-fill"></i>
-                    </span>
-                    <span class="menu-title">E-commerce</span>
-                  </a>
-                  <div class="sub-menu-list">
-                    <ul>
-                      <li class="menu-item">
-                        <a href="#">
-                          <span class="menu-title">Products</span>
-                        </a>
-                      </li>
-                      <li class="menu-item">
-                        <a href="#">
-                          <span class="menu-title">Orders</span>
-                        </a>
-                      </li>
-                      <li class="menu-item">
-                        <a href="#">
-                          <span class="menu-title">credit card</span>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="menu-item sub-menu">
-                  <a href="#">
-                    <span class="menu-icon">
-                      <i class="ri-global-fill"></i>
-                    </span>
-                    <span class="menu-title">Maps</span>
-                  </a>
-                  <div class="sub-menu-list">
-                    <ul>
-                      <li class="menu-item">
-                        <a href="#">
-                          <span class="menu-title">Google maps</span>
-                        </a>
-                      </li>
-                      <li class="menu-item">
-                        <a href="#">
-                          <span class="menu-title">Open street map</span>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="menu-item sub-menu">
-                  <a href="#">
-                    <span class="menu-icon">
-                      <i class="ri-ink-bottle-fill"></i>
-                    </span>
-                    <span class="menu-title">Theme</span>
-                  </a>
-                  <div class="sub-menu-list">
-                    <ul>
-                      <li class="menu-item">
-                        <a href="#">
-                          <span class="menu-title">Dark</span>
-                        </a>
-                      </li>
-                      <li class="menu-item">
-                        <a href="#">
-                          <span class="menu-title">Light</span>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="menu-item">
-                  <a href="#">
-                    <span class="menu-icon">
-                      <i class="ri-book-2-fill"></i>
-                    </span>
-                    <span class="menu-title">Documentation</span>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="#">
-                    <span class="menu-icon">
-                      <i class="ri-calendar-fill"></i>
-                    </span>
-                    <span class="menu-title">Calendar</span>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="#">
-                    <span class="menu-icon">
-                      <i class="ri-service-fill"></i>
-                    </span>
-                    <span class="menu-title">Examples</span>
-                  </a>
-                </li>
-              </ul>
-            </nav>
-          </div>
-          <div class="sidebar-footer"><span>Sidebar footer</span></div>
-        </div>
-      </aside>
-      <div id="overlay" class="overlay"></div>
-      <div class="layout">
-        <header class="header">
-          <a id="btn-collapse" href="#">
-            <i class="ri-menu-line ri-xl"></i>
-          </a>
-          <a id="btn-toggle" href="#" class="sidebar-toggler break-point-lg">
-            <i class="ri-menu-line ri-xl"></i>
-          </a>
-        </header>
-        <main class="content">
-          <div>
-            <h1>Pro Sidebar</h1>
-            <p>
-              Responsive layout with advanced sidebar menu built with SCSS and vanilla Javascript
-            </p>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=5.0">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/appleMarket/css/adminStyle.css">
+
+    <title>AppleMarket Admin</title>
+</head>
+<body id="body-pd">
+    <div class="l-navbar" id="navbar">
+        <nav class="nav_admin">
             <div>
-              <a href="https://github.com/azouaoui-med/pro-sidebar-template" target="_blank">
-                <img
-                  alt="GitHub stars"
-                  src="https://img.shields.io/github/stars/azouaoui-med/pro-sidebar-template?style=social"
-                />
-              </a>
-              <a href="https://github.com/azouaoui-med/pro-sidebar-template" target="_blank">
-                <img
-                  alt="GitHub forks"
-                  src="https://img.shields.io/github/forks/azouaoui-med/pro-sidebar-template?style=social"
-                />
-              </a>
+                <div class="nav__brand">
+                    <ion-icon name="menu-outline" class="nav__toggle" id="nav-toggle"></ion-icon>
+                    <a href="#" class="nav__logo">AppleMarket</a>
+                </div>
+                <div class="nav__list">
+                	 <a href="/appleMarket/adminNoticeList" class="nav__link active">
+                        <ion-icon name="clipboard-outline" class="nav__icon"></ion-icon>
+                        <span class="nav_name">Notice</span>
+                    </a>
+                    <a href="/appleMarket/adminMemberList" class="nav__link">
+                        <ion-icon name="people-outline" class="nav__icon"></ion-icon>
+                        <span class="nav_name">Member Manage</span>
+                    </a>
+                    <a href="/appleMarket/adminNoticeList" class="nav__link">
+                        <ion-icon name="alert-circle-outline" class="nav__icon"></ion-icon>
+                        <span class="nav_name">Warning</span>
+                    </a>
+                    
+                    <a href="/appleMarket/adminSaleBoardList" class="nav__link">
+                        <ion-icon name="cash-outline" class="nav__icon"></ion-icon>
+                        <span class="nav_name">SaleBoard</span>
+                    </a>
+
+
+                    <a href="/appleMarket/adminBuyerBoardList" class="nav__link">
+                        <ion-icon name="wallet-outline" class="nav__icon"></ion-icon>
+                        <span class="nav_name">BuyerBoard</span>
+                    </a>
+                    
+                    <div href="#" class="nav__link collapse">
+                        <ion-icon name="home-outline" class="nav__icon"></ion-icon>
+                        <span class="nav_name">LocalCommunity</span>
+
+                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
+
+                        <ul class="collapse__menu">
+                            <a href="/appleMarket/adminLocalCommunityList" class="collapse__sublink">board</a>
+                            <a href="/appleMarket/adminLocalCommunityCommentList" class="collapse__sublink">comment</a>
+                        </ul>
+                    </div>
+                    
+					<div href="#" class="nav__link collapse">
+                        <ion-icon name="chatbubbles-outline" class="nav__icon"></ion-icon>
+                        <span class="nav_name">Community</span>
+
+                        <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
+
+                        <ul class="collapse__menu">
+                            <a href="/appleMarket/adminCommunityList" class="collapse__sublink">board</a>
+                            <a href="/appleMarket/adminCommunityCommentList" class="collapse__sublink">comment</a>
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <a href="#" class="nav__link">
+                    <ion-icon name="log-out-outline" class="nav__icon"></ion-icon>
+                    <span class="nav_name">Log out</span>
+                </a>
             </div>
-          </div>
-          <div>
-            <h2>Features</h2>
-            <ul>
-              <li>Fully responsive</li>
-              <li>Collapsable sidebar</li>
-              <li>Multi level menu</li>
-              <li>RTL support</li>
-              <li>Customizable</li>
-            </ul>
-          </div>
-          <div>
-            <h2>Resources</h2>
-            <ul>
-              <li>
-                <a target="_blank" href="https://github.com/azouaoui-med/css-pro-layout">
-                  Css Pro Layout</a
-                >
-              </li>
-              <li>
-                <a target="_blank" href="https://github.com/popperjs/popper-core"> Popper Core</a>
-              </li>
-            </ul>
-          </div>
-          <footer class="footer">
-            <small style="margin-bottom: 20px; display: inline-block">
-              © 2022 made with
-              <span style="color: red; font-size: 18px">&#10084;</span> by -
-              <a target="_blank" href="https://azouaoui.netlify.com"> Mohamed Azouaoui </a>
-            </small>
-            <br />
-            <div>
-              <a href="https://github.com/azouaoui-med" target="_blank" rel="noopener noreferrer">
-                <img
-                  alt="GitHub followers"
-                  src="https://img.shields.io/github/followers/azouaoui-med?label=github&style=social"
-                />
-              </a>
-              <a href="https://twitter.com/azouaoui_med" target="_blank" rel="noopener noreferrer">
-                <img
-                  alt="Twitter Follow"
-                  src="https://img.shields.io/twitter/follow/azouaoui_med?label=twitter&style=social"
-                />
-              </a>
-            </div>
-          </footer>
-        </main>
-        <div class="overlay"></div>
-      </div>
+        </nav>
     </div>
-  </body>
-  <script src="./main.js"></script>
+
+    <!-- IONICONS -->
+    <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
+    <!-- JS -->
+    <script src="/appleMarket/js/adminMain.js"></script>
+</body>
 </html>

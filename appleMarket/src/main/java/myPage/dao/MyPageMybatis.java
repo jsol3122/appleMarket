@@ -26,7 +26,6 @@ public class MyPageMybatis implements MyPageDAO {
 
 	@Override
 	public List<CommunityboardDTO> myCommunityGetList(Map<String, String> map) {
-	
 		return sqlSession.selectList("myPageSQL.myCommunityGetList",map);
 	}
 
