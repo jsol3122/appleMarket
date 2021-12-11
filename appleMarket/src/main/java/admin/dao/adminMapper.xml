@@ -57,15 +57,21 @@
  		select * from localcommunityboard order by localcommunity_seq desc
  	</select>
  	
- 	<!-- 우리동네게시판 동으로 리스트검색 -->
- 	<select id="getAdminLocalCommunityListDong" parameterType="String" resultType="localCommunityboard.bean.LocalCommunityboardDTO">
- 		select * from localcommunityboard where location_dong like '%' || #{location_dong} || '%' order by localcommunity_seq desc
+ 	<!-- 우리동네게시판 작성자로 리스트검색 -->
+ 	<select id="getAdminLocalCommunityListId" parameterType="String" resultType="localCommunityboard.bean.LocalCommunityboardDTO">
+ 		select * from localcommunityboard where localcommunity_user_id like '%' || #{localcommunity_user_id} || '%' order by localcommunity_seq desc
  	</select>
  	
  	<!-- 우리동네게시글 삭제 -->
  	<delete id="adminLocalCommunityDelete" parameterType="String">
  		delete from localcommunityboard where localcommunity_seq = #{localcommunity_seq}
  	</delete>
+ 	
+ 	<!-- 우리동네게시글 상세페이지 -->
+ 	<select id="getAdminLocalCommunityView" parameterType="String" resultType="localCommunityboard.bean.LocalCommunityboardDTO">
+ 		select * from localcommunityboard where  localcommunity_seq = #{localcommunity_seq}
+ 	</select>
+ 	
  	
  	<!-- 우리동네 댓글 리스트 출력 -->
  	<select id="getAdminLocalCommunityComment" resultType="localCommunityboardComment.bean.LocalCommunityboardCommentDTO">
@@ -76,5 +82,7 @@
  	<delete id="adminLocalCommunityCommentList" parameterType="String">
  		delete from localCommunityboard_comment where localcommunity_comment_seq =#{localcommunity_comment_seq}
  	</delete>
+ 	
+ 	
  </mapper>
  	

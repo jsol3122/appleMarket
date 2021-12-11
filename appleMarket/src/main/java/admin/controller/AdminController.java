@@ -126,16 +126,31 @@ public class AdminController {
 		return adminService.getAdminLocalCommunityList();
 	}
 	
-	@PostMapping("/getAdminLocalCommunityListDong")
+	@PostMapping("/getAdminLocalCommunityListId")
 	@ResponseBody
-	public List<LocalCommunityboardDTO> getAdminLocalCommunityListDong(@RequestParam String location_dong){
-		return adminService.getAdminLocalCommunityListDong(location_dong);
+	public List<LocalCommunityboardDTO> getAdminLocalCommunityListId(@RequestParam String localcommunity_user_id){
+		return adminService.getAdminLocalCommunityListId(localcommunity_user_id);
 	}
 	
 	@PostMapping("/adminLocalCommunityDelete")
 	@ResponseBody
 	public void adminLocalCommunityDelete(@RequestParam String localcommunity_seq) {
 		adminService.adminLocalCommunityDelete(localcommunity_seq);
+	}
+	
+	@GetMapping("/adminLocalCommunityView")
+	public ModelAndView adminLocalCommunityView(@RequestParam String localcommunity_seq) {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("localcommunity_seq", localcommunity_seq);
+		modelAndView.addObject("display", "/admin/adminLocalCommunityView.jsp");
+		modelAndView.setViewName("/admin/adminNoticeList");
+		return modelAndView;
+	}
+	
+	@PostMapping("/getAdminLocalCommunityView")
+	@ResponseBody
+	public LocalCommunityboardDTO getAdminLocalCommunityView(@RequestParam String localcommunity_seq) {
+		return adminService.getAdminLocalCommunityView(localcommunity_seq);
 	}
 	
 	

@@ -29,16 +29,12 @@
 								<tr>
 									<th>No</th>
 									<th>제목</th>
-									<th><input type="text" list="list" id="location"
-										class="location" value="지역" /> 
-										<datalist id="list">
-											<option value="지역을 입력하세요" />
-											<option value="역삼동" />
-											<option value="독산동" />
-											<option value="구로동" />
-											<option value="가산동" />
-										</datalist></th>
-									<th>작성자</th>
+									<th>지역</th>
+									<th><input type="text" list="list" id="admin_localcommunity_user_id" class="admin_localcommunity_user_id" value="작성자"/>
+										  <datalist id ="list">
+										 	<option value="아이디를 입력하세요"/>
+										  </datalist>
+									</th>
 									<th>작성일</th>
 									<th>조회수</th>
 									<th>관리</th>
@@ -53,8 +49,7 @@
 		</div>
 	</div>
 
-	<script type="text/javascript"
-		src="/appleMarket/js/adminLocalCommunity.js"></script>
+	<script type="text/javascript" src="/appleMarket/js/adminLocalCommunity.js"></script>
 	<script type="text/javascript">
 	
 //삭제 버튼	
@@ -77,6 +72,111 @@ $(document).on("click", ".localCommunityDelete", function(){
 			}
 		}); 
 	});	
+
+//특정아이디검색
+$('#localCommunityTable .admin_localcommunity_user_id').focusout(function(){
+    $("#localCommunityTable tr:gt(0)").remove(); 
+
+    var localcommunity_user_id = $(this).val();
+    alert(localcommunity_user_id);
+
+    if(location_dong!='지역'){
+        $.ajax({
+            url:'/appleMarket/getAdminLocalCommunityListId'
+            ,type:'post'
+            ,data:{'localcommunity_user_id' :localcommunity_user_id}
+            ,dataType:'json'
+            ,success:function(data){
+                //console.log(JSON.stringify(data));
+    
+                $.each(data,function(index,items){
+                    $('<tr>').append($('<td>',{
+                        align : 'center'
+                        ,text : items.localcommunity_seq
+                    })).append($('<td>',{
+                        align:'center'
+                    }).append($('<a>',{ //td 자식
+                        href:'/appleMarket/adminLocalCommunityView?localcommunity_seq='+items.localcommunity_seq
+                        ,class:'localcommunity_subject'
+                        ,text: items.localcommunity_subject
+                        ,style:'text-decoration:none; color: inherit'
+                    }))).append($('<td>',{
+                        align : 'center'
+                        ,text : items.location_dong
+                    })).append($('<td>',{
+                        align : 'center'
+                        ,text : items.localcommunity_user_id
+                    })).append($('<td>',{
+                        align : 'center'
+                        ,text : items.localcommunity_logtime
+                    })).append($('<td>',{
+                        align : 'center'
+                        ,text : items.localcommunity_hit
+                    })).append($('<td>',{
+                        align:'center'
+                    }).append($('<input>',{//td의 자식
+                        type:'button'
+                        ,value:'delete'
+                        ,class:'btn btn-outline btn-primary pull-right localCommunityDelete' 
+                    }))).appendTo($('#localCommunityTable'));
+                });
+                }
+            ,error:function(err){
+                console.log(err);
+            }
+    
+    
+            });
+        }else{
+        $.ajax({
+        url:'/appleMarket/getAdminLocalCommunityList'
+        ,type:'post'
+        ,dataType:'json'
+        ,success:function(data){
+            //console.log(JSON.stringify(data));
+
+            $.each(data,function(index,items){
+                $('<tr>').append($('<td>',{
+                    align : 'center'
+                    ,text : items.localcommunity_seq
+                })).append($('<td>',{
+                    align:'center'
+                }).append($('<a>',{ //td 자식
+                	href:'/appleMarket/adminLocalCommunityView?localcommunity_seq='+items.localcommunity_seq
+                    ,class:'localcommunity_subject'
+                    ,text: items.localcommunity_subject
+                    ,style:'text-decoration:none; color: inherit'
+                }))).append($('<td>',{
+                    align : 'center'
+                    ,text : items.location_dong
+                })).append($('<td>',{
+                    align : 'center'
+                    ,text : items.localcommunity_user_id
+                })).append($('<td>',{
+                    align : 'center'
+                    ,text : items.localcommunity_logtime
+                })).append($('<td>',{
+                    align : 'center'
+                    ,text : items.localcommunity_hit
+                })).append($('<td>',{
+                    align:'center'
+                }).append($('<input>',{//td의 자식
+                    type:'button'
+                    ,value:'delete'
+                    ,class:'btn btn-outline btn-primary pull-right localCommunityDelete' 
+                }))).appendTo($('#localCommunityTable'));
+            });
+            }
+        ,error:function(err){
+            console.log(err);
+        }
+
+
+        });
+        
+        }
+
+});
 
 </script>
 

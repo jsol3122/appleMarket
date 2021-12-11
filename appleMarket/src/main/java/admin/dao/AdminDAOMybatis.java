@@ -67,8 +67,8 @@ public class AdminDAOMybatis implements AdminDAO{
 	}
 
 	@Override
-	public List<LocalCommunityboardDTO> getAdminLocalCommunityListDong(String location_dong) {
-		return sqlSession.selectList("adminSQL.getAdminLocalCommunityListDong", location_dong);
+	public List<LocalCommunityboardDTO> getAdminLocalCommunityListId(String localcommunity_user_id) {
+		return sqlSession.selectList("adminSQL.getAdminLocalCommunityListId", localcommunity_user_id);
 	}
 
 	@Override
@@ -88,6 +88,12 @@ public class AdminDAOMybatis implements AdminDAO{
 		// TODO Auto-generated method stub
 		sqlSession.delete("adminSQL.adminLocalCommunityCommentList", localcommunity_comment_seq);
 		
+	}
+
+	@Override
+	public LocalCommunityboardDTO getAdminLocalCommunityView(String localcommunity_seq) {
+		
+		return sqlSession.selectOne("adminSQL.getAdminLocalCommunityView",localcommunity_seq);
 	}
 
 }

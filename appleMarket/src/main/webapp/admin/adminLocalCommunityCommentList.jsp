@@ -68,6 +68,8 @@ $(document).on("click", ".localCommunityboard_comment_delete", function(){
 			location.href='/appleMarket/adminLocalCommunityCommentList';
 		}   
 });
+
+
 </script>
 
 

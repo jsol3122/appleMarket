@@ -35,8 +35,12 @@
 							</tr>
 							<tr>
 								<td colspan="2" align="center"><input type="button"
-									id="adminNoticeModifyBtn" value="글수정"> <input
-									type="reset" value="다시작성"></td>
+									class="btn btn-outline btn-primary pull-right"
+									id="adminNoticeModifyBtn" value="글수정"> 
+									<input
+									type="reset" 
+									class="btn btn-outline btn-primary pull-right"
+									value="다시작성"></td>
 							</tr>
 						</table>
 

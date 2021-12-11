@@ -66,9 +66,9 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	@Override
-	public List<LocalCommunityboardDTO> getAdminLocalCommunityListDong(String location_dong) {
+	public List<LocalCommunityboardDTO> getAdminLocalCommunityListId(String localcommunity_user_id) {
 		// TODO Auto-generated method stub
-		return adminDAO.getAdminLocalCommunityListDong(location_dong);
+		return adminDAO.getAdminLocalCommunityListId(localcommunity_user_id);
 	}
 
 	@Override
@@ -87,6 +87,12 @@ public class AdminServiceImpl implements AdminService {
 	public void adminLocalCommunityCommentList(String localcommunity_comment_seq) {
 		
 		adminDAO.adminLocalCommunityCommentList(localcommunity_comment_seq);
+	}
+
+	@Override
+	public LocalCommunityboardDTO getAdminLocalCommunityView(String localcommunity_seq) {
+		// TODO Auto-generated method stub
+		return adminDAO.getAdminLocalCommunityView(localcommunity_seq);
 	}
 
 }

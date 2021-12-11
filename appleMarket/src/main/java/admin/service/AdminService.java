@@ -25,12 +25,14 @@ public interface AdminService {
 
 	public List<LocalCommunityboardDTO> getAdminLocalCommunityList();
 
-	public List<LocalCommunityboardDTO> getAdminLocalCommunityListDong(String location_dong);
+	public List<LocalCommunityboardDTO> getAdminLocalCommunityListId(String localcommunity_user_id);
 
 	public void adminLocalCommunityDelete(String localcommunity_seq);
 
 	public List<LocalCommunityboardCommentDTO> getAdminLocalCommunityComment();
 
 	public void adminLocalCommunityCommentList(String localcommunity_comment_seq);
+
+	public LocalCommunityboardDTO getAdminLocalCommunityView(String localcommunity_seq);
 
 }
