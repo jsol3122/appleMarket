@@ -63,7 +63,6 @@
 <script type="text/javascript">
 //삭제 버튼	
 $(document).on("click", ".NoticeDelete", function(){
-
 		var admin_notice_seq = $(this).parents().prev().prev().prev().prev().html();
 		//alert(admin_notice_seq+"삭제");
 		 $.ajax({
@@ -80,16 +79,13 @@ $(document).on("click", ".NoticeDelete", function(){
 			}
 		});
 	});	
-
 //수정 버튼	
 $(document).on("click", ".NoticeModify", function(){
-
 		var admin_notice_seq = $(this).parents().prev().prev().prev().html();
 		alert(admin_notice_seq)
 		location.href="/appleMarket/adminNoticeModifyForm?admin_notice_seq="+admin_notice_seq;
 	
 	});	
-
 //작성버튼
 $('#noticeWrite').click(function(){
 	//alert("작성");
