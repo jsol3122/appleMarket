@@ -7,7 +7,7 @@ import buyerboard.bean.BuyerboardDTO;
 
 public interface BuyerboardDAO {
 
-	public List<BuyerboardDTO> buyerboardGetList(Map<String, Integer> map);
+	public List<BuyerboardDTO> buyerboardGetList(Map<String, Object> map);
 
 	public int getTotalA();
 
@@ -22,5 +22,7 @@ public interface BuyerboardDAO {
 	public void buyerboardHit(int buyerboard_seq);
 
 	public List<BuyerboardDTO> buyerboardGetListId(Map<String, Object> map);
+
+	public List<BuyerboardDTO> boardcategoryFilter(String buyerboard_category);
 
 }
