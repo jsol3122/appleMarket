@@ -67,6 +67,11 @@ public class CommunityboardDAOMybatis implements CommunityboardDAO {
 		sqlSession.update("communityboardSQL.communityboardHit",communityboard_seq);
 		
 	}
+
+	@Override
+	public int commentTotal(String communityboard_seq) {
+		return sqlSession.selectOne("communityboardSQL.commentTotal",communityboard_seq);
+	}
 	
 	
 	

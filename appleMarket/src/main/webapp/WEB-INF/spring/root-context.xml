@@ -16,6 +16,9 @@
 	<!--지역게시판  -->
 	<context:component-scan base-package="localCommunityboard.dao"/>
 	<context:component-scan base-package="localCommunityboard.service"/>
+	<!--지역게시판 댓글 -->
+	<context:component-scan base-package="localCommunityboardComment.dao"/>
+	<context:component-scan base-package="localCommunityboardComment.service"/>
 	<!-- 게시판 페이징 처리  -->
 	<context:component-scan base-package="boardPaging"/>
 	<!-- 팔고게시판  -->

@@ -14,9 +14,9 @@
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
 }
-
+  <%--background: linear-gradient(180deg, #2EC4B6, #9EB1E9);--%>
 html, body {
-  background: linear-gradient(180deg, #2EC4B6, #9EB1E9);
+  background: linear-gradient(180deg, #FAAC58, #F6CECE);
   overflow-x: hidden;
 }
 
@@ -28,14 +28,14 @@ html, body {
 }
 
 .inbox {
-  background: #EDF2F4;
+  background: #FA8258;
   width: 650px;
   height: 450px;
   display: flex;
   border-radius: 4px;
 }
 .inbox aside {
-  background: #43d3c5;
+  background: #FA8258;
   flex: 1 1 auto;
   height: 100%;
   border-top-left-radius: 4px;
@@ -48,7 +48,7 @@ html, body {
   border-radius: 100%;
 }
 .inbox aside li {
-  background: #36d0c2;
+  background: #FA8258;
   list-style: none;
   color: #FFF;
   display: flex;
@@ -314,7 +314,8 @@ $(function(){
             });
             */
             $.each(list, function(index, chatRoomDTO){
-                renderList(false, chatRoomDTO);
+                //renderList(false, chatRoomDTO);
+            	console.log(idx + " " + val.chatRoom_id);
             });
             
             /*    
@@ -501,7 +502,7 @@ $scope.add = function() {
    $.ajax({
        url: '/appleMarket/chat/insertChat',
        type: 'post',
-       data: 'chatRoom_id='+chatRoom_id+'&user_id='+user_id+'&member_id='+member_id+'&chatContent='+vlu,
+       data: 'chatRoom_id='+chatRoom_id+'&user_id='+user_id+'&member_id='+member_id+'&sale_seq='+sale_seq+'&buyerboard_seq='+buyerboard_seq+'&chatContent='+$scope.text.value,
        dataType: 'json',
        success: function(data){
     	   console.log('보내기 성공');

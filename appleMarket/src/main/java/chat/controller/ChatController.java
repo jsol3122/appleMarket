@@ -307,12 +307,12 @@ public class ChatController {
    	//result = chatService.insertChat(chat);
    	
 	System.out.println("들어오긴 하나?");
-	int chatRoom_id = chatRoomDTO.getChatRoom_id();
-	String sale_seq = chatRoomDTO.getSale_seq();
-	String buyerboard_seq = chatRoomDTO.getBuyerboard_seq();
-	String member_id = chatRoomDTO.getMember_id();
-	String user_id = chatRoomDTO.getUser_id();
-	//String chatContent = chatRoomDTO.getChatContent();
+	int chatRoom_id = chatDTO.getChatRoom_id();
+	String sale_seq = chatDTO.getSale_seq();
+	String buyerboard_seq = chatDTO.getBuyerboard_seq();
+	String member_id = chatDTO.getMember_id();
+	String user_id = chatDTO.getUser_id();
+	String chatContent = chatDTO.getChatContent();
 	System.out.println(sale_seq);
 	//String receiver = chatDTO.getMember_id();
 	//chatDTO.setSendDate(new Date());
