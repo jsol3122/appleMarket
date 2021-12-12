@@ -12,16 +12,16 @@ function get_query(){
 //관심목록버튼
 $(document).on("click", ".order_now .addcart", function(){
 		var result = get_query();
-		var sale_seq = result.sale_seq;
+		var buyerboard_seq = result.buyerboard_seq;
 		var member_id = $('#session_id').val();
-		//alert(sale_seq);
+		//alert(buyerboard_seq);
 		//alert(member_id);
 	    var result = confirm("관심목록으로 이동하시겠습니까?");
 		if(result){
 			$.ajax({
-				url: '/appleMarket/saleboard/saleboardPick',
+				url: '/appleMarket/buyerboard/buyerboardPick',
 				type : 'post',
-				data : {'sale_seq' : sale_seq, 'member_id': member_id},
+				data : {'buyerboard_seq' : buyerboard_seq, 'member_id': member_id},
 				success: function(data){
 				    alert('관심목록으로 이동되었습니다.');
 				    //location.href='/appleMarket/adminBuyerBoardList';

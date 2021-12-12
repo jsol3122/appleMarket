@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
     <link rel="stylesheet" media="all" href="https://d1unjqcospf8gs.cloudfront.net/assets/home/users/show-55066fc73da845f2ada2fc34ec3657a030b59f3c236bd32c414ed74bbcbb8699.css" />
       <script src="https://d1unjqcospf8gs.cloudfront.net/assets/home/users/show-1fd3ee71d0a705c147acdd56af6f8467080b112679ac3b813dcd40daaf3a1921.js"></script>
+
  
  <section id="content">
     <section id="user-profile">
@@ -55,7 +56,11 @@
 </section>
 </section>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+ <!-- IONICONS -->
+    <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
 <script type="text/javascript" src="/appleMarket/js/profile.js"></script>
+
 </body>
 </html>
 

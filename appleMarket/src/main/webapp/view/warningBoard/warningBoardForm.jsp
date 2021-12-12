@@ -14,7 +14,7 @@
 
     <div id="contact">
         <h1>신고하기</h1>
-        <<form id="warningWriteForm">
+        <form id="warningWriteForm">
             <fieldset>
                 <label for="name">신고사유:</label>
                 <select name="language">

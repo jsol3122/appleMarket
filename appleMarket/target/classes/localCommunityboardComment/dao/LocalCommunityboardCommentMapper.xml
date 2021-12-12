@@ -73,5 +73,9 @@
 		
 	</insert>
 	
+	<select id="commentTotal" parameterType="String" resultType="int">
+		select count(*) from localCommunityboard_comment where localcommunity_seq=#{localcommunity_seq}
+	</select>
+	
 	
 </mapper> 

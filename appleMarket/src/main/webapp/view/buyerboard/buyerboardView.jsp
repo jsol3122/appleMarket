@@ -31,7 +31,8 @@
     
     <script src="/appleMarket/js/buyerboardGetView.js"></script>
     <script src="/appleMarket/js/main.js"></script>
-
+	<script src="/appleMarket/js/buyerPick.js"></script>
+	
     <!-- bootstrap grid -->
     <link rel="stylesheet" href="/appleMarket/css/bootstrap-grid.min.css">
     <link rel="stylesheet" href="/appleMarket/css/star-rating.min.css">
@@ -46,7 +47,7 @@
 
 </head>
 
-<body>
+<body id="buyerboardView">
     <%@include file="/includes/header.jsp" %>
     <section class="product_info">
         <h2 class="hidden">product_info</h2>

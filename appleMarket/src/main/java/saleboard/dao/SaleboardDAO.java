@@ -35,7 +35,13 @@ public interface SaleboardDAO {
 
 	public SaleboardDTO member_idLoad(String sale_seq);
 
-	public List<InterestDTO> getinterestList(String member_id); 
+	public List<InterestDTO> getinterestList(String member_id);
+
+	public void interestDelete(int interestList_seq);
+
+	public InterestDTO doubleCheck(int sale_seq);
+
+	public void intereUpdate(int sale_seq); 
 
 //	public void saleboardChat(String sale_id);
 

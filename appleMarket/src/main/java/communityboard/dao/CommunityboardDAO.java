@@ -23,6 +23,8 @@ public interface CommunityboardDAO {
 
 	public void communityboardHit(String communityboard_seq);
 
+	public int commentTotal(String communityboard_seq);
+
 	
 	
 }

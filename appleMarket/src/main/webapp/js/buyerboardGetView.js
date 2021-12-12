@@ -81,9 +81,9 @@ function get_detail(DTO){
                   "</div>"+
                   "<div class=order_now>"+
                       "<ul>"+
-                          "<li>"+
-                              "<a href='' class=addcart>addcart</a>"+
-                          "</li>"+
+                          "<li>"
+                          		+"<input type='button' style='border:0 ; outline:0' class='addcart' id='addcart' value='addcart'/>"+
+                           "</li>"+
                       "</ul>"+
                       "<button type=submit id=chat>채팅하기</button>"+
                   "</div>"+
@@ -165,7 +165,7 @@ if(DTO.location_dong == undefined){ //임시로 지역 넣어놓고 gps위치 �
   $(".new_arrivals_list").append(html);
   console.log(mode)
   
-  $('.hover a').addClass('addcart');
+ // $('.hover a').addClass('addcart');
   $('.new_arrivals_list>li').addClass(['col-md-3', category]);
   
 

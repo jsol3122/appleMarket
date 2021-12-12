@@ -158,6 +158,23 @@ public class SaleboardServiceImpl implements SaleboardService {
 		return saleboardDAO.getinterestList(member_id);
 	}
 
+	@Override
+	public void interestDelete(int interestList_seq) {
+		saleboardDAO.interestDelete(interestList_seq);
+		
+	}
+
+	@Override
+	public InterestDTO doubleCheck(int sale_seq) {
+		return saleboardDAO.doubleCheck(sale_seq);
+	}
+
+	@Override
+	public void intereUpdate(int sale_seq) {
+		saleboardDAO.intereUpdate(sale_seq);
+		
+	}
+
 
 	
 //	@Override

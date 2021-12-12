@@ -9,6 +9,8 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import buyerboard.bean.BuyerboardDTO;
+import saleboard.bean.InterestDTO;
+import saleboard.bean.SaleboardDTO;
 
 @Repository
 @Transactional
@@ -68,6 +70,40 @@ public class BuyerboardMybatis implements BuyerboardDAO {
 	public List<BuyerboardDTO> boardcategoryFilter(String buyerboard_category) {
 		return sqlSession.selectList("buyerboardSQL.boardcategoryFilter",buyerboard_category);
 		
+	}
+
+	@Override
+	public void buyerboardPick(Map<String, String> map) {
+		String buyerboard_seq = map.get("buyerboard_seq");
+		String member_id = map.get("member_id");
+		System.out.println("member_id="+member_id);
+		
+		BuyerboardDTO buyerboardDTO = member_idLoad(buyerboard_seq);		
+		buyerboardDTO.setMember_id(member_id);
+		
+		System.out.println(buyerboardDTO);
+		
+		InterestDTO interestDTO = buyerdoubleCheck(buyerboardDTO.getBuyerboard_seq());
+		
+		if(interestDTO==null) {
+		// 찜테이블에 상품 새로 추가 (insert) interestList : member_id, sale_seq
+			sqlSession.insert("buyerboardSQL.buyerboardPick",buyerboardDTO);	
+		}else {
+			sqlSession.update("buyerboardSQL.intereUpdate", buyerboardDTO);
+		}
+		
+	}
+	
+	@Override
+	public InterestDTO buyerdoubleCheck(int buyerboard_seq) {
+
+		return sqlSession.selectOne("buyerboardSQL.doubleCheck", buyerboard_seq);
+	}
+
+	@Override
+	public BuyerboardDTO member_idLoad(String buyerboard_seq) {
+		BuyerboardDTO buyerboardDTO = sqlSession.selectOne("buyerboardSQL.member_idLoad", buyerboard_seq);
+		return buyerboardDTO;
 	}
 
 }

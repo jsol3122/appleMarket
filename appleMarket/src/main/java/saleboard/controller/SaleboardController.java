@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import admin.bean.AdminNoticeDTO;
 import net.sf.json.JSONObject;
 import saleboard.bean.InterestDTO;
 import saleboard.bean.SaleboardDTO;
@@ -200,7 +201,10 @@ public class SaleboardController {
 		map.put("sale_seq", sale_seq+"");
 		map.put("member_id", member_id);
 	
+	
+		
 		saleboardService.saleboardPick(map);
+		
 	}
 	
 	@PostMapping("/saleboard/saleboardPickCancel")
@@ -244,6 +248,24 @@ public class SaleboardController {
 		return saleboardService.getinterestList(member_id);
 	}
 	
+	//찜게시판 삭제 
+	@PostMapping("/interestDelete")
+	@ResponseBody 
+	public void interestDelete(int interestList_seq){
+		saleboardService.interestDelete(interestList_seq);
+	}
 	
-
+	//찜게시판 중복체크 막기
+	@PostMapping("/doubleCheck")
+	@ResponseBody 
+	public InterestDTO doubleCheck(int sale_seq){
+		return saleboardService.doubleCheck(sale_seq);
+	}
+	
+	//찜게시판 중복체크 막기
+	@PostMapping("/intereUpdate")
+	@ResponseBody 
+	public void intereUpdate(int sale_seq){
+		saleboardService.intereUpdate(sale_seq);
+	}
 }

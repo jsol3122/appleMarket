@@ -40,7 +40,7 @@
 
 </head>
 
-<body>
+<body id="saleboardView">
     <%@include file="/includes/header.jsp" %>
     <section class="product_info">
         <h2 class="hidden">product_info</h2>

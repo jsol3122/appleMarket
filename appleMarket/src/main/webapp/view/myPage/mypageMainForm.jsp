@@ -19,7 +19,11 @@
 
  <link rel="stylesheet" media="all" href="https://d1unjqcospf8gs.cloudfront.net/assets/home/users/show-55066fc73da845f2ada2fc34ec3657a030b59f3c236bd32c414ed74bbcbb8699.css" />
       <script src="https://d1unjqcospf8gs.cloudfront.net/assets/home/users/show-1fd3ee71d0a705c147acdd56af6f8467080b112679ac3b813dcd40daaf3a1921.js"></script>
-
+<style>
+.nav__icon {
+    font-size: 1.25rem;
+}
+</style>
 <body>
 <!-- 상단 -->
 <%@include file="/includes/header.jsp" %>
@@ -48,7 +52,7 @@
 							    <div id="user-records-detail">
 							      <section id="user-filter">
 							    <ul>
-							      <li><a class="active" href="/u/bdWKV03NAvZy1zjP">찜목록</a></li>
+							      <li><a class="active" href="/u/bdWKV03NAvZy1zjP">관심목록</a></li>
 							        <li><a class="" href="/appleMarket/view/myPage/userupdatapage.jsp">마이페이지</a></li>
 							    </ul>
 							    
@@ -59,17 +63,9 @@
 <section id="user-records" class="user-articles" data-total-page="1" data-current-page="1">
     <h3 class="hide">${sessionScope.login_info.member_id}님의 판매 물품 목록</h3>
         <section class="cards-wrap">
- <!--        <article class="card ">
-  <a class="card-link " data-event-label="325118947" href="/articles/325118947">
-    <div class="card-photo">
-    </div>
-    <div class="card-desc">
-	</div> -->
+ 
 
-<!--    
- </a></article> -->
-
- </section>
+</section>
 </section>
 </section>
                 	 	</c:if >
@@ -94,8 +90,8 @@
     <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js'></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-	<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+	 <!-- IONICONS -->
+    <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
 	<script type="text/javascript" src="/appleMarket/js/profile.js"></script>
 </body>
 </html>

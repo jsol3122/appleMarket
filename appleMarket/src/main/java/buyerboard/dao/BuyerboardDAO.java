@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import buyerboard.bean.BuyerboardDTO;
+import saleboard.bean.InterestDTO;
 
 public interface BuyerboardDAO {
 
@@ -24,5 +25,11 @@ public interface BuyerboardDAO {
 	public List<BuyerboardDTO> buyerboardGetListId(Map<String, Object> map);
 
 	public List<BuyerboardDTO> boardcategoryFilter(String buyerboard_category);
+
+	public void buyerboardPick(Map<String, String> map);
+
+	public BuyerboardDTO member_idLoad(String buyerboard_seq);
+
+	public InterestDTO buyerdoubleCheck(int buyerboard_seq);
 
 }

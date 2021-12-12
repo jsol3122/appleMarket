@@ -45,6 +45,11 @@ public class CommunityboardController {
 		return communityboardService.communityboardGetList(page);
 	}
 	
+	@GetMapping("/communityboard/commentTotal") @ResponseBody
+	public int commentTotal(@RequestParam String communityboard_seq) {
+		return communityboardService.commentTotal(communityboard_seq);
+	}
+	
 	@GetMapping("/communityboard/communityboardWriteForm")
 	public String communityboardWriteForm() {
 		return "/communityboard/communityboardWriteForm";

@@ -17,4 +17,6 @@ public interface LocalCommunityboardCommentService {
 
 	public void localCommunityboardCommentReply(Map<String, String> map);
 
+	public int commentTotal(String localcommunity_seq);
+
 }

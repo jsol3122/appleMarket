@@ -13,12 +13,12 @@ function get_query(){
 // 추출한 글번호로 db 갔다와서 해당하는 글 내용 불러오기
 $(function(){
   var result = get_query(); //result { category: "1060192", } - 의형식으로 추출됨
-  $('#localcommunity_seq').val(result.localcommunity_seq);
+  $('#communityboard_seq').val(result.communityboard_seq);
 
   $.ajax({
-      url: '/appleMarket/localCommunityboard/localCommunityboardGetView',
+      url: '/appleMarket/communityboard/communityboardGetView',
       type: 'post',
-      data: 'localcommunity_seq='+result.localcommunity_seq,
+      data: 'communityboard_seq='+result.communityboard_seq,
       dataType: 'json',
       success: function(DTO){
           // 글 제목&내용 삽입
@@ -26,9 +26,9 @@ $(function(){
 
           // 해당 글의 댓글 불러오기
           $.ajax({
-            url: '/appleMarket/localComment/localCommunityboardCommentGetList',
+            url: '/appleMarket/comment/communityboardCommentGetList',
             type: 'get',
-            data: 'localcommunity_seq='+DTO.localcommunity_seq,
+            data: 'communityboard_seq='+DTO.communityboard_seq,
             dataType: 'json',
             success: function(data){
               $.each(data, function(index, DTO){
@@ -37,15 +37,15 @@ $(function(){
               })
             },
             error: function(){
-              console.log('로컬 댓글 불러오기x')
+              console.log('조잘 댓글 불러오기x')
             }
           });
 
           // 해당 글의 댓글 수 계산
           $.ajax({
-            url: '/appleMarket/localComment/commentTotal',
+            url: '/appleMarket/communityboard/commentTotal',
             type: 'get',
-            data: 'localcommunity_seq='+DTO.localcommunity_seq,
+            data: 'communityboard_seq='+DTO.communityboard_seq,
             dataType: 'text',
             success: function(count){
               $('.fdb_tag b').text(count);
@@ -67,13 +67,13 @@ $(function(){
 		      });      
 		    },
 		    error: function(err){
-		      console.log('우동공지 목록 못불러옴')
+		      console.log('조잘공지 목록 못불러옴')
 		    }
 		  });
           
           // 하단에 최신글 1페이지 불러오기
           $.ajax({
-              url: '/appleMarket/localCommunityboard/localCommunityboardGetList',
+              url: '/appleMarket/communityboard/communityboardGetList',
               type: 'get',
               data: 'pg=1',
               dataType: 'json',
@@ -84,7 +84,7 @@ $(function(){
                 });
               },
               errer: function(err){
-                  console.log('우동상세페이지 하단리스트 불러오기 실패')
+                  console.log('조잘상세페이지 하단리스트 불러오기 실패')
               }
           });
       },
@@ -100,18 +100,18 @@ function get_detail(DTO){
   let hd = 
   "<div class=top_area>"+
     "<div class=fr>"+
-      "<span class=date>"+DTO.localcommunity_logtime+"</span>"+
+      "<span class=date>"+DTO.communityboard_logtime+"</span>"+
     "</div>"+
     "<h1 class=np_18px>"+
-      "<a href=''>"+DTO.localcommunity_subject+"</a>"+
+      "<a href=''>"+DTO.communityboard_subject+"</a>"+
     "</h1>"+
   "</div>"+
   "<div class=btm_area>"+
     "<div class=side>"+
-      "<a href='' class=nick onclick='return false;'>"+DTO.localcommunity_user_id+"</a>"+
+      "<a href='' class=nick onclick='return false;'>"+DTO.communityboard_user_id+"</a>"+
     "</div>"+
     "<div class=hit>"+
-      "<span>조회 수 <b>"+DTO.localcommunity_hit+"</b></span>"+
+      "<span>조회 수 <b>"+DTO.communityboard_hit+"</b></span>"+
     "</div>"+
   "</div>";  
 
@@ -125,18 +125,18 @@ function get_detail(DTO){
   // 글 내용 부분 삽입
   let body =
   "<div class=xe_content>"+
-    "<p>"+DTO.localcommunity_content+"</p>"+
+    "<p>"+DTO.communityboard_content+"</p>"+
   "</div>";
 
   $(".rd_body").append(body);
 
   // 본인 작성글일 경우 글수정&글삭제 버튼 생성 - 채팅하기 버튼 비활성화
-  if(DTO.localcommunity_user_id == $('#session_id').val()){
+  if(DTO.communityboard_user_id == $('#session_id').val()){
     let buttons = 
-    "<a class=back_to href='' id=localcommunity_modify title=수정 onclick='return false;'>"+ 
+    "<a class=back_to href='' id=communityboard_modify title=수정 onclick='return false;'>"+ 
       "<i class=fa-pencil></i><b class=tx>수정</b>"+
     "</a>"+
-    "<a class=back_to href='' id=localcommunity_delete title=삭제 onclick='return false;'>"+ 
+    "<a class=back_to href='' id=communityboard_delete title=삭제 onclick='return false;'>"+ 
       "<i class=fa-trash></i><b class=tx>삭제</b>"+
     "</a>";
 
@@ -157,32 +157,32 @@ let commentList = function(mode, DTO){
   let comment1 = 
   "<li class=fdb_itm>"+
     "<div class=meta>"+
-      "<a href='#popup_menu_area' onclick='return false;'>"+DTO.localcommunity_comment_user_id+"</a>"+
-      "<span class=date>"+DTO.localcommunity_comment_logtime+"</span>"+
+      "<a href='#popup_menu_area' onclick='return false;'>"+DTO.communityboard_comment_user_id+"</a>"+
+      "<span class=date>"+DTO.communityboard_comment_logtime+"</span>"+
     "</div>"+
-    "<div class=xe_content>"+DTO.localcommunity_comment_content+"</div>"+
+    "<div class=xe_content>"+DTO.communityboard_comment_content+"</div>"+
     "<div class=img_tx>"+
       "<a class=bell><i class=fa-concierge-bell></i>신고</a>"+
     "</div>"+
-    "<input type=hidden id=comment_seq value="+DTO.localcommunity_comment_comment_seq+" />"+
+    "<input type=hidden id=comment_seq value="+DTO.communityboard_comment_comment_seq+" />"+
   "</li>";
 
   let comment2 = 
   "<li class=fdb_itm>"+
     "<div class=meta>"+
-      "<a href='#popup_menu_area' onclick='return false;'>"+DTO.localcommunity_comment_user_id+"</a>"+
-      "<span class=date>"+DTO.localcommunity_comment_logtime+"</span>"+
+      "<a href='#popup_menu_area' onclick='return false;'>"+DTO.communityboard_comment_user_id+"</a>"+
+      "<span class=date>"+DTO.communityboard_comment_logtime+"</span>"+
     "</div>"+
-    "<div class=xe_content>"+DTO.localcommunity_comment_content+"</div>"+
+    "<div class=xe_content>"+DTO.communityboard_comment_content+"</div>"+
     "<div class=img_tx>"+
       "<a class=trash><i class=fa-trash></i>삭제</a>"+
       "<a class=bell><i class=fa-concierge-bell></i>신고</a>"+
     "</div>"+
-    "<input type=hidden id=comment_seq value="+DTO.localcommunity_comment_seq+" />"+
+    "<input type=hidden id=comment_seq value="+DTO.communityboard_comment_seq+" />"+
   "</li>";
 
   // 본인 댓글일 경우에만 삭제&신고버튼 활성화
-  if(DTO.localcommunity_comment_user_id == $('#session_id').val()){
+  if(DTO.communityboard_comment_user_id == $('#session_id').val()){
     $("#cmtPosition .fdb_lst_ul").append(comment2);
   }else{
     $("#cmtPosition .fdb_lst_ul").append(comment1);
@@ -200,26 +200,25 @@ let commentList = function(mode, DTO){
 
 // 상세페이지 하단 리스트 1페이지 삽입
 function make_list(list){
-  let logtime = list.localcommunity_logtime;
+  let logtime = list.communityboard_logtime;
   let logtime_str = "2021."+(logtime.month+1)+"."+logtime.date;
 
   let html =
   "<tr>"+
-    "<td class=no>"+list.localcommunity_seq+"</td>"+
+    "<td class=no>"+list.communityboard_seq+"</td>"+
     "<td class=title>"+
-      "<a href='/appleMarket/view/localCommunityboard/localCommunityboardView.jsp?localcommunity_seq="+list.localcommunity_seq+"' class=hx data-viewer=''>"+list.localcommunity_subject+"</a>"+
+      "<a href='/appleMarket/view/communityboard/communityboardView.jsp?communityboard_seq="+list.communityboard_seq+"' class=hx data-viewer=''>"+list.communityboard_subject+"</a>"+
         "<span class=extraimages></span>"+
     "</td>"+
     "<td class=author><span><a href='#popup_menu_area' class='' onclick='return false'>"+
-      list.localcommunity_user_id+
+      list.communityboard_user_id+
       "</a></span>"+
     "</td>"+
     "<td class=time title=''>"+logtime_str+"</td>"+
-    "<td class=m_no>"+list.localcommunity_hit+"</td>"+
+    "<td class=m_no>"+list.communityboard_hit+"</td>"+
   "</tr>";
 
   $('.bd_lst tbody').append(html);
-  $('#dong').text(' - '+list.location_dong);
     
 }
 
@@ -246,27 +245,27 @@ function notice_list(list){
 }
 
 // 글 수정버튼 클릭
-$(document).on('click', '#localcommunity_modify', function(){
+$(document).on('click', '#communityboard_modify', function(){
   // 게시글번호 추출
   let result = get_query();
 
-  location.href = '/appleMarket/view/localCommunityboard/localCommunityboardModifyForm.jsp?localcommunity_seq='+result.localcommunity_seq;
+  location.href = '/appleMarket/view/communityboard/communityboardModifyForm.jsp?communityboard_seq='+result.communityboard_seq;
 });
 
 // 글 삭제버튼 클릭
-$(document).on('click', '#localcommunity_delete', function(){
+$(document).on('click', '#communityboard_delete', function(){
   // 게시글번호 추출
   let result = get_query();
 
   // 삭제여부 다시한번 확인
   if(confirm('정말로 삭제하시겠습니까? 삭제된 글은 복구할 수 없습니다')){
     $.ajax({
-      url: '/appleMarket/localCommunityHistoryDelete',
+      url: '/appleMarket/communityHistoryDelete',
       type: 'post',
-      data: 'localcommunity_seq='+result.localcommunity_seq,
+      data: 'communityboard_seq='+result.communityboard_seq,
       success: function(){
         console.log('우동 글삭 성공~~~~~~~');
-        location.href = '/appleMarket/view/localCommunityboard/localCommunityboardList.jsp?pg=1';
+        location.href = '/appleMarket/view/communityboard/communityboardList.jsp?pg=1';
       },
       error: function(){
         console.log('우동 글삭 실패')
@@ -280,15 +279,15 @@ $(document).on('click', '.trash', function(){
   // 삭제여부 다시한번 확인
   if(confirm('정말로 삭제하시겠습니까? 삭제된 댓글은 복구할 수 없습니다')){
     $.ajax({
-      url: '/appleMarket/localComment/localCommunityboardCommentDelete',
+      url: '/appleMarket/comment/communityboardCommentDelete',
       type: 'get',
-      data: 'localcommunity_comment_seq='+$('#comment_seq').val(),
+      data: 'communityboard_comment_seq='+$('#comment_seq').val(),
       success: function(){
-        console.log('우동 댓글 삭제 o');
+        console.log('조잘 댓글 삭제 o');
         location.reload();
       },
       error: function(){
-        console.log('우동 댓글 삭제x');
+        console.log('조잘 댓글 삭제x');
       }
     });
   }else return false;
@@ -299,14 +298,14 @@ $('.bd_btn').click(function(e){
   
   if($('textarea#editor_668947').val()){
     $.ajax({
-      url: '/appleMarket/localComment/localCommunityboardCommentWrite',
+      url: '/appleMarket/comment/communityboardCommentWrite',
       type: 'post',
       data: $('.cmt_wrt').serialize(),
       success: function(){
         location.reload();
       },
       error: function(){
-        console.log('우동 댓글 실패')
+        console.log('조잘 댓글 실패')
       }
     })
   }else{
