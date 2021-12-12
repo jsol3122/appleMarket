@@ -92,7 +92,10 @@
                                                     <div class="rd_nav img_tx fr m_btn_wrp">
                                                         <!-- 본인 글일 때 수정&삭제 버튼 활성화 -->
 
-                                                        <a class="document_668947 action bubble m_no" href="/appleMarket/warningBoardForm" title="신고"><i class="fa fa-concierge-bell"></i><b class="tx">신고</b></a> 
+                                                        <a class="document_668947 action bubble m_no" href="#" onclick="openPopup()"  title="신고">
+                                                        	<i class="fa fa-concierge-bell"></i>
+                                                        		<b class="tx">신고</b>
+                                                        </a> 
                                                     </div>
                                                 </div>
                                             </div>
@@ -243,6 +246,7 @@
     <script src="/appleMarket/js/app.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="/appleMarket/js/localCommunityboardGetView.js"></script>
+    <script src="/appleMarket/js/warning.js"></script>
 </body>
 
 </html>
