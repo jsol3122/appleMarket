@@ -43,6 +43,7 @@ public class MemberServiceImpl implements MemberService {
 		return memberDAO.login(memberDTO);
 	}
 
+	
 	@Override
 	public List<ZipcodeDTO> checkPostSearch(ZipcodeDTO zipcodeDTO) {
 		List<ZipcodeDTO> list = null; 
