@@ -32,7 +32,7 @@
     <script src="/appleMarket/js/buyerboardGetView.js"></script>
     <script src="/appleMarket/js/main.js"></script>
 	<script src="/appleMarket/js/buyerPick.js"></script>
-	
+ 	<script src="/appleMarket/js/warning.js"></script>
     <!-- bootstrap grid -->
     <link rel="stylesheet" href="/appleMarket/css/bootstrap-grid.min.css">
     <link rel="stylesheet" href="/appleMarket/css/star-rating.min.css">
@@ -52,6 +52,7 @@
     <section class="product_info">
         <h2 class="hidden">product_info</h2>
         <input type="hidden" id="session_id" value="${member_id}" /> 
+        <input type="hidden" id="buyerboard_seq" value="" /> 
         <div class="container"> 
             <!-- 상품 상세페이지 ajax로 뜨는 부분 -->
         </div>

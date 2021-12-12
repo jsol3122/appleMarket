@@ -3,13 +3,14 @@
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  <mapper namespace="warningBoardSQL">
+ 	<!-- 우리동네  -->
  	<insert id="warningBoardWrite" parameterType="warningBoard">
  		insert into warningBoard(warning_seq, board_seq, board_name, comment_YN, warning_id,
  								  warning_category, warning_subject, warning_content, 
  								  warning_image, member_id, warning_logtime)
- 		values(seq_WarningBoard.nextval, #{board_seq}, #{board_name}, #{comment_YN}, 
+ 		values(seq_WarningBoard.nextval, #{board_seq}, #{board_name},#{comment_YN}, 
  			   #{warning_id}, #{warning_category}, #{warning_subject},
- 			   #{warning_content}, #{warning_image}, #{member_id}, sysdate) 
+ 			   #{warning_content}, #{warning_image}, #{member_id}, sysdate)
  	</insert>
  
  </mapper>

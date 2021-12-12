@@ -37,7 +37,7 @@ public interface SaleboardService {
 
 	public void interestDelete(int interestList_seq);
 
-	public InterestDTO doubleCheck(int sale_seq);
+	public InterestDTO doubleCheck(SaleboardDTO saleboardDTO);
 
 	public void intereUpdate(int sale_seq);
 	

@@ -247,6 +247,32 @@
     <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="/appleMarket/js/localCommunityboardGetView.js"></script>
     <script src="/appleMarket/js/warning.js"></script>
+        <script type="text/javascript">
+    
+	$(document).on("click", ".bell", function(){
+
+		warning_id = $(this).parents().prev().prev().children().eq(0).text();
+		//alert(warning_id);
+			
+		var comment_seq = $(this).parents().prev().next().next().val();
+		//alert(comment_seq);
+		
+	  	var _width = '530';
+	    var _height = '600';
+	 
+	    // 팝업을 가운데 위치시키기 위해 아래와 같이 값 구하기
+	    var _left = Math.ceil(( window.screen.width - _width )/2);
+	    var _top = Math.ceil(( window.screen.height - _height )/2); 
+	 	
+	 
+	    window.open('/appleMarket/warningBoardForm?localcommunity_seq='+$('#localcommunity_seq').val()+'&comment_seq='+comment_seq+'&warning_id='+warning_id+'&comment_YN='+'Y','팝업창','width='+ _width +', height='+ _height +', left=' + _left + ', top='+ _top );
+	    
+	    $('#comment_YN').val('Y');
+	    $('#warning_id').val(warning_id);
+	  
+	  
+	});
+    </script>
 </body>
 
 </html>

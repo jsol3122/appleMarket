@@ -83,7 +83,7 @@ public class BuyerboardMybatis implements BuyerboardDAO {
 		
 		System.out.println(buyerboardDTO);
 		
-		InterestDTO interestDTO = buyerdoubleCheck(buyerboardDTO.getBuyerboard_seq());
+		InterestDTO interestDTO = buyerdoubleCheck(buyerboardDTO);
 		
 		if(interestDTO==null) {
 		// 찜테이블에 상품 새로 추가 (insert) interestList : member_id, sale_seq
@@ -95,9 +95,9 @@ public class BuyerboardMybatis implements BuyerboardDAO {
 	}
 	
 	@Override
-	public InterestDTO buyerdoubleCheck(int buyerboard_seq) {
+	public InterestDTO buyerdoubleCheck(BuyerboardDTO buyerboardDTO) {
 
-		return sqlSession.selectOne("buyerboardSQL.doubleCheck", buyerboard_seq);
+		return sqlSession.selectOne("buyerboardSQL.doubleCheck", buyerboardDTO);
 	}
 
 	@Override

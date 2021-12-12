@@ -165,8 +165,8 @@ public class SaleboardServiceImpl implements SaleboardService {
 	}
 
 	@Override
-	public InterestDTO doubleCheck(int sale_seq) {
-		return saleboardDAO.doubleCheck(sale_seq);
+	public InterestDTO doubleCheck(SaleboardDTO saleboardDTO) {
+		return saleboardDAO.doubleCheck(saleboardDTO);
 	}
 
 	@Override

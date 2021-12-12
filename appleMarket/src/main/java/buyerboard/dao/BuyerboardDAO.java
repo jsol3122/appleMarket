@@ -30,6 +30,6 @@ public interface BuyerboardDAO {
 
 	public BuyerboardDTO member_idLoad(String buyerboard_seq);
 
-	public InterestDTO buyerdoubleCheck(int buyerboard_seq);
+	public InterestDTO buyerdoubleCheck(BuyerboardDTO buyerboardDTO);
 
 }

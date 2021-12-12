@@ -51,7 +51,7 @@
 							    <div id="user-records-detail">
 							      <section id="user-filter">
 							    <ul>
-							      <li><a class="active" href="/u/bdWKV03NAvZy1zjP">관심목록</a></li>
+							      <li><a class="active" href="#">관심목록</a></li>
 							        <li><a class="" href="/appleMarket/view/myPage/userupdatapage.jsp">마이페이지</a></li>
 							    </ul>
 							    

@@ -14,6 +14,8 @@ function get_query(){
 $(function(){
   var result = get_query(); //result { category: "1060192", } - 의형식으로 추출됨
   
+  $('#buyerboard_seq').val(result.buyerboard_seq);
+  
   $.ajax({
       url: '/appleMarket/buyerboard/buyerboardGetView',
       type: 'post',
@@ -69,7 +71,7 @@ function get_detail(DTO){
               "<hr/>"+
               "<div class=option>"+
                   "<div class=size>"+
-                      "<h4>"+DTO.member_id+"</h4>"+
+                      "<h4 class=nick>"+DTO.member_id+"</h4>"+
                   "</div>"+
                   "<span class=divider>|</span>"+
               "</div>"+
@@ -84,6 +86,10 @@ function get_detail(DTO){
                           "<li>"
                           		+"<input type='button' style='border:0 ; outline:0' class='addcart' id='addcart' value='addcart'/>"+
                            "</li>"+
+                           "<li>"+
+                            "<a href='#' class=trash onclick='openPopup()'></a>"+
+                            "</a>" +
+                         "</li>"+
                       "</ul>"+
                       "<button type=submit id=chat>채팅하기</button>"+
                   "</div>"+

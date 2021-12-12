@@ -71,7 +71,7 @@ public class SaleboardMybatis implements SaleboardDAO {
 		// 게시글의 하트수 +1 증가 (update) saleboard : sale_heart_count 
 		sqlSession.update("saleboardSQL.saleboardPick1", saleboardDTO);
 		
-		InterestDTO interestDTO = doubleCheck(saleboardDTO.getSale_seq());
+		InterestDTO interestDTO = doubleCheck(saleboardDTO);
 		
 		if(interestDTO==null) {
 		// 찜테이블에 상품 새로 추가 (insert) interestList : member_id, sale_seq
@@ -143,8 +143,8 @@ public class SaleboardMybatis implements SaleboardDAO {
 	}
 
 	@Override
-	public InterestDTO doubleCheck(int sale_seq) {
-		return sqlSession.selectOne("saleboardSQL.doubleCheck", sale_seq);
+	public InterestDTO doubleCheck(SaleboardDTO saleboardDTO) {
+		return sqlSession.selectOne("saleboardSQL.doubleCheck", saleboardDTO);
 	}
 
 	

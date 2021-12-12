@@ -258,8 +258,8 @@ public class SaleboardController {
 	//찜게시판 중복체크 막기
 	@PostMapping("/doubleCheck")
 	@ResponseBody 
-	public InterestDTO doubleCheck(int sale_seq){
-		return saleboardService.doubleCheck(sale_seq);
+	public InterestDTO doubleCheck(SaleboardDTO saleboardDTO){
+		return saleboardService.doubleCheck(saleboardDTO);
 	}
 	
 	//찜게시판 중복체크 막기
