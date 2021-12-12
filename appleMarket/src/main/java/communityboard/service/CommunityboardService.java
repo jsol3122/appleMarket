@@ -21,6 +21,8 @@ public interface CommunityboardService {
 
 	public void communityboardHit(String communityboard_seq);
 
+	public int commentTotal(String communityboard_seq);
+
 	
 
 }
