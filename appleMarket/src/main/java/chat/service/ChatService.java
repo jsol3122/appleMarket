@@ -22,4 +22,8 @@ public interface ChatService {
 	
 	public void test();
 
+	public void makeChatRoom(Map<String, String> map);
+
+	public ChatRoomDTO chatRoom_idDTO(String chatRoom_id);
+
 }

@@ -105,10 +105,18 @@ where rownum <=10 order by no
 
 <select id="chatList" resultType="chat.bean.ChatRoomDTO">
 	select * from chatRoom
-		where user_id = #{user_id} 
+		where user_id = #{user_id} order by chatRoom_id desc
 		<!-- chat 테이블에서 sendDate 최신순으로 -->
 		
 </select>
+
+<select id="chatRoom_idDTO" resultType="chat.bean.ChatRoomDTO">
+	select * from chatRoom
+		where chatRoom_id = #{chatRoom_id} 
+		<!-- chat 테이블에서 sendDate 최신순으로 -->
+		
+</select>
+
  
  <!-- 밑에 쿼리문 맞는지 확인 -->
  <select id="personalChatHistory" resultType="chat.bean.ChatDTO">
@@ -117,16 +125,21 @@ where rownum <=10 order by no
  			order by sendDate desc
  </select>
  
+ 
+ 
  <insert id="insertChat" parameterType="chat.bean.ChatDTO">
-	insert into chat (member_id, sendDate, chatContent, sale_seq, buyerboard_seq,chatRoom_id)
+	insert into chat (member_id, user_id, sendDate, chatContent, sale_seq, buyerboard_seq,chatRoom_id)
 		values (	
 				#{member_id},
-				#{sendDate},
+				#{user_id},
+				systimestamp,
 				#{chatContent},
 				#{sale_seq},
 				#{buyerboard_seq},
 				#{chatRoom_id}
 				) 
  </insert>
+ 
+
  
 </mapper>

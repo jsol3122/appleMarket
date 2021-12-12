@@ -22,4 +22,8 @@ public interface ChatDAO {
 
 	public List<ChatDTO> personalChatHistory(int chatRoom_id);
 
+	public void makeChatRoom(Map<String, String> map);
+
+	public ChatRoomDTO chatRoom_idDTO(String chatRoom_id);
+
 }

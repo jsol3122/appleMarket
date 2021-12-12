@@ -50,4 +50,15 @@ public class ChatDAOMybatis implements ChatDAO {
 	public void insertChat(ChatDTO chatDTO) {
 		sqlSession.insert("insertChat",chatDTO);
 	}
+
+	@Override
+	public void makeChatRoom(Map<String, String> map) {
+		sqlSession.insert("newChatRoom1", map);
+		
+	}
+
+	@Override
+	public ChatRoomDTO chatRoom_idDTO(String chatRoom_id) {
+		return sqlSession.selectOne("chatRoom_idDTO", chatRoom_id);
+	}
 }

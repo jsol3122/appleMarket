@@ -14,6 +14,14 @@
  		select count(*) from saleboard
  	</select>
  	
+ 	<select id="searchLocationDong" parameterType="saleboard.bean.SaleboardDTO" resultType="String">
+ 		select location_dong from locationconfirm where member_id=#{member_id}
+ 	</select>
+ 	
+ 	<select id="searchReputation" parameterType="saleboard.bean.SaleboardDTO" resultType="double">
+ 		select member_reputation from applemarket where member_id=#{member_id}
+ 	</select>
+ 	
  	<select id="saleboardSearch" parameterType="java.util.Map" resultType="saleboard.bean.SaleboardDTO">
  			select * from saleboard where
  		<if test="searchType == 'searchId'">
@@ -31,7 +39,6 @@
      	
   	<insert id="saleboardWrite" parameterType="saleboard.bean.SaleboardDTO">
  		insert into saleboard (
- 			sale_status,
 			sale_subject,
 			sale_price,
 			sale_nego_YN,
@@ -39,7 +46,6 @@
 			sale_content,
 			member_id,
 			sale_logtime,
-			sale_hide,
 			sale_image1,
 			sale_image2,
 			sale_image3,
@@ -52,7 +58,6 @@
 			member_reputation,
 			sale_seq)	
  		values(
-	 		#{sale_status},
 			#{sale_subject},
 			#{sale_price},
 			#{sale_nego_YN},
@@ -60,7 +65,6 @@
 			#{sale_content},
 			#{member_id},
 			sysdate,
-			#{sale_hide},
 			#{sale_image1},
 			#{sale_image2},
 			#{sale_image3},
@@ -91,11 +95,7 @@
  	</select> 	
 
 	<select id="saleboardGetListId" parameterType="java.util.Map" resultType="saleboard.bean.SaleboardDTO">
- 		select * from 
-	 		(select rownum rn, tt.* from 
-	 			(select * from saleboard order by sale_seq desc) 
- 			tt)
-	 	where member_id=#{member_id} and rn between #{startNum} and #{endNum} and sale_seq != #{sale_seq}
+ 		select * from saleboard where member_id=#{member_id} and sale_seq != #{sale_seq} order by sale_seq desc
  	</select>
 
  	<select id="member_idLoad" parameterType="java.lang.String" resultType="saleboard.bean.SaleboardDTO">

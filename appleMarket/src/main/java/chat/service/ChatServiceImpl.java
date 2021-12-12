@@ -78,6 +78,19 @@ public class ChatServiceImpl implements ChatService{
 	System.out.println("서비스로 왔따 !");
 	
 	}
+
+
+	@Override
+	public void makeChatRoom(Map<String, String> map) {
+		chatDAO.makeChatRoom(map);
+		
+	}
+
+
+	@Override
+	public ChatRoomDTO chatRoom_idDTO(String chatRoom_id) {
+		return chatDAO.chatRoom_idDTO(chatRoom_id);
+	}
 	
 /*
 	public int checkChatRoom(Map<String, String> map){

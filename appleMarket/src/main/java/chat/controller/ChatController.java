@@ -16,6 +16,7 @@ import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -40,6 +41,7 @@ public class ChatController {
 	@Autowired
 	private ChatService chatService;
 	@NotNull
+	@Autowired
 	private SimpMessagingTemplate simpMessagingTemplate;
 
 	
@@ -72,7 +74,7 @@ public class ChatController {
 	
 	@PostMapping("/chat/newChat")
 	@ResponseBody
-	public Map newChat(@ModelAttribute SaleboardDTO saleboardDTO, @ModelAttribute BuyerboardDTO buyerboardDTO, HttpSession loginSession){
+	public int newChat(@ModelAttribute SaleboardDTO saleboardDTO, @ModelAttribute BuyerboardDTO buyerboardDTO,ModelAndView mv, HttpSession loginSession){
 		//HttpSession loginSession = request.getSession();
 		String user_id = (String)loginSession.getAttribute("member_id");
 		System.out.println(user_id + " 세션 받았다!");
@@ -114,21 +116,46 @@ public class ChatController {
 		chatService.test();
 		chatRoom_id = chatService.newRoom(map); // 여기까지 해결
 		System.out.println("newRoom을 다녀온"+chatRoom_id);
-		List<ChatDTO> list = chatService.personalChatHistory(chatRoom_id);
+		//List<ChatDTO> list = chatService.personalChatHistory(chatRoom_id);
 		map.put("chatRoom_id", chatRoom_id+"");
+		//chatService.makeChatRoom(map);
 		/*
 		ModelAndView mv = new ModelAndView(); 
 		mv.setView(null)
 		*/
 		System.out.println("return 전까진 작동한다.");
 		
+		//mv.setViewName(member_id)
+		
 		//chatService.personalChat(map);
 		//personalChat(chatRoom_id);
 		//System.out.println("personalChat 서비스까지 작동한다.");
-		return map;
+		return chatRoom_id;
 		//"/view/personalChat";
+		//return mv;
 	}
-
+	
+	@RequestMapping("/chat/personalChat")
+	public String enter(HttpServletRequest request, Model model){
+	       String chatRoom_id = request.getParameter("chatRoom_id");
+	       System.out.println("enter까지");
+	       //chatRoom_id 로 글 seq 랑 member_id 빼오기
+	       ChatRoomDTO chatRoomDTO = chatService.chatRoom_idDTO(chatRoom_id); // 혹시 오류나면 selectOne 을 selectList 로 바꿔주기
+	       String sale_seq = chatRoomDTO.getSale_seq();
+	       String buyerboard_seq = chatRoomDTO.getBuyerboard_seq();
+	       String member_id = chatRoomDTO.getMember_id();
+	       String user_id = chatRoomDTO.getUser_id();
+	       
+	       model.addAttribute("chatRoom_id", chatRoom_id);
+	       model.addAttribute("sale_seq", sale_seq);
+	       model.addAttribute("buyerboard_seq", buyerboard_seq);
+	       model.addAttribute("member_id", member_id);
+	       model.addAttribute("user_id", user_id);
+	       
+	       return "/view/chat/personalChat";
+	 
+	    }
+/*	
 	@PostMapping("/chat/personalChat/{chatRoom_id}")
 	private void personalChat(@RequestParam int chatRoom_id) {
 		ModelAndView mv = new ModelAndView();
@@ -136,7 +163,8 @@ public class ChatController {
 		mv.addObject("chatRoom_id", chatRoom_id); // 뷰로 보낼 데이터 값
 		mv.getView();
 	}
-
+	
+*/
 	// 채팅방들 목록 :  1) index 페이지에서 채팅 ui 클릭하면 보이게
 	//				2) /personalChat/chatRoom_id/ 에서 목록으로 돌아가기 버튼을 부를 때
 	@PostMapping("/chat/chatList")
@@ -195,7 +223,7 @@ public class ChatController {
 	}
 */
 	
-	
+/*	
 
 	@PostMapping("/chat/personalChat")
 	public ModelAndView personalChat() {
@@ -204,7 +232,7 @@ public class ChatController {
 		
 		return null;
 	}
-	
+*/	
 	
 	// 채팅 메세지 전달
     @MessageMapping("/personalChat/{chatRoom_id}") // sender
@@ -226,26 +254,35 @@ public class ChatController {
         return chatDTO;
     }
  
-/*    
-	
+    
+/*	
 	// 채팅 메세지 전달
     @MessageMapping("/personalChat/{chatRoom_id}") // sender
     @SendTo("/subscribe/chat/{chatRoom_id}") // send to subscriber
-    public void sendChat(ChatDTO chatDTO) {
- */
-    	/*
-    	String receiver = message.getReceiver();
-    	simpMessagingTemplate.convertAndSend("/subscribe/" + receiver,message);
-    	*/
- /*
+    public void sendChat(ChatDTO chatDTO, @ModelAttribute ChatRoomDTO chatRoomDTO) {
+    	System.out.println("들어오긴 하나?");
+    	int chatRoom_id = chatRoomDTO.getChatRoom_id();
+    	String sale_seq = chatRoomDTO.getSale_seq();
+    	String buyerboard_seq = chatRoomDTO.getBuyerboard_seq();
+    	String member_id = chatRoomDTO.getMember_id();
+    	String user_id = chatRoomDTO.getUser_id();
+    	
+    	String receiver = chatDTO.getMember_id();
     	chatDTO.setSendDate(new Date());
+    	simpMessagingTemplate.convertAndSend("/subscribe/" + receiver, chatDTO);
+    	
+     	chatDTO.setChatRoom_id(chatRoom_id);
+     	chatDTO.setSale_seq(sale_seq);
+     	chatDTO.setBuyerboard_seq(buyerboard_seq);
+     	chatDTO.setMember_id(member_id);
+     	chatDTO.setUser_id(user_id);
+    	
     	Map<String,Object> map = new HashMap<>();
     	map.put("chatDTO", chatDTO);
     	
     	chatService.insertChat(chatDTO);
-    }
-*/    
-    
+    }   
+  */  
     
  /*   
 	// 신고 메세지 전달
@@ -261,14 +298,39 @@ public class ChatController {
         return report;
     }
  */   
-//  //채팅 저장
-//    @RequestMapping("/chat/insertChat.do")
-//    @ResponseBody
-//    public int insertChat(Chat chat) {
-////    	Map<String,Object> map = new HashMap<>();
-////    	map.put("chatDTO", chatDTO);
-//    	int result = chatService.insertChat(chat);
-//    	return result;
-//    }
-//    
+  //채팅 저장
+    @PostMapping("/chat/insertChat")
+    @ResponseBody
+    public void insertChat(@ModelAttribute ChatRoomDTO chatRoomDTO, @ModelAttribute ChatDTO chatDTO) {
+    //Map<String,Object> map = new HashMap<>();
+   	//map.put("chatDTO", chatDTO);
+   	//result = chatService.insertChat(chat);
+   	
+	System.out.println("들어오긴 하나?");
+	int chatRoom_id = chatRoomDTO.getChatRoom_id();
+	String sale_seq = chatRoomDTO.getSale_seq();
+	String buyerboard_seq = chatRoomDTO.getBuyerboard_seq();
+	String member_id = chatRoomDTO.getMember_id();
+	String user_id = chatRoomDTO.getUser_id();
+	//String chatContent = chatRoomDTO.getChatContent();
+	System.out.println(sale_seq);
+	//String receiver = chatDTO.getMember_id();
+	//chatDTO.setSendDate(new Date());
+	//simpMessagingTemplate.convertAndSend("/subscribe/" + receiver, chatDTO);
+	
+ 	chatDTO.setChatRoom_id(chatRoom_id);
+ 	chatDTO.setSale_seq(sale_seq);
+ 	chatDTO.setBuyerboard_seq(buyerboard_seq);
+ 	chatDTO.setMember_id(member_id);
+ 	chatDTO.setUser_id(user_id);
+ 	//chatDTO.setChatContent(chatContent);
+ 	
+	Map<String,Object> map = new HashMap<>();
+	map.put("chatDTO", chatDTO);
+	
+	chatService.insertChat(chatDTO);
+   	
+   
+    }
+    
 }
