@@ -68,7 +68,6 @@ public class LocalCommunityboardController {
 	@PostMapping("/localCommunityboard/localCommunityboardModify")
 	@ResponseBody
 	public void localCommunityboardModify(@ModelAttribute LocalCommunityboardDTO localCommunityboardDTO) {
-		
 		localCommunityboardService.localCommunityboardModify(localCommunityboardDTO);
 		
 	}

@@ -46,4 +46,8 @@ public class LocalCommunityboardCommentServiceImpl implements LocalCommunityboar
 		
 	}
 
+	@Override
+	public int commentTotal(String localcommunity_seq) {
+		return localCommunityboardCommentDAO.commentTotal(localcommunity_seq);
+	}
 }

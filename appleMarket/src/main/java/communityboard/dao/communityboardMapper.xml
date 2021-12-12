@@ -60,5 +60,9 @@
  		where communityboard_seq = #{communityboard_seq}
  	</update>
  	
+ 	<select id="commentTotal" parameterType="String" resultType="int">
+		select count(*) from communityboard_Comment where communityboard_seq=#{communityboard_seq}
+	</select>
+ 	
  	
  </mapper>
