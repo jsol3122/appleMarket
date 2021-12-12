@@ -88,6 +88,9 @@ function get_detail(DTO){
                             "<li>"+
                                 "<a href='' class=addcart>addcart</a>"+
                             "</li>"+
+                            "<li>"+
+                            	"<a href='' class=trash></a>"+
+                            "</li>"+
                         "</ul>"+
                         
                         "<button type='button' class='chat' value="+ DTO.sale_seq+">채팅하기</button>"+
