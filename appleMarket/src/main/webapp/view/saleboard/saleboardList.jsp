@@ -75,7 +75,10 @@
                         <input type="checkbox" id="living" name="sale_category" value=".living">
                         <span class="box">box</span>
                         <label for="living">생활/가공식품</label>
+                        </div>
                         
+                        <div class="category_filter" data-filter-group="category">
+                        <h3></h3>
                         <input type="checkbox" id="female" name="sale_category" value=".female">
                         <span class="box">box</span>
                         <label for="female">여성패션/잡화</label>
@@ -91,7 +94,10 @@
                         <input type="checkbox" id="sports" name="sale_category" value=".sports">
                         <span class="box">box</span>
                         <label for="sports">스포츠/레저</label>
+                        </div>
                         
+                        <div class="category_filter" data-filter-group="category">
+                        <h3></h3>
                         <input type="checkbox" id="beauty" name="sale_category" value=".beauty">
                         <span class="box">box</span>
                         <label for="beauty">뷰티/미용</label>

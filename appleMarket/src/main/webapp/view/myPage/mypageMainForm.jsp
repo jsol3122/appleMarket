@@ -32,7 +32,6 @@
             <div class="content2">
                 <div class="content_resize2">
                     <div class="mainbar">
-                        <div class="article">
                             <!-- main -->
                         <c:if test="${empty display}">
                      	 <section id="content">
@@ -74,7 +73,6 @@
                             <!-- sidebar -->
                            <%@include file="/includes/myPage_sidebar.jsp" %>
                         </c:if >   
-                        </div>
                     </div>
                       
                      

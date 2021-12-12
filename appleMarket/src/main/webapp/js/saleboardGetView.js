@@ -85,6 +85,9 @@ function get_detail(DTO){
                         "<ul>"+
                             "<li>"+"<input type='button' style='border:0 ; outline:0' class='addcart' id='addcart' value='addcart'/>"+
                             "</li>"+
+                            "<li>"+
+                            	"<a href='' class=trash></a>"+
+                            "</li>"+
                         "</ul>"+
                         "<button type=submit>채팅하기</button>"+
                     "</div>"+

@@ -41,6 +41,7 @@ a.sbm{
 
 
 <body>
+	<div class="article">
 	 <form class="memberuptext" name="recommend" id="recommend">
 	     <h3>친구초대</h3>
 	     <hr>
@@ -95,7 +96,7 @@ a.sbm{
 	         <label>11. 초대하기 관련하여 문의사항이 있으시면 쳇봇을 이용해 주세요! </label>
 	     </div>
 	 </form>
-	 
+	</div>
  <script>
  var clipboard = new ClipboardJS('#url_invite');
 
