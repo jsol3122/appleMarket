@@ -313,4 +313,5 @@ $('.bd_btn').click(function(e){
     e.preventDefault();
     $('#editor_668947').attr('placeholder', '최소 1글자 이상 입력해주세요');
   }
+
 });
