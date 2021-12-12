@@ -299,39 +299,8 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-
-                                                <tr class="notice">
-                                                    <td class="no">
-                                                        <strong>공지</strong> </td>
-                                                    <td class="title">
-                                                        <a href="#"><strong><span style="font-weight:bold;;color:#ff0000">[필독]사과마켓 글 준수사항!</span></strong></a>
-                                                        <!--
-                                                            <a href="http://www.reva.kr/freebd/771023#771023_comment" class="replyNum" title="댓글">5</a> <span class="extraimages"></span>
-                                                        -->
-                                                    </td>
-                                                    <td class="author"><span><a href="#" class="member_4" onclick="return false">
-                                                        <!--
-                                                            <img src="http://www.reva.kr/modules/point/icons/lv/20.gif" alt="[레벨:20]" title="포인트:1017630point, 레벨:20/20" class="xe_point_level_icon" style="vertical-align:middle;margin-right:3px;">
-                                                        -->
-                                                            관리자</a></span></td>
-                                                    <td class="time">2021.02.14</td>
-                                                    <td class="m_no">14610</td>
-                                                </tr>
-                                                <tr class="notice">
-                                                    <td class="no">
-                                                        <strong>14119</strong> </td>
-                                                    <td class="title">
-                                                        <a href="http://www.reva.kr/freebd/70247"><strong>둘이서 먹다 ㄹㅇ 한명이 죽어도 모릅니다!!!!!</strong></a>
-                                                        <a href="http://www.reva.kr/freebd/70247#70247_comment" class="replyNum" title="댓글">161</a> <span class="extraimages"></span>
-                                                    </td>
-                                                    <td class="author"><span><a href="#" class="member_4134" onclick="return false">
-                                                        <!--
-                                                            <img src="http://www.reva.kr/modules/point/icons/lv/20.gif" alt="[레벨:20]" title="포인트:1000470point, 레벨:20/20" class="xe_point_level_icon" style="vertical-align:middle;margin-right:3px;">
-                                                        -->
-                                                            김탁구</a></span></td>
-                                                    <td class="time">2016.03.02</td>
-                                                    <td class="m_no">10405</td>
-                                                </tr>
+												<!-- 공지사항 불러오기 -->
+                                                
                                                 <!-- 일반 글목록 ajax로 띄우기 -->
                                             </tbody>
                                         </table>

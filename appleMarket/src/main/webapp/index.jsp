@@ -140,20 +140,16 @@
             <article>
                 <a href="">
                     <div class="img_prd">
-                        <img src="http://placehold.it/224X160" alt="임시 이미지">
+                        <img src="/appleMarket/storage/MLB롱패딩%20점퍼%20패딩1.jpg" alt="임시 이미지">
                     </div>
                     <div class="prd_information">
-                        <h3 class="title">상품 제목(1줄)</h3>
+                        <h3 class="title">MLB 패딩</h3>
                         <p class="address">수원시 원천동 </p>
-                        <p class="price">25,000원</p>
+                        <p class="price">88,000원</p>
                         <div class="interaction">
                             <p class="attention">
                                 <span>관심 </span>
-                                <span class="count">2</span>
-                            </p>
-                            <p class="comment">
-                                <span>댓글 </span>
-                                <span class="count">5</span>
+                                <span class="count">58</span>
                             </p>
                             <p class="chatting">
                                 <span>채팅 </span>
@@ -166,24 +162,20 @@
             <article>
                 <a href="">
                     <div class="img_prd">
-                        <img src="http://placehold.it/224X160" alt="임시 이미지">
+                        <img src="/appleMarket/storage/NBMK%20가디건%208사이즈1.jpg" alt="임시 이미지">
                     </div>
                     <div class="prd_information">
-                        <h3 class="title">상품 제목(1줄)</h3>
+                        <h3 class="title">가디건</h3>
                         <p class="address">서울시 독산동</p>
                         <p class="price">11,000원</p>
                         <div class="interaction">
                             <p class="attention">
                                 <span>관심 </span>
-                                <span class="count">5</span>
-                            </p>
-                            <p class="comment">
-                                <span>댓글 </span>
-                                <span class="count">6</span>
+                                <span class="count">75</span>
                             </p>
                             <p class="chatting">
                                 <span>채팅 </span>
-                                <span class="count">2</span>
+                                <span class="count">13</span>
                             </p>
                         </div>
                     </div>
@@ -192,24 +184,20 @@
             <article>
                 <a href="">
                     <div class="img_prd">
-                        <img src="http://placehold.it/224X160" alt="임시 이미지">
+                        <img src="/appleMarket/storage/가포파워스트레칭매트1.jpg" alt="임시 이미지">
                     </div>
                     <div class="prd_information">
-                        <h3 class="title">상품 제목(1줄)</h3>
+                        <h3 class="title">스트레칭 매트</h3>
                         <p class="address">서울시 항동</p>
-                        <p class="price">1,800원</p>
+                        <p class="price">21,800원</p>
                         <div class="interaction">
                             <p class="attention">
                                 <span>관심 </span>
-                                <span class="count">5</span>
-                            </p>
-                            <p class="comment">
-                                <span>댓글 </span>
-                                <span class="count">2</span>
+                                <span class="count">68</span>
                             </p>
                             <p class="chatting">
                                 <span>채팅 </span>
-                                <span class="count">1</span>
+                                <span class="count">15</span>
                             </p>
                             
                         </div>
@@ -219,20 +207,16 @@
             <article>
                 <a href="">
                     <div class="img_prd">
-                        <img src="http://placehold.it/224X160" alt="임시 이미지">
+                        <img src="/appleMarket/storage/(코카콜라%20한정판)%20일본%20코카콜라%20No%20Reason%20박스세트%20한정판%20미개봉%20제품%20판매합니다..jpeg" alt="임시 이미지">
                     </div>
                     <div class="prd_information">
-                        <h3 class="title">상품 제목1줄상품 제목1줄상품 제목1줄상품 제목1줄상품 제목1줄</h3>
+                        <h3 class="title">코카콜라 한정판</h3>
                         <p class="address">서울시 논현동</p>
-                        <p class="price">1,0025원</p>
+                        <p class="price">210,000원</p>
                         <div class="interaction">
                             <p class="attention">
                                 <span>관심 </span>
-                                <span class="count">5</span>
-                            </p>
-                            <p class="comment">
-                                <span>댓글 </span>
-                                <span class="count">6</span>
+                                <span class="count">66</span>
                             </p>
                             <p class="chatting">
                                 <span>채팅 </span>
@@ -245,20 +229,16 @@
             <article>
                 <a href="">
                     <div class="img_prd">
-                        <img src="http://placehold.it/224X160" alt="임시 이미지">
+                        <img src="/appleMarket/storage/(여성용%20골프채)%20미즈노%20에필7.jpg" alt="임시 이미지">
                     </div>
                     <div class="prd_information">
-                        <h3 class="title">상품 제목(1줄)</h3>
-                        <p class="address">서울시 논현동</p>
-                        <p class="price">1,5500원</p>
+                        <h3 class="title">여성용 골프채</h3>
+                        <p class="address">서울시 역삼동</p>
+                        <p class="price">89,000원</p>
                         <div class="interaction">
                             <p class="attention">
                                 <span>관심 </span>
-                                <span class="count">4</span>
-                            </p>
-                            <p class="comment">
-                                <span>댓글 </span>
-                                <span class="count">3</span>
+                                <span class="count">87</span>
                             </p>
                             <p class="chatting">
                                 <span>채팅 </span>
@@ -271,24 +251,20 @@
             <article>
                 <a href="">
                     <div class="img_prd">
-                        <img src="http://placehold.it/224X160" alt="임시 이미지">
+                        <img src="/appleMarket/storage/네스프레소%20기업용%20캡슐%20커피.jpg" alt="임시 이미지">
                     </div>
                     <div class="prd_information">
-                        <h3 class="title">상품 제목(1줄)</h3>
+                        <h3 class="title">네스프레소 캡슐</h3>
                         <p class="address">서울시 서초동</p>
-                        <p class="price">121,000원</p>
+                        <p class="price">29,000원</p>
                         <div class="interaction">
                             <p class="attention">
                                 <span>관심 </span>
-                                <span class="count">2</span>
-                            </p>
-                            <p class="comment">
-                                <span>댓글 </span>
-                                <span class="count">3</span>
+                                <span class="count">60</span>
                             </p>
                             <p class="chatting">
                                 <span>채팅 </span>
-                                <span class="count">1</span>
+                                <span class="count">9</span>
                             </p>
                         </div>
                     </div>
@@ -300,21 +276,17 @@
                         <img src="/appleMarket/img/에어팟1-1.jpg" alt="임시 이미지">
                     </div>
                     <div class="prd_information">
-                        <h3 class="title">상품 제목(1줄)</h3>
-                        <p class="address">수원시 원천동 어쩌고(1줄)</p>
-                        <p class="price">321,000원</p>
+                        <h3 class="title">에어팟</h3>
+                        <p class="address">수원시 광교동</p>
+                        <p class="price">100,000원</p>
                         <div class="interaction">
                             <p class="attention">
                                 <span>관심 </span>
-                                <span class="count">1</span>
-                            </p>
-                            <p class="comment">
-                                <span>댓글 </span>
-                                <span class="count">1</span>
+                                <span class="count">71</span>
                             </p>
                             <p class="chatting">
                                 <span>채팅 </span>
-                                <span class="count">2</span>
+                                <span class="count">7</span>
                             </p>
                         </div>
                     </div>
@@ -323,20 +295,16 @@
             <article>
                 <a href="">
                     <div class="img_prd">
-                        <img src="http://placehold.it/224X160" alt="임시 이미지">
+                        <img src="/appleMarket/storage/뉴발란스%20구스다운%20패딩3.jpg" alt="임시 이미지">
                     </div>
                     <div class="prd_information">
-                        <h3 class="title">상품 제목(1줄)</h3>
-                        <p class="address">수원시 원천동 어쩌고(1줄)</p>
+                        <h3 class="title">뉴발란스 패딩</h3>
+                        <p class="address">부천시 오류동</p>
                         <p class="price">551,000원</p>
                         <div class="interaction">
                             <p class="attention">
                                 <span>관심 </span>
-                                <span class="count">5</span>
-                            </p>
-                            <p class="comment">
-                                <span>댓글 </span>
-                                <span class="count">7</span>
+                                <span class="count">67</span>
                             </p>
                             <p class="chatting">
                                 <span>채팅 </span>
@@ -349,20 +317,16 @@
             <article>
                 <a href="">
                     <div class="img_prd">
-                        <img src="http://placehold.it/224X160" alt="임시 이미지">
+                        <img src="/appleMarket/storage/닐바렛%20Neil%20Barrett%20오일워싱%20라이더%20자켓점퍼S사이즈,%20닐바렛%20Neil%20Barrett%20오일워싱%20견장트렌치코트%20정품%20S사이즈.jpg" alt="임시 이미지">
                     </div>
                     <div class="prd_information">
-                        <h3 class="title">상품 제목(1줄)</h3>
-                        <p class="address">수원시 원천동 어쩌고(1줄)</p>
-                        <p class="price">14,000원</p>
+                        <h3 class="title">닐바렛 자켓</h3>
+                        <p class="address">서울시 가산동</p>
+                        <p class="price">35,000원</p>
                         <div class="interaction">
                             <p class="attention">
                                 <span>관심 </span>
-                                <span class="count">2</span>
-                            </p>
-                            <p class="comment">
-                                <span>댓글 </span>
-                                <span class="count">6</span>
+                                <span class="count">49</span>
                             </p>
                             <p class="chatting">
                                 <span>채팅 </span>
@@ -375,24 +339,20 @@
             <article>
                 <a href="">
                     <div class="img_prd">
-                        <img src="http://placehold.it/224X160" alt="임시 이미지">
+                        <img src="/appleMarket/storage/더그레이%20아기후드티%207호.jpg" alt="임시 이미지">
                     </div>
                     <div class="prd_information">
-                        <h3 class="title">상품 제목(1줄)</h3>
-                        <p class="address">수원시 원천동 어쩌고(1줄)</p>
+                        <h3 class="title">아기 후드티</h3>
+                        <p class="address">부천시 상동 </p>
                         <p class="price">15,000원</p>
                         <div class="interaction">
                             <p class="attention">
                                 <span>관심 </span>
-                                <span class="count">2</span>
-                            </p>
-                            <p class="comment">
-                                <span>댓글 </span>
-                                <span class="count">20</span>
+                                <span class="count">91</span>
                             </p>
                             <p class="chatting">
                                 <span>채팅 </span>
-                                <span class="count">30</span>
+                                <span class="count">1</span>
                             </p>
                         </div>
                     </div>
@@ -401,20 +361,16 @@
             <article>
                 <a href="">
                     <div class="img_prd">
-                        <img src="http://placehold.it/224X160" alt="임시 이미지">
+                        <img src="/appleMarket/storage/또봇V%20ㅡ%20기간트V%20,%20트윈블레이드%20,%20울트라커맨더%20,%20실버호크%20,%20캡틴잭%20,%20장고%20,%20세타%20,%20메트론.jpg" alt="임시 이미지">
                     </div>
                     <div class="prd_information">
-                        <h3 class="title">상품 제목(1줄)</h3>
-                        <p class="address">수원시 원천동 어쩌고(1줄)</p>
-                        <p class="price">551,000원</p>
+                        <h3 class="title">또봇 세트</h3>
+                        <p class="address">인천시 구월동</p>
+                        <p class="price">151,000원</p>
                         <div class="interaction">
                             <p class="attention">
                                 <span>관심 </span>
-                                <span class="count">3</span>
-                            </p>
-                            <p class="comment">
-                                <span>댓글 </span>
-                                <span class="count">5</span>
+                                <span class="count">65</span>
                             </p>
                             <p class="chatting">
                                 <span>채팅 </span>
@@ -516,7 +472,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="/appleMarket/js/app.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<script src="/appleMarket/js/user.js"></script>
-	
+   <script src="/appleMarket/js/user.js"></script>
+   
 </body>
 </html>

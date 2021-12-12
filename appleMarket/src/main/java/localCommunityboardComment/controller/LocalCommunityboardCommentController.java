@@ -22,12 +22,18 @@ import localCommunityboardComment.service.LocalCommunityboardCommentService;
 @Controller
 public class LocalCommunityboardCommentController {
 	@Autowired
-	LocalCommunityboardCommentService localCommunityboardCommentService;
+	private LocalCommunityboardCommentService localCommunityboardCommentService;
 	
 	@GetMapping("/localComment/localCommunityboardCommentGetList")
 	@ResponseBody
 	public List<LocalCommunityboardCommentDTO> localCommunityboardCommentGetList(@RequestParam String localcommunity_seq ){
+		System.out.println(localCommunityboardCommentService.localCommunityboardCommentGetList(localcommunity_seq));
 		return localCommunityboardCommentService.localCommunityboardCommentGetList(localcommunity_seq);
+	}
+	
+	@GetMapping("/localComment/commentTotal") @ResponseBody
+	public int commentTotal(@RequestParam String localcommunity_seq) {
+		return localCommunityboardCommentService.commentTotal(localcommunity_seq);
 	}
 	
 	@PostMapping("/localComment/localCommunityboardCommentWrite")
@@ -77,6 +83,8 @@ public class LocalCommunityboardCommentController {
 		
 		localCommunityboardCommentService.localCommunityboardCommentReply(map);
 	}
+	
+	
 	
 	
 }
