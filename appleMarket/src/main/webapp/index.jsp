@@ -144,20 +144,20 @@
                     </div>
                     <div class="prd_information">
                         <h3 class="title">상품 제목(1줄)</h3>
-                        <p class="address">수원시 원천동 어쩌고(1줄)</p>
-                        <p class="price">1,000원</p>
+                        <p class="address">수원시 원천동 </p>
+                        <p class="price">25,000원</p>
                         <div class="interaction">
                             <p class="attention">
                                 <span>관심 </span>
-                                <span class="count">0</span>
+                                <span class="count">2</span>
                             </p>
                             <p class="comment">
                                 <span>댓글 </span>
-                                <span class="count">0</span>
+                                <span class="count">5</span>
                             </p>
                             <p class="chatting">
                                 <span>채팅 </span>
-                                <span class="count">0</span>
+                                <span class="count">8</span>
                             </p>
                         </div>
                     </div>
@@ -170,20 +170,20 @@
                     </div>
                     <div class="prd_information">
                         <h3 class="title">상품 제목(1줄)</h3>
-                        <p class="address">수원시 원천동 어쩌고(1줄)</p>
-                        <p class="price">1,000원</p>
+                        <p class="address">서울시 독산동</p>
+                        <p class="price">11,000원</p>
                         <div class="interaction">
                             <p class="attention">
                                 <span>관심 </span>
-                                <span class="count">0</span>
+                                <span class="count">5</span>
                             </p>
                             <p class="comment">
                                 <span>댓글 </span>
-                                <span class="count">0</span>
+                                <span class="count">6</span>
                             </p>
                             <p class="chatting">
                                 <span>채팅 </span>
-                                <span class="count">0</span>
+                                <span class="count">2</span>
                             </p>
                         </div>
                     </div>
@@ -196,20 +196,20 @@
                     </div>
                     <div class="prd_information">
                         <h3 class="title">상품 제목(1줄)</h3>
-                        <p class="address">수원시 원천동 어쩌고(1줄)</p>
-                        <p class="price">1,000원</p>
+                        <p class="address">서울시 항동</p>
+                        <p class="price">1,800원</p>
                         <div class="interaction">
                             <p class="attention">
                                 <span>관심 </span>
-                                <span class="count">0</span>
+                                <span class="count">5</span>
                             </p>
                             <p class="comment">
                                 <span>댓글 </span>
-                                <span class="count">0</span>
+                                <span class="count">2</span>
                             </p>
                             <p class="chatting">
                                 <span>채팅 </span>
-                                <span class="count">0</span>
+                                <span class="count">1</span>
                             </p>
                             
                         </div>
@@ -223,20 +223,98 @@
                     </div>
                     <div class="prd_information">
                         <h3 class="title">상품 제목1줄상품 제목1줄상품 제목1줄상품 제목1줄상품 제목1줄</h3>
-                        <p class="address">수원시 원천동 영통구 어쩌구 1줄</p>
-                        <p class="price">1,000원</p>
+                        <p class="address">서울시 논현동</p>
+                        <p class="price">1,0025원</p>
                         <div class="interaction">
                             <p class="attention">
                                 <span>관심 </span>
-                                <span class="count">0</span>
+                                <span class="count">5</span>
                             </p>
                             <p class="comment">
                                 <span>댓글 </span>
-                                <span class="count">0</span>
+                                <span class="count">6</span>
                             </p>
                             <p class="chatting">
                                 <span>채팅 </span>
-                                <span class="count">0</span>
+                                <span class="count">8</span>
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </article>
+            <article>
+                <a href="">
+                    <div class="img_prd">
+                        <img src="http://placehold.it/224X160" alt="임시 이미지">
+                    </div>
+                    <div class="prd_information">
+                        <h3 class="title">상품 제목(1줄)</h3>
+                        <p class="address">서울시 논현동</p>
+                        <p class="price">1,5500원</p>
+                        <div class="interaction">
+                            <p class="attention">
+                                <span>관심 </span>
+                                <span class="count">4</span>
+                            </p>
+                            <p class="comment">
+                                <span>댓글 </span>
+                                <span class="count">3</span>
+                            </p>
+                            <p class="chatting">
+                                <span>채팅 </span>
+                                <span class="count">5</span>
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </article>
+            <article>
+                <a href="">
+                    <div class="img_prd">
+                        <img src="http://placehold.it/224X160" alt="임시 이미지">
+                    </div>
+                    <div class="prd_information">
+                        <h3 class="title">상품 제목(1줄)</h3>
+                        <p class="address">서울시 서초동</p>
+                        <p class="price">121,000원</p>
+                        <div class="interaction">
+                            <p class="attention">
+                                <span>관심 </span>
+                                <span class="count">2</span>
+                            </p>
+                            <p class="comment">
+                                <span>댓글 </span>
+                                <span class="count">3</span>
+                            </p>
+                            <p class="chatting">
+                                <span>채팅 </span>
+                                <span class="count">1</span>
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </article>
+            <article>
+                <a href="">
+                    <div class="img_prd">
+                        <img src="/appleMarket/img/에어팟1-1.jpg" alt="임시 이미지">
+                    </div>
+                    <div class="prd_information">
+                        <h3 class="title">상품 제목(1줄)</h3>
+                        <p class="address">수원시 원천동 어쩌고(1줄)</p>
+                        <p class="price">321,000원</p>
+                        <div class="interaction">
+                            <p class="attention">
+                                <span>관심 </span>
+                                <span class="count">1</span>
+                            </p>
+                            <p class="comment">
+                                <span>댓글 </span>
+                                <span class="count">1</span>
+                            </p>
+                            <p class="chatting">
+                                <span>채팅 </span>
+                                <span class="count">2</span>
                             </p>
                         </div>
                     </div>
@@ -250,19 +328,19 @@
                     <div class="prd_information">
                         <h3 class="title">상품 제목(1줄)</h3>
                         <p class="address">수원시 원천동 어쩌고(1줄)</p>
-                        <p class="price">1,000원</p>
+                        <p class="price">551,000원</p>
                         <div class="interaction">
                             <p class="attention">
                                 <span>관심 </span>
-                                <span class="count">0</span>
+                                <span class="count">5</span>
                             </p>
                             <p class="comment">
                                 <span>댓글 </span>
-                                <span class="count">0</span>
+                                <span class="count">7</span>
                             </p>
                             <p class="chatting">
                                 <span>채팅 </span>
-                                <span class="count">0</span>
+                                <span class="count">10</span>
                             </p>
                         </div>
                     </div>
@@ -276,19 +354,19 @@
                     <div class="prd_information">
                         <h3 class="title">상품 제목(1줄)</h3>
                         <p class="address">수원시 원천동 어쩌고(1줄)</p>
-                        <p class="price">1,000원</p>
+                        <p class="price">14,000원</p>
                         <div class="interaction">
                             <p class="attention">
                                 <span>관심 </span>
-                                <span class="count">0</span>
+                                <span class="count">2</span>
                             </p>
                             <p class="comment">
                                 <span>댓글 </span>
-                                <span class="count">0</span>
+                                <span class="count">6</span>
                             </p>
                             <p class="chatting">
                                 <span>채팅 </span>
-                                <span class="count">0</span>
+                                <span class="count">7</span>
                             </p>
                         </div>
                     </div>
@@ -302,19 +380,19 @@
                     <div class="prd_information">
                         <h3 class="title">상품 제목(1줄)</h3>
                         <p class="address">수원시 원천동 어쩌고(1줄)</p>
-                        <p class="price">1,000원</p>
+                        <p class="price">15,000원</p>
                         <div class="interaction">
                             <p class="attention">
                                 <span>관심 </span>
-                                <span class="count">0</span>
+                                <span class="count">2</span>
                             </p>
                             <p class="comment">
                                 <span>댓글 </span>
-                                <span class="count">0</span>
+                                <span class="count">20</span>
                             </p>
                             <p class="chatting">
                                 <span>채팅 </span>
-                                <span class="count">0</span>
+                                <span class="count">30</span>
                             </p>
                         </div>
                     </div>
@@ -328,97 +406,19 @@
                     <div class="prd_information">
                         <h3 class="title">상품 제목(1줄)</h3>
                         <p class="address">수원시 원천동 어쩌고(1줄)</p>
-                        <p class="price">1,000원</p>
+                        <p class="price">551,000원</p>
                         <div class="interaction">
                             <p class="attention">
                                 <span>관심 </span>
-                                <span class="count">0</span>
+                                <span class="count">3</span>
                             </p>
                             <p class="comment">
                                 <span>댓글 </span>
-                                <span class="count">0</span>
+                                <span class="count">5</span>
                             </p>
                             <p class="chatting">
                                 <span>채팅 </span>
-                                <span class="count">0</span>
-                            </p>
-                        </div>
-                    </div>
-                </a>
-            </article>
-            <article>
-                <a href="">
-                    <div class="img_prd">
-                        <img src="http://placehold.it/224X160" alt="임시 이미지">
-                    </div>
-                    <div class="prd_information">
-                        <h3 class="title">상품 제목(1줄)</h3>
-                        <p class="address">수원시 원천동 어쩌고(1줄)</p>
-                        <p class="price">1,000원</p>
-                        <div class="interaction">
-                            <p class="attention">
-                                <span>관심 </span>
-                                <span class="count">0</span>
-                            </p>
-                            <p class="comment">
-                                <span>댓글 </span>
-                                <span class="count">0</span>
-                            </p>
-                            <p class="chatting">
-                                <span>채팅 </span>
-                                <span class="count">0</span>
-                            </p>
-                        </div>
-                    </div>
-                </a>
-            </article>
-            <article>
-                <a href="">
-                    <div class="img_prd">
-                        <img src="http://placehold.it/224X160" alt="임시 이미지">
-                    </div>
-                    <div class="prd_information">
-                        <h3 class="title">상품 제목(1줄)</h3>
-                        <p class="address">수원시 원천동 어쩌고(1줄)</p>
-                        <p class="price">1,000원</p>
-                        <div class="interaction">
-                            <p class="attention">
-                                <span>관심 </span>
-                                <span class="count">0</span>
-                            </p>
-                            <p class="comment">
-                                <span>댓글 </span>
-                                <span class="count">0</span>
-                            </p>
-                            <p class="chatting">
-                                <span>채팅 </span>
-                                <span class="count">0</span>
-                            </p>
-                        </div>
-                    </div>
-                </a>
-            </article>
-            <article>
-                <a href="">
-                    <div class="img_prd">
-                        <img src="http://placehold.it/224X160" alt="임시 이미지">
-                    </div>
-                    <div class="prd_information">
-                        <h3 class="title">상품 제목(1줄)</h3>
-                        <p class="address">수원시 원천동 어쩌고(1줄)</p>
-                        <p class="price">1,000원</p>
-                        <div class="interaction">
-                            <p class="attention">
-                                <span>관심 </span>
-                                <span class="count">0</span>
-                            </p>
-                            <p class="comment">
-                                <span>댓글 </span>
-                                <span class="count">0</span>
-                            </p>
-                            <p class="chatting">
-                                <span>채팅 </span>
-                                <span class="count">0</span>
+                                <span class="count">10</span>
                             </p>
                         </div>
                     </div>
@@ -518,66 +518,5 @@
     <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="/appleMarket/js/user.js"></script>
 	
-
-<!-- 검색 버튼 함수 : 아직 수정 전 --><!--
-<script type="text/javascript">
-$(function(){
-	$('#indexSearchBtn').click(function(){
-		$.ajax({
-			url: '/appleMarket/saleboard/saleboardSearch',
-			type: 'post',
-			data: {'searchId': $('#searchId').va
-			l()},
-			//dataType: 'json',
-			//서버에서 받아올 데이터는 TEXT, HTML, XML, JSON 형식을 지정할 수 있다.
-         	//생략하면 요청한 자료에 맞게 자동으로 형식이 설정된다.
-			success: function(data) {
-				console.log(JSON.stringify(data));
-				
-				if(data == ''){
-					$('#resultDiv').text('찾고자 하는 아이디가 없습니다.');
-					$('#resultDiv').css('color', 'red');
-					$('#resultDiv').css('font-weight', 'bold');
-				}else{
-					$('#modifyFormDiv').show();
-					
-					$('#name').val(data.name);
-					$('#id').val(data.id);
-					$('#pwd').val(data.pwd);
-				}	
-			},
-			error : function(err){
-				console.log(err);
-			} 
-		});
-	});
-	
-	// 다시 작성 버튼
-	$('#resetBtn').click(function(){
-		//강제로 검색 이벤트 호출(원래 썼던 아이디로) : 이걸 트리거라고 한다.
-		// (에이작스 코드들 또 써주기는 번거로우니까) 
-		$('#searchBtn').trigger('click');
-	});
-	
-	$('#modifyBtn').click(function(){
-		$.ajax({
-			url: '/chapter06_SpringMaven/user/modify',
-			type: 'post',	
-			data: $('#modifyForm').serialize(),
-			success: function(){ // 여기는 받아오는 데이터가 아니라 수정하러 가는거라 펑션 매개변수 없음.
-				alert('회원 정보 수정 완료');
-				location.href='/chapter06_SpringMaven/user/list';
-			},
-			error: function(err){
-				console.log(err);	
-			}
-			
-		});
-	});
-});
-</script>
--->
-
-
 </body>
 </html>
