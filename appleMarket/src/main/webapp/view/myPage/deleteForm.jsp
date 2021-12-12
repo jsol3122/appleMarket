@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-   
+   						<div class="article">
                             <form class="memberuptext" id="userUpdataForm" >
                                 <h3>회원탈퇴</h3>
                                 <br>
@@ -23,7 +23,7 @@
                                 </div>
                                 <input type="button" value="탈퇴하기" id="writeBtn" class="sbm" />
                             </form>
-                            
+                           </div>
                             
 <script type="text/javascript">
 $('#writeBtn').click(function(){

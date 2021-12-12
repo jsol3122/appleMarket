@@ -454,13 +454,14 @@ header form input[type="submit"] {
 }
 
 
-/*
-.wishlist {
-    width: 19px;
-    height: 16px;
-    background-position: -210px 0;
+.trash {
+	background: url(../img/sprites.png) no-repeat;
+	display: block;
+    width: 20px;
+    height: 22px;
+    background-position: -152px 0;
 }
-*/
+
 
 .new_arrivals_list .list_contents .hover ul li a:hover {
     background-position-y: -30px;
@@ -634,7 +635,7 @@ form hr {
 .order_now ul {
     display: flex;
     margin-right: 25px;
-    width: 120px;
+    width: 60px;
     justify-content: space-between;
 }
 

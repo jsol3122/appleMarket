@@ -1,9 +1,7 @@
- <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    
-<head>
-    <script src="/appleMarket/js/buyhistory.js"></script>
 
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<head>
     <!-- 구매내역 -->
     <!-- Bootstrap -->
     <link rel="stylesheet" href="/appleMarket/css/buystyle/plugins/bootstrap/css/bootstrap.min.css">
@@ -15,8 +13,9 @@
     <link rel="stylesheet" href="/appleMarket/css/comboard.css">
     <title>사고팔고마켓</title>
 </head>
- 
-   <section class="dashboard section" style="padding-top: 0px;">
+
+<body>
+                        <section class="dashboard section" style="padding-top: 0px;">
      <!-- Container Start -->
      <div class="container">
          <!-- Row Start -->
@@ -56,3 +55,54 @@
      </div>
      <!-- Container End -->
  </section>
+                        <!-- Container End -->
+                        <!-- To Top -->
+                        <div class="top-to">
+                            <a id="top" class="" href="#"><i class="fa fa-angle-up"></i></a>
+                        </div>
+    <!-- Channel Plugin Scripts -->
+    <script>
+        (function() {
+            var w = window;
+            if (w.ChannelIO) {
+                return (window.console.error || window.console.log || function() {})('ChannelIO script included twice.');
+            }
+            var ch = function() {
+                ch.c(arguments);
+            };
+            ch.q = [];
+            ch.c = function(args) {
+                ch.q.push(args);
+            };
+            w.ChannelIO = ch;
+
+            function l() {
+                if (w.ChannelIOInitialized) {
+                    return;
+                }
+                w.ChannelIOInitialized = true;
+                var s = document.createElement('script');
+                s.type = 'text/javascript';
+                s.async = true;
+                s.src = 'https://cdn.channel.io/plugin/ch-plugin-web.js';
+                s.charset = 'UTF-8';
+                var x = document.getElementsByTagName('script')[0];
+                x.parentNode.insertBefore(s, x);
+            }
+            if (document.readyState === 'complete') {
+                l();
+            } else if (window.attachEvent) {
+                window.attachEvent('onload', l);
+            } else {
+                window.addEventListener('DOMContentLoaded', l, false);
+                window.addEventListener('load', l, false);
+            }
+        })();
+        ChannelIO('boot', {
+            "pluginKey": "8f477d11-b3a5-4a18-9f84-31eeb55cd47e"
+        });
+    </script>
+</body>
+
+</html>
+
