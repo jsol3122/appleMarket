@@ -45,6 +45,10 @@ $(function(){
 });
 
 function make_list(list){
+  let logtime = list.buyerboard_logtime;
+  let logtime_str = "2021."+(logtime.month+1)+"."+logtime.date;
+
+
   let html =
   "<tr>"+
     "<td class=product-thumb>"+
@@ -53,7 +57,7 @@ function make_list(list){
     "<td class=product-details>"+
       "<h3 class=title>"+list.buyerboard_subject+"</h3>"+
       "<span class=add-id><strong>ID:</strong>"+list.member_id+"</span>"+
-      "<span><strong>날짜:</strong><time>2021/11/27</time></span>"+
+      "<span><strong>날짜:</strong><time>"+logtime_str+"</time></span>"+
       "<span class=status><strong>가격:</strong>"+list.buyerboard_price+"</span>"+
       "<span class=location><strong>장소:</strong>"+list.location_dong+"</span>"+
     "</td>"+

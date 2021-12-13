@@ -38,7 +38,8 @@
     <link rel="stylesheet" href="/appleMarket/css/star-rating.min.css">
     <link rel="stylesheet" href="/appleMarket/css/main.css">
     <!-- <link rel="stylesheet" href="/appleMarket/css/buyandsell.css"> -->
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 </head>
 
 <body id="saleboardView">
