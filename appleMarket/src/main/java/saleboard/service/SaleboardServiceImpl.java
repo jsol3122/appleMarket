@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import boardPaging.BoardPaging;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
+import saleboard.bean.InterestDTO;
 import saleboard.bean.SaleboardDTO;
 import saleboard.dao.SaleboardDAO;
 
@@ -143,11 +144,34 @@ public class SaleboardServiceImpl implements SaleboardService {
 	public void saleboardFollow(Map<String, String> map) {
 		saleboardDAO.saleboardFollow(map);
 	}
+	
+	@Override
+	public SaleboardDTO member_idLoad(String sale_seq) {
+		return saleboardDAO.member_idLoad(sale_seq);
+	}
+
+	public List<InterestDTO> getinterestList(String member_id) {
+		return saleboardDAO.getinterestList(member_id);
+	}
 
 	@Override
-	public void saleboardChat(Map<String, String> map) {
-		saleboardDAO.saleboardChat(map);		
+	public void interestDelete(int interestList_seq) {
+		saleboardDAO.interestDelete(interestList_seq);
+		
 	}
+
+	@Override
+	public InterestDTO doubleCheck(SaleboardDTO saleboardDTO) {
+		return saleboardDAO.doubleCheck(saleboardDTO);
+	}
+
+	@Override
+	public void intereUpdate(int sale_seq) {
+		saleboardDAO.intereUpdate(sale_seq);
+		
+	}
+
+
 
 
 }

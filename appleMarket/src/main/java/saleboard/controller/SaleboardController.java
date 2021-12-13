@@ -22,7 +22,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import admin.bean.AdminNoticeDTO;
 import net.sf.json.JSONObject;
+import saleboard.bean.InterestDTO;
 import saleboard.bean.SaleboardDTO;
 import saleboard.service.SaleboardService;
 
@@ -189,23 +191,29 @@ public class SaleboardController {
 	public List<SaleboardDTO> saleboardGetListId(@RequestParam String member_id, int sale_seq) {
 		return saleboardService.saleboardGetListId(member_id, sale_seq);
 	}
+
 	
 	@PostMapping("/saleboard/saleboardPick")
-	public void saleboardPick(@ModelAttribute SaleboardDTO saleboardDTO, HttpSession loginSession) {
+	public void saleboardPick(@ModelAttribute SaleboardDTO saleboardDTO, @RequestParam String member_id) {
 		int sale_seq = saleboardDTO.getSale_seq();
-		String member_id = (String)loginSession.getAttribute("member_id");
 		
+		System.out.println(sale_seq);
+		System.out.println(member_id);
+
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("sale_seq", sale_seq+"");
 		map.put("member_id", member_id);
-
+	
+	
+		
 		saleboardService.saleboardPick(map);
+		
 	}
 	
 	@PostMapping("/saleboard/saleboardPickCancel")
-	public void saleboardPickCancel(@ModelAttribute SaleboardDTO saleboardDTO, HttpSession loginSession) {
-		int sale_seq = saleboardDTO.getSale_seq();
-		String member_id = (String)loginSession.getAttribute("member_id");
+	public void saleboardPickCancel(String sale_seq) {
+		SaleboardDTO saleboardDTO = saleboardService.member_idLoad(sale_seq);
+		String member_id = saleboardDTO.getMember_id();
 
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("sale_seq", sale_seq+"");
@@ -234,26 +242,33 @@ public class SaleboardController {
 		
 		saleboardService.saleboardFollow(map);
 	}
+		
 	
-	
-	@PostMapping("/saleboard/saleboardChat") 
+	@PostMapping("/getinterestList")
 	@ResponseBody
-	public void saleboardChat(@ModelAttribute SaleboardDTO saleboardDTO, HttpServletRequest request) {
-		HttpSession loginSession = request.getSession();
-		int sale_seq = saleboardDTO.getSale_seq();
-		String member_id = saleboardDTO.getMember_id();
-		String user_id = (String)loginSession.getAttribute("member_id");
-		
-		Map<String, String> map = new HashMap<String, String>();
-		map.put("sale_seq", sale_seq+"");
-		map.put("member_id", member_id); // 글 작성자 (채팅 걸리는 사람)
-		map.put("user_id", user_id); // 로그인 세션 아이디 (채팅 거는 사람)	
-		
-		saleboardService.saleboardChat(map);
-		
+	public List<InterestDTO> getinterestList(String member_id){
+		return saleboardService.getinterestList(member_id);
+	}
+
+	
+	//찜게시판 삭제 
+	@PostMapping("/interestDelete")
+	@ResponseBody 
+	public void interestDelete(int interestList_seq){
+		saleboardService.interestDelete(interestList_seq);
 	}
 	
+	//찜게시판 중복체크 막기
+	@PostMapping("/doubleCheck")
+	@ResponseBody 
+	public InterestDTO doubleCheck(SaleboardDTO saleboardDTO){
+		return saleboardService.doubleCheck(saleboardDTO);
+	}
 	
-	
-	
+	//찜게시판 중복체크 막기
+	@PostMapping("/intereUpdate")
+	@ResponseBody 
+	public void intereUpdate(int sale_seq){
+		saleboardService.intereUpdate(sale_seq);
+	}
 }
