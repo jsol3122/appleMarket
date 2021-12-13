@@ -26,4 +26,6 @@ public interface ChatDAO {
 
 	public ChatRoomDTO chatRoom_idDTO(String chatRoom_id);
 
+	public List<ChatDTO> newPersonalChatHistory(String user_id);
+
 }

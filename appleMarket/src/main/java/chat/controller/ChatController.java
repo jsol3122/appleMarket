@@ -11,9 +11,6 @@ import javax.servlet.http.HttpSession;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.messaging.handler.annotation.MessageMapping;
-import org.springframework.messaging.handler.annotation.SendTo;
-import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -34,15 +31,12 @@ import member.bean.MemberDTO;
 import saleboard.bean.SaleboardDTO;
 
 @Controller
-@Slf4j
 @RequiredArgsConstructor
 public class ChatController {
 	@NotNull
 	@Autowired
 	private ChatService chatService;
-	@NotNull
-	@Autowired
-	private SimpMessagingTemplate simpMessagingTemplate;
+
 
 	
 /*	
@@ -53,7 +47,7 @@ public class ChatController {
         simpMessagingTemplate.convertAndSend("/subscribe/" + receiver,message);
     }	
 */	
-	
+/*	
 	@RequestMapping(value="/chatting.do")
 	public ModelAndView chat(ModelAndView mv) {
 		mv.setViewName("chat/chattingview");
@@ -68,7 +62,7 @@ public class ChatController {
 		
 		return mv;	
 	}
-	
+*/	
 	// 새로운 채팅 시작 : 작성글에서 "채팅으로 거래하기"  
 	// => 글번호, user 두명 초대해서 return "redirect:/personalChat/" + chatRoom_id; 여기로 연결
 	
@@ -152,6 +146,12 @@ public class ChatController {
 	       model.addAttribute("member_id", member_id);
 	       model.addAttribute("user_id", user_id);
 	       
+	       List<ChatRoomDTO> chatRoomDTOlist = chatService.ChatList(user_id);
+	       model.addAttribute("chatRoomDTOlist", chatRoomDTOlist);
+	       
+	       List<ChatDTO> newPersonalChatHistory = chatService.newPersonalChatHistory(user_id);
+	       model.addAttribute("newPersonalChatHistory", newPersonalChatHistory);
+	       
 	       return "/view/chat/personalChat";
 	 
 	    }
@@ -233,7 +233,7 @@ public class ChatController {
 		return null;
 	}
 */	
-	
+/*	
 	// 채팅 메세지 전달
     @MessageMapping("/personalChat/{chatRoom_id}") // sender
     @SendTo("/subscribe/chat/{chatRoom_id}") // send to subscriber
@@ -253,7 +253,7 @@ public class ChatController {
         log.info("selectkey 사용 = {}",chatDTO);
         return chatDTO;
     }
- 
+ */
     
 /*	
 	// 채팅 메세지 전달

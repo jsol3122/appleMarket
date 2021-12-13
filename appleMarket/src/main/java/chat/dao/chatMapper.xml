@@ -125,6 +125,12 @@ where rownum <=10 order by no
  			order by sendDate desc
  </select>
  
+  <select id="newPersonalChatHistory" resultType="chat.bean.ChatDTO">
+ 	select * from chat
+ 		where user_id = #{user_id}
+ 			order by sendDate desc
+ </select>
+ 
  
  
  <insert id="insertChat" parameterType="chat.bean.ChatDTO">

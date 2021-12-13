@@ -91,6 +91,12 @@ public class ChatServiceImpl implements ChatService{
 	public ChatRoomDTO chatRoom_idDTO(String chatRoom_id) {
 		return chatDAO.chatRoom_idDTO(chatRoom_id);
 	}
+
+
+	@Override
+	public List<ChatDTO> newPersonalChatHistory(String user_id) {
+		return chatDAO.newPersonalChatHistory(user_id);
+	}
 	
 /*
 	public int checkChatRoom(Map<String, String> map){

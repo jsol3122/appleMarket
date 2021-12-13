@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>  
+<%@ page import="chat.bean.*"%>
+<%@ page import="java.util.*"%>
+
 <!DOCTYPE html>
 <%--<html> --%>
 <html ng-app='swankyChat' ng-cloak='true'>
@@ -239,6 +242,18 @@ html, body {
 <% String chatRoom_id = (String) request.getAttribute("chatRoom_id"); %>
 <% String member_id = (String) request.getAttribute("member_id"); %>
 <% String user_id = (String) request.getAttribute("user_id"); %>
+<% List<ChatRoomDTO> chatRoomDTOlist = (ArrayList<ChatRoomDTO>) request.getAttribute("chatRoomDTOlist");
+System.out.println(chatRoomDTOlist);
+for(ChatRoomDTO chatRoomDTO : chatRoomDTOlist){
+	if(chatRoomDTO.getUser_id().equals(user_id)){
+		System.out.println(chatRoomDTO.getMember_id());
+		int i = 0; 
+		//String[] member_idArr = chatRoomDTO.getMember_id();
+	} // if 문이 다 돌면 배열의 크기가 정해진다. 이 다음에 값을 넣어야 하는데 if문 밖으로 나오면 죽어버린다.
+}
+%>
+<% List<ChatDTO> newPersonalChatHistory = (ArrayList<ChatDTO>) request.getAttribute("newPersonalChatHistory"); %>
+
 <%--<html ng-app='swankyChat' ng-cloak='true'> --%>
   <div class='container'>
     <div class='inbox'>
@@ -246,8 +261,8 @@ html, body {
         <ul ng-controller='chatCtrl as chat'>
           <div ng-repeat='chat in chats'>
             <li ng-click='uid(chat.id)'>
-              <img class='avatar' src='{{chat.avatar}}'>
-              <p class='username'>{{chat.username}}</p>
+              <img class='avatar' src='../img/rabbit.jpg'>
+              <p class='username'><%=member_id %></p>
             </li>
           </div>
         </ul>
@@ -256,8 +271,8 @@ html, body {
         <div class='init'>
           <i class='fa fa-inbox'></i>
           <h4>Choose a conversation from the left</h4>
-       <%= chatRoom_id %>
-       <%= member_id %>
+       <%-- = chatRoom_id --%>
+       <%-- = member_id --%>
        </div>
         <div class='loader'>
           <p></p>
@@ -268,7 +283,7 @@ html, body {
           <!-- Repeat Each Item In The Array Seperately -->
           <div class='message' ng-repeat='i in message.messages track by $index'>
             <p>{{i}}</p>
-            <img ng-src='{{message.avatar}}'>
+            <img ng-src='../img/rabbit.jpg'>
           </div>
         </div>
         <footer>

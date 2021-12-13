@@ -20,6 +20,8 @@ public interface ChatService {
 
 	public List<ChatDTO> personalChatHistory(int chatRoom_id); // 대화 기록 불러오기
 	
+	public List<ChatDTO> newPersonalChatHistory(String user_id);
+	
 	public void test();
 
 	public void makeChatRoom(Map<String, String> map);
