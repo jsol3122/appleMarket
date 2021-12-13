@@ -36,7 +36,8 @@
 				<p class ="icon" align="center">
 					<img src="/appleMarket/img/writefail.png" width="200" alt="회원가입실패_아이콘"/><br><br><br>
 				</p>
-				<h3 align="center" style="color:red;">회원가입 실패</h3><br><br>
+				<h3 align="center" style="color:red;">회원가입 실패</h3><br>
+				<p align="center">블랙리스트 처리된 회원입니다.</p><br><br>
 			</div>
 			<br>
 			

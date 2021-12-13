@@ -10,11 +10,11 @@
 		<div class="col-lg-8">
 			<!--게시판 넓이 -->
 			<div class="col-lg-12">
-				<h1 class="page-header">공지사항 작성</h1>
+				<h1 class="page-header">Notice Write</h1>
 			</div>
 			<div class="row"></div>
 			<div class="panel panel-default">
-				<div class="panel-heading" style="text-align: center;">공지사항 작성</div>
+				<div class="panel-heading" style="text-align: center;">Notice Write</div>
 				<div class="panel-body">
 					<form name="adminNoticeWriteForm" id="adminNoticeWriteForm">
 
@@ -32,9 +32,9 @@
 									<div id="contentDiv"></div></td>
 							</tr>
 							<tr>
-								<td colspan="2" align="center"><input type="button"
-									id="adminNoticeWriteBtn" value="글작성"> <input
-									type="reset" value="다시작성"></td>
+								<td colspan="2" align="center">
+									<input type="button" class="btn btn-outline btn-primary pull-center" id="adminNoticeWriteBtn" value="글작성"> 
+									<input type="reset" class="btn btn-outline btn-primary pull-center" value="다시작성"></td>
 							</tr>
 						</table>
 

@@ -34,6 +34,7 @@
             <div class="content">
                 <div class="content_resize">
                     <div class="mainbar">
+                        <div class="article">
                             <!-- main -->
                         <c:if test="${empty display}">
                       <form class="memberuptext" id="userUpdataForm" action="" method="">
@@ -43,6 +44,7 @@
                     <c:if test="${not empty display}">
                            <jsp:include page="${display }"/>
                         </c:if >   
+                        </div>
                     </div>
                        <!-- sidebar -->
                      <%@include file="/includes/myPage_sidebar.jsp" %>

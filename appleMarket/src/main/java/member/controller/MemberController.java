@@ -88,6 +88,7 @@ public class MemberController{
 //회원가입 - index 이동(맞는지 확인 요망)
    @RequestMapping("/write")
    public String write(@ModelAttribute @Valid @Nullable MemberDTO memberDTO,@Nullable @RequestParam("recommend_id") String recommend_id, HttpSession session){
+
       
       String member_id=memberDTO.getMember_id();
       MemberDTO Check = memberSerivce.checkId(memberDTO.getMember_id());
@@ -98,36 +99,35 @@ public class MemberController{
       memberDTO.setMember_pwd(securePw);
       System.out.println("암호화한 비밀번호"+securePw);
   
-      
-       //추천인 등록      
-      Map<String, String> map = new HashMap<String,String>();
-      map.put("recommend_id", recommend_id);
-      map.put("member_id", member_id);
-      int recommendChk = memberSerivce.recommendChk(map);
-      
-      
-      System.out.println("recommend_id=" + recommend_id);
-      System.out.println("member_id="+memberDTO.getMember_id());
-      System.out.println("recommendChk="+recommendChk);
-      
-      if(blackListDTO == null){
-         if(Check == null) {
-            
-            System.out.println(blackListDTO);
-            memberSerivce.write(memberDTO);
-            //추천인 등록
-            if(recommend_id!=""){
-               if(recommendChk<5) { 
-                     memberSerivce.recommend(map);
-                     memberSerivce.recommended(map);
-               }
-            }
-            
-               
-         }
-      return "/view/user/writeFormSuccess";
+      //추천인 등록      
+		Map<String, String> map = new HashMap<String,String>();
+		map.put("recommend_id", recommend_id);
+		map.put("member_id", member_id);
+		int recommendChk = memberSerivce.recommendChk(map);
+		
+		
+		System.out.println("recommend_id=" + recommend_id);
+		System.out.println("member_id="+memberDTO.getMember_id());
+		System.out.println("recommendChk="+recommendChk);
+		
+		if(blackListDTO == null){
+			if(Check == null) {
+				
+				System.out.println(blackListDTO);
+				memberSerivce.write(memberDTO);
+				//추천인 등록
+				if(recommend_id!=""){
+					if(recommendChk<5) { 
+			            memberSerivce.recommend(map);
+			            memberSerivce.recommended(map);
+					}
+				}
+				
+					
+			}
+		return "/view/user/writeFormSuccess";
       }else {
-        session.invalidate();
+    	 session.invalidate();
          return "/view/user/writeFail";
       }
    }
@@ -431,6 +431,11 @@ public class MemberController{
 		
 		}
 	//============================================================================================
-	
-	
+
+	@GetMapping("/profile")
+	   public String profile() {
+	      
+	      return "/view/myPage/profile";
+	   }
+
 }
