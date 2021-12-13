@@ -198,6 +198,12 @@ public class MemberServiceImpl implements MemberService {
 		
 	}
 
+	@Override
+	public MemberDTO checkPwd(MemberDTO memberDTO) {
+		
+		return memberDAO.checkPwd(memberDTO);
+	}
+
 
 	
 

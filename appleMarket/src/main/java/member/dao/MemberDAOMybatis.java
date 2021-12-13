@@ -132,6 +132,12 @@ public class MemberDAOMybatis implements MemberDAO {
 	public void recommendCoupon(String member_id) {
 		sqlSession.update("memberSQL.recommendCoupon",member_id);		
 	}
+
+	@Override
+	public MemberDTO checkPwd(MemberDTO memberDTO) {
+		
+		return sqlSession.selectOne("memberSQL.login", memberDTO);
+	}
 	
 
 	
