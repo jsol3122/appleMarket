@@ -26,9 +26,6 @@
             </div>
             <div class="row">
                   <div class="col-lg-12">
-                      <button type="button" class="btn btn-outline btn-primary pull-right" onclick="location.href='/appleMarket/adminBlackList'">
-                          <i class="fa fa-edit fa-fw"></i> 공지사항 작성
-                      </button>
                   </div>
               </div>
               <br>

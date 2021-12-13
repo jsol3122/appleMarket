@@ -23,7 +23,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import admin.bean.AdminNoticeDTO;
 import net.sf.json.JSONObject;
+import saleboard.bean.InterestDTO;
 import saleboard.bean.SaleboardDTO;
 import saleboard.service.SaleboardService;
 
@@ -188,22 +190,30 @@ public class SaleboardController {
 	public List<SaleboardDTO> saleboardGetListId(@RequestParam String member_id, int sale_seq) {
 		return saleboardService.saleboardGetListId(member_id, sale_seq);
 	}
+
 	
 	@PostMapping("/saleboard/saleboardPick")
-	public void saleboardPick(@ModelAttribute SaleboardDTO saleboardDTO) {
+	public void saleboardPick(@ModelAttribute SaleboardDTO saleboardDTO, @RequestParam String member_id) {
 		int sale_seq = saleboardDTO.getSale_seq();
-		String member_id = saleboardDTO.getMember_id();
-
+		
+		System.out.println(sale_seq);
+		System.out.println(member_id);
+		
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("sale_seq", sale_seq+"");
 		map.put("member_id", member_id);
-
+	
+	
+		
 		saleboardService.saleboardPick(map);
+		
 	}
 	
 	@PostMapping("/saleboard/saleboardPickCancel")
-	public void saleboardPickCancel(@ModelAttribute SaleboardDTO saleboardDTO) {
-		int sale_seq = saleboardDTO.getSale_seq();
+	public void saleboardPickCancel(String sale_seq) {
+		
+		SaleboardDTO saleboardDTO = saleboardService.member_idLoad(sale_seq);
+		
 		String member_id = saleboardDTO.getMember_id();
 
 		Map<String, String> map = new HashMap<String, String>();
@@ -234,6 +244,30 @@ public class SaleboardController {
 		saleboardService.saleboardFollow(map);
 	}
 	
-
+	@PostMapping("/getinterestList")
+	@ResponseBody
+	public List<InterestDTO> getinterestList(String member_id){
+		return saleboardService.getinterestList(member_id);
+	}
 	
+	//찜게시판 삭제 
+	@PostMapping("/interestDelete")
+	@ResponseBody 
+	public void interestDelete(int interestList_seq){
+		saleboardService.interestDelete(interestList_seq);
+	}
+	
+	//찜게시판 중복체크 막기
+	@PostMapping("/doubleCheck")
+	@ResponseBody 
+	public InterestDTO doubleCheck(SaleboardDTO saleboardDTO){
+		return saleboardService.doubleCheck(saleboardDTO);
+	}
+	
+	//찜게시판 중복체크 막기
+	@PostMapping("/intereUpdate")
+	@ResponseBody 
+	public void intereUpdate(int sale_seq){
+		saleboardService.intereUpdate(sale_seq);
+	}
 }
