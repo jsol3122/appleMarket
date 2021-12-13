@@ -308,6 +308,7 @@ public class MemberController{
 	
 	//수정하기 
 	@PostMapping("/modify")
+	
 	@ResponseBody
 	public void modify(@ModelAttribute MemberDTO memberDTO) {
 		memberSerivce.modify(memberDTO);
