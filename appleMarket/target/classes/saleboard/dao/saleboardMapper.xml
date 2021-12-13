@@ -149,4 +149,5 @@
 	<update id="intereUpdate" parameterType="saleboard.bean.SaleboardDTO">
 		update interestList set sale_status=#{sale_status}, sale_subject=#{sale_subject}, sale_price=#{sale_price}, sale_logtime=#{sale_logtime}, sale_image1=#{sale_image1} where sale_seq=#{sale_seq} and member_id=#{member_id}
 	</update>
+
  </mapper>
