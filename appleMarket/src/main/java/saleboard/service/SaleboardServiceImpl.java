@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import boardPaging.BoardPaging;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
-import saleboard.bean.InterestDTO;
 import saleboard.bean.SaleboardDTO;
 import saleboard.dao.SaleboardDAO;
 
@@ -53,6 +52,7 @@ public class SaleboardServiceImpl implements SaleboardService {
 			
 			for(SaleboardDTO saleboardDTO : list) {
 				JSONObject temp = new JSONObject();
+				
 				temp.put("sale_seq", saleboardDTO.getSale_seq());
 				
 				temp.put("sale_image1", saleboardDTO.getSale_image1());
@@ -63,7 +63,9 @@ public class SaleboardServiceImpl implements SaleboardService {
 				
 				temp.put("member_profilePic", saleboardDTO.getMember_profilePic());
 				temp.put("member_id", saleboardDTO.getMember_id());
-				temp.put("location_dong", saleboardDTO.getLocation_dong());
+
+				temp.put("location1_addr2", saleboardDTO.getLocation_dong());
+				
 				temp.put("sale_heart_count", saleboardDTO.getSale_heart_count());
 				temp.put("sale_hit", saleboardDTO.getSale_hit());
 				temp.put("sale_free_YN", saleboardDTO.getSale_free_YN());
@@ -144,34 +146,15 @@ public class SaleboardServiceImpl implements SaleboardService {
 	public void saleboardFollow(Map<String, String> map) {
 		saleboardDAO.saleboardFollow(map);
 	}
+
+
+
 	
-	@Override
-	public SaleboardDTO member_idLoad(String sale_seq) {
-		return saleboardDAO.member_idLoad(sale_seq);
-	}
-
-	public List<InterestDTO> getinterestList(String member_id) {
-		return saleboardDAO.getinterestList(member_id);
-	}
-
-	@Override
-	public void interestDelete(int interestList_seq) {
-		saleboardDAO.interestDelete(interestList_seq);
-		
-	}
-
-	@Override
-	public InterestDTO doubleCheck(SaleboardDTO saleboardDTO) {
-		return saleboardDAO.doubleCheck(saleboardDTO);
-	}
-
-	@Override
-	public void intereUpdate(int sale_seq) {
-		saleboardDAO.intereUpdate(sale_seq);
-		
-	}
-
-
+//	@Override
+//	public void saleboardChat(String sale_id) {
+//		saleboardDAO.saleboardChat(sale_id);
+//		
+//	}
 
 
 }

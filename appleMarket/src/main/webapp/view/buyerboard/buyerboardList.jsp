@@ -71,9 +71,7 @@
                         <input type="checkbox" id="baby" name="buyerboard_category" value="유아동" onclick='getCheckboxValue(event)'>
                         <span class="box">box</span>
                         <label for="baby">유아동</label>
-						</div>
-						<div class="category_filter">
-                        <h3>카테고리</h3>
+
                         <input type="checkbox" id="living" name="buyerboard_category" value="생활/가공식품" onclick='getCheckboxValue(event)'>
                         <span class="box">box</span>
                         <label for="living">생활/가공식품</label>
@@ -89,9 +87,7 @@
                         <input type="checkbox" id="hobby" name="buyerboard_category" value="게임/취미" onclick='getCheckboxValue(event)'>
                         <span class="box">box</span>
                         <label for="hobby">게임/취미</label>
-                        </div>
-                        <div class="category_filter">
-                        <h3>카테고리</h3>
+                        
                         <input type="checkbox" id="sports" name="buyerboard_category" value="스포츠/레저" onclick='getCheckboxValue(event)'>
                         <span class="box">box</span>
                         <label for="sports">스포츠/레저</label>

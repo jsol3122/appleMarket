@@ -13,8 +13,6 @@ function get_query(){
 // 추출한 글번호로 db 갔다와서 해당하는 글 내용 불러오기
 $(function(){
     var result = get_query(); //result { category: "1060192", } - 의형식으로 추출됨
-   // alert(result.sale_seq);
-     $('#sale_seq').val(result.sale_seq);
     
     $.ajax({
         url: '/appleMarket/saleboard/saleboardGetView',
@@ -47,13 +45,8 @@ $(function(){
     });
 });
 
-
-
-
-
 // 화면에 글 상세페이지 삽입하는 함수
 function get_detail(DTO){
-	var result = get_query();
     let html = 
     "<div class=row>"+
         "<div class=product_pictures>"+
@@ -76,7 +69,7 @@ function get_detail(DTO){
                 "<hr/>"+
                 "<div class=option>"+
                     "<div class=size>"+
-                        "<h4 class=nick>"+DTO.member_id+"</h4>"+
+                        "<h4>"+DTO.member_id+"</h4>"+
                     "</div>"+
                     "<span class=divider>|</span>"+
                 "</div>"+
@@ -88,15 +81,14 @@ function get_detail(DTO){
                     "</div>"+
                     "<div class=order_now>"+
                         "<ul>"+
-                            "<li>"+"<input type='button' style='border:0 ; outline:0' class='addcart' id='addcart' value='addcart'/>"+
+                            "<li>"+
+                                "<a href='' class=addcart>addcart</a>"+
                             "</li>"+
                             "<li>"+
-                            	"<a href='#' class=trash onclick='openPopup()'></a>"+
+                            	"<a href='' class=trash></a>"+
                             "</li>"+
                         "</ul>"+
-                        
-                        "<button type='button' class='chat' value="+ DTO.sale_seq+">채팅하기</button>"+
-                        
+                        "<button type=submit>채팅하기</button>"+
                     "</div>"+
                 "</div>"+
             "</form>"+
@@ -111,96 +103,6 @@ function get_detail(DTO){
     $('form div').eq(2).addClass('order_summary');
     $('.addcart').addClass('sprites');
 
-//saleboardDTO 변수들만 넣을 수 있다
-	var member_id = DTO.member_id;
-	var sale_seq = DTO.sale_seq;
-
-	// 채팅하기 버튼 클릭
-	
-	$(document).on('click', '.chat',function(DTO){
- 	alert(member_id+" "+sale_seq+"DTO 들어왔나?");  
-	    $.ajax({
-	      url: '/appleMarket/chat/newChat',
-	      type: 'post',
-	      data: 'member_id='+member_id+'&sale_seq='+sale_seq,  
-	      async: false,
-	      success: function(data){
-	        //alert(JSON.stringify(data)); //newChat에서 JSON으로 넘어온다.
-	        var chatRoom_id = JSON.stringify(data);
-	        alert(chatRoom_id);
-	        //alert({chatRoom_id}); 
-	        //const obj = JSON.parse(json);
-			//console.log(obj.chatRoom_id);
-			//alert(obj.chatRoom_id);
-	        // 여기서 return map 값이 나와서 seq, chatRoom_id 까지 전부 들어있다.
-	        //console.log('dto 보내기 성공~~~~~~~');
-	        
-	       
-	        //location.href='/appleMarket/chat/personalChat?chatRoom_id='+chatRoom_id;
-	        var popup = window.open('/appleMarket/chat/personalChat?chatRoom_id='+chatRoom_id, '팝업', 'width=900px,height=500px,left=600px,top=200px,scrollbars=yes');
-	        
-	        //var newChatMap = JSON.stringify(data);
-	        //var obj = JSON.parse(json);
-	        //alert(newChatMap);
-	        //var chatRoom_id = document.getElementById("newChatMap").innerHTML += newChatMap.chatRoom_id ;
-			//console.log(newChatMap.chatRoom_id);
-	        //alert(chatRoom_id);
-
-/*            
-            $.ajax({
-                //url: '/appleMarket/chat/personalChat/{chatRoom_id}',
-                url: '/appleMarket/view/chat/personalChat',
-                type: 'post',
-                data: JSON.stringify(data),
-                dataType: 'json',
-                success: function(data){
-                    //location.href='/appleMarket/view/chat/personalChat/{chatRoom_id}'
-                    location.href='/appleMarket/chat/personalChat';
-                },
-                errer: function(err){
-                    console.log('이중 ajax 실패')
-                }
-            });
-	*/        
-	     
-	       
-	      },
-	      error: function(){
-	        console.log('dto 보내기 실패')
-	      }
-        });      
-	});
-
-/*
-	$(document).on('click', '.chat',function(DTO){
-		if(confirm("여긴 들어오나?")) {
-		function sendPost(url, params){
-			var form = document.createElement('form');
-			form.setAttribute('method','post');	
-			form.setAttribute('action', '/appleMarket/chat/newChat');	
-			document.charset = "utf-8";
-			for (var key in params) {
-				var hiddenField = document.createElement('input');
-				hiddenField.setAttribute('type', 'hidden');
-				hiddenField.setAttribute('name', 'sale_seq');
-				hiddenField.setAttribute('value', sale_seq);
-				form.appendChild(hiddenField);	
-				
-				hiddenField = document.createElement("input");
-				hiddenField.setAttribute("type", "hidden");
-				hiddenField.setAttribute("name", "member_id");
-				hiddenField.setAttribute("value", member_id);
-				form.appendChild(hiddenField);	
-			
-			}
-			document.body.appendChild(form);
-			form.submit();
-			console.log('dto 보내기 성공~~~~~~~');
-		}
-		}
-	});
-*/
-	
     if(DTO.sale_image3 != null){
         make_li(DTO.sale_image3);
     }else if(DTO.sale_image4 != null){
@@ -270,12 +172,11 @@ let renderList = function(mode, DTO){
     $(".new_arrivals_list").append(html);
     console.log(mode)
     
-  //  $('.hover a').addClass('addcart');
+    $('.hover a').addClass('addcart');
     $('.new_arrivals_list>li').addClass(['col-md-3', category]);
     
 
 }
-
 
 // 글 수정버튼 클릭
 $(document).on('click', '#saleboard_modify', function(){
@@ -306,7 +207,6 @@ $(document).on('click', '#saleboard_delete', function(){
     });
   }else return false;
 });
-
 
 
 

@@ -7,15 +7,14 @@
 
 <div class="page-wrapper">
 	<div class="container-fluid">
-		<div class="col-lg-10">
+		<div class="col-lg-8">
 			<!--게시판 넓이 -->
 			<div class="col-lg-12">
-				<h1 class="page-header">Notice Modify</h1>
+				<h1 class="page-header">공지사항 수정</h1>
 			</div>
-			<div class="row">
-			</div>
+			<div class="row"></div>
 			<div class="panel panel-default">
-				<div class="panel-heading" style="text-align: center;">Notice Modify</div>
+				<div class="panel-heading" style="text-align: center;">공지사항 수정 </div>
 				<div class="panel-body">
 					<form name="adminNoticeModifyForm" id="adminNoticeModifyForm">
 						<input type="hidden" id="admin_notice_seq" name="admin_notice_seq"
@@ -35,9 +34,13 @@
 									<div id="contentDiv"></div></td>
 							</tr>
 							<tr>
-								<td colspan="2" align="center">
-									<input type="button" class="btn btn-outline btn-primary pull-center" id="adminNoticeModifyBtn" value="글수정"> 
-									<input type="reset" class="btn btn-outline btn-primary pull-center" value="다시작성"></td>
+								<td colspan="2" align="center"><input type="button"
+									class="btn btn-outline btn-primary pull-right"
+									id="adminNoticeModifyBtn" value="글수정"> 
+									<input
+									type="reset" 
+									class="btn btn-outline btn-primary pull-right"
+									value="다시작성"></td>
 							</tr>
 						</table>
 

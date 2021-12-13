@@ -2,8 +2,6 @@ package member.bean;
 
 import java.util.Date;
 
-import org.springframework.lang.Nullable;
-
 import lombok.Data;
 
 @Data
