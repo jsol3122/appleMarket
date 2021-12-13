@@ -31,6 +31,8 @@ public interface SaleboardDAO {
 
 	public void saleboardFollow(Map<String, String> map);
 
+	//public void saleboardChat(Map<String, String> map);
+
 	public List<SaleboardDTO> saleboardGetListId(Map<String, Object> map);
 
 	public SaleboardDTO member_idLoad(String sale_seq);

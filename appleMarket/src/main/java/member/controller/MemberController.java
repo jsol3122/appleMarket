@@ -73,7 +73,19 @@ public class MemberController{
 		return "/view/user/writeFail";
 	}
 	
-	
+
+//	//회원가입
+//	@RequestMapping("/write")
+//	@ResponseBody
+//	public void write(@ModelAttribute @Valid MemberDTO memberDTO) {
+//		String Check = memberSerivce.checkId(memberDTO.getMember_id());
+//		if(Check.equals("non_exist")) {
+//			memberSerivce.write(memberDTO);
+//		}else {
+//			return;
+//		}
+//	}
+
 
 	//이메일 중복체크
 	@PostMapping("/emailChk")
@@ -334,11 +346,14 @@ public class MemberController{
 		memberSerivce.searchPwd(memberDTO, response);
 	}
 
+
+
 	//비밀번호찾기- 비밀번호변경
 	@GetMapping(value="/searchPwdForm")
 	public String changePwdForm(){			
 		return "/view/user/searchPwdForm";
 	}
+
 	//마이페이지 비밀번호 변경 폼
 	@GetMapping(value="/changePwdForm")
 	public String changePwdForm(HttpServletRequest request, HttpServletResponse response) throws Throwable{
