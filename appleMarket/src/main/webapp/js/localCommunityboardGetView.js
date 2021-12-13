@@ -162,7 +162,7 @@ let commentList = function(mode, DTO){
     "</div>"+
     "<div class=xe_content>"+DTO.localcommunity_comment_content+"</div>"+
     "<div class=img_tx>"+
-      "<a class=bell><i class=fa-concierge-bell></i>신고</a>"+
+      "<a class=bell href='#'><i class=fa-concierge-bell></i>신고</a>"+
     "</div>"+
     "<input type=hidden id=comment_seq value="+DTO.localcommunity_comment_seq+" />"+
   "</li>";
@@ -176,7 +176,7 @@ let commentList = function(mode, DTO){
     "<div class=xe_content>"+DTO.localcommunity_comment_content+"</div>"+
     "<div class=img_tx>"+
       "<a class=trash><i class=fa-trash></i>삭제</a>"+
-      "<a class=bell><i class=fa-concierge-bell></i>신고</a>"+
+      "<a class=bell href='#'><i class=fa-concierge-bell></i>신고</a>"+
     "</div>"+
     "<input type=hidden id=comment_seq value="+DTO.localcommunity_comment_seq+" />"+
   "</li>";
@@ -215,7 +215,7 @@ function make_list(list){
       "</a></span>"+
     "</td>"+
     "<td class=time title=''>"+logtime_str+"</td>"+
-    "<td class=m_no>"+list.localcommunity_hit+"</td>"+
+    "<td class=m_no>"+list.localcommunity_hitlsrt+"</td>"+
   "</tr>";
 
   $('.bd_lst tbody').append(html);
@@ -313,4 +313,5 @@ $('.bd_btn').click(function(e){
     e.preventDefault();
     $('#editor_668947').attr('placeholder', '최소 1글자 이상 입력해주세요');
   }
+
 });
