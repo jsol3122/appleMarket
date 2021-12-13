@@ -48,6 +48,7 @@ function make_list(list){
   let html =
   "<tr>"+
     "<td class=product-thumb>"+
+       "<a href='/appleMarket/view/saleboard/saleboardView.jsp?sale_seq="+list.sale_seq+"'>"+	
       "<img width=80px height=auto src='/appleMarket/storage/"+list.sale_image1+"' alt='판매내역사진'>"+
     "</td>"+
     "<td class=product-details>"+

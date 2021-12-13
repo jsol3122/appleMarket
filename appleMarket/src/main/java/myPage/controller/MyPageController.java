@@ -275,6 +275,9 @@ public class MyPageController {
 		return myPageService.myBuyerGetView(buyerboard_seq);
 	}
 	
-
-	
+	@GetMapping("/profile")
+	public String profile() {
+		
+		return "/view/myPage/profile";
+	}
 }
