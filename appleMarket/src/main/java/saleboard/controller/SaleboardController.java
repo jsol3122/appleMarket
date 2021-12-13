@@ -64,6 +64,9 @@ public class SaleboardController {
 							   , HttpServletRequest request) { 
 		HttpSession loginSession = request.getSession();
 		String member_id = (String)loginSession.getAttribute("member_id");
+
+		System.out.println(member_id);
+
 		saleboardDTO.setMember_id(member_id);
 		
 		String uuid = UUID.randomUUID().toString();
@@ -196,7 +199,7 @@ public class SaleboardController {
 		
 		System.out.println(sale_seq);
 		System.out.println(member_id);
-		
+
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("sale_seq", sale_seq+"");
 		map.put("member_id", member_id);
@@ -209,9 +212,7 @@ public class SaleboardController {
 	
 	@PostMapping("/saleboard/saleboardPickCancel")
 	public void saleboardPickCancel(String sale_seq) {
-		
 		SaleboardDTO saleboardDTO = saleboardService.member_idLoad(sale_seq);
-		
 		String member_id = saleboardDTO.getMember_id();
 
 		Map<String, String> map = new HashMap<String, String>();
@@ -241,12 +242,14 @@ public class SaleboardController {
 		
 		saleboardService.saleboardFollow(map);
 	}
+		
 	
 	@PostMapping("/getinterestList")
 	@ResponseBody
 	public List<InterestDTO> getinterestList(String member_id){
 		return saleboardService.getinterestList(member_id);
 	}
+
 	
 	//찜게시판 삭제 
 	@PostMapping("/interestDelete")
