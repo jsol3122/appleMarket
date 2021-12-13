@@ -8,7 +8,7 @@ import saleboard.bean.SaleboardDTO;
 
 public interface SaleboardDAO {
 
-	public List<SaleboardDTO> saleboardGetList(Map<String, Integer> map);
+	public List<SaleboardDTO> saleboardGetList(Map<String, Object> map);
 
 	public List<SaleboardDTO> saleboardSearch(SaleboardDTO saleboardDTO);	
 	

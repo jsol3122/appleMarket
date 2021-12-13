@@ -26,7 +26,7 @@ public class SaleboardMybatis implements SaleboardDAO {
 	}
 	
 	@Override
-	public List<SaleboardDTO> saleboardGetList(Map<String, Integer> map) {
+	public List<SaleboardDTO> saleboardGetList(Map<String, Object> map) {
 		return sqlSession.selectList("saleboardSQL.saleboardGetList",map);
 	}
 	
