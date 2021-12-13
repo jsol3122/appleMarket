@@ -128,7 +128,7 @@ where rownum <=10 order by no
   <select id="newPersonalChatHistory" resultType="chat.bean.ChatDTO">
  	select * from chat
  		where user_id = #{user_id}
- 			order by sendDate desc
+ 			order by sendDate asc
  </select>
  
  

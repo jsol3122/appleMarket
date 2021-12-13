@@ -243,34 +243,39 @@ html, body {
 <% String member_id = (String) request.getAttribute("member_id"); %>
 <% String user_id = (String) request.getAttribute("user_id"); %>
 <% List<ChatRoomDTO> chatRoomDTOlist = (ArrayList<ChatRoomDTO>) request.getAttribute("chatRoomDTOlist");
-System.out.println(chatRoomDTOlist);
-for(ChatRoomDTO chatRoomDTO : chatRoomDTOlist){
-	if(chatRoomDTO.getUser_id().equals(user_id)){
-		System.out.println(chatRoomDTO.getMember_id());
-		int i = 0; 
-		//String[] member_idArr = chatRoomDTO.getMember_id();
-	} // if 문이 다 돌면 배열의 크기가 정해진다. 이 다음에 값을 넣어야 하는데 if문 밖으로 나오면 죽어버린다.
-}
+System.out.println(chatRoomDTOlist.size());
 %>
-<% List<ChatDTO> newPersonalChatHistory = (ArrayList<ChatDTO>) request.getAttribute("newPersonalChatHistory"); %>
+<% List<ChatDTO> newPersonalChatHistory = (ArrayList<ChatDTO>) request.getAttribute("newPersonalChatHistory"); 
+System.out.println(newPersonalChatHistory.size());
+String selectedChatRoom_id=null;
+%>
 
 <%--<html ng-app='swankyChat' ng-cloak='true'> --%>
   <div class='container'>
     <div class='inbox'>
       <aside>
+      
         <ul ng-controller='chatCtrl as chat'>
-          <div ng-repeat='chat in chats'>
-            <li ng-click='uid(chat.id)'>
-              <img class='avatar' src='../img/rabbit.jpg'>
-              <p class='username'><%=member_id %></p>
-            </li>
-          </div>
+         <% for(ChatRoomDTO chatRoomDTO : chatRoomDTOlist){ %>
+          <% if(chatRoomDTO.getUser_id().equals(user_id)){%>
+	          <div ng-repeat='chat in chats'>
+	            <li ng-click='uid(chat.id)'>
+	              <img class='avatar' src='../img/rabbit.jpg'>
+	              <p class='username'>
+	              	<%=chatRoomDTO.getMember_id() %>
+	              	<% selectedChatRoom_id = chatRoomDTO.getChatRoom_id()+""; %>
+	              </p>
+	            </li>
+	          </div>
+         <% }%>
+         <% } %>
         </ul>
+         
       </aside>
       <main ng-controller='chatCtrl as chat'>
         <div class='init'>
           <i class='fa fa-inbox'></i>
-          <h4>Choose a conversation from the left</h4>
+          <h4>대화를 시작해보세요.</h4>
        <%-- = chatRoom_id --%>
        <%-- = member_id --%>
        </div>
@@ -280,11 +285,15 @@ for(ChatRoomDTO chatRoomDTO : chatRoomDTOlist){
         </div>
         <!-- Set A Ng Repeat For Our Messages || Check To See If Our Value (Which Is Set Via Ng Click) Is Equal To The Id Of The Message List We Want To Show -->
         <div class='message-wrap' ng-repeat='message in chats' ng-show='value == message.id'>
-          <!-- Repeat Each Item In The Array Seperately -->
-          <div class='message' ng-repeat='i in message.messages track by $index'>
-            <p>{{i}}</p>
+         <!-- Repeat Each Item In The Array Seperately -->
+         <%for(ChatDTO chatDTO : newPersonalChatHistory){ %>
+         <%if(chatDTO.getUser_id().equals(user_id) && selectedChatRoom_id.equals(chatDTO.getChatRoom_id()+"")){%>
+         <div class='message' >
+         	<p><%=chatDTO.getChatContent()%></p>
             <img ng-src='../img/rabbit.jpg'>
           </div>
+          <%}%>
+          <%}%>
         </div>
         <footer>
           <form ng-submit='add()'>
@@ -322,17 +331,6 @@ $(function(){
         data: 'user_id='+user_id,
         dataType: 'json',
         success: function(list){
-            //let chatRoomDTO = data[0];
-            //get_detail(chatRoomDTO);
-			
-            //var result = chatRoomDTO.json;
-
-            /*
-            $.each(list , function(idx, val) {
-            console.log(idx + " " + val.chatRoom_id);
-            console.log(val.sale_seq[0]);
-            });
-            */
             $.each(list, function(index, chatRoomDTO){
  	          	ctrl_idx[index] = index;
             	ctrl_room[index] = chatRoomDTO.chatRoom_id;
@@ -346,78 +344,26 @@ $(function(){
         }
     });
 });
-console.log('ctrl_user[0]='+ctrl_user[0]);
 
 
-
-//Set Up Chat Controller
-/*
-let messagePage = function($scope, $timeout, $rootScope, index, chatRoomDTO) {
-	$scope.chats = [{
-		 id: 0,
-		 username: "Leela",
-		 avatar: "https://imgflip.com/s/meme/Futurama-Leela.jpg",
-		 messages: [
-		   "I can explain. It's very valuable. You won't have time for sleeping, soldier, not with all the bed making you'll be doing",
-		   "Who am I making this out to? We'll go deliver this crate like professionals, and then we'll go home",
-		   "No! The cat shelter's on to me. I never loved you",
-		   "Oh Leela! You're the only person I could turn to",
-		   "Um, is this the boring, peaceful kind of taking to the streets",
-		   "That's right, baby. I ain't your loverboy Flexo, the guy you love so much. You even love anyone pretending to be him!"
-		 ]
-		}, {
-		}];
-}	
-*/
 //Set Up Chat Controller
 angular.module("swankyChat", [])
 .controller("chatCtrl", function($scope, $timeout, $rootScope) {
 		
 		$scope.chats = [{
-		 id: 0,
-		 username: "Leela",
-		 avatar: "https://imgflip.com/s/meme/Futurama-Leela.jpg",
-		 messages: [
-		   "I can explain. It's very valuable. You won't have time for sleeping, soldier, not with all the bed making you'll be doing",
-		   "Who am I making this out to? We'll go deliver this crate like professionals, and then we'll go home",
-		   "No! The cat shelter's on to me. I never loved you",
-		   "Oh Leela! You're the only person I could turn to",
-		   "Um, is this the boring, peaceful kind of taking to the streets",
-		   "That's right, baby. I ain't your loverboy Flexo, the guy you love so much. You even love anyone pretending to be him!"
-		 ]
-		}, {
-		 id: 1,
-		 username: "Bender",
-		 avatar: "http://orig02.deviantart.net/9689/f/2012/027/9/c/mr_bender______classy__by_sgtconker1r-d4nqpzu.png",
-		 messages: [
-		   "Stop! Don't shoot fire stick in space canoe! Cause explosive decompression!",
-		   "Fry! Stay back! He's too powerful! You guys aren't Santa!",
-		   "Hi, I'm a naughty nurse, and I really need someone to talk to. $9.95 a minute",
-		   "Who are you, my warranty?!",
-		   "I will destroy you"
-		 ]
-		}, {
-		 id: 2,
-		 username: "Fry",
-		 avatar: "http://www.wallpaperno.com/thumbnails/detail/20121027/futurama%20fry%201920x1080%20wallpaper_www.wallpaperno.com_68.jpg",
-		 messages: [
-		   "Ooh, name it after me! But I've never been to the moon!",
-		   "You don't know how to do any of those",
-		   "The key to victory is discipline, and that means a well made bed",
-		   "Stop bickering or I'm going to come back there and change your opinions manually",
-		   "Can we have Bender Burgers again"
-		 ]
-		}, {
-		 id: 3,
-		 username: 'Zoidberg',
-		 avatar: "http://images2.fanpop.com/images/photos/3300000/Zoidberg-futurama-3305418-1024-768.jpg",
-		 messages: [
-		   "All I want is to be a monkey of moderate intelligence who wears a suit",
-		   "Oh, I don't have time for this",
-		   "No! The kind with looting and maybe starting a few fires!",
-		   "Now, now. Perfectly symmetrical violence never solved anything",
-		   "Dissect its brain"
-		 ]	// messages
+			
+			 id: 0,
+			 username: "Leela",
+			 avatar: "https://imgflip.com/s/meme/Futurama-Leela.jpg",
+			 messages: [
+			   "I can explain. It's very valuable. You won't have time for sleeping, soldier, not with all the bed making you'll be doing",
+			   "Who am I making this out to? We'll go deliver this crate like professionals, and then we'll go home",
+			   "No! The cat shelter's on to me. I never loved you",
+			   "Oh Leela! You're the only person I could turn to",
+			   "Um, is this the boring, peaceful kind of taking to the streets",
+			   "That's right, baby. I ain't your loverboy Flexo, the guy you love so much. You even love anyone pretending to be him!"
+			 ]
+			
 		}]; //$scope.chats
 
 		function printMsg()  {
