@@ -164,7 +164,7 @@ let commentList = function(mode, DTO){
     "<div class=img_tx>"+
       "<a class=bell><i class=fa-concierge-bell></i>신고</a>"+
     "</div>"+
-    "<input type=hidden id=comment_seq value="+DTO.localcommunity_comment_comment_seq+" />"+
+    "<input type=hidden id=comment_seq value="+DTO.localcommunity_comment_seq+" />"+
   "</li>";
 
   let comment2 = 

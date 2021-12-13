@@ -42,6 +42,9 @@ $(function(){
 });
 
 function make_list(list){
+  let logtime = list.communityboard_logtime;
+  let logtime_str = "2021."+(logtime.month+1)+"."+logtime.date;
+
   let html =
   "<tr>"+
     "<td class=no>"+list.communityboard_seq+"</td>"+
@@ -53,8 +56,7 @@ function make_list(list){
       list.communityboard_user_id+
       "</a></span>"+
     "</td>"+
-    "<td class=time title=''>21.12.05"+
-    "</td>"+
+    "<td class=time title=''>"+logtime_str+"</td>"+
     "<td class=m_no><a href='' class=delete value="+list.communityboard_seq+"><i class=fas></i></a></td>"+
   "</tr>";
     
