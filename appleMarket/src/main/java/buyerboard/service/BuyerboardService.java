@@ -1,6 +1,7 @@
 package buyerboard.service;
 
 import java.util.List;
+import java.util.Map;
 
 import buyerboard.bean.BuyerboardDTO;
 import net.sf.json.JSONObject;
@@ -23,6 +24,8 @@ public interface BuyerboardService {
 	public List<BuyerboardDTO> buyerboardGetListId(String member_id, int buyerboard_seq);
 
 	public List<BuyerboardDTO> boardcategoryFilter(String buyerboard_category);
+
+	public void buyerboardPick(Map<String, String> map);
 
 
 }
