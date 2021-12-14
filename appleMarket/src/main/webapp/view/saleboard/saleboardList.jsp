@@ -78,9 +78,15 @@
                         <label for="living">생활/가공식품</label>
                         </div>
                         
+<<<<<<< HEAD
                         <div class="category_filter">
                         <h3></h3>
                         <input type="checkbox" class="test" id="female" name="sale_category" value="female"  onclick='getCheckboxValue(event)'>
+=======
+                        <div class="category_filter" data-filter-group="category">
+                        <h3></h3>
+                        <input type="checkbox" id="female" name="sale_category" value=".female">
+>>>>>>> 60b89c37e39fc581e479de386db82fe7ad050209
                         <span class="box">box</span>
                         <label for="female">여성패션/잡화</label>
                         
@@ -97,9 +103,15 @@
                         <label for="sports">스포츠/레저</label>
                         </div>
                         
+<<<<<<< HEAD
                         <div class="category_filter">
                         <h3></h3>
                         <input type="checkbox" class="test" id="beauty" name="sale_category" value="beauty"  onclick='getCheckboxValue(event)'>
+=======
+                        <div class="category_filter" data-filter-group="category">
+                        <h3></h3>
+                        <input type="checkbox" id="beauty" name="sale_category" value=".beauty">
+>>>>>>> 60b89c37e39fc581e479de386db82fe7ad050209
                         <span class="box">box</span>
                         <label for="beauty">뷰티/미용</label>
                         

@@ -54,7 +54,6 @@ public class SaleboardServiceImpl implements SaleboardService {
 			
 			for(SaleboardDTO saleboardDTO : list) {
 				JSONObject temp = new JSONObject();
-				
 				temp.put("sale_seq", saleboardDTO.getSale_seq());
 				
 				temp.put("sale_image1", saleboardDTO.getSale_image1());
@@ -65,9 +64,7 @@ public class SaleboardServiceImpl implements SaleboardService {
 				
 				temp.put("member_profilePic", saleboardDTO.getMember_profilePic());
 				temp.put("member_id", saleboardDTO.getMember_id());
-
-				temp.put("location1_addr2", saleboardDTO.getLocation_dong());
-				
+				temp.put("location_dong", saleboardDTO.getLocation_dong());
 				temp.put("sale_heart_count", saleboardDTO.getSale_heart_count());
 				temp.put("sale_hit", saleboardDTO.getSale_hit());
 				temp.put("sale_free_YN", saleboardDTO.getSale_free_YN());
@@ -154,7 +151,10 @@ public class SaleboardServiceImpl implements SaleboardService {
 		return saleboardDAO.member_idLoad(sale_seq);
 	}
 
+<<<<<<< HEAD
 	@Override
+=======
+>>>>>>> 60b89c37e39fc581e479de386db82fe7ad050209
 	public List<InterestDTO> getinterestList(String member_id) {
 		return saleboardDAO.getinterestList(member_id);
 	}
@@ -177,12 +177,6 @@ public class SaleboardServiceImpl implements SaleboardService {
 	}
 
 
-	
-//	@Override
-//	public void saleboardChat(String sale_id) {
-//		saleboardDAO.saleboardChat(sale_id);
-//		
-//	}
 
 
 }

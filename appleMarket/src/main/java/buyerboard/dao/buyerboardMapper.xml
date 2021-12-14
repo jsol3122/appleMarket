@@ -95,12 +95,21 @@
  	
  	<!--관심목록 추가  -->	
 	<insert id="buyerboardPick" parameterType="buyerboard">
+<<<<<<< HEAD
 	   insert into interestList (interestList_seq, member_id, sale_seq, sale_status, sale_subject, sale_price, sale_logtime, sale_image1)
 	   	values(seq_interestList.nextval, #{member_id}, #{buyerboard_seq}, #{buyer_status}, #{buyerboard_subject}, #{buyerboard_price}, #{buyerboard_logtime}, #{buyerboard_image1} )
+=======
+	   insert into interestList (interestList_seq, member_id, sale_seq, sale_status, sale_subject, sale_price, sale_logtime, sale_image1, board_name)
+	   	values(seq_interestList.nextval, #{member_id}, #{buyerboard_seq}, #{buyer_status}, #{buyerboard_subject}, #{buyerboard_price}, #{buyerboard_logtime}, #{buyerboard_image1}, 'buyerboard' )
+>>>>>>> 60b89c37e39fc581e479de386db82fe7ad050209
 	</insert> 	
 	
 	<!-- 관심목록 업데이트  -->
 	<update id="intereUpdate" parameterType="buyerboard">
+<<<<<<< HEAD
 		update interestList set sale_status=#{buyer_status}, sale_subject=#{buyerboard_subject}, sale_price=#{buyerboard_price}, sale_logtime=#{buyerboard_logtime}, sale_image1=#{buyerboard_image1} where buyerboard_seq=#{buyerboard_seq} and member_id=#{member_id}
+=======
+		update interestList set sale_status=#{buyer_status}, sale_subject=#{buyerboard_subject}, sale_price=#{buyerboard_price}, sale_logtime=#{buyerboard_logtime}, sale_image1=#{buyerboard_image1} where sale_seq=#{buyerboard_seq} and member_id=#{member_id}
+>>>>>>> 60b89c37e39fc581e479de386db82fe7ad050209
 	</update>
  </mapper>

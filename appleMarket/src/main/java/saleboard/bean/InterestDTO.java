@@ -18,5 +18,6 @@ public class InterestDTO {
 	private String sale_heart_yn;
 	private int sale_chat_count;
 	private String sale_image1;
+	private String board_name;
 	
 }

@@ -1,0 +1,208 @@
+@charset "UTF-8";
+
+        .s_header_nav {
+            height: 36px
+        }
+        
+        .s_header h1 {
+            top: 15px
+        }
+        
+        .s_header h1 {
+            left: 5px
+        }
+        
+        .s_nav li,
+        .rollNav li,
+        .dropNav li,
+        .s_navSub li,
+        .rollNavSub li,
+        .dropNav li {
+            font-family: Arial Black
+        }
+        
+        .s_nav li a,
+        .s_nav li a:hover,
+        .s_nav li a:active,
+        .s_nav li a:focus,
+        .s_nav li.active a,
+        .rollNav li a,
+        .rollNav li a:hover,
+        .rollNav li a:active,
+        .rollNav li a:focus,
+        .rollNav li.active a,
+        .dropNav li a,
+        .dropNav li a:hover,
+        .dropNav li a:active,
+        .dropNav li a:focus,
+        .dropNav li.active a {
+            color: #FFFFFF
+        }
+        
+        .s_nav li,
+        .rollNav li,
+        .dropNav li {
+            font-size: 14px
+        }
+        
+        .s_nav li a,
+        .rollNav li a,
+        .dropNav li a {
+            font-weight: bold
+        }
+        
+        .s_navSub li a,
+        .rollNavSub li a,
+        .dropNav li li a {
+            color: #CC6600 !important
+        }
+        
+        .slideWrap .slideArea #slideBar {
+            width: 200px
+        }
+        
+        .slideWrap .slideArea #slideBar {
+            right: -212px
+        }
+        
+        #s_popup {
+            top: 300px
+        }
+        
+        #s_popup {
+            left: 500px
+        }
+
+        
+        .s_body {
+            padding-left: 10px;
+            padding-right: 10px
+        }
+        
+        .s_body {
+            background-color: #ffffff
+        }
+        
+        .s_content {
+            background-color: #ffffff
+        }
+        
+        #sitemapWrap {
+            padding-left: 10px;
+            padding-right: 10px
+        }
+        
+        #footer {
+            padding-left: 10px;
+            padding-right: 10px
+        }
+        
+        #footer,
+        #sitemapWrap {
+            background-color: #ffffff
+        }
+        
+        #footer {
+            -moz-border-radius: 0 0 4px 4px;
+            -webkit-border-radius: 0 0 4px 4px;
+            border-radius: 0 0 4px 4px
+        }
+        
+        #footer .footNav {
+            border-top: none
+        }
+        
+        #footer {
+            height: 10px
+        }
+ 
+        .bd a:focus,
+        .bd input:focus,
+        .bd button:focus,
+        .bd textarea:focus,
+        .bd select:focus {
+            outline-color: #4169e1;
+        }
+        
+        .bd .replyNum {
+            color: #4169e1 !important
+        }
+        
+        .bd .trackbackNum {
+            color: #646496 !important
+        }
+        
+        .bd.fdb_count .replyNum {
+            background: #4169e1;
+        }
+        
+        .bd.fdb_count .trackbackNum {
+            background: #646496;
+        }
+        
+        .bd em,
+        .bd .color {
+            color: #4169e1;
+        }
+        
+        .bd .shadow {
+            text-shadow: 1px 1px 1px #646496;
+        }
+        
+        .bd .bolder {
+            color: #4169e1;
+            text-shadow: 2px 2px 4px #646496;
+        }
+        
+        .bd .bg_color {
+            background-color: #4169e1;
+        }
+        
+        .bd .bg_f_color {
+            background-color: #4169e1;
+            background: -webkit-linear-gradient(#FFF -50%, #4169e1 50%);
+            background: linear-gradient(to bottom, #FFF -50%, #4169e1 50%);
+        }
+        
+        .bd .border_color {
+            border-color: #4169e1;
+        }
+        
+        .bd .bx_shadow {
+            box-shadow: 0 0 2px #646496;
+        }
+        
+        .viewer_with.on:before {
+            background-color: #4169e1;
+            box-shadow: 0 0 2px #4169e1;
+        }
+        
+        .bd_zine.zine li:first-child,
+        .bd_tb_lst.common_notice tr:first-child td {
+            margin-top: 2px;
+            border-top: 1px solid #DDD
+        }
+        
+        .bd_zine .info b,
+        .bd_zine .info a {
+            color: #646496;
+        }
+        
+        .bd_zine.card h3 {
+            color: #4169e1;
+        }
+        
+        .bd_tb_lst {
+            margin-top: 0
+        }
+        
+        .bd_tb_lst .cate span,
+        .bd_tb_lst .author span,
+        .bd_tb_lst .last_post small {
+            max-width: px
+        }
+
+        .css3pie {
+            behavior: url(./layouts/smart/js/PIE.htc);
+        }
+  

@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/appleMarket/css/buysalehistory.css">
     <link rel="stylesheet" href="/appleMarket/css/comboard.css">
     <title>사고팔고마켓</title>
+
 </head>
 
 <body>
@@ -27,9 +28,9 @@
                      <table class="table table-responsive product-dashboard-table">
                          <thead>
                              <tr>
-                                 <th>물품</th>
+                                <th align="center">물품</th>
                                  <th>상세내역</th>
-                                 <th class="text-center">카테고리</th>
+                                 <th class="text-center">거래상태</th>
                                  <th class="text-center">관리</th>
                              </tr>
                          </thead>
@@ -55,10 +56,8 @@
      </div>
      <!-- Container End -->
  </section>
-                       
-  <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
-     <script src="/appleMarket/js/buyhistory.js"></script>
+    
 </body>
-
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+         <script src="/appleMarket/js/buyhistory.js"></script>
 </html>
-

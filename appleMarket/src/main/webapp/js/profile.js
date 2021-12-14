@@ -46,7 +46,11 @@ $(function(){
 			$.each(data, function(index,items){
 	 // 리스트 html을 정의
     let html = "<article class='card'>"+
+<<<<<<< HEAD
               "<a class='card-link' data-event-label='325118947' href='/appleMarket/view/saleboard/saleboardView.jsp?sale_seq="+items.sale_seq+"'>"+
+=======
+    			"<a class='card-link' data-event-label='325118947' href='/appleMarket/view/buyerboard/buyerboardView.jsp?buyerboard_seq="+items.sale_seq+"'>"+
+>>>>>>> 60b89c37e39fc581e479de386db82fe7ad050209
                "<div class='card-photo'>"+
                  "<img alt='이미지1' src='/appleMarket/storage/"+items.sale_image1+"'/>"
              	+"</div>"+"</a>"+
@@ -55,8 +59,32 @@ $(function(){
              	"<div class='card-price'>"+items.sale_status+"</div>"+
              	"<div class='card-region-name'>"+items.sale_price+"<br><ion-icon name='close-outline' class='nav__icon'></ion-icon></div>"
              	+"<input type='hidden' class='interestList_seq' value="+items.interestList_seq+">";
+<<<<<<< HEAD
     
     $(".cards-wrap").append(html);
+=======
+ 	
+ 	  let html2 = "<article class='card'>"+
+    			"<a class='card-link' data-event-label='325118947' href='/appleMarket/view/saleboard/saleboardView.jsp?sale_seq="+items.sale_seq+"'>"+
+               "<div class='card-photo'>"+
+                 "<img alt='이미지1' src='/appleMarket/storage/"+items.sale_image1+"'/>"
+             	+"</div>"+"</a>"+
+             	"<div class='card-desc'>"+
+             	"<h2 class='card-title'>"+items.sale_subject+"</h2>"+
+             	"<div class='card-price'>"+items.sale_status+"</div>"+
+             	"<div class='card-region-name'>"+items.sale_price+"<br><ion-icon name='close-outline' class='nav__icon'></ion-icon></div>"
+             	+"<input type='hidden' class='interestList_seq' value="+items.interestList_seq+">";
+ 	
+ 	if(items.board_name=='saleboard'){
+ 		$(".cards-wrap").append(html2);
+ 	}else{
+ 		$(".cards-wrap").append(html);
+ 	}
+
+    
+	
+
+>>>>>>> 60b89c37e39fc581e479de386db82fe7ad050209
 				
 });//each		
 		
@@ -80,7 +108,11 @@ $(function(){
 				data : {'interestList_seq' :interestList_seq},
 				success: function(data){
 				    alert('삭제 완료');
+<<<<<<< HEAD
 				    location.href='/appleMarket/mypageMainForm';
+=======
+				    location.href='/appleMarket/profile';
+>>>>>>> 60b89c37e39fc581e479de386db82fe7ad050209
 	
 				},error : function(err){
 					console.log(err);

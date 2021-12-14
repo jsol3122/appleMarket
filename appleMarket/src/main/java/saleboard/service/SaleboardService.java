@@ -17,7 +17,7 @@ public interface SaleboardService {
 	
 	public void saleboardModify(SaleboardDTO saleboardDTO); // 글 수정
 
-	public void saleboardDelete(int sale_seq); // 글 삭제 : 로그인이 되어있어야 삭제 버튼이 보여서 () 안에 데이터 보낼 필요 없다.
+	public void saleboardDelete(int sale_seq); // 글 삭제 
 	
 	public List<SaleboardDTO> saleboardGetView(int sale_seq); // 글 상세보기
 
@@ -28,6 +28,9 @@ public interface SaleboardService {
 	public void saleboardHit(int sale_seq);
 
 	public void saleboardFollow(Map<String, String> map);
+
+
+	//public void saleboardChat(Map<String, String> map); // 채팅으로 거래하기
 
 	public List<SaleboardDTO> saleboardGetListId(String member_id, int sale_seq);
 	
@@ -44,5 +47,6 @@ public interface SaleboardService {
 //	public void saleboardChat(String sale_id); //  판매자 아이디, 매개 변수 수정하기
 //	
 	
-	
+
+
 }

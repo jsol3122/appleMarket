@@ -44,6 +44,10 @@ public interface MyPageService {
 
 	public void myCommunityCommentDelete(int parseInt);
 
+	public void saleComplete(SaleboardDTO saleboardDTO);
+
+	public void buyerComplete(BuyerboardDTO buyerboardDTO);
+
 	
 
 	
