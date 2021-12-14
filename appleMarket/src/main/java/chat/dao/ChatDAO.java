@@ -28,4 +28,6 @@ public interface ChatDAO {
 
 	public List<ChatDTO> newPersonalChatHistory(String user_id);
 
+	public List<ChatDTO> chatHistory(Map<String, String> map);
+
 }

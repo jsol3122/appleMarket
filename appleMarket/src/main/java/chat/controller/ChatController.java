@@ -1,6 +1,5 @@
 package chat.controller;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -11,7 +10,6 @@ import javax.servlet.http.HttpSession;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -26,8 +24,6 @@ import chat.bean.ChatDTO;
 import chat.bean.ChatRoomDTO;
 import chat.service.ChatService;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
-import member.bean.MemberDTO;
 import saleboard.bean.SaleboardDTO;
 
 @Controller
@@ -129,32 +125,41 @@ public class ChatController {
 		//return mv;
 	}
 	
-	@RequestMapping("/chat/personalChat")
-	public String enter(HttpServletRequest request, Model model){
-	       String chatRoom_id = request.getParameter("chatRoom_id");
-	       System.out.println("enter까지");
-	       //chatRoom_id 로 글 seq 랑 member_id 빼오기
-	       ChatRoomDTO chatRoomDTO = chatService.chatRoom_idDTO(chatRoom_id); // 혹시 오류나면 selectOne 을 selectList 로 바꿔주기
-	       String sale_seq = chatRoomDTO.getSale_seq();
-	       String buyerboard_seq = chatRoomDTO.getBuyerboard_seq();
-	       String member_id = chatRoomDTO.getMember_id();
-	       String user_id = chatRoomDTO.getUser_id();
-	       
-	       model.addAttribute("chatRoom_id", chatRoom_id);
-	       model.addAttribute("sale_seq", sale_seq);
-	       model.addAttribute("buyerboard_seq", buyerboard_seq);
-	       model.addAttribute("member_id", member_id);
-	       model.addAttribute("user_id", user_id);
-	       
-	       List<ChatRoomDTO> chatRoomDTOlist = chatService.ChatList(user_id);
-	       model.addAttribute("chatRoomDTOlist", chatRoomDTOlist);
-	       
-	       List<ChatDTO> newPersonalChatHistory = chatService.newPersonalChatHistory(user_id);
-	       model.addAttribute("newPersonalChatHistory", newPersonalChatHistory);
-	       
-	       return "/view/chat/personalChat";
-	 
-	    }
+	   @RequestMapping("/chat/personalChat")
+	   public String enter(HttpServletRequest request, Model model){
+	          String chatRoom_id = request.getParameter("chatRoom_id");
+	          System.out.println("enter까지, chatRoom_id="+chatRoom_id);
+	          //chatRoom_id 로 글 seq 랑 member_id 빼오기
+	          ChatRoomDTO chatRoomDTO = chatService.chatRoom_idDTO(chatRoom_id); // 혹시 오류나면 selectOne 을 selectList 로 바꿔주기
+	          String sale_seq = chatRoomDTO.getSale_seq();
+	          String buyerboard_seq = chatRoomDTO.getBuyerboard_seq();
+	          String member_id = chatRoomDTO.getMember_id();
+	          String user_id = chatRoomDTO.getUser_id();
+	          
+	          model.addAttribute("chatRoom_id", chatRoom_id);
+	          model.addAttribute("sale_seq", sale_seq);
+	          model.addAttribute("buyerboard_seq", buyerboard_seq);
+	          model.addAttribute("member_id", member_id);
+	          model.addAttribute("user_id", user_id);
+	          
+	          System.out.println("enter의 user_id" + user_id);
+	          
+	          List<ChatRoomDTO> chatRoomDTOlist = chatService.ChatList(user_id);
+	          model.addAttribute("chatRoomDTOlist", chatRoomDTOlist);
+	          
+	         Map<String,String> map = new HashMap<>();
+	         map.put("user_id", user_id);
+	         map.put("chatRoom_id", chatRoom_id);
+	          //List<ChatDTO> newPersonalChatHistory = chatService.newPersonalChatHistory(user_id);
+	          //model.addAttribute("newPersonalChatHistory", newPersonalChatHistory);
+	         List<ChatDTO> chatHistory = chatService.chatHistory(map);   
+	          model.addAttribute("chatHistory", chatHistory);
+	          
+	          return "/view/chat/personalChat";
+	    
+	       }
+   
+
 /*	
 	@PostMapping("/chat/personalChat/{chatRoom_id}")
 	private void personalChat(@RequestParam int chatRoom_id) {

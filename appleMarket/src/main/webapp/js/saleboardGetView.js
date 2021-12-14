@@ -118,7 +118,7 @@ function get_detail(DTO){
 	// 채팅하기 버튼 클릭
 	
 	$(document).on('click', '.chat',function(DTO){
- 	alert(member_id+" "+sale_seq+"DTO 들어왔나?");  
+ 	//alert(member_id+" "+sale_seq+"DTO 들어왔나?");  
 	    $.ajax({
 	      url: '/appleMarket/chat/newChat',
 	      type: 'post',
@@ -127,7 +127,7 @@ function get_detail(DTO){
 	      success: function(data){
 	        //alert(JSON.stringify(data)); //newChat에서 JSON으로 넘어온다.
 	        var chatRoom_id = JSON.stringify(data);
-	        alert(chatRoom_id);
+	        //alert(chatRoom_id);
 	        //alert({chatRoom_id}); 
 	        //const obj = JSON.parse(json);
 			//console.log(obj.chatRoom_id);

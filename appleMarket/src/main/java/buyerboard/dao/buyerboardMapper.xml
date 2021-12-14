@@ -101,6 +101,6 @@
 	
 	<!-- 관심목록 업데이트  -->
 	<update id="intereUpdate" parameterType="buyerboard">
-		update interestList set sale_status=#{buyer_status}, sale_subject=#{buyerboard_subject}, sale_price=#{buyerboard_price}, sale_logtime=#{buyerboard_logtime}, sale_image1=#{buyerboard_image1} where buyerboard_seq=#{buyerboard_seq} and member_id=#{member_id}
+		update interestList set sale_status=#{buyer_status}, sale_subject=#{buyerboard_subject}, sale_price=#{buyerboard_price}, sale_logtime=#{buyerboard_logtime}, sale_image1=#{buyerboard_image1} where sale_seq=#{buyerboard_seq} and member_id=#{member_id}
 	</update>
  </mapper>
