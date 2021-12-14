@@ -24,9 +24,9 @@ public class BuyerboardMybatis implements BuyerboardDAO {
 	}
 
 	@Override
-	public int getTotalA() {
+	public int getTotalA(String buyerboard_category) {
 		
-		return sqlSession.selectOne("buyerboardSQL.getTotalA");
+		return sqlSession.selectOne("buyerboardSQL.getTotalA",buyerboard_category);
 	}
 
 	@Override

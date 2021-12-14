@@ -16,14 +16,14 @@
             <h1>
                 <a href="/appleMarket/index"><img class="logo" src="/appleMarket/img/logo-basic.png" alt="사과마켓"></a>
             </h1>
-            <form action="#" method="get" class="search_box">
+       <!--      <form action="#" method="get" class="search_box">
                 <fieldset>
                     <legend>검색창</legend>                            
                     <label class="hidden" for="searchPrd"  for="tags">지역, 상품, 업체등을 검색해보세요.</label>
                     <input type="text" class="tags" id="searchPrd" name="searchPrd" placeholder="지역, 상품, 업체등을 검색해보세요.">                      
                     <button type="submit"><i class="fas fa-search"></i><span class="hidden">검색버튼</span></button>
                 </fieldset>
-            </form>
+            </form> -->
             <ul class="category">
                 <li><a href="/appleMarket/view/buyerboard/buyerboardList.jsp">사고</a></li>
                 <li><a href="/appleMarket/view/saleboard/saleboardList.jsp">팔고</a></li>

@@ -57,64 +57,67 @@
             <div class="list_filters">
                 <div class="combi_filters">
                     <div class="category_filter" data-filter-group="category">
-                        <h3>카테고리</h3>
-                        <input type="checkbox" id="sale_category_all" name="sale_category" value="*">
+                        <h3>카테고리</h3>                       
+                        <input type="checkbox" class="test" id="sale_category_all" name="sale_category_all" value="*" onclick='getCheckboxValue(event)' checked>
                         <span class="box">box</span>
                         <label for="sale_category_all">All</label>
-                        <input type="checkbox" id="tech" name="sale_category" value=".tech" checked>
+                        
+                        <input type="checkbox" class="test" id="tech" name="sale_category" value="tech"  onclick='getCheckboxValue(event)'>
                         <span class="box">box</span>
                         <label for="tech">디지털기기/생활가전</label>
 
-                        <input type="checkbox" id="furniture" name="sale_category" value=".furniture">
+                        <input type="checkbox" class="test" id="furniture" name="sale_category" value="furniture"  onclick='getCheckboxValue(event)'>
                         <span class="box">box</span>
                         <label for="furniture">가구/인테리어</label>
 
-                        <input type="checkbox" id="baby" name="sale_category" value=".baby">
+                        <input type="checkbox" class="test" id="baby" name="sale_category" value="baby"  onclick='getCheckboxValue(event)'>
                         <span class="box">box</span>
                         <label for="baby">유아동</label>
 
-                        <input type="checkbox" id="living" name="sale_category" value=".living">
+                        <input type="checkbox" class="test" id="living" name="sale_category" value="living"  onclick='getCheckboxValue(event)'>
                         <span class="box">box</span>
                         <label for="living">생활/가공식품</label>
                         </div>
                         
-                        <div class="category_filter" data-filter-group="category">
+
+                        <div class="category_filter">
                         <h3></h3>
-                        <input type="checkbox" id="female" name="sale_category" value=".female">
+                        <input type="checkbox" class="test" id="female" name="sale_category" value="female"  onclick='getCheckboxValue(event)'>
                         <span class="box">box</span>
                         <label for="female">여성패션/잡화</label>
                         
-                        <input type="checkbox" id="male" name="sale_category" value=".male">
+                        <input type="checkbox" class="test" id="male" name="sale_category" value="male"  onclick='getCheckboxValue(event)'>
                         <span class="box">box</span>
                         <label for="male">남성패션/잡화</label>
                         
-                        <input type="checkbox" id="hobby" name="sale_category" value=".hobby">
+                        <input type="checkbox" class="test" id="hobby" name="sale_category" value="hobby"  onclick='getCheckboxValue(event)'>
                         <span class="box">box</span>
                         <label for="hobby">게임/취미</label>
                         
-                        <input type="checkbox" id="sports" name="sale_category" value=".sports">
+                        <input type="checkbox" class="test" id="sports" name="sale_category" value="sports"  onclick='getCheckboxValue(event)'>
                         <span class="box">box</span>
                         <label for="sports">스포츠/레저</label>
                         </div>
                         
-                        <div class="category_filter" data-filter-group="category">
+                        <div class="category_filter">
                         <h3></h3>
-                        <input type="checkbox" id="beauty" name="sale_category" value=".beauty">
+                        <input type="checkbox" class="test" id="beauty" name="sale_category" value="beauty"  onclick='getCheckboxValue(event)'>
+
                         <span class="box">box</span>
                         <label for="beauty">뷰티/미용</label>
                         
-                        <input type="checkbox" id="pet" name="sale_category" value=".pet">
+                        <input type="checkbox" class="test" id="pet" name="sale_category" value="pet"  onclick='getCheckboxValue(event)'>
                         <span class="box">box</span>
                         <label for="pet">반려동물용품</label>
                         
-                        <input type="checkbox" id="book" name="sale_category" value=".book">
+                        <input type="checkbox" class="test" id="book" name="sale_category" value="book"  onclick='getCheckboxValue(event)'>
                         <span class="box">box</span>
                         <label for="book">도시/티켓/음반</label>
                         
-                        <input type="checkbox" id="etc" name="sale_category" value=".etc">
+                        <input type="checkbox" class="test" id="etc" name="sale_category" value="etc"  onclick='getCheckboxValue(event)'>
                         <span class="box">box</span>
                         <label for="etc">기타중고물품</label>
-
+                        <input type="text" id='searchcategory_result'>
                     </div>
                 </div>
             </div>
@@ -123,7 +126,7 @@
             <h2 class="content_title"><span>사과마켓</span> 사고/팔고</h2>
             <p class="content_desc">사과마켓은 신뢰할 수 있는 물품들만 제공합니다. </p>
             <input type="hidden" id="session_id" value="${member_id}" />            
-            <input type="button" value="물품등록" class="sbm" id="saleboardWriteBtn" />
+            <input type="button" value="물품등록" class="sbm" id="." />
             <ul class="new_arrivals_list row"></ul>
         </section>
        

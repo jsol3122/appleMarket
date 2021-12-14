@@ -9,7 +9,7 @@ import saleboard.bean.SaleboardDTO;
 
 public interface SaleboardService {
 		
-	public JSONObject saleboardGetList(int pg); // 글 목록
+	public JSONObject saleboardGetList(int pg,String sale_category); // 글 목록
 
 	public List<SaleboardDTO> saleboardSearch(SaleboardDTO saleboardDTO); // 글 검색
 		

@@ -10,7 +10,7 @@ public interface BuyerboardDAO {
 
 	public List<BuyerboardDTO> buyerboardGetList(Map<String, Object> map);
 
-	public int getTotalA();
+	public int getTotalA(String buyerboard_category);
 
 	public void buyerboardWrite(BuyerboardDTO buyerboardDTO);
 

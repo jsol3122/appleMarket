@@ -23,12 +23,12 @@
          <div class="row">
              <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-0">
                  <!-- Recently Favorited -->
-                 <div class="widget dashboard-container my-adslist" style="width: 610px; align:center">
+                 <div class="widget dashboard-container my-adslist" style="width: 610px;">
                      <h3 class="widget-header">구매내역</h3>
                      <table class="table table-responsive product-dashboard-table">
                          <thead>
                              <tr>
-                                 <th align="center">물품</th>
+                                <th align="center">물품</th>
                                  <th>상세내역</th>
                                  <th class="text-center">거래상태</th>
                                  <th class="text-center">관리</th>
