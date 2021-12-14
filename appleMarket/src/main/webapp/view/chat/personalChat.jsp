@@ -278,7 +278,7 @@ String selectedChatRoom_id = null;
       <main ng-controller='chatCtrl as chat'>
         <div class='init'>
           <i class='fa fa-inbox'></i>
-        <!--   <h4>대화를 시작해보세요.</h4> -->
+          <h4>대화를 시작해보세요.</h4>
        <%-- = chatRoom_id --%>
        <%-- = member_id --%>
        </div>
@@ -290,17 +290,16 @@ String selectedChatRoom_id = null;
         <div class='message-wrap' ng-repeat='message in chats' ng-show='value == message.id'>
          <!-- Repeat Each Item In The Array Seperately -->
          <%for(ChatDTO chatDTO : chatHistory){ %>
-        <div class='message'>
+        <div class='message' >
             <p><%=chatDTO.getChatContent()%></p>
-<!--             <img ng-src="../img/rabbit.jpg"> -->
+            <img ng-src="../img/rabbit.jpg";>
           </div>
           <%}%>
         </div>
         <footer>
           <form ng-submit='add()'>
             <input ng-model='text' id='sendMsg' onchange='printMsg()' placeholder='Enter a message' type='text'>
-           <input type='submit' value='Send' onclick="acyncMovePage('/appleMarket/chat/personalChat')">
-           
+            <input type='submit' value='Send'>
           </form>
         </footer>
       </main>
@@ -318,31 +317,9 @@ var buyerboard_seq = '<c:out value='${buyerboard_seq}' />';
 var member_id = '<c:out value='${member_id}' />';
 var user_id = '<c:out value='${user_id}' />';
 
-
 var ctrl_idx = [];
 var ctrl_room = [];
 var ctrl_user = [];
-
-
-function acyncMovePage(url){
-	   //alert(chatRoom_id);
-	    // ajax option
-	    var ajaxOption = {
-	            url : '/appleMarket/chat/personalChat?chatRoom_id='+chatRoom_id,
-	            async : true,
-	            type : "POST",
-	            dataType : "html",
-	            cache : false
-	    };
-	    
-	    $.ajax(ajaxOption).done(function(data){
-	        // Contents 영역 삭제
-	       $('.container').empty();
-	        // Contents 영역 교체
-	        $('.container').html(data);
-	        
-	    });
-	}
 
 
 //user_id의 chatRoomDTO 들 

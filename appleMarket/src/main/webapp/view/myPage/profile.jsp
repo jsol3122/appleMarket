@@ -33,31 +33,31 @@
                 <div class="content_resize2">
                     <div class="mainbar">
                             <!-- main -->
-                     	 <section id="content">
-							    <section id="user-profile">
-							      <h2 id="nickname">
-							        <span id="nickname_member_id">${sessionScope.login_info.member_id}</span>
-							        <span id="region_name"></span>
-							      </h2>
-							      <ul id="profile-detail">
-							        <li class="profile-detail-title">매너온도 <span class="profile-detail-count"></span></li>
-							      </ul>
-							      <div id="profile-image">
-							        <img alt="당근이" src="https://dnvefa72aowie.cloudfront.net/origin/profile/202109/23D6FCD4F145019383458B90F66961C9E8AD8DFA8122229A084C2DAA4507023E.jpg?q=82&amp;s=80x80&amp;t=crop" />
-							      </div>
-							    </section>
-							
-							    <div id="user-records-detail">
-							      <section id="user-filter">
-							    <ul>
-							      <li><a class="active" href="#">관심목록</a></li>
-							        <li><a class="" href="/appleMarket/mypageMainForm">마이페이지</a></li>
-							    </ul>
-							    
-							    
-							</section>
-			
-			
+                         <section id="content">
+                         <section id="user-profile">
+                           <h2 id="nickname">
+                             <span id="nickname_member_id">${sessionScope.login_info.member_id}</span>
+                             <span id="region_name"></span>
+                           </h2>
+                           <ul id="profile-detail">
+                             <li class="profile-detail-title">매너온도 <span class="profile-detail-count"></span></li>
+                           </ul>
+                           <div id="profile-image">
+                             <img alt="당근이" src="https://dnvefa72aowie.cloudfront.net/origin/profile/202109/23D6FCD4F145019383458B90F66961C9E8AD8DFA8122229A084C2DAA4507023E.jpg?q=82&amp;s=80x80&amp;t=crop" />
+                           </div>
+                         </section>
+                     
+                         <div id="user-records-detail">
+                           <section id="user-filter">
+                         <ul>
+                           <li><a class="active" href="#">관심목록</a></li>
+                             <li><a class="" href="/appleMarket/mypageMainForm">마이페이지</a></li>
+                         </ul>
+                         
+                         
+                     </section>
+         
+         
 <section id="user-records" class="user-articles" data-total-page="1" data-current-page="1">
     <h3 class="hide">${sessionScope.login_info.member_id}님의 판매 물품 목록</h3>
         <section class="cards-wrap">
@@ -66,7 +66,7 @@
 </section>
 </section>
 </section>
-                	 	
+                       
                     </div>
                       
                      
@@ -82,9 +82,8 @@
     <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js'></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
-	 <!-- IONICONS -->
+    <!-- IONICONS -->
     <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
-	<script type="text/javascript" src="/appleMarket/js/profile.js"></script>
+   <script type="text/javascript" src="/appleMarket/js/profile.js"></script>
 </body>
 </html>
-
