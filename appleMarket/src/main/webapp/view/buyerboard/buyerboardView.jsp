@@ -22,6 +22,7 @@
 
     <!-- fontawesome -->
     <script src="/appleMarket/js/all.min.js"></script>
+
     <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
     
@@ -30,19 +31,28 @@
     
     <script src="/appleMarket/js/buyerboardGetView.js"></script>
     <script src="/appleMarket/js/main.js"></script>
-
+	<script src="/appleMarket/js/buyerPick.js"></script>
+ 	<script src="/appleMarket/js/warning.js"></script>
     <!-- bootstrap grid -->
     <link rel="stylesheet" href="/appleMarket/css/bootstrap-grid.min.css">
     <link rel="stylesheet" href="/appleMarket/css/star-rating.min.css">
     <link rel="stylesheet" href="/appleMarket/css/main.css">
     <!-- <link rel="stylesheet" href="/appleMarket/css/buyandsell.css"> -->
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/appleMarket/img/shortcut_icon.png" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+
 </head>
 
-<body>
+<body id="buyerboardView">
     <%@include file="/includes/header.jsp" %>
     <section class="product_info">
         <h2 class="hidden">product_info</h2>
         <input type="hidden" id="session_id" value="${member_id}" /> 
+        <input type="hidden" id="buyerboard_seq" value="" /> 
         <div class="container"> 
             <!-- 상품 상세페이지 ajax로 뜨는 부분 -->
         </div>
