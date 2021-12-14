@@ -43,6 +43,7 @@ public class MemberServiceImpl implements MemberService {
 		return memberDAO.login(memberDTO);
 	}
 
+	
 	@Override
 	public List<ZipcodeDTO> checkPostSearch(ZipcodeDTO zipcodeDTO) {
 		List<ZipcodeDTO> list = null; 
@@ -195,6 +196,12 @@ public class MemberServiceImpl implements MemberService {
 		
 		memberDAO.recommendCoupon(member_id);
 		
+	}
+
+	@Override
+	public MemberDTO checkPwd(MemberDTO memberDTO) {
+		
+		return memberDAO.checkPwd(memberDTO);
 	}
 
 

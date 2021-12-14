@@ -63,9 +63,9 @@
  		select * from appleMarket where member_id=#{member_id}
  	</select>
  	
- 	<!-- 로그인  -->
- 	<select id="login" parameterType="member" resultType="Integer">
- 		select count(*) from appleMarket where member_id=#{member_id} and member_pwd=#{member_pwd}
+ 	<!-- 로그인 암호화한 비밀번호 확인  -->
+ 	<select id="login" parameterType="member" resultType="member">
+ 		select * from appleMarket where member_id=#{member_id}
  	</select>
  	
  	<!-- 로그인 GPS  -->

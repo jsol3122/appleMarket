@@ -56,4 +56,3 @@
 
 		<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
          <script src="/appleMarket/js/salehistory.js"></script>
-
