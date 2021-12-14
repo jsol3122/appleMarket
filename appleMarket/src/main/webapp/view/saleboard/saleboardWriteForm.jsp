@@ -120,6 +120,7 @@
 			font-size: 18px;
 		}
 </style>
+  <title>사고팔고마켓</title>
 </head>
 <body>
 <%@include file="/includes/header.jsp" %>

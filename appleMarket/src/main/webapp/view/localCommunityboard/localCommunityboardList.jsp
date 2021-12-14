@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="/appleMarket/css/comboard.css">
     <link rel="stylesheet" href="/appleMarket/css/comdefault.css">
     <link rel="stylesheet" href="/appleMarket/css/comstyle.css">
-    <title>사과마켓 커뮤니티</title>
+    <title>사고팔고마켓</title>
 
     <link rel="canonical" href="#">
     <meta property="og:locale" content="ko_KR">

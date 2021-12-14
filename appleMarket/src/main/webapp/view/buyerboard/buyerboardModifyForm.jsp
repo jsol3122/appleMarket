@@ -4,7 +4,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>사고게시판 글 수정</title>
 	<style>
         #wrap {
             width: 100%;
@@ -129,6 +128,7 @@
             font-size: 18px;
         }
     </style>
+      <title>사고팔고마켓</title>
 </head>
 <body>
 <%@include file="/includes/header.jsp" %>

@@ -27,14 +27,14 @@
     <link rel="stylesheet" href="/appleMarket/css/comstyle.css">
     <!-- 우리동네 css -->
      <link rel="stylesheet" href="/appleMarket/css/localCommunityboardView.css">
-    <title>사과마켓 커뮤니티</title>
+    
     <link rel="canonical" href="#">
     <meta property="og:locale" content="ko_KR">
     <meta property="og:type" content="website">
     <meta property="og:url" content="#">
     <meta property="og:site_name" content="사과마켓">
     <meta property="og:title" content="사과마켓">
-  
+  <title>사고팔고마켓</title>
 </head>
 
 <body>

@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="/appleMarket/css/comstyle.css">
     <!-- 우리동네 css -->
      <link rel="stylesheet" href="/appleMarket/css/localCommunityboardView.css">
-    <title>사과마켓 커뮤니티</title>
+   <title>사고팔고마켓</title>
     <link rel="canonical" href="#">
     <meta property="og:locale" content="ko_KR">
     <meta property="og:type" content="website">

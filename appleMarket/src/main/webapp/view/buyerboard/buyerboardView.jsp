@@ -8,7 +8,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>사과마켓 사기 - 물품</title>
     <meta name="keywords" content="shopping mall, jacket, men, women">
     <meta name="description" content="shop any where for women and men's ware">
     <meta name="robots" content="index, follow">
@@ -44,7 +43,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
-
+	  <title>사고팔고마켓</title>
 </head>
 
 <body id="buyerboardView">

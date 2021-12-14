@@ -25,7 +25,7 @@
     <script src="//cdn.ckeditor.com/4.7.3/standard/ckeditor.js"></script>
 	
     <link rel="stylesheet" href="/appleMarket/css/userupdatapage.css">
-    <title>사고팔고마켓</title>
+   <title>사고팔고마켓</title>
 </head>
 
 <body>
