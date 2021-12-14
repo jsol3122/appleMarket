@@ -57,5 +57,4 @@ $('.btn-success').click(function(){
 
 $('.btn-primary').click(function(){
   location.href = '/appleMarket/view/communityboard/communityboardList.jsp?pg=1';
-
 });

@@ -705,7 +705,9 @@ input,
 select,
 button {
     font-family: "Muli", sans-serif;
+    /*
     color: #666;
+    */
     font-size: 14px;
     font-weight: 400;
 }
@@ -720,11 +722,11 @@ h6 {
     font-weight: 600;
     color: #333;
 }
-
+/*
 p {
     color: #666;
 }
-
+*/
 h1 {
     font-size: 35px;
 }
@@ -740,11 +742,11 @@ h3 {
 h4 {
     font-size: 18px;
 }
-
+/*
 p {
     color: #888;
 }
-
+*/
 label {
     font-size: 14px;
     letter-spacing: 0;
@@ -1896,7 +1898,6 @@ ul.pagination .active a {
     background: #ff5252;
 }
 
-
 .dashboard-container .action a i {
     line-height: 40px;
 }
@@ -1916,7 +1917,6 @@ ul.pagination .active a {
 .dashboard-container .action .delete {
     background: #f7f7f7;
 }
-
 
 .submit-coupon .form-control,
 .submit-coupon .sbHolder {

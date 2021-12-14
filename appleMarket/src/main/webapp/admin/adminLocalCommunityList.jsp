@@ -10,36 +10,27 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<style type="text/css">
-.panel-body #admin_localcommunity_user_id{
-	text-align:center;
-	border:none;
-	background: transparent;
-}
-</style> 	
-<title>LocalCommunity Board</title>
+<title>boardList</title>
 </head>
 <body>
 	<div class="page-wrapper">
 		<div class="container-fluid">
-			<div class="col-lg-12">
+			<div class="col-lg-8">
 				<!--게시판 넓이 -->
 				<div class="col-lg-12">
-					<h1 class="page-header">LocalCommunity Board</h1>
+					<h1 class="page-header">우리동네게시판 관리</h1>
 				</div>
 				<div class="row"></div>
 				<div class="panel panel-default">
-					<div class="panel-heading">
-						<ion-icon name="home-outline" class="nav__icon"/>
-					</div>
+					<div class="panel-heading">우리동네게시판</div>
 					<div class="panel-body">
 						<table class="table table-hover" id="localCommunityTable" name="localCommunityTable">
+							<thead>
 								<tr>
 									<th>No</th>
 									<th>제목</th>
 									<th>지역</th>
-									<th>
-										<input type="text" list="list" id="admin_localcommunity_user_id" class="admin_localcommunity_user_id" value="작성자"/>
+									<th><input type="text" list="list" id="admin_localcommunity_user_id" class="admin_localcommunity_user_id" value="작성자"/>
 										  <datalist id ="list">
 										 	<option value="아이디를 입력하세요"/>
 										  </datalist>
@@ -48,6 +39,8 @@
 									<th>조회수</th>
 									<th>관리</th>
 								</tr>
+							</thead>
+
 						</table>
 					</div>
 				</div>
@@ -63,7 +56,7 @@
 $(document).on("click", ".localCommunityDelete", function(){
 
 		var localcommunity_seq = $(this).parents().prev().prev().prev().prev().prev().prev().html();
-		//alert(localcommunity_seq+"삭제");
+		alert(localcommunity_seq+"삭제");
 		
 		  $.ajax({
 			url:'/appleMarket/adminLocalCommunityDelete'
@@ -85,7 +78,7 @@ $('#localCommunityTable .admin_localcommunity_user_id').focusout(function(){
     $("#localCommunityTable tr:gt(0)").remove(); 
 
     var localcommunity_user_id = $(this).val();
-    //alert(localcommunity_user_id);
+    alert(localcommunity_user_id);
 
     if(location_dong!='지역'){
         $.ajax({

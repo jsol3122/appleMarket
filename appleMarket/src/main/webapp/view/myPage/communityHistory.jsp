@@ -105,12 +105,7 @@
         }
         
         .s_content {
-            background-color: #ffffff;
-          	position: relative;
-	        right: 250px;
-	        width : 650px;
-	        top : 10px;
-      	
+            background-color: #ffffff
         }
         
         #sitemapWrap {
@@ -238,7 +233,7 @@
 
 <body>
                         <div id="body_container">
-                            <div>
+                            <div class="s_body">
                                 <div class="s_content">
                                     <div id="bd_112_0" class="bd use_np  hover_effect" data-default_style="list" data-bdbubble="N" data-bdfilestype="" data-bdnavside="N">
 
@@ -291,6 +286,7 @@
 </body>
 
 </html>
+
 
 
 

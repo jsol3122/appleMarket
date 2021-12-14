@@ -93,39 +93,21 @@ $('#userchangBtn').click(function(){
 		writeForm.querySelector("#member_tel3").value = '';
 		writeForm.querySelector("#member_tel3").placeholder = "숫자만 입력";
 		writeForm.querySelector('#member_tel3').classList.add("placeholderColor");
+	}else if(writeForm.querySelector("#member_beforepwd").value != writeForm.querySelector("#checked_pw").value){
+		writeForm.querySelector("#member_beforepwd").value = '';
+		writeForm.querySelector("#member_beforepwd").placeholder = "이전 비밀번호와 맞지 않습니다.";
+		writeForm.querySelector('#member_beforepwd').classList.add("placeholderColor");
 	}else{
 		 $.ajax({
-				url:'/appleMarket/checkPwd'
-				,type:'post'
-				,data:  'member_id='+$('#member_id').val()+'&member_beforepwd='+$('#member_beforepwd').val()
-				,success:function(data){
-					console.log(JSON.stringify(data));
+				url: '/appleMarket/modify',
+				type: 'post',
+				data: $('#writeForm').serialize(),				
+				success: function(){
+					alert('정보를 수정하였습니다.');
+			
 					
-					if(data.pwdCheck==1){
-						
-						$.ajax({
-							url: '/appleMarket/modify',
-							type: 'post',
-							data: $('#writeForm').serialize(),				
-							success: function(){
-								alert('정보를 수정하였습니다.');
-							
-							},
-							error: function(err){
-								console.log(err);
-							}
-						});
-					}else if(data.pwdCheck==0){
-						
-						writeForm.querySelector("#member_beforepwd").value = '';
-						writeForm.querySelector("#member_beforepwd").placeholder = "이전 비밀번호와 맞지 않습니다.";
-						writeForm.querySelector('#member_beforepwd').classList.add("placeholderColor");
-					}else if(data.pwdCheck==2){
-						
-						alert("서버상태가 좋지않으니 다시 실행해주세요");
-					}
-				}
-				,error:function(err){
+				},
+				error: function(err){
 					console.log(err);
 				}
 			});

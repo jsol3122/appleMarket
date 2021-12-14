@@ -103,106 +103,93 @@ $(function() {
         // set filter for Isotope
         $grid.isotope({ filter: filterValue });
         $grid.isotope( 'updateSortData', filterValue);
-	
+
         if ($button.val() == '*') {
             $button.parent('div').find('input').prop('checked', false);
-            $(".test").prop("checked",false);
             $button.prop('checked', true);
         } else {
             $button.parent('div').find('input').eq(0).prop('checked', false);
         }
 
-        if ($button.val() == 'tech') {
+        if ($button.val() == '디지털기기/생활가전') {
             $button.parent('div').find('input').prop('checked', false);
-             $(".test").prop("checked",false);
             $button.prop('checked', true);
         } else {
             $button.parent('div').find('input').eq(1).prop('checked', false);
         }
 
-        if ($button.val() == 'furniture') {
+        if ($button.val() == '가구/인테리어') {
             $button.parent('div').find('input').prop('checked', false);
-             $(".test").prop("checked",false);
             $button.prop('checked', true);
         } else {
             $button.parent('div').find('input').eq(2).prop('checked', false);
         }
 
-        if ($button.val() == 'baby') {
-            $button.parent('div').find('.in input').prop('checked', false);
-             $(".test").prop("checked",false);
+        if ($button.val() == '유아동') {
+            $button.parent('div').find('input').prop('checked', false);
             $button.prop('checked', true);
         } else {
             $button.parent('div').find('input').eq(3).prop('checked', false);
         }
 
-        if ($button.val() == 'living') {
+        if ($button.val() == '생활/가공식품') {
             $button.parent('div').find('input').prop('checked', false);
-             $(".test").prop("checked",false);
             $button.prop('checked', true);
         } else {
             $button.parent('div').find('input').eq(4).prop('checked', false);
         }
 
-        if ($button.val() == 'female') {
+        if ($button.val() == '여성패션/잡화') {
             $button.parent('div').find('input').prop('checked', false);
-             $(".test").prop("checked",false);
             $button.prop('checked', true);
         } else {
             $button.parent('div').find('input').eq(5).prop('checked', false);
         }
 
-        if ($button.val() == 'male') {
+        if ($button.val() == '남성패션/잡화') {
             $button.parent('div').find('input').prop('checked', false);
-             $(".test").prop("checked",false);
             $button.prop('checked', true);
         } else {
             $button.parent('div').find('input').eq(6).prop('checked', false);
         }
         
-        if ($button.val() == 'hobby') {
+        if ($button.val() == '게임/취미') {
             $button.parent('div').find('input').prop('checked', false);
-             $(".test").prop("checked",false);
             $button.prop('checked', true);
         } else {
             $button.parent('div').find('input').eq(7).prop('checked', false);
         }
         
-        if ($button.val() == 'sports') {
+        if ($button.val() == '스포츠/레저') {
             $button.parent('div').find('input').prop('checked', false);
-             $(".test").prop("checked",false);
             $button.prop('checked', true);
         } else {
             $button.parent('div').find('input').eq(8).prop('checked', false);
         }
- 
-        if ($button.val() == 'beauty') {
+        
+        if ($button.val() == '뷰티/미용') {
             $button.parent('div').find('input').prop('checked', false);
-             $(".test").prop("checked",false);
             $button.prop('checked', true);
         } else {
             $button.parent('div').find('input').eq(9).prop('checked', false);
         }
         
-        if ($button.val() == 'pet') {
+        if ($button.val() == '반려동물용품') {
             $button.parent('div').find('input').prop('checked', false);
-             $(".test").prop("checked",false);
             $button.prop('checked', true);
         } else {
             $button.parent('div').find('input').eq(10).prop('checked', false);
         }
         
-        if ($button.val() == 'book') {
+        if ($button.val() == '도시/티켓/음반') {
             $button.parent('div').find('input').prop('checked', false);
-             $(".test").prop("checked",false);
             $button.prop('checked', true);
         } else {
             $button.parent('div').find('input').eq(11).prop('checked', false);
         }
         
-        if ($button.val() == 'etc') {
+        if ($button.val() == '기타중고물품') {
             $button.parent('div').find('input').prop('checked', false);
-             $(".test").prop("checked",false);
             $button.prop('checked', true);
         } else {
             $button.parent('div').find('input').eq(12).prop('checked', false);

@@ -6,7 +6,7 @@
                                 <hr>
                                 <div class="memberupwriteid">
                                     <label>아이디 </label>
-                                    <input type="text" name="member_id" id="member_id" value="${member_id}" readonly/>
+                                    <input type="text" name="member_id" id="member_id" value="${sessionScope.member_id}" readonly/>
                                 </div>
                                 <div class="memberupwrite">
                                     <label>현재비밀번호 </label>

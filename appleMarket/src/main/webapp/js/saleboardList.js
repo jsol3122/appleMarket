@@ -1,52 +1,6 @@
 let isEnd = false;
 let pageNum = 1;
-let saleboardC="*";
-
-/* 카테고리 체크박스 눌렀을때 value값 가져오기 */
-function getCheckboxValue(event)  {
-	pageNum = 1;
-    let result =  event.target.value;
     
-    document.getElementById('searchcategory_result').value = result;    
-      
-    saleboardC=result;
-    
-    console.log($('#searchcategory_result').val());
- 
-    
-    $('.new_arrivals_list *').remove();
-      
-    $(window).scroll(function(){
-                    
-        let $window = $(this);
-        let scrollTop = $window.scrollTop();
-        let windowHeight = $window.height();
-        let documentHeight = $(document).height();
-                
-        // scrollbar의 thumb가 바닥 전 30px까지 도달 하면 리스트를 가져온다.
-    
-        if( scrollTop + windowHeight + 10 > documentHeight ){
-            fetchList(saleboardC);
-            pageNum++;
-        }
-       
-            
-    });
-    
-     fetchList(saleboardC);
-
-   
-    // 물품등록 버튼 클릭
-    $('#saleboardWriteBtn').click(function(){
-      if($('#session_id').val())
-	      location.href = '/appleMarket/saleboard/saleboardWriteForm'; 
-      else
-        alert('로그인이 필요한 서비스입니다')
-    });
-                  
-                        
-}
-
 $(function(){
     $(window).scroll(function(){
         let $window = $(this);
@@ -59,10 +13,10 @@ $(function(){
         // scrollbar의 thumb가 바닥 전 30px까지 도달 하면 리스트를 가져온다.
         if( scrollTop + windowHeight + 30 > documentHeight ){
             pageNum++;
-            fetchList(saleboardC);
+            fetchList();
         }
     })
-    fetchList(saleboardC);
+    fetchList();
     
     // 물품등록 버튼 클릭
     $('#saleboardWriteBtn').click(function(){
@@ -83,8 +37,7 @@ let fetchList = function(){
     // renderList 함수에서 html 코드를 보면 <li> 태그에 data-no 속성이 있는 것을 알 수 있다.
     // ajax에서는 data- 속성의 값을 가져오기 위해 data() 함수를 제공.
     $.ajax({
-        url:"/appleMarket/saleboard/saleboardGetList",
-         data: 'pg='+pageNum+'&sale_category='+saleboardC,
+        url:"/appleMarket/saleboard/saleboardGetList?pg=" + pageNum ,
         type: "post",
         dataType: "json",
         success: function(result){
@@ -103,7 +56,7 @@ let fetchList = function(){
 
 let renderList = function(mode, DTO){
 	if(DTO.location_dong == undefined){ //임시로 지역 넣어놓고 gps위치 개발하면 위치값 넣어놓기
-       DTO.location_dong = '역삼동'; 
+       DTO.location_dong = '강남구'; 
        //DTO.location1_addr2.replace(/null/g, '');
     }
     
@@ -130,7 +83,7 @@ let renderList = function(mode, DTO){
     $(".new_arrivals_list").append(html);
     console.log(mode)
     
-   /* $('.hover a').addClass('addcart');*/
+    $('.hover a').addClass('addcart');
     $('.new_arrivals_list>li').addClass(['col-md-3', category]);
     
 

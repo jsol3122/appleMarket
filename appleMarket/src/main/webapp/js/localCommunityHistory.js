@@ -42,9 +42,6 @@ $(function(){
 });
 
 function make_list(list){
-  let logtime = list.localcommunity_logtime;
-  let logtime_str = "2021."+(logtime.month+1)+"."+logtime.date;
-
   let html =
   "<tr>"+
     "<td class=no>"+list.localcommunity_seq+"</td>"+
@@ -56,13 +53,12 @@ function make_list(list){
       list.localcommunity_user_id+
       "</a></span>"+
     "</td>"+
-    "<td class=time title=''>"+logtime_str+"</td>"+
-    "<td class=m_no><a href='' class=delete value="+list.localcommunity_seq+"><i class=fa-trash></i></a></td>"+
+    "<td class=time title=''>21.12.05"+
+    "</td>"+
+    "<td class=m_no><a href='' class=delete value="+list.localcommunity_seq+"><i class='fas fa-trash'></i></a></td>"+
   "</tr>";
     
   $('.bd_tb_lst tbody').append(html);
-  
-  $('.fa-trash').addClass('fas');
     
 }
 

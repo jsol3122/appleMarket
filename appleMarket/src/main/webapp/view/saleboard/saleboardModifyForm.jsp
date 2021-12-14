@@ -142,18 +142,18 @@
 				<label>카테고리</label>
 				<select name="sale_category" id="sale_category">
 					<option value="" selected >-- 선택하세요 --</option>
-					<option value="tech">디지털기기/생활가전</option>
-					<option value="furniture">가구/인테리어</option>
-					<option value="baby">유아동</option>
-					<option value="living">생활/가공식품</option>
-					<option value="female">여성패션/잡화</option>
-					<option value="male">남성패션/잡화</option>
-					<option value="hobby">게임/취미</option>
-					<option value="sports">스포츠/레저</option>
-					<option value="beauty">뷰티/미용</option>
-					<option value="pet">반려동물용품</option>
-					<option value="book">도서/티켓/음반</option>
-					<option value="etc">기타중고물품</option>
+					<option value="디지털기기/생활가전">디지털기기/생활가전</option>
+					<option value="가구/인테리어">가구/인테리어</option>
+					<option value="유아동">유아동</option>
+					<option value="생활/가공식품">생활/가공식품</option>
+					<option value="여성패션/잡화">여성패션/잡화</option>
+					<option value="남성패션/잡화">남성패션/잡화</option>
+					<option value="게임/취미">게임/취미</option>
+					<option value="스포츠/레저">스포츠/레저</option>
+					<option value="뷰티/미용">뷰티/미용</option>
+					<option value="반려동물용품">반려동물용품</option>
+					<option value="도서/티켓/음반">도서/티켓/음반</option>
+					<option value="기타중고물품">기타중고물품</option>
 				</select>
 				<label for="select_valid" id="select_valid"></label>
 			</div>

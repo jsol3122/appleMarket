@@ -19,7 +19,7 @@
     <div class="container-fluid">
         <div class="col-lg-8"><!--게시판 넓이 -->
             <div class="col-lg-12">
-                <h1 class="page-header">Notice</h1>
+                <h1 class="page-header">공지사항 관리</h1>
             </div>
             <div class="row">
                   <div class="col-lg-12">
@@ -28,11 +28,8 @@
                       </button>
                   </div>
             </div>
-            <br>
             <div class="panel panel-default">
-            	<div class="panel-heading">
-                	<ion-icon name="clipboard-outline"class="nav__icon"></ion-icon>
-                </div>
+                <div class="panel-heading">공지사항 </div>
                 <div class="panel-body">
                     <table class="table table-hover" id="noticeTable">
                             <tr>
@@ -85,7 +82,7 @@ $(document).on("click", ".NoticeDelete", function(){
 //수정 버튼	
 $(document).on("click", ".NoticeModify", function(){
 		var admin_notice_seq = $(this).parents().prev().prev().prev().html();
-		//alert(admin_notice_seq)
+		alert(admin_notice_seq)
 		location.href="/appleMarket/adminNoticeModifyForm?admin_notice_seq="+admin_notice_seq;
 	
 	});	

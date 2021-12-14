@@ -45,34 +45,29 @@ $(function(){
 });
 
 function make_list(list){
-  let logtime = list.buyerboard_logtime;
-  let logtime_str = "2021."+(logtime.month+1)+"."+logtime.date;
-
-
   let html =
   "<tr>"+
     "<td class=product-thumb>"+
-       "<a href='/appleMarket/view/buyerboard/buyerboardView.jsp?buyerboard_seq="+list.buyerboard_seq+"'>"+
       "<img width=80px height=auto src='/appleMarket/storage/"+list.buyerboard_image1+"' alt='구매내역사진'>"+
     "</td>"+
-    "<td class=product-details value="+list.member_id+">"+
+    "<td class=product-details>"+
       "<h3 class=title>"+list.buyerboard_subject+"</h3>"+
       "<span class=add-id><strong>ID:</strong>"+list.member_id+"</span>"+
-      "<span><strong>날짜:</strong><time>"+logtime_str+"</time></span>"+
+      "<span><strong>날짜:</strong><time>2021/11/27</time></span>"+
       "<span class=status><strong>가격:</strong>"+list.buyerboard_price+"</span>"+
       "<span class=location><strong>장소:</strong>"+list.location_dong+"</span>"+
     "</td>"+
-    "<td class=buyer_status align=center>"+
-      "<span class=buyer_status>"+list.buyer_status+"</span><br><br>"+
-      "<input type=button class=complete id="+list.buyer_status+" value=완료>"+
+    "<td class=product-category>"+
+      "<span class=categories>"+list.buyerboard_category+"</span>"+
     "</td>"+
-    "<td class=action data-title=Action value="+list.buyerboard_seq+">"+
+    "<td class=action data-title=Action>"+
       "<div class=''>"+
         "<ul class=list-inline>"+
           "<li class=list-inline-item>"+
             "<a data-toggle=tooltip data-placement=top title=Delete class=delete href='' value="+list.buyerboard_seq+">"+
-              "<i class=fa></i>"+
+              "<i class=fa>"+
             "</a>"+
+          "</li>"+
         "</ul>"+
       "</div>"+
     "</td>"+
@@ -102,32 +97,4 @@ $(document).on('click', '.delete',function(){
       }
     });
   }else return false;
-});
-
-
-// 거래완료 버튼
-$(document).on('click', '.complete',function(){
-  var buyer_status = $(this).attr('id'); 
-  var buyerboard_seq = $(this).parents().next().attr('value');
-  var member_id= $(this).parents().prev().attr('value');
-	
-  if(buyer_status=='구매중'){
-  // 거래완료 다시한번 확인
-	  if(confirm('구매완료 처리하시겠습니까?')){
-	    $.ajax({
-	      url: '/appleMarket/buyerComplete',
-	      type: 'post',
-	      data: {'buyerboard_seq' : buyerboard_seq, 'member_id': member_id, 'buyer_status' : buyer_status},
-	      success: function(data){
-	        alert('구매완료 처리되었습니다.');
-	        location.href='/appleMarket/buyhistory?pg=1';
-	      },
-	      error: function(err){
-	      
-	      }
-	    });
-	  }
-	  
-	}
- 
-});
+})

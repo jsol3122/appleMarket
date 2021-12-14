@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href="/appleMarket/css/user2.css">
 <meta name="google-signin-client_id" content="618037962343-sbg29ei4a6dcd9acrv01ndougru7va1b.apps.googleusercontent.com">
 </head>
-	<body style="overflow-x: hidden">
+<body style="overflow-x: hidden">
 	<div id="modal-content">
 		<div class="modal-body"> <!-- modal body -->
 	            <div class="button-wrap">

@@ -116,11 +116,8 @@ $('.fr a').click(function(){
 $(document).on('click', '.hx', function(e){
   let seq = $(this).parents('tr').children('.no').text();
   
-  if($('#session_id').val()){
-   
+  if($('#session_id').val())
     $(this).attr('href', '/appleMarket/view/communityboard/communityboardView.jsp?communityboard_seq='+seq);
-  
-  }
   else{
     e.preventDefault();
     alert('로그인이 필요한 서비스입니다');
