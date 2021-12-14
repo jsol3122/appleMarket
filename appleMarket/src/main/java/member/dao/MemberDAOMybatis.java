@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -33,9 +34,22 @@ public class MemberDAOMybatis implements MemberDAO {
 
 	@Override
 	public Map<String, Integer> login(MemberDTO memberDTO) {
+		String memberPwd = memberDTO.getMember_pwd();
+		
+		
+		MemberDTO checkDTO = sqlSession.selectOne("memberSQL.login", memberDTO);
+		
+		int loginCheck=0;
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		if(encoder.matches(memberPwd, checkDTO.getMember_pwd())) {
+			loginCheck=1;
+		}else {
+			loginCheck=0;
+		}
+		
 		
 		Map<String,Integer>map = new HashMap<String, Integer>();
-		map.put("login", sqlSession.selectOne("memberSQL.login", memberDTO));
+		map.put("login", loginCheck);
 		map.put("loginGPS", sqlSession.selectOne("memberSQL.loginGPS", memberDTO));
 	
 		
@@ -117,6 +131,12 @@ public class MemberDAOMybatis implements MemberDAO {
 	@Override
 	public void recommendCoupon(String member_id) {
 		sqlSession.update("memberSQL.recommendCoupon",member_id);		
+	}
+
+	@Override
+	public MemberDTO checkPwd(MemberDTO memberDTO) {
+		
+		return sqlSession.selectOne("memberSQL.login", memberDTO);
 	}
 	
 
