@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import boardPaging.BoardPaging;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
+import saleboard.bean.InterestDTO;
 import saleboard.bean.SaleboardDTO;
 import saleboard.dao.SaleboardDAO;
 
@@ -22,15 +23,16 @@ public class SaleboardServiceImpl implements SaleboardService {
 	private BoardPaging boardPaging;
 		
 	@Override
-	public JSONObject saleboardGetList(int pg) {
+	public JSONObject saleboardGetList(int pg, String sale_category) {
 
 		//1페이지당 n개씩
 		int endNum = pg * 12;
 		int startNum = endNum - 11;
 		
-		Map<String, Integer> map = new HashMap<String, Integer>();
+		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("startNum", startNum);
 		map.put("endNum", endNum);
+		map.put("sale_category", sale_category);
 		List<SaleboardDTO> list= saleboardDAO.saleboardGetList(map);
 		
 		int totalA = saleboardDAO.getTotalA();
@@ -146,7 +148,33 @@ public class SaleboardServiceImpl implements SaleboardService {
 	public void saleboardFollow(Map<String, String> map) {
 		saleboardDAO.saleboardFollow(map);
 	}
+	
+	@Override
+	public SaleboardDTO member_idLoad(String sale_seq) {
+		return saleboardDAO.member_idLoad(sale_seq);
+	}
 
+	@Override
+	public List<InterestDTO> getinterestList(String member_id) {
+		return saleboardDAO.getinterestList(member_id);
+	}
+
+	@Override
+	public void interestDelete(int interestList_seq) {
+		saleboardDAO.interestDelete(interestList_seq);
+		
+	}
+
+	@Override
+	public InterestDTO doubleCheck(SaleboardDTO saleboardDTO) {
+		return saleboardDAO.doubleCheck(saleboardDTO);
+	}
+
+	@Override
+	public void intereUpdate(int sale_seq) {
+		saleboardDAO.intereUpdate(sale_seq);
+		
+	}
 
 
 	

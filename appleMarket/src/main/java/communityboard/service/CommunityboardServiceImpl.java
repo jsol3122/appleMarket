@@ -112,6 +112,11 @@ public class CommunityboardServiceImpl implements CommunityboardService {
 		communityboardDAO.communityboardHit(communityboard_seq);
 	}
 
+	@Override
+	public int commentTotal(String communityboard_seq) {
+		return communityboardDAO.commentTotal(communityboard_seq);
+	}
+
 	
 
 	

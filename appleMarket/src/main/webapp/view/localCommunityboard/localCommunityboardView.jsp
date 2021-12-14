@@ -92,7 +92,10 @@
                                                     <div class="rd_nav img_tx fr m_btn_wrp">
                                                         <!-- 본인 글일 때 수정&삭제 버튼 활성화 -->
 
-                                                        <a class="document_668947 action bubble m_no" href="#" onclick="return false;" title="신고"><i class="fa fa-concierge-bell"></i><b class="tx">신고</b></a> 
+                                                        <a class="document_668947 action bubble m_no" href="#" onclick="openPopup()"  title="신고">
+                                                        	<i class="fa fa-concierge-bell"></i>
+                                                        		<b class="tx">신고</b>
+                                                        </a> 
                                                     </div>
                                                 </div>
                                             </div>
@@ -102,7 +105,7 @@
                                                 <div id="668947_comment" class="fdb_lst clear fdb_nav_btm ">
                                                     <div class="cmt_editor">
                                                         <label for="editor_668947" class="cmt_editor_tl fl"><em>✔</em><strong>댓글 쓰기</strong></label>
-                                                        <form action="./" method="post" onsubmit="return procFilter(this, insert_comment)" class="bd_wrt cmt_wrt clear" editor_sequence="668947"><input type="hidden" name="error_return_url" value="/index.php?mid=freebd&amp;sort_index=readed_count&amp;order_type=desc&amp;document_srl=668947"><input type="hidden" name="act" value="">
+                                                        <form class="bd_wrt cmt_wrt clear" editor_sequence="668947"><input type="hidden" name="error_return_url" value="/index.php?mid=freebd&amp;sort_index=readed_count&amp;order_type=desc&amp;document_srl=668947"><input type="hidden" name="act" value="">
                                                             <input type="hidden" name="vid" value="">
                                                             <input type="hidden" name="mid" value="freebd">
                                                             <input type="hidden" name="document_srl" value="668947">
@@ -112,7 +115,8 @@
                                                                 <div class="text">
                                                                     <input type="hidden" name="use_html" value="Y">
                                                                     <input type="hidden" id="htm_668947" value="n">
-                                                                    <textarea id="editor_668947" cols="50" rows="4" style="overflow: hidden; min-height: 4em; height: 46px; width: 100%;"></textarea>
+                                                                    <input type="hidden" name="localcommunity_seq" id="localcommunity_seq" value="">
+                                                                    <textarea id="editor_668947" name="localcommunity_comment_content" cols="50" rows="4" style="overflow: hidden; min-height: 4em; height: 46px; width: 100%;"></textarea>
                                                                     <div class="autogrow-textarea-mirror" style="display: none; overflow-wrap: break-word; padding: 4px 6px; width: 582px; font-family: Tahoma, AppleGothic, sans-serif; font-size: 12px; line-height: 18px;">.<br>.</div>
                                                                 </div>
                                                                 <input type="submit" value="등록" class="bd_btn">
@@ -154,7 +158,7 @@
                                                     </div>
                                                     <div id="cmtPosition" aria-live="polite">
                                                         <div class="fdb_tag">
-                                                            <a class="ui_font bubble" href="#" onclick="jQuery(this).parent().nextAll('ul,.bd_pg').slideToggle();return false" title="댓글 보기">Comments <b>'3'</b></a>
+                                                            <a class="ui_font bubble" href="#" onclick="jQuery(this).parent().nextAll('ul,.bd_pg').slideToggle();return false" title="댓글 보기">Comments <b></b></a>
                                                         </div>
                                                         <ul class="fdb_lst_ul ">
                                                             <!-- 댓글 ajax로 불러오기 -->
@@ -193,46 +197,15 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-
-                                                <tr class="notice">
-                                                    <td class="no">
-                                                        <strong>공지</strong> </td>
-                                                    <td class="title">
-                                                        <a href="#"><strong><span style="font-weight:bold;;color:#ff0000">[필독]사과마켓 글 준수사항!</span></strong></a>
-                                                        <!--
-                                                            <a href="http://www.reva.kr/freebd/771023#771023_comment" class="replyNum" title="댓글">5</a> <span class="extraimages"></span>
-                                                        -->
-                                                    </td>
-                                                    <td class="author"><span><a href="#" class="member_4" onclick="return false">
-                                                        <!--
-                                                            <img src="http://www.reva.kr/modules/point/icons/lv/20.gif" alt="[레벨:20]" title="포인트:1017630point, 레벨:20/20" class="xe_point_level_icon" style="vertical-align:middle;margin-right:3px;">
-                                                        -->
-                                                            관리자</a></span></td>
-                                                    <td class="time">2021.02.14</td>
-                                                    <td class="m_no">14610</td>
-                                                </tr>
-                                                <tr class="notice">
-                                                    <td class="no">
-                                                        <strong>14119</strong> </td>
-                                                    <td class="title">
-                                                        <a href="http://www.reva.kr/freebd/70247"><strong>둘이서 먹다 ㄹㅇ 한명이 죽어도 모릅니다!!!!!</strong></a>
-                                                        <a href="http://www.reva.kr/freebd/70247#70247_comment" class="replyNum" title="댓글">161</a> <span class="extraimages"></span>
-                                                    </td>
-                                                    <td class="author"><span><a href="#" class="member_4134" onclick="return false">
-                                                        <!--
-                                                            <img src="http://www.reva.kr/modules/point/icons/lv/20.gif" alt="[레벨:20]" title="포인트:1000470point, 레벨:20/20" class="xe_point_level_icon" style="vertical-align:middle;margin-right:3px;">
-                                                        -->
-                                                            김탁구</a></span></td>
-                                                    <td class="time">2016.03.02</td>
-                                                    <td class="m_no">10405</td>
-                                                </tr>
+												<!-- 공지사항 ajax로 띄우기 -->
+                                                
                                                 <!-- 일반 글목록 ajax로 띄우기 -->
                                             </tbody>
                                         </table>
                                         <div class="btm_mn clear">
 
                                             <div class="fl">
-                                                <a class="btn_img fl" href="#"><i class="fa fa-bars"></i> 목록</a>
+                                                <a class="btn_img fl" href="/appleMarket/view/localCommunityboard/localCommunityboardList.jsp?pg=1"><i class="fa fa-bars"></i> 목록</a>
                                                 <form action="#" method="get" onsubmit="return procFilter(this, search)" class="bd_srch_btm"><input type="hidden" name="act" value="">
                                                     <input type="hidden" name="vid" value="">
                                                     <input type="hidden" name="mid" value="freebd">
@@ -273,6 +246,33 @@
     <script src="/appleMarket/js/app.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="/appleMarket/js/localCommunityboardGetView.js"></script>
+    <script src="/appleMarket/js/warning.js"></script>
+        <script type="text/javascript">
+    
+	$(document).on("click", ".bell", function(){
+
+		warning_id = $(this).parents().prev().prev().children().eq(0).text();
+		//alert(warning_id);
+			
+		var comment_seq = $(this).parents().prev().next().next().val();
+		//alert(comment_seq);
+		
+	  	var _width = '530';
+	    var _height = '600';
+	 
+	    // 팝업을 가운데 위치시키기 위해 아래와 같이 값 구하기
+	    var _left = Math.ceil(( window.screen.width - _width )/2);
+	    var _top = Math.ceil(( window.screen.height - _height )/2); 
+	 	
+	 
+	    window.open('/appleMarket/warningBoardForm?localcommunity_seq='+$('#localcommunity_seq').val()+'&comment_seq='+comment_seq+'&warning_id='+warning_id+'&comment_YN='+'Y','팝업창','width='+ _width +', height='+ _height +', left=' + _left + ', top='+ _top );
+	    
+	    $('#comment_YN').val('Y');
+	    $('#warning_id').val(warning_id);
+	  
+	  
+	});
+    </script>
 </body>
 
 </html>

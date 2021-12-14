@@ -5,9 +5,13 @@ import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import localCommunityboardComment.bean.LocalCommunityboardCommentDTO;
 
+@Repository
+@Transactional
 public class LocalCommunityboardCommentMybatis implements LocalCommunityboardCommentDAO {
 	
 	@Autowired
@@ -57,9 +61,15 @@ public class LocalCommunityboardCommentMybatis implements LocalCommunityboardCom
 		
 	}
 
-	private LocalCommunityboardCommentDTO replyLoad(String localcommunity_comment_pseq) {
+	@Override
+	public LocalCommunityboardCommentDTO replyLoad(String localcommunity_comment_pseq) {
 		return sqlSession.selectOne("localCommunityboardCommnentSQL.replyLoad",localcommunity_comment_pseq);
 		
+	}
+	
+	@Override
+	public int commentTotal(String localcommunity_seq) {
+		return sqlSession.selectOne("localCommunityboardCommnentSQL.commentTotal", localcommunity_seq);
 	}
 
 }

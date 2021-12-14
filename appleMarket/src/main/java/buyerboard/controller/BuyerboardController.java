@@ -3,7 +3,9 @@ package buyerboard.controller;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
@@ -44,6 +46,7 @@ public class BuyerboardController {
 	public JSONObject buyerboardGetList(@RequestParam String pg, @Nullable @RequestParam("buyerboard_category") String buyerboard_category) {
 		int page = Integer.parseInt(pg);
 		System.out.println(page);
+		System.out.println(buyerboard_category);
 		return buyerboardService.buyerboardGetList(page,buyerboard_category);
 	}
 	
@@ -192,6 +195,21 @@ public class BuyerboardController {
 		return buyerboardService.boardcategoryFilter(buyerboard_category);
 	}
 
-
+	@PostMapping("/buyerboard/buyerboardPick")
+	public void buyerboardPick(@ModelAttribute BuyerboardDTO buyerboardDTO, @RequestParam String member_id) {
+		int buyerboard_seq = buyerboardDTO.getBuyerboard_seq();
+		
+		System.out.println(buyerboard_seq);
+		System.out.println(member_id);
+		
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("buyerboard_seq", buyerboard_seq+"");
+		map.put("member_id", member_id);
+	
+	
+		
+		buyerboardService.buyerboardPick(map);
+		
+	}
 	
 }

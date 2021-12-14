@@ -61,7 +61,7 @@ public class CommunityboardCommentController {
 		communityboardCommentService.communityboardCommentModify(communityboardCommentDTO);
 	}
 	
-	@GetMapping("comment/communityboardCommentDelete")
+	@GetMapping("/comment/communityboardCommentDelete")
 	@ResponseBody
 	public void communityboardCommentDelete(@RequestParam String communityboard_comment_seq) {
 		

@@ -85,7 +85,7 @@ public class MemberController{
 
    //회원가입 - index 이동(맞는지 확인 요망)
    @RequestMapping("/write")
-   public String write(@ModelAttribute @Valid MemberDTO memberDTO,@Nullable @RequestParam("recommend_id") String recommend_id){
+   public String write(@ModelAttribute @Valid @Nullable MemberDTO memberDTO,@Nullable @RequestParam("recommend_id") String recommend_id, HttpSession session){
 	   
 	   String member_id=memberDTO.getMember_id();
 	   MemberDTO Check = memberSerivce.checkId(memberDTO.getMember_id());
@@ -104,22 +104,23 @@ public class MemberController{
 		
 		if(blackListDTO == null){
 			if(Check == null) {
+				
+				System.out.println(blackListDTO);
+				memberSerivce.write(memberDTO);
 				//추천인 등록
-				if(recommend_id!=null) {
+				if(recommend_id!=""){
 					if(recommendChk<5) { 
 			            memberSerivce.recommend(map);
 			            memberSerivce.recommended(map);
 					}
 				}
 				
-					System.out.println(blackListDTO);
-					memberSerivce.write(memberDTO); 
-					return "/view/writeFail";
-				}
-			return "/view/user/writeFormSuccess";
+					
+			}
+		return "/view/user/writeFormSuccess";
       }else {
-    	
-         return "/view/user//writeFail";
+    	 session.invalidate();
+         return "/view/user/writeFail";
       }
    }
    
@@ -307,6 +308,7 @@ public class MemberController{
 	
 	//수정하기 
 	@PostMapping("/modify")
+	
 	@ResponseBody
 	public void modify(@ModelAttribute MemberDTO memberDTO) {
 		memberSerivce.modify(memberDTO);

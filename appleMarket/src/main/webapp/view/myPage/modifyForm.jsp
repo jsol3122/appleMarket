@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"  session="true"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+					<div class="article">
                       <form class="memberuptext" id="writeForm" name="writeForm" action="" method="">
                           <h3>회원정보수정</h3>
                           <hr>
@@ -44,6 +44,7 @@
 
 
                       </form>
+                     </div>
 <script type="text/javascript" src="/appleMarket/js/user.js"></script>
  <script>
  /*회원정보 받아오기  */

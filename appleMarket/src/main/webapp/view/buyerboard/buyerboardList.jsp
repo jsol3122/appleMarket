@@ -55,64 +55,70 @@
             <h2 class="hidden">category filter</h2>
             <div class="list_filters">
                 <div class="combi_filters">
-                    <div class="category_filter" data-filter-group="category">
-                        <h3>카테고리</h3>
-                        <input type="checkbox" id="buyerboard_category_all" name="buyerboard_category" onclick='getCheckboxValue(event)'>
+                    	<div class="category_filter" data-filter-group="category">
+                        <h3>카테고리</h3>                      
+                        <input type="checkbox" class="test"id="buyerboard_category_all" name="buyerboard_category" value="*" onclick='getCheckboxValue(event)' autocomplete="off" checked/>
                         <span class="box">box</span>
                         <label for="buyerboard_category_all">All</label>
 
-                        <input type="checkbox" id="tech" name="buyerboard_category" value="디지털기기/생활가전" onclick='getCheckboxValue(event)'>
+                        <input type="checkbox" class="test" id="tech" name="buyerboard_category" value="tech" onclick='getCheckboxValue(event)' autocomplete="off"/>
                         <span class="box">box</span>
                         <label for="tech">디지털기기/생활가전</label>
 
-                        <input type="checkbox" id="furniture" name="buyerboard_category" value="가구/인테리어" onclick='getCheckboxValue(event)'>
+                        <input type="checkbox" class="test" id="furniture" name="buyerboard_category" value="furniture" onclick='getCheckboxValue(event)' autocomplete="off"/>
                         <span class="box">box</span>
                         <label for="furniture">가구/인테리어</label>
 
-                        <input type="checkbox" id="baby" name="buyerboard_category" value="유아동" onclick='getCheckboxValue(event)'>
+                        <input type="checkbox" class="test" id="baby" name="buyerboard_category" value="baby" onclick='getCheckboxValue(event)' autocomplete="off"/>
                         <span class="box">box</span>
                         <label for="baby">유아동</label>
 
-                        <input type="checkbox" id="living" name="buyerboard_category" value="생활/가공식품" onclick='getCheckboxValue(event)'>
+                        <input type="checkbox" class="test" id="living" name="buyerboard_category" value="living" onclick='getCheckboxValue(event)' autocomplete="off"/>
                         <span class="box">box</span>
                         <label for="living">생활/가공식품</label>
-                        
-                        <input type="checkbox" id="female" name="buyerboard_category" value="여성패션/잡화" onclick='getCheckboxValue(event)'>
+                         </div>
+                        <div class="category_filter">
+                        <h3></h3>
+                        <input type="checkbox" class="test" id="female" name="buyerboard_category" value="female" onclick='getCheckboxValue(event)' autocomplete="off"/>
                         <span class="box">box</span>
                         <label for="female">여성패션/잡화</label>
                         
-                        <input type="checkbox" id="male" name="buyerboard_category" value="남성패션/잡화" onclick='getCheckboxValue(event)'>
+                        <input type="checkbox" class="test" id="male" name="buyerboard_category" value="male" onclick='getCheckboxValue(event)' autocomplete="off"/>
                         <span class="box">box</span>
                         <label for="male">남성패션/잡화</label>
                         
-                        <input type="checkbox" id="hobby" name="buyerboard_category" value="게임/취미" onclick='getCheckboxValue(event)'>
+                        <input type="checkbox" class="test" id="hobby" name="buyerboard_category" value="hobby" onclick='getCheckboxValue(event)' autocomplete="off"/>
                         <span class="box">box</span>
                         <label for="hobby">게임/취미</label>
                         
-                        <input type="checkbox" id="sports" name="buyerboard_category" value="스포츠/레저" onclick='getCheckboxValue(event)'>
+                        <input type="checkbox" class="test" id="sports" name="buyerboard_category" value="sports" onclick='getCheckboxValue(event)' autocomplete="off"/>
                         <span class="box">box</span>
                         <label for="sports">스포츠/레저</label>
-                        
-                        <input type="checkbox" id="beauty" name="buyerboard_category" value="뷰티/미용" onclick='getCheckboxValue(event)'>
+                         </div>
+                        <div class="category_filter">
+                        <h3></h3>
+                        <input type="checkbox" class="test" id="beauty" name="buyerboard_category" value="beauty" onclick='getCheckboxValue(event)' autocomplete="off"/>
                         <span class="box">box</span>
                         <label for="beauty">뷰티/미용</label>
                         
-                        <input type="checkbox" id="pet" name="buyerboard_category" value="반려동물용품" onclick='getCheckboxValue(event)'>
+                        <input type="checkbox" class="test" id="pet" name="buyerboard_category" value="pet" onclick='getCheckboxValue(event)' autocomplete="off"/>
                         <span class="box">box</span>
                         <label for="pet">반려동물용품</label>
                         
-                        <input type="checkbox" id="book" name="buyerboard_category" value="도시/티켓/음반" onclick='getCheckboxValue(event)'>
+                        <input type="checkbox" class="test" id="book" name="buyerboard_category" value="book" onclick='getCheckboxValue(event)' autocomplete="off"/>
                         <span class="box">box</span>
                         <label for="book">도시/티켓/음반</label>
                         
-                        <input type="checkbox" id="etc" name="buyerboard_category" value="기타중고물품" onclick='getCheckboxValue(event)'>
+                        <input type="checkbox" class="test" id="etc" name="buyerboard_category" value="etc" onclick='getCheckboxValue(event)' autocomplete="off"/>
                         <span class="box">box</span>
                         <label for="etc">기타중고물품</label>
-						<div id='searchcategory_result' ></div>
+                        
+						<input type="text" id='searchcategory_result'>
 						<!-- style="display:none;" -->
+						</div>
                     </div>
                 </div>
-            </div>
+           
         </section>
         <section class="new_arrivals">
             <h2 class="content_title"><span>사과마켓</span> 사고/팔고</h2>

@@ -16,5 +16,9 @@ public interface LocalCommunityboardCommentDAO {
 	public void localCommunityboardCommentDelete(String localcommunity_comment_seq);
 
 	public void localCommunityboardCommentReply(Map<String, String> map);
+	
+	public LocalCommunityboardCommentDTO replyLoad(String localcommunity_comment_pseq);
+
+	public int commentTotal(String localcommunity_seq);
 
 }
