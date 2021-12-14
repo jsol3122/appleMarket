@@ -127,7 +127,7 @@ $(function(){
 				
 				$('#warning_content').append($('<img>',{//td의 자식 
 					alt:'이미지',
-					src:'/appleMarket/storage/'+data.warning_image.replace(null, ''),
+					src:'/appleMarket/storage/'+data.warning_image,
 					style:'width: auto; height: auto; cursor: pointer;'
 				}));
 		},error:function(err){
