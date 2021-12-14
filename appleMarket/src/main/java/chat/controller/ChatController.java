@@ -26,7 +26,6 @@ import chat.bean.ChatDTO;
 import chat.bean.ChatRoomDTO;
 import chat.service.ChatService;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import member.bean.MemberDTO;
 import saleboard.bean.SaleboardDTO;
 
