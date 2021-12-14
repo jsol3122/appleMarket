@@ -66,9 +66,10 @@ public class ChatDAOMybatis implements ChatDAO {
 	public List<ChatDTO> newPersonalChatHistory(String user_id) {
 		return sqlSession.selectList("newPersonalChatHistory", user_id);
 	}
+	
+   @Override
+   public List<ChatDTO> chatHistory(Map<String, String> map) {
+      return sqlSession.selectList("chatHistory", map);
+   }
 
-	@Override
-	public List<ChatDTO> chatHistory(Map<String, String> map) {
-		return sqlSession.selectList("chatHistory", map);
-	}
 }

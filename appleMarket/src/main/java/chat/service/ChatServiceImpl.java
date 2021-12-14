@@ -103,7 +103,7 @@ public class ChatServiceImpl implements ChatService{
 	public List<ChatDTO> chatHistory(Map<String, String> map) {
 		return chatDAO.chatHistory(map);
 	}
-	
+
 /*
 	public int checkChatRoom(Map<String, String> map){
 	    return chatDAO.checkChatRoom(map);

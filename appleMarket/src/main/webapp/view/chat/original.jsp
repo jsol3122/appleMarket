@@ -5,238 +5,11 @@
 <%@ page import="java.util.*"%>
 
 <!DOCTYPE html>
-<%--<html> --%>
 <html ng-app='swankyChat' ng-cloak='true'>
 <head>
 <meta charset="UTF-8">
 <title>애플마켓 쪽지창</title>
-<style type="text/css">
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Montserrat", sans-serif;
-}
-  <%--background: linear-gradient(180deg, #2EC4B6, #9EB1E9);--%>
-html, body {
-  background: linear-gradient(180deg, #FAAC58, #F6CECE);
-  overflow-x: hidden;
-}
-
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-.inbox {
-  background: #FA8258;
-  width: 650px;
-  height: 450px;
-  display: flex;
-  border-radius: 4px;
-}
-.inbox aside {
-  background: #FA8258;
-  flex: 1 1 auto;
-  height: 100%;
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
-}
-.inbox aside .avatar {
-  width: 30px;
-  height: 30px;
-  border: 2px solid #FFF;
-  border-radius: 100%;
-}
-.inbox aside li {
-  background: #FA8258;
-  list-style: none;
-  color: #FFF;
-  display: flex;
-  justify-content: space-between;
-  padding: 0 2em;
-  align-items: center;
-  height: 5em;
-  font-size: 0.8em;
-  cursor: pointer;
-  border-bottom: 1px solid #EDF2F4
-  border-top-left-radius: 4px;
-}
-.inbox aside li:hover {
-  background: #30ccbe;
-}
-.inbox main {
-  background: #EDF2F4;
-  height: 100%;
-  flex: 1 1 70%;
-  border-top-right-radius: 4px;
-  border-bottom-right-radius: 4px;
-  transform: scale(1.035);
-}
-.inbox main .message-wrap {
-  height: 88%;
-  overflow-y: scroll;
-}
-.inbox main .message {
-  background: #43d3c5;
-  width: 70%;
-  margin: 1em 6em;
-  padding: 1em;
-  border-radius: 4px;
-  opacity: 1;
-  transition: opacity ease-in-out 0.45s;
-}
-.inbox main .message p {
-  font-size: 0.68em;
-  color: #FFF;
-  font-weight: 300;
-}
-.inbox main .message img {
-  width: 30px;
-  height: 30px;
-  border-radius: 100%;
-  transform: translateX(-70px) translateY(-20px);
-  float: left;
-}
-.inbox main .message:nth-of-type(even) {
-  background: #2fc8ba;
-  margin: 1em 1em;
-}
-.inbox main footer {
-  position: fixed;
-  bottom: 0;
-  height: 12%;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  border-top: 1px solid #e0e9ec;
-}
-.inbox main footer input[type=text] {
-  border: none;
-  background: transparent;
-  padding: 0.8em;
-  outline: none;
-  color: #AAA;
-  width: 100%;
-}
-.inbox main footer input[type=submit] {
-  background: #43d3c5;
-  color: #FFF;
-  width: 17%;
-  border-radius: 4px;
-  padding: 0.8em;
-  margin: 0 1em;
-  border: none;
-  cursor: pointer;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-}
-.inbox main footer form {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-}
-
-.init {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-flow: column wrap;
-  height: 100%;
-  position: absolute;
-  left: 0;
-  right: 0;
-  z-index: -1;
-  text-align: center;
-}
-.init i {
-  font-size: 5em;
-  color: #43d3c5;
-}
-.init h4 {
-  margin: 1em auto;
-  color: #43d3c5;
-}
-
-.loader {
-  opacity: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-flow: column wrap;
-  height: 100%;
-  position: absolute;
-  margin: 0 auto;
-  left: 0;
-  right: 0;
-  z-index: -1;
-  text-align: center;
-}
-.loader p {
-  background: #43d3c5;
-  width: 20px;
-  height: 20px;
-  border-radius: 100%;
-  -webkit-animation: loading 2000ms cubic-bezier(0.47, 0, 0.745, 0.715) infinite;
-          animation: loading 2000ms cubic-bezier(0.47, 0, 0.745, 0.715) infinite;
-}
-.loader p:before {
-  content: "";
-  background: #43d3c5;
-  width: 40px;
-  height: 40px;
-  opacity: 1;
-  display: block;
-  transform: translateX(-10px) translateY(-10px);
-  border-radius: 100%;
-  -webkit-animation: loading 2000ms cubic-bezier(0.47, 0, 0.745, 0.715) infinite;
-          animation: loading 2000ms cubic-bezier(0.47, 0, 0.745, 0.715) infinite;
-  -webkit-animation-delay: 50ms;
-          animation-delay: 50ms;
-}
-.loader h4 {
-  margin: 1em auto;
-  color: #43d3c5;
-}
-
-@-webkit-keyframes loading {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 0.7;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes loading {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 0.7;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-::-webkit-scrollbar {
-  width: 0px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.1);
-}
-</style>
+<link rel="stylesheet" type="text/css" href="/appleMarket/css/chat.css">
 </head>
 <body>
 <% String chatRoom_id = (String) request.getAttribute("chatRoom_id"); %>
@@ -245,33 +18,33 @@ html, body {
 <% List<ChatRoomDTO> chatRoomDTOlist = (ArrayList<ChatRoomDTO>) request.getAttribute("chatRoomDTOlist");
 System.out.println("chatRoomDTOlist.size : "+chatRoomDTOlist.size());
 %>
-<% List<ChatDTO> chatHistory = (ArrayList<ChatDTO>) request.getAttribute("chatHistory"); 
-System.out.println("chatHistory.size : "+chatHistory.size());
+<% List<ChatDTO> newPersonalChatHistory = (ArrayList<ChatDTO>) request.getAttribute("newPersonalChatHistory"); 
+System.out.println("newPersonalChatHistory.size : "+newPersonalChatHistory.size());
 String selectedChatRoom_id = null;
 %>
-<form name="testtest" id="testtest">
+
 <%--<html ng-app='swankyChat' ng-cloak='true'> --%>
   <div class='container'>
     <div class='inbox'>
       <aside>
       
         <ul ng-controller='chatCtrl as chat'>
-        <%-- <% for(ChatRoomDTO chatRoomDTO : chatRoomDTOlist){ %> --%>
-        <%--  <% if(chatRoomDTO.getUser_id().equals(user_id)){ %>--%>
-        <%--  <% selectedChatRoom_id = chatRoomDTO.getChatRoom_id()+""; %>--%>
-       <%--  <% System.out.println("selectedChatRoom_id : "+selectedChatRoom_id); %>--%>
+         <% for(ChatRoomDTO chatRoomDTO : chatRoomDTOlist){ %>
+          <% if(chatRoomDTO.getUser_id().equals(user_id)){ %>
+          <% selectedChatRoom_id = chatRoomDTO.getChatRoom_id()+""; %>
+         <% System.out.println("selectedChatRoom_id : "+selectedChatRoom_id); %>
              <div ng-repeat='chat in chats'>
                <li ng-click='uid(chat.id)'>
                  <%-- 위에 onclick 에다가 1)js function 이나 2)컨트롤러로 가는 새 메소드 만들고 history 를 불러줘야 한다. 아니면 MQB 프로젝트처럼 display 따로 잡고 돌리기. --%>
                  <img class='avatar' src='../img/rabbit.jpg'>
                  <p class='username'>
-                    <%=member_id %>
+                    <%=chatRoomDTO.getMember_id() %>
                     <input type="hidden" id="room_id" name="room_id" value=selectedChatRoom_id/>
                  </p>
                </li>
              </div>
-     <%--    <% }%> --%>
-      <%--   <% } %> --%>
+         <% }%>
+         <% } %>
         </ul>
          
       </aside>
@@ -289,58 +62,42 @@ String selectedChatRoom_id = null;
         <!-- Set A Ng Repeat For Our Messages || Check To See If Our Value (Which Is Set Via Ng Click) Is Equal To The Id Of The Message List We Want To Show -->
         <div class='message-wrap' ng-repeat='message in chats' ng-show='value == message.id'>
          <!-- Repeat Each Item In The Array Seperately -->
-         <%for(ChatDTO chatDTO : chatHistory){ %>
-        <div class='message'>
-            <p id="bodyContents"><%=chatDTO.getChatContent()%></p>
-            <img id="img" ng-src="../img/rabbit.jpg">
+         <%for(ChatDTO chatDTO : newPersonalChatHistory){ %>
+        <div class='message' >
+            <p><%=chatDTO.getChatContent()%></p>
+            <img ng-src="../img/rabbit.jpg";>
           </div>
           <%}%>
         </div>
         <footer>
           <form ng-submit='add()'>
             <input ng-model='text' id='sendMsg' onchange='printMsg()' placeholder='Enter a message' type='text'>
-            <input type='submit' value='Send' onclick="acyncMovePage('/appleMarket/chat/personalChat')">
-          <input type="text" id="chatRoom_id" name="chatRoom_id" value=""/> 
-          
+            <input type='submit' value='Send'>
           </form>
         </footer>
       </main>
     </div>
   </div>
- </form> 
+  
   
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
-//view의 주소값에서 상품 글번호 추출
-function get_query(){ 
-    var url = document.location.href; 
-    var qs = url.substring(url.indexOf('?') + 1).split('&'); 
-    for(var i = 0, result = {}; i < qs.length; i++){
-         qs[i] = qs[i].split('='); 
-         result[qs[i][0]] = decodeURIComponent(qs[i][1]); 
-    } 
-    return result; 
-}
-
-var chatRoom_id = '<c:out value='${chatRoom_id}' />';
-var sale_seq = '<c:out value='${sale_seq}' />';
-var buyerboard_seq = '<c:out value='${buyerboard_seq}' />';
-var member_id = '<c:out value='${member_id}' />';
-var user_id = '<c:out value='${user_id}' />';
-
-var ctrl_idx = [];
-var ctrl_room = [];
-var ctrl_user = [];
-
-
-
-
-
 //user_id의 chatRoomDTO 들 
 $(function(){
-   // alert(user_id);
+	var chatRoom_id = '<c:out value='${chatRoom_id}' />';
+	var sale_seq = '<c:out value='${sale_seq}' />';
+	var buyerboard_seq = '<c:out value='${buyerboard_seq}' />';
+	var member_id = '<c:out value='${member_id}' />';
+	var user_id = '<c:out value='${user_id}' />';
+
+	var ctrl_idx = [];
+	var ctrl_room = [];
+	var ctrl_user = [];
+	
+	
+    alert(user_id);
     $.ajax({
         url: '/appleMarket/chat/chatList',
         type: 'post',
@@ -360,8 +117,6 @@ $(function(){
             console.log(err);
         }
     });
-    
-    
 });
 
 
@@ -488,4 +243,4 @@ $("aside").find("li").click(function() {
 
 </script>
 </body>
-</html>
+</html> 

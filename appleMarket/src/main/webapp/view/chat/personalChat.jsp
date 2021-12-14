@@ -249,7 +249,7 @@ System.out.println("chatRoomDTOlist.size : "+chatRoomDTOlist.size());
 System.out.println("chatHistory.size : "+chatHistory.size());
 String selectedChatRoom_id = null;
 %>
-<form name="testtest" id="testtest">
+
 <%--<html ng-app='swankyChat' ng-cloak='true'> --%>
   <div class='container'>
     <div class='inbox'>
@@ -278,7 +278,7 @@ String selectedChatRoom_id = null;
       <main ng-controller='chatCtrl as chat'>
         <div class='init'>
           <i class='fa fa-inbox'></i>
-          <h4>대화를 시작해보세요.</h4>
+        <!--   <h4>대화를 시작해보세요.</h4> -->
        <%-- = chatRoom_id --%>
        <%-- = member_id --%>
        </div>
@@ -291,78 +291,63 @@ String selectedChatRoom_id = null;
          <!-- Repeat Each Item In The Array Seperately -->
          <%for(ChatDTO chatDTO : chatHistory){ %>
         <div class='message'>
-            <p id="bodyContents"><%=chatDTO.getChatContent()%></p>
-            <img id="img" ng-src="../img/rabbit.jpg">
+            <p><%=chatDTO.getChatContent()%></p>
+<!--             <img ng-src="../img/rabbit.jpg"> -->
           </div>
           <%}%>
         </div>
         <footer>
           <form ng-submit='add()'>
             <input ng-model='text' id='sendMsg' onchange='printMsg()' placeholder='Enter a message' type='text'>
-            <input type='submit' value='Send' onclick="acyncMovePage('/appleMarket/chat/personalChat')">
-          <input type="text" id="chatRoom_id" name="chatRoom_id" value=""/> 
-          
+           <input type='submit' value='Send' onclick="acyncMovePage('/appleMarket/chat/personalChat')">
+           
           </form>
         </footer>
       </main>
     </div>
   </div>
- </form> 
+  
   
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
-//view의 주소값에서 상품 글번호 추출
-function get_query(){ 
-    var url = document.location.href; 
-    var qs = url.substring(url.indexOf('?') + 1).split('&'); 
-    for(var i = 0, result = {}; i < qs.length; i++){
-         qs[i] = qs[i].split('='); 
-         result[qs[i][0]] = decodeURIComponent(qs[i][1]); 
-    } 
-    return result; 
-}
-
 var chatRoom_id = '<c:out value='${chatRoom_id}' />';
 var sale_seq = '<c:out value='${sale_seq}' />';
 var buyerboard_seq = '<c:out value='${buyerboard_seq}' />';
 var member_id = '<c:out value='${member_id}' />';
 var user_id = '<c:out value='${user_id}' />';
 
+
 var ctrl_idx = [];
 var ctrl_room = [];
 var ctrl_user = [];
 
+
 function acyncMovePage(url){
-   //alert(chatRoom_id);
-    // ajax option
-    var ajaxOption = {
-            url : '/appleMarket/chat/personalChat?chatRoom_id='+chatRoom_id,
-            async : true,
-            type : "POST",
-            data: $('#chatRoom_id').val(),
-            dataType : "html",
-            cache : false
-    };
-    
-    $.ajax(ajaxOption).done(function(data){
-        // Contents 영역 삭제
-       $('.container').empty();
-        // Contents 영역 교체
-        $('.container').html(data);
-        
-
-        $('#chatRoom_id').val(chatRoom_id);
-        
-    });
-}
-
+	   //alert(chatRoom_id);
+	    // ajax option
+	    var ajaxOption = {
+	            url : '/appleMarket/chat/personalChat?chatRoom_id='+chatRoom_id,
+	            async : true,
+	            type : "POST",
+	            dataType : "html",
+	            cache : false
+	    };
+	    
+	    $.ajax(ajaxOption).done(function(data){
+	        // Contents 영역 삭제
+	       $('.container').empty();
+	        // Contents 영역 교체
+	        $('.container').html(data);
+	        
+	    });
+	}
 
 
 //user_id의 chatRoomDTO 들 
 $(function(){
-   // alert(user_id);
+    alert(user_id);
     $.ajax({
         url: '/appleMarket/chat/chatList',
         type: 'post',
@@ -382,8 +367,6 @@ $(function(){
             console.log(err);
         }
     });
-    
-    
 });
 
 

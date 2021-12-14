@@ -30,4 +30,5 @@ public interface ChatService {
 
 	public List<ChatDTO> chatHistory(Map<String, String> map);
 
+
 }
