@@ -1,8 +1,0 @@
-#추천인
-create table recommend(
-    recommend_id varchar2(20), 
-    recommended_id varchar2(20),
-    recommend_logtime date default sysdate,
-    recommend_YN varchar2(2) default 'N',
-    constraint recommend_pk01 primary key(recommend_id, recommended_id)
-);
