@@ -30,7 +30,11 @@
                 <li><a href="/appleMarket/view/communityboard/communityboardList.jsp?pg=1">조잘조잘</a></li>
                 <li><a href="/appleMarket/view/localCommunityboard/localCommunityboardList.jsp?pg=1">우리동네</a></li>
                 <c:if test="${not empty sessionScope.login_info}">
+<<<<<<< HEAD
                 <a href=""><img src="/appleMarket/img/chatting.png" style="height: 30px; margin-left: 10px;"></a>
+=======
+                <a onclick="window.open('/appleMarket/view/chat/indexChat.jsp', '쪽지창', 'width=900px,height=500px,left=600px,top=200px,scrollbars=yes')"><img src="/appleMarket/img/chatting.png" style="height: 30px; margin-left: 10px;"></a>
+>>>>>>> 66e4aaecf25f62095304b7599d2e09566813b6c3
                 </c:if>
             </ul>
          <ul class="login">
@@ -72,12 +76,20 @@
                     <span class="bar3"></span>
                 </div>
                 <ul class="menu">
-                    <li class="active"><a href="#">사고</a></li>
-                    <li><a href="#">팔고</a></li>
-                    <li><a href="#">조잘조잘</a></li>
-                    <li><a href="#">우리동네</a></li>
-                    <li><a href="#">로그인</a></li>
-                    <li><a href="#">회원가입</a></li>
+                    <li class="active"><a href="/appleMarket/view/buyerboard/buyerboardList.jsp">사고</a></li>
+                    <li><a href="/appleMarket/view/saleboard/saleboardList.jsp">팔고</a></li>
+                    <li><a href="/appleMarket/view/communityboard/communityboardList.jsp?pg=1">조잘조잘</a></li>
+                    <li><a href="/appleMarket/view/localCommunityboard/localCommunityboardList.jsp?pg=1">우리동네</a></li>
+                    <c:choose>
+               			<c:when test="${not empty sessionScope.login_info}">
+                    <li><a href="/appleMarket/mypageMainForm">마이페이지</a></li>
+                    <li><a href="#">로그아웃</a></li>
+                    	</c:when>
+                    	<c:otherwise>
+                    <li><a href="/appleMarket/view/user/loginForm.jsp" rel="modal:open">로그인</a></li>
+                    <li><a href="/appleMarket/view/user/writeForm.jsp" rel="modal:open">회원가입</a></li>
+                    	</c:otherwise>
+                    </c:choose>
                 </ul>
             </nav>
 
