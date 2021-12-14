@@ -72,12 +72,20 @@
                     <span class="bar3"></span>
                 </div>
                 <ul class="menu">
-                    <li class="active"><a href="#">사고</a></li>
-                    <li><a href="#">팔고</a></li>
-                    <li><a href="#">조잘조잘</a></li>
-                    <li><a href="#">우리동네</a></li>
-                    <li><a href="#">로그인</a></li>
-                    <li><a href="#">회원가입</a></li>
+                    <li class="active"><a href="/appleMarket/view/buyerboard/buyerboardList.jsp">사고</a></li>
+                    <li><a href="/appleMarket/view/saleboard/saleboardList.jsp">팔고</a></li>
+                    <li><a href="/appleMarket/view/communityboard/communityboardList.jsp?pg=1">조잘조잘</a></li>
+                    <li><a href="/appleMarket/view/localCommunityboard/localCommunityboardList.jsp?pg=1">우리동네</a></li>
+                    <c:choose>
+               			<c:when test="${not empty sessionScope.login_info}">
+                    <li><a href="/appleMarket/mypageMainForm">마이페이지</a></li>
+                    <li><a href="#">로그아웃</a></li>
+                    	</c:when>
+                    	<c:otherwise>
+                    <li><a href="/appleMarket/view/user/loginForm.jsp" rel="modal:open">로그인</a></li>
+                    <li><a href="/appleMarket/view/user/writeForm.jsp" rel="modal:open">회원가입</a></li>
+                    	</c:otherwise>
+                    </c:choose>
                 </ul>
             </nav>
 
