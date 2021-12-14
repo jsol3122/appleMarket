@@ -73,10 +73,10 @@
                     <span class="bar3"></span>
                 </div>
                 <ul class="menu">
-                    <li class="active"><a href="#">사고/팔고</a></li>
-                    <li><a href="#">조잘조잘</a></li>
-                    <li><a href="#">우리동네</a></li>
-                    <li><a href="#">문의하기</a></li>
+                    <li class="active"><a href="/appleMarket/view/buyerboard/buyerboardList.jsp">사고</a></li>
+                    <li><a href="/appleMarket/view/saleboard/saleboardList.jsp">팔고</a></li>
+                    <li><a href="/appleMarket/view/communityboard/communityboardList.jsp?pg=1">조잘조잘</a></li>
+                    <li><a href="/appleMarket/view/localCommunityboard/localCommunityboardList.jsp?pg=1">우리동네</a></li>
                 </ul>
             </nav>
 
