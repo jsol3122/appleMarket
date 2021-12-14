@@ -29,9 +29,9 @@
                 <li><a href="/appleMarket/view/saleboard/saleboardList.jsp">팔고</a></li>
                 <li><a href="/appleMarket/view/communityboard/communityboardList.jsp?pg=1">조잘조잘</a></li>
                 <li><a href="/appleMarket/view/localCommunityboard/localCommunityboardList.jsp?pg=1">우리동네</a></li>
-	                <c:if test="${not empty sessionScope.login_info}">
-	                	<a onclick="window.open('/appleMarket/view/chat/indexChat.jsp', '쪽지창', 'width=900px,height=500px,left=600px,top=200px,scrollbars=yes')"><img src="/appleMarket/img/chatting.png" style="height: 30px; margin-left: 10px;"></a>
-	                </c:if>
+                <c:if test="${not empty sessionScope.login_info}">
+                <a onclick="window.open('/appleMarket/view/chat/indexChat.jsp', '쪽지창', 'width=900px,height=500px,left=600px,top=200px,scrollbars=yes')"><img src="/appleMarket/img/chatting.png" style="height: 30px; margin-left: 10px;"></a>
+                </c:if>
             </ul>
          <ul class="login">
             <c:choose>
