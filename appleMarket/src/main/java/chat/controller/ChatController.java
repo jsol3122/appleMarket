@@ -132,7 +132,7 @@ public class ChatController {
 	@RequestMapping("/chat/personalChat")
 	public String enter(HttpServletRequest request, Model model){
 	       String chatRoom_id = request.getParameter("chatRoom_id");
-	       System.out.println("enter까지");
+	       System.out.println("enter까지, chatRoom_id="+chatRoom_id);
 	       //chatRoom_id 로 글 seq 랑 member_id 빼오기
 	       ChatRoomDTO chatRoomDTO = chatService.chatRoom_idDTO(chatRoom_id); // 혹시 오류나면 selectOne 을 selectList 로 바꿔주기
 	       String sale_seq = chatRoomDTO.getSale_seq();
@@ -146,11 +146,18 @@ public class ChatController {
 	       model.addAttribute("member_id", member_id);
 	       model.addAttribute("user_id", user_id);
 	       
+	       System.out.println("enter의 user_id" + user_id);
+	       
 	       List<ChatRoomDTO> chatRoomDTOlist = chatService.ChatList(user_id);
 	       model.addAttribute("chatRoomDTOlist", chatRoomDTOlist);
 	       
-	       List<ChatDTO> newPersonalChatHistory = chatService.newPersonalChatHistory(user_id);
-	       model.addAttribute("newPersonalChatHistory", newPersonalChatHistory);
+			Map<String,String> map = new HashMap<>();
+			map.put("user_id", user_id);
+			map.put("chatRoom_id", chatRoom_id);
+	       //List<ChatDTO> newPersonalChatHistory = chatService.newPersonalChatHistory(user_id);
+	       //model.addAttribute("newPersonalChatHistory", newPersonalChatHistory);
+			List<ChatDTO> chatHistory = chatService.chatHistory(map);	
+	       model.addAttribute("chatHistory", chatHistory);
 	       
 	       return "/view/chat/personalChat";
 	 

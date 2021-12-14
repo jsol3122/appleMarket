@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="/appleMarket/css/userupdatapage.css">
     
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>사과마켓 사고</title>
+    <title>사과마켓 팔고</title>
     <meta name="keywords" content="shopping mall, jacket, men, women">
     <meta name="description" content="shop any where for women and men's ware">
     <meta name="robots" content="index, follow">

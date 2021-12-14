@@ -95,7 +95,7 @@ function get_detail(DTO){
                             "</li>"+
                         "</ul>"+
                         
-                        "<button type='button' class='chat' value="+ DTO.sale_seq+">채팅하기</button>"+
+                        "<button type='button' class='chat'>채팅하기</button>"+
                         
                     "</div>"+
                 "</div>"+
@@ -116,59 +116,11 @@ function get_detail(DTO){
 	var sale_seq = DTO.sale_seq;
 
 	// 채팅하기 버튼 클릭
-	
 	$(document).on('click', '.chat',function(DTO){
- 	alert(member_id+" "+sale_seq+"DTO 들어왔나?");  
-	    $.ajax({
-	      url: '/appleMarket/chat/newChat',
-	      type: 'post',
-	      data: 'member_id='+member_id+'&sale_seq='+sale_seq,  
-	      async: false,
-	      success: function(data){
-	        //alert(JSON.stringify(data)); //newChat에서 JSON으로 넘어온다.
-	        var chatRoom_id = JSON.stringify(data);
-	        alert(chatRoom_id);
-	        //alert({chatRoom_id}); 
-	        //const obj = JSON.parse(json);
-			//console.log(obj.chatRoom_id);
-			//alert(obj.chatRoom_id);
-	        // 여기서 return map 값이 나와서 seq, chatRoom_id 까지 전부 들어있다.
-	        //console.log('dto 보내기 성공~~~~~~~');
+ 
+	        var popup = window.open('/appleMarket/view/chat/saleboardChat.jsp', '쪽지창', 'width=900px,height=500px,left=600px,top=200px,scrollbars=yes');
 	        
-	       
-	        //location.href='/appleMarket/chat/personalChat?chatRoom_id='+chatRoom_id;
-	        var popup = window.open('/appleMarket/chat/personalChat?chatRoom_id='+chatRoom_id, '팝업', 'width=900px,height=500px,left=600px,top=200px,scrollbars=yes');
-	        
-	        //var newChatMap = JSON.stringify(data);
-	        //var obj = JSON.parse(json);
-	        //alert(newChatMap);
-	        //var chatRoom_id = document.getElementById("newChatMap").innerHTML += newChatMap.chatRoom_id ;
-			//console.log(newChatMap.chatRoom_id);
-	        //alert(chatRoom_id);
 
-/*            
-            $.ajax({
-                //url: '/appleMarket/chat/personalChat/{chatRoom_id}',
-                url: '/appleMarket/view/chat/personalChat',
-                type: 'post',
-                data: JSON.stringify(data),
-                dataType: 'json',
-                success: function(data){
-                    //location.href='/appleMarket/view/chat/personalChat/{chatRoom_id}'
-                    location.href='/appleMarket/chat/personalChat';
-                },
-                errer: function(err){
-                    console.log('이중 ajax 실패')
-                }
-            });
-	*/        
-	     
-	       
-	      },
-	      error: function(){
-	        console.log('dto 보내기 실패')
-	      }
-        });      
 	});
 
 /*

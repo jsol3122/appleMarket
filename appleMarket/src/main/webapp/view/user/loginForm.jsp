@@ -9,35 +9,34 @@
 <meta name="google-signin-client_id" content="618037962343-sbg29ei4a6dcd9acrv01ndougru7va1b.apps.googleusercontent.com">
 </head>
 <body>
-	<div id="modal-content">
-	
-		<div class="modal-body"> <!-- modal body -->
-	      <form id="loginForm">
-	         <h3>로그인</h3>
-	         <hr>
-	         <br>
-	         <br>
-	         <div>
-	            <input type="text" id="member_id" name="member_id" class="loginInput" placeholder="아이디를 입력해주세요" style="width:350px; height:45px;"/>
-	         </div>
-	         <div>
-	            <input type="password" id="member_pwd" name="member_pwd" class="loginInput" placeholder="비밀번호를 입력해주세요" style="width:350px; height:45px;"/>
-	         </div>
-	         <div>
+   <div id="modal-content">
+   
+      <div class="modal-body"> <!-- modal body -->
+         <form id="loginForm">
+            <h3>로그인</h3>
+            <hr>
+            <br>
+            <br>
+            <div>
+               <input type="text" id="member_id" name="member_id" class="loginInput" placeholder="아이디를 입력해주세요" style="width:350px; height:45px;"/>
+            </div>
+            <div>
+               <input type="password" id="member_pwd" name="member_pwd" class="loginInput" placeholder="비밀번호를 입력해주세요" style="width:350px; height:45px;"/>
+            </div>
+            <div>
+         <!--크롬은 resizeable 적용 안됨  -->
+            <a href="/appleMarket/searchIdPwdForm" onclick="window.open(this.href, '_blank', 'width=500, height=500,scrollbars=no, resizable=no,toolbars=no, menubar=no'); return false;">아이디 찾기|비밀번호 찾기</a>
+            </div>
+            <div style="padding:0 5px;">
+               <input type="button" value="로그인" class="sbm" id="loginBtn" style="cursor:pointer;"/>
+               <input type="button" value="카카오톡 로그인" id="kakao_login" onclick="kakaoLogin();" href="javascript:void(0)"  style="cursor:pointer;"/>
+               <br>
+               <div id="loginResult"></div>
+            </div>
+            
+        
 
-	         	<a href="/appleMarket/view/user/searchIdForm" onclick="window.open(this.href, '_blank', 'width=400, height=300'); return false;">아이디 찾기</a>
-	         	 | <a href="/appleMarket/view/user/searchPwdForm" onclick="window.open(this.href, '_blank', 'width=400, height=300'); return false;">비밀번호 찾기</a>
-
-
-			<!--크롬은 resizeable 적용 안됨  -->
-	         </div>
-	         <div style="padding:0 5px;">
-		         <input type="button" value="로그인" class="sbm" id="loginBtn" style="cursor:pointer;"/>
-		         <input type="button" value="카카오톡 로그인" id="kakao_login" onclick="kakaoLogin();" href="javascript:void(0)"  style="cursor:pointer;"/>
-		         <br>
-		         <div id="loginResult"></div>
-	         </div>
-       </form>
+         </form>
        </div>
       <br>
       <br>

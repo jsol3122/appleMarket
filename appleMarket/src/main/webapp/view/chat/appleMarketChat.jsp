@@ -334,29 +334,7 @@ var ctrl_idx = [];
 var ctrl_room = [];
 var ctrl_user = [];
 
-function acyncMovePage(url){
-   //alert(chatRoom_id);
-    // ajax option
-    var ajaxOption = {
-            url : '/appleMarket/chat/personalChat?chatRoom_id='+chatRoom_id,
-            async : true,
-            type : "POST",
-            data: $('#chatRoom_id').val(),
-            dataType : "html",
-            cache : false
-    };
-    
-    $.ajax(ajaxOption).done(function(data){
-        // Contents 영역 삭제
-       $('.container').empty();
-        // Contents 영역 교체
-        $('.container').html(data);
-        
 
-        $('#chatRoom_id').val(chatRoom_id);
-        
-    });
-}
 
 
 
