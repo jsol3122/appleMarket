@@ -36,10 +36,6 @@
 	<context:component-scan base-package="location.service"/>
 	<context:component-scan base-package="location.dao"/>
 	
-	<!-- 쪽지 -->
-	<context:component-scan base-package="chat.service"/>
-	<context:component-scan base-package="chat.dao"/>
-
 	<!-- MyPage -->
 	<context:component-scan base-package="myPage.service"/>
 	<context:component-scan base-package="myPage.dao"/>

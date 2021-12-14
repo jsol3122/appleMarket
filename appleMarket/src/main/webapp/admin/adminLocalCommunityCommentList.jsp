@@ -7,24 +7,23 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<title>LocalCommunity Comment</title>
+<title>boardList</title>
 </head>
 <body>
 <div class="page-wrapper">
     <div class="container-fluid">
-        <div class="col-lg-12"><!--게시판 넓이 -->
+        <div class="col-lg-8"><!--게시판 넓이 -->
             <div class="col-lg-12">
-                <h1 class="page-header">LocalCommunity Comment</h1>
+                <h1 class="page-header">우리동네게시판 댓글 관리</h1>
             </div>
             <div class="row">
-            	
-            </div>
-             <div class="panel panel-default">
-                <div class="panel-heading">
-                	<ion-icon name="home-outline" class="nav__icon"></ion-icon>
-                </div>  
+                  
+              </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">우리동네게시판 댓글</div>
                 <div class="panel-body">
                     <table class="table table-hover" id="adminLocalCommunityCommentTable" name="adminLocalCommunityCommentTable">
+							<thead>
 								<tr>
 									<th>NO</th>
 									<th>내용</th>
@@ -33,7 +32,7 @@
 									<th>게시물번호</th>
 									<th>관리</th>
 								</tr>
-
+							</thead>
 
 						</table>
                 </div>
@@ -48,7 +47,7 @@
 //삭제 버튼	
 $(document).on("click", ".localCommunityboard_comment_delete", function(){
 		var localcommunity_comment_seq = $(this).parents().prev().prev().prev().prev().prev().html();
-		//alert(localcommunity_comment_seq);
+		alert(localcommunity_comment_seq);
 		
 	    var result = confirm("삭제하시겠습니까?");
 		if(result){

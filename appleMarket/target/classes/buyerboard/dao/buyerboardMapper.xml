@@ -83,7 +83,7 @@
  	<select id="boardcategoryFilter" parameterType="String" resultType="buyerboard.bean.BuyerboardDTO">
  		select * from buyerboard where buyerboard_category=#{buyerboard_category}
  	</select>
- 	
+
  	<select id="member_idLoad" parameterType="java.lang.String" resultType="buyerboard">
  		select * from buyerboard where buyerboard_seq = #{buyerboard_seq}
  	</select>
@@ -103,4 +103,5 @@
 	<update id="intereUpdate" parameterType="buyerboard">
 		update interestList set sale_status=#{buyer_status}, sale_subject=#{buyerboard_subject}, sale_price=#{buyerboard_price}, sale_logtime=#{buyerboard_logtime}, sale_image1=#{buyerboard_image1} where sale_seq=#{buyerboard_seq} and member_id=#{member_id}
 	</update>
+
  </mapper>
