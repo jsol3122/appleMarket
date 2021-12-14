@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/appleMarket/css/buysalehistory.css">
     <link rel="stylesheet" href="/appleMarket/css/comboard.css">
     <title>사고팔고마켓</title>
+
 </head>
 
 <body>
@@ -22,14 +23,14 @@
          <div class="row">
              <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-0">
                  <!-- Recently Favorited -->
-                 <div class="widget dashboard-container my-adslist" style="width: 610px;">
+                 <div class="widget dashboard-container my-adslist" style="width: 610px; align:center">
                      <h3 class="widget-header">구매내역</h3>
                      <table class="table table-responsive product-dashboard-table">
                          <thead>
                              <tr>
-                                 <th>물품</th>
+                                 <th align="center">물품</th>
                                  <th>상세내역</th>
-                                 <th class="text-center">카테고리</th>
+                                 <th class="text-center">거래상태</th>
                                  <th class="text-center">관리</th>
                              </tr>
                          </thead>
@@ -55,56 +56,8 @@
      </div>
      <!-- Container End -->
  </section>
-                        <!-- Container End -->
-                        <!-- To Top -->
-                        <div class="top-to">
-                            <a id="top" class="" href="#"><i class="fa fa-angle-up"></i></a>
-                        </div>
-    <!-- Channel Plugin Scripts -->
-	<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="/appleMarket/js/buyhistory.js"></script>
-    <script>
-        (function() {
-            var w = window;
-            if (w.ChannelIO) {
-                return (window.console.error || window.console.log || function() {})('ChannelIO script included twice.');
-            }
-            var ch = function() {
-                ch.c(arguments);
-            };
-            ch.q = [];
-            ch.c = function(args) {
-                ch.q.push(args);
-            };
-            w.ChannelIO = ch;
-
-            function l() {
-                if (w.ChannelIOInitialized) {
-                    return;
-                }
-                w.ChannelIOInitialized = true;
-                var s = document.createElement('script');
-                s.type = 'text/javascript';
-                s.async = true;
-                s.src = 'https://cdn.channel.io/plugin/ch-plugin-web.js';
-                s.charset = 'UTF-8';
-                var x = document.getElementsByTagName('script')[0];
-                x.parentNode.insertBefore(s, x);
-            }
-            if (document.readyState === 'complete') {
-                l();
-            } else if (window.attachEvent) {
-                window.attachEvent('onload', l);
-            } else {
-                window.addEventListener('DOMContentLoaded', l, false);
-                window.addEventListener('load', l, false);
-            }
-        })();
-        ChannelIO('boot', {
-            "pluginKey": "8f477d11-b3a5-4a18-9f84-31eeb55cd47e"
-        });
-    </script>
+    
 </body>
-
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+         <script src="/appleMarket/js/buyhistory.js"></script>
 </html>
-

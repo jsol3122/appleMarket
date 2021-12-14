@@ -33,7 +33,6 @@
                 <div class="content_resize2">
                     <div class="mainbar">
                             <!-- main -->
-                        <c:if test="${empty display}">
                          <section id="content">
                          <section id="user-profile">
                            <h2 id="nickname">
@@ -67,12 +66,7 @@
 </section>
 </section>
 </section>
-                       </c:if >
-                    <c:if test="${not empty display}">
-                           <jsp:include page="${display }"/>
-                            <!-- sidebar -->
-                           <%@include file="/includes/myPage_sidebar.jsp" %>
-                        </c:if >   
+                       
                     </div>
                       
                      

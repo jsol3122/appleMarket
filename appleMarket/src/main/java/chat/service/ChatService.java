@@ -28,4 +28,7 @@ public interface ChatService {
 
 	public ChatRoomDTO chatRoom_idDTO(String chatRoom_id);
 
+	public List<ChatDTO> chatHistory(Map<String, String> map);
+
+
 }

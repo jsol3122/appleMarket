@@ -131,6 +131,13 @@ where rownum <=10 order by no
           order by sendDate asc
  </select>
  
+ <!-- 이걸로 쓸 듯 -->
+  <select id="chatHistory" parameterType="java.util.Map" resultType="chat.bean.ChatDTO">
+    select * from chat
+       where user_id = #{user_id} and chatRoom_id = #{chatRoom_id} 
+          order by sendDate asc
+ </select>
+ 
  
  
  <insert id="insertChat" parameterType="chat.bean.ChatDTO">

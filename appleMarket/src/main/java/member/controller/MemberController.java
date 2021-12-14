@@ -447,10 +447,6 @@ public class MemberController{
 		}
 	//============================================================================================
 
-	@GetMapping("/profile")
-	   public String profile() {
-	      
-	      return "/view/myPage/profile";
-	   }
+	
 
 }
