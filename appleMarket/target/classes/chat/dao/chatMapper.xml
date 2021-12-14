@@ -46,104 +46,111 @@ where rownum <=10 order by no
  </select>
  
  <insert id="insertChat">
- 	insert into chat
- 	values(
- 		seq_chatting_no.nextval,
- 		#{memberId},
- 		#{srNo},
- 		#{chatContent},
- 		default
- 	)
- 	<selectKey resultType="int" keyProperty="no" order="AFTER">
+    insert into chat
+    values(
+       seq_chatting_no.nextval,
+       #{memberId},
+       #{srNo},
+       #{chatContent},
+       default
+    )
+    <selectKey resultType="int" keyProperty="no" order="AFTER">
          select
-				seq_chat_no.currval
-			from 
-				dual
+            seq_chat_no.currval
+         from 
+            dual
     </selectKey> 
- 	
+    
  </insert>
   -->
  <select id="checkChatRoom" parameterType="java.util.Map" resultType="Integer">
-	<if test='"0".equals(sale_seq)'>
-		select chatRoom_id from ChatRoom where buyerboard_seq = #{buyerboard_seq} and user_id = #{user_id}
-	</if>
-	<if test='"0".equals(buyerboard_seq)'>
-		select chatRoom_id from ChatRoom where sale_seq = #{sale_seq} and user_id = #{user_id}
-	</if>
+   <if test='"0".equals(sale_seq)'>
+      select chatRoom_id from ChatRoom where buyerboard_seq = #{buyerboard_seq} and user_id = #{user_id}
+   </if>
+   <if test='"0".equals(buyerboard_seq)'>
+      select chatRoom_id from ChatRoom where sale_seq = #{sale_seq} and user_id = #{user_id}
+   </if>
   </select>
  
  
  <insert id="newChatRoom1" parameterType="java.util.Map">
- 	insert into chatRoom (
- 						chatRoom_id,
-						user_id,
-						member_id,
-						sale_seq,
-						buyerboard_seq,
-						sendDate)
- 	values (
- 			chatRoom_id.nextval,
-			#{user_id},
-			#{member_id},
-			#{sale_seq},
-			#{buyerboard_seq},
-			systimestamp
- 	)
+    insert into chatRoom (
+                   chatRoom_id,
+                  user_id,
+                  member_id,
+                  sale_seq,
+                  buyerboard_seq,
+                  sendDate)
+    values (
+          chatRoom_id.nextval,
+         #{user_id},
+         #{member_id},
+         #{sale_seq},
+         #{buyerboard_seq},
+         systimestamp
+    )
  </insert>
  
  <!-- 왜 checkChatRoom 이랑 중복되지?
  
   -->
  <select id="newChatRoom2" parameterType="java.util.Map" resultType="Integer">
-	<if test='sale_seq == "0" '>
-		select chatRoom_id from ChatRoom where buyerboard_seq = #{buyerboard_seq} and user_id = #{user_id}
-	</if>
-	<if test='buyerboard_seq == "0"'>
-		select chatRoom_id from ChatRoom where sale_seq = #{sale_seq} and user_id = #{user_id}
-	</if>
+   <if test='sale_seq == "0" '>
+      select chatRoom_id from ChatRoom where buyerboard_seq = #{buyerboard_seq} and user_id = #{user_id}
+   </if>
+   <if test='buyerboard_seq == "0"'>
+      select chatRoom_id from ChatRoom where sale_seq = #{sale_seq} and user_id = #{user_id}
+   </if>
 </select>
 
-<select id="chatList" resultType="chat.bean.ChatRoomDTO">
-	select * from chatRoom
-		where user_id = #{user_id} order by chatRoom_id desc
-		<!-- chat 테이블에서 sendDate 최신순으로 -->
-		
+<select id="chatList" parameterType="java.lang.String" resultType="chat.bean.ChatRoomDTO">
+   select * from chatRoom
+      where user_id = #{user_id} order by chatRoom_id desc
+      <!-- chat 테이블에서 sendDate 최신순으로 -->
+      
 </select>
 
-<select id="chatRoom_idDTO" resultType="chat.bean.ChatRoomDTO">
-	select * from chatRoom
-		where chatRoom_id = #{chatRoom_id} 
-		<!-- chat 테이블에서 sendDate 최신순으로 -->
-		
+<select id="chatRoom_idDTO" parameterType="java.lang.String" resultType="chat.bean.ChatRoomDTO">
+   select * from chatRoom
+      where chatRoom_id = #{chatRoom_id} 
+      <!-- chat 테이블에서 sendDate 최신순으로 -->
+      
 </select>
 
  
  <!-- 밑에 쿼리문 맞는지 확인 -->
- <select id="personalChatHistory" resultType="chat.bean.ChatDTO">
- 	select * from chat
- 		where chatRoom_id = #{chatRoom_id}
- 			order by sendDate desc
+ <select id="personalChatHistory" parameterType="Integer" resultType="chat.bean.ChatDTO">
+    select * from chat
+       where chatRoom_id = #{chatRoom_id}
+          order by sendDate desc
  </select>
  
-  <select id="newPersonalChatHistory" resultType="chat.bean.ChatDTO">
- 	select * from chat
- 		where user_id = #{user_id}
- 			order by sendDate asc
+  <select id="newPersonalChatHistory" parameterType="java.lang.String" resultType="chat.bean.ChatDTO">
+    select * from chat
+       where user_id = #{user_id}
+          order by sendDate asc
+ </select>
+ 
+ <!-- 이걸로 쓸 듯 -->
+  <select id="chatHistory" parameterType="java.util.Map" resultType="chat.bean.ChatDTO">
+    select * from chat
+       where user_id = #{user_id} and chatRoom_id = #{chatRoom_id} 
+          order by sendDate asc
  </select>
  
  
  
  <insert id="insertChat" parameterType="chat.bean.ChatDTO">
-	insert into chat (member_id, user_id, sendDate, chatContent, sale_seq, buyerboard_seq,chatRoom_id)
-		values (	
-				#{member_id},
-				#{user_id},
-				systimestamp,
-				#{chatContent},
-				#{sale_seq},
-				#{buyerboard_seq},
-				#{chatRoom_id}
-				) 
+   insert into chat (member_id, user_id, sendDate, chatContent, sale_seq, buyerboard_seq,chatRoom_id)
+      values (   
+            #{member_id},
+            #{user_id},
+            systimestamp,
+            #{chatContent},
+            #{sale_seq},
+            #{buyerboard_seq},
+            #{chatRoom_id}
+            ) 
  </insert>
  
 

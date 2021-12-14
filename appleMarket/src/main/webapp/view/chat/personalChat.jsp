@@ -243,11 +243,11 @@ html, body {
 <% String member_id = (String) request.getAttribute("member_id"); %>
 <% String user_id = (String) request.getAttribute("user_id"); %>
 <% List<ChatRoomDTO> chatRoomDTOlist = (ArrayList<ChatRoomDTO>) request.getAttribute("chatRoomDTOlist");
-System.out.println(chatRoomDTOlist.size());
+System.out.println("chatRoomDTOlist.size : "+chatRoomDTOlist.size());
 %>
-<% List<ChatDTO> newPersonalChatHistory = (ArrayList<ChatDTO>) request.getAttribute("newPersonalChatHistory"); 
-System.out.println(newPersonalChatHistory.size());
-String selectedChatRoom_id=null;
+<% List<ChatDTO> chatHistory = (ArrayList<ChatDTO>) request.getAttribute("chatHistory"); 
+System.out.println("chatHistory.size : "+chatHistory.size());
+String selectedChatRoom_id = null;
 %>
 
 <%--<html ng-app='swankyChat' ng-cloak='true'> --%>
@@ -256,19 +256,22 @@ String selectedChatRoom_id=null;
       <aside>
       
         <ul ng-controller='chatCtrl as chat'>
-         <% for(ChatRoomDTO chatRoomDTO : chatRoomDTOlist){ %>
-          <% if(chatRoomDTO.getUser_id().equals(user_id)){%>
-	          <div ng-repeat='chat in chats'>
-	            <li ng-click='uid(chat.id)'>
-	              <img class='avatar' src='../img/rabbit.jpg'>
-	              <p class='username'>
-	              	<%=chatRoomDTO.getMember_id() %>
-	              	<% selectedChatRoom_id = chatRoomDTO.getChatRoom_id()+""; %>
-	              </p>
-	            </li>
-	          </div>
-         <% }%>
-         <% } %>
+        <%-- <% for(ChatRoomDTO chatRoomDTO : chatRoomDTOlist){ %> --%>
+        <%--  <% if(chatRoomDTO.getUser_id().equals(user_id)){ %>--%>
+        <%--  <% selectedChatRoom_id = chatRoomDTO.getChatRoom_id()+""; %>--%>
+       <%--  <% System.out.println("selectedChatRoom_id : "+selectedChatRoom_id); %>--%>
+             <div ng-repeat='chat in chats'>
+               <li ng-click='uid(chat.id)'>
+                 <%-- 위에 onclick 에다가 1)js function 이나 2)컨트롤러로 가는 새 메소드 만들고 history 를 불러줘야 한다. 아니면 MQB 프로젝트처럼 display 따로 잡고 돌리기. --%>
+                 <img class='avatar' src='../img/rabbit.jpg'>
+                 <p class='username'>
+                    <%=member_id %>
+                    <input type="hidden" id="room_id" name="room_id" value=selectedChatRoom_id/>
+                 </p>
+               </li>
+             </div>
+     <%--    <% }%> --%>
+      <%--   <% } %> --%>
         </ul>
          
       </aside>
@@ -286,13 +289,11 @@ String selectedChatRoom_id=null;
         <!-- Set A Ng Repeat For Our Messages || Check To See If Our Value (Which Is Set Via Ng Click) Is Equal To The Id Of The Message List We Want To Show -->
         <div class='message-wrap' ng-repeat='message in chats' ng-show='value == message.id'>
          <!-- Repeat Each Item In The Array Seperately -->
-         <%for(ChatDTO chatDTO : newPersonalChatHistory){ %>
-         <%if(chatDTO.getUser_id().equals(user_id) && selectedChatRoom_id.equals(chatDTO.getChatRoom_id()+"")){%>
-         <div class='message' >
-         	<p><%=chatDTO.getChatContent()%></p>
-            <img ng-src='../img/rabbit.jpg'>
+         <%for(ChatDTO chatDTO : chatHistory){ %>
+        <div class='message' >
+            <p><%=chatDTO.getChatContent()%></p>
+            <img ng-src="../img/rabbit.jpg";>
           </div>
-          <%}%>
           <%}%>
         </div>
         <footer>
@@ -332,11 +333,11 @@ $(function(){
         dataType: 'json',
         success: function(list){
             $.each(list, function(index, chatRoomDTO){
- 	          	ctrl_idx[index] = index;
-            	ctrl_room[index] = chatRoomDTO.chatRoom_id;
-            	ctrl_user[index] = chatRoomDTO.member_id;
-            	console.log(index, ctrl_idx[index], ctrl_room[index], ctrl_user[index]);
-            	
+                 ctrl_idx[index] = index;
+               ctrl_room[index] = chatRoomDTO.chatRoom_id;
+               ctrl_user[index] = chatRoomDTO.member_id;
+               console.log(index, ctrl_idx[index], ctrl_room[index], ctrl_user[index]);
+               
             });
        },
         error: function(err){
@@ -349,67 +350,67 @@ $(function(){
 //Set Up Chat Controller
 angular.module("swankyChat", [])
 .controller("chatCtrl", function($scope, $timeout, $rootScope) {
-		
-		$scope.chats = [{
-			
-			 id: 0,
-			 username: "Leela",
-			 avatar: "https://imgflip.com/s/meme/Futurama-Leela.jpg",
-			 messages: [
-			   "I can explain. It's very valuable. You won't have time for sleeping, soldier, not with all the bed making you'll be doing",
-			   "Who am I making this out to? We'll go deliver this crate like professionals, and then we'll go home",
-			   "No! The cat shelter's on to me. I never loved you",
-			   "Oh Leela! You're the only person I could turn to",
-			   "Um, is this the boring, peaceful kind of taking to the streets",
-			   "That's right, baby. I ain't your loverboy Flexo, the guy you love so much. You even love anyone pretending to be him!"
-			 ]
-			
-		}]; //$scope.chats
+      
+      $scope.chats = [{
+         
+          id: 0,
+          username: "Leela",
+          avatar: "https://imgflip.com/s/meme/Futurama-Leela.jpg",
+          messages: [
+            "I can explain. It's very valuable. You won't have time for sleeping, soldier, not with all the bed making you'll be doing",
+            "Who am I making this out to? We'll go deliver this crate like professionals, and then we'll go home",
+            "No! The cat shelter's on to me. I never loved you",
+            "Oh Leela! You're the only person I could turn to",
+            "Um, is this the boring, peaceful kind of taking to the streets",
+            "That's right, baby. I ain't your loverboy Flexo, the guy you love so much. You even love anyone pretending to be him!"
+          ]
+         
+      }]; //$scope.chats
 
-		function printMsg()  {
-			   var chatContent = document.getElementById('sendMsg').value;
-			   console.log(chatContent);
-		}
+      function printMsg()  {
+            var chatContent = document.getElementById('sendMsg').value;
+            console.log(chatContent);
+      }
 
-		// Assign Pushed Messages To A User
-		$scope.text;
-		$scope.add = function() {
-			   var chatContent = document.getElementById('sendMsg').value;
-			   console.log(chatContent);
-			
-		 var vlu = $scope.value;
-		 if($scope.text) {
-		   $scope.chats[vlu].messages.push(this.text);
-		   $scope.text = '';
-		   console.log($scope.chats[vlu]);
+      // Assign Pushed Messages To A User
+      $scope.text;
+      $scope.add = function() {
+            var chatContent = document.getElementById('sendMsg').value;
+            console.log(chatContent);
+         
+       var vlu = $scope.value;
+       if($scope.text) {
+         $scope.chats[vlu].messages.push(this.text);
+         $scope.text = '';
+         console.log($scope.chats[vlu]);
  
-		   $.ajax({
-		       url: '/appleMarket/chat/insertChat',
-		       type: 'post',
-		       data: 'chatRoom_id='+chatRoom_id+'&user_id='+user_id+'&member_id='+member_id+'&sale_seq='+sale_seq+'&buyerboard_seq='+buyerboard_seq+'&chatContent='+chatContent,
-		       dataType: 'json',
-		       success: function(data){
-		    	   console.log('쪽지 보내기 성공');
-		       },
-		       errer: function(err){
-		           console.log('쪽지 보내기 실패');
-		       }
-		   });
- 		}// if
-		}//scope.add 
+         $.ajax({
+             url: '/appleMarket/chat/insertChat',
+             type: 'post',
+             data: 'chatRoom_id='+chatRoom_id+'&user_id='+user_id+'&member_id='+member_id+'&sale_seq='+sale_seq+'&buyerboard_seq='+buyerboard_seq+'&chatContent='+chatContent,
+             dataType: 'json',
+             success: function(data){
+                console.log('쪽지 보내기 성공');
+             },
+             errer: function(err){
+                 console.log('쪽지 보내기 실패');
+             }
+         });
+       }// if
+      }//scope.add 
 
-		
-		// Setting The Value Scope Equal To The Chat.id Which Is Retrieved Via Ng Click - We Pass The Chat.id Through The Function
-		$scope.value;
-		$scope.uid = function(ix) {
-		 console.log(ix);
-		
-		 function ixy() {
-		   $rootScope.value = ix;
-		 }
-		 // Delay Our Scope Change To Create A Smoother Transition
-		 $timeout(ixy, 750);
-		}
+      
+      // Setting The Value Scope Equal To The Chat.id Which Is Retrieved Via Ng Click - We Pass The Chat.id Through The Function
+      $scope.value;
+      $scope.uid = function(ix) {
+         console.log(ix);
+      
+       function ixy() {
+         $rootScope.value = ix;
+       }
+       // Delay Our Scope Change To Create A Smoother Transition
+       $timeout(ixy, 750);
+      }
 }); //angular.module("swankyChat", []).controller("chatCtrl", function($scope, $timeout, $rootScope)
 
 //Animation Styles
