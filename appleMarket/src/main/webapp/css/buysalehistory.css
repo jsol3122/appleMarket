@@ -1898,6 +1898,7 @@ ul.pagination .active a {
     background: #ff5252;
 }
 
+
 .dashboard-container .action a i {
     line-height: 40px;
 }
@@ -1917,6 +1918,7 @@ ul.pagination .active a {
 .dashboard-container .action .delete {
     background: #f7f7f7;
 }
+
 
 .submit-coupon .form-control,
 .submit-coupon .sbHolder {

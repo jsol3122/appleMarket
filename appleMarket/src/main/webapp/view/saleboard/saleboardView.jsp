@@ -24,7 +24,8 @@
     <script src="/appleMarket/js/all.min.js"></script>
     <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 <!--     <script src="/appleMarket/js/isotope.pkgd.min.js"></script>
     <script src="/appleMarket/js/buyandsell.js"></script> -->
     
@@ -36,7 +37,7 @@
     <link rel="stylesheet" href="/appleMarket/css/star-rating.min.css">
     <link rel="stylesheet" href="/appleMarket/css/main.css">
     <!-- <link rel="stylesheet" href="/appleMarket/css/buyandsell.css"> -->
-
+	
 </head>
 
 <body>

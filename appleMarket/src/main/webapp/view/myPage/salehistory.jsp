@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <head>
-	<!-- 구매내역 -->
+   <!-- 구매내역 -->
     <!-- Bootstrap -->
     <link rel="stylesheet" href="/appleMarket/css/buystyle/plugins/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/appleMarket/css/buystyle/plugins/bootstrap/css/bootstrap-slider.css">
@@ -53,6 +53,9 @@
      </div>
      <!-- Container End -->
  </section>
+<<<<<<< HEAD
+        
+=======
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
          <script src="/appleMarket/js/salehistory.js"></script>
         <!-- Channel Plugin Scripts -->
@@ -97,6 +100,8 @@
                 "pluginKey": "8f477d11-b3a5-4a18-9f84-31eeb55cd47e"
             });
         </script>
+>>>>>>> bddeb693c08df341813ea311f5096a39c9367355
         </body>
-
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+         <script src="/appleMarket/js/salehistory.js"></script>
         </html>
