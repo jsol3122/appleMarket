@@ -6,14 +6,12 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import admin.service.AdminService;
 import boardPaging.BoardPaging;
 import buyerboard.bean.BuyerboardDTO;
 import communityboard.bean.CommunityboardDTO;
 import communityboardComment.bean.CommunityboardCommentDTO;
 import localCommunityboard.bean.LocalCommunityboardDTO;
 import localCommunityboardComment.bean.LocalCommunityboardCommentDTO;
-import member.bean.MemberDTO;
 import myPage.dao.MyPageDAO;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -28,9 +26,6 @@ public class MyPageServiceImpl implements MyPageService {
 	@Autowired
 	private BoardPaging boardPaging;
 
-	@Autowired
-	private AdminService adminService;
-	
 	@Override
 	public JSONObject myCommunityGetList(Map<String, String> map) {
 
@@ -335,7 +330,6 @@ public class MyPageServiceImpl implements MyPageService {
 				temp.put("buyerboard_image3", buyerboardDTO.getBuyerboard_image3());
 				temp.put("buyerboard_logtime", buyerboardDTO.getBuyerboard_logtime());
 				temp.put("buyerboard_chat_count", buyerboardDTO.getBuyerboard_chat_count());
-				temp.put("buyer_status", buyerboardDTO.getBuyer_status());
 				
 				array.add(temp);
 			}//for
@@ -383,27 +377,6 @@ public class MyPageServiceImpl implements MyPageService {
 	@Override
 	public void myCommunityCommentDelete(int communityboard_comment_seq) {
 		myPageDAO.myCommunityCommentDelete(communityboard_comment_seq);
-	}
-
-	@Override
-	public void saleComplete(SaleboardDTO saleboardDTO) {
-		myPageDAO.saleComplete(saleboardDTO);
-		
-		//매너 온도 올리기 
-		MemberDTO memberDTO = new MemberDTO();
-		memberDTO.setMember_id(saleboardDTO.getMember_id());
-		adminService.adminReputationUp(memberDTO);
-	}
-
-	@Override
-	public void buyerComplete(BuyerboardDTO buyerboardDTO) {
-		myPageDAO.buyerComplete(buyerboardDTO);
-		
-		//매너 온도 올리기 
-		MemberDTO memberDTO = new MemberDTO();
-		memberDTO.setMember_id(buyerboardDTO.getMember_id());
-		adminService.adminReputationUp(memberDTO);
-		
 	}
 
 	

@@ -57,10 +57,6 @@ public interface MyPageDAO {
 
 	public void myCommunityCommentDelete(int communityboard_comment_seq);
 
-	public void saleComplete(SaleboardDTO saleboardDTO);
-
-	public void buyerComplete(BuyerboardDTO buyerboardDTO);
-
 	
 
 	

@@ -100,18 +100,4 @@
  		delete from communityboard_Comment where communityboard_comment_seq=#{communityboard_comment_seq}
  	</delete>
  	
- 	<update id="saleComplete" parameterType="saleboard">
-		<if test="sale_status == '판매중'">
-			update saleboard set sale_status='판매완료' where member_id=#{member_id} and sale_seq=#{sale_seq}
-		</if>
-		
-		<if test="sale_status == '나눔중'">
-			update saleboard set sale_status='나눔완료' where member_id=#{member_id} and sale_seq=#{sale_seq}
-		</if>
-	</update>
-	
-	<update id="buyerComplete" parameterType="buyerboard">
-		update buyerboard set buyer_status='구매완료' where member_id=#{member_id} and buyerboard_seq=#{buyerboard_seq}
-	</update>
- 	
  </mapper>

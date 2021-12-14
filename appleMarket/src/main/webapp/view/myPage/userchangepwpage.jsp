@@ -1,9 +1,6 @@
-
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-
 <html lang="ko">
 
 <head>
@@ -19,58 +16,59 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 
-    <link rel="stylesheet" href="/appleMarket/css/recommend/recommend.css">
+    <link rel="stylesheet" href="/appleMarket/css/userchangepwpage.css">
     <title>사고팔고마켓</title>
 </head>
 
 <body>
-	<header id="headBox">
-	        <div class="inner">
-	            <h1>
-	                <a href="#"><img class="logo" src="/appleMarket/img/logo-basic.png" alt="사과마켓"></a>
-	            </h1>
-	            <form action="#" method="get" class="search_box">
-	                <fieldset>
-	                    <legend>검색창</legend>
-	                    <label class="hidden" for="searchPrd">지역, 상품, 업체등을 검색해보세요.</label>
-	                    <input type="text" id="searchPrd" name="searchPrd" placeholder="지역, 상품, 업체등을 검색해보세요.">
-	                    <button type="submit"><i class="fas fa-search"></i><span class="hidden">검색버튼</span></button>
-	                </fieldset>
-	            </form>
-	            <ul class="category">
-	                <li><a href="#">사고/팔고</a></li>
-	                <li><a href="#">조잘조잘</a></li>
-	                <li><a href="#">우리동네</a></li>
-	                <li><a href="#">문의하기</a></li>
-	            </ul>
-	            <ul class="login">
-	                <li><a href="userUpdataForm.html" rel="modal:open">회원정보수정</a></li>
-	                <li><a href="index.html">로그아웃</a></li>
-	
-	            </ul>
-	            <!-- <div class="btnbox_search"> 수정해야하지만 일단 잘 돌아감 -->
-	            <div class="btnbox_search">
-	                <!-- 캐러셀 -->
-	                <button type="button"><i class="fas fa-search"></i><span class="hidden">검색창 펼치기</span></button>
-	            </div>
-	
-	            <nav id="nav">
-	                <!-- <h1></h1> -->
-	                <div class="ham">
-	                    <span class="bar1"></span>
-	                    <span class="bar2"></span>
-	                    <span class="bar3"></span>
-	                </div>
-	                <ul class="menu">
-	                    <li class="active"><a href="#">사고/팔고</a></li>
-	                    <li><a href="#">조잘조잘</a></li>
-	                    <li><a href="#">우리동네</a></li>
-	                    <li><a href="#">문의하기</a></li>
-	                </ul>
-	            </nav>
-	
-	        </div>
-	    </header>
+    <header id="headBox">
+        <div class="inner">
+            <h1>
+                <a href="#"><img class="logo" src="/appleMarket/img/logo-basic.png" alt="사과마켓"></a>
+            </h1>
+            <form action="#" method="get" class="search_box">
+                <fieldset>
+                    <legend>검색창</legend>
+                    <label class="hidden" for="searchPrd">지역, 상품, 업체등을 검색해보세요.</label>
+                    <input type="text" id="searchPrd" name="searchPrd" placeholder="지역, 상품, 업체등을 검색해보세요.">
+                    <button type="submit"><i class="fas fa-search"></i><span class="hidden">검색버튼</span></button>
+                </fieldset>
+            </form>
+            <ul class="category">
+                <li><a href="#">사고/팔고</a></li>
+                <li><a href="#">조잘조잘</a></li>
+                <li><a href="#">우리동네</a></li>
+                <li><a href="#">문의하기</a></li>
+            </ul>
+            <ul class="login">
+                <li><a href="userUpdataForm.html" rel="modal:open">회원정보수정</a></li>
+                <li><a href="index.html">로그아웃</a></li>
+
+            </ul>
+            <!-- <div class="btnbox_search"> 수정해야하지만 일단 잘 돌아감 -->
+            <div class="btnbox_search">
+                <!-- 캐러셀 -->
+                <button type="button"><i class="fas fa-search"></i><span class="hidden">검색창 펼치기</span></button>
+            </div>
+
+            <nav id="nav">
+                <!-- <h1></h1> -->
+                <div class="ham">
+                    <span class="bar1"></span>
+                    <span class="bar2"></span>
+                    <span class="bar3"></span>
+                </div>
+                <ul class="menu">
+                    <li class="active"><a href="#">사고/팔고</a></li>
+                    <li><a href="#">조잘조잘</a></li>
+                    <li><a href="#">우리동네</a></li>
+                    <li><a href="#">문의하기</a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+
     <div class="memberup">
         <div class="main">
             <div class="content">
@@ -78,42 +76,25 @@
                     <div class="mainbar">
                         <div class="article">
                             <form class="memberuptext" id="userUpdataForm" action="" method="">
-                                <h3>친구초대</h3>
+                                <h3>회원비밀번호변경</h3>
                                 <hr>
                                 <div class="memberupwriteid">
-                                    <label>초대한 친구가 가입하고, 동네인증을 하면 두 사람 모두 사과 1개를 받아요, 사과 5개마다 스타벅스 커피 1잔 쿠폰을 드려요.</label>
-                                </div>
-                                <input type="button" value="카카오톡으로 초대하기" id="writeBtn" class="sbm" />
-                                <input type="button" value="URL 링크로 초대하기?" id="writeBtn" class="sbm2" />
-                                <hr>
-                                <div class="memberupwrite">
-                                    <label>현재 받은 사과 </label>
+                                    <label>아이디 </label>
+                                    <input type="text" name="member_id" id="member_id" placeholder="thisisapplymaket" readonly/>
                                 </div>
                                 <div class="memberupwrite">
-                                    <img class="logo" src="/appleMarket/img/recommend/1번대기중.png" alt="사과마켓" style="width: 100px; margin-left: 20px;">
-                                    <img class="logo" src="/appleMarket/img/recommend/2번대기중.png" alt="사과마켓" style="width: 100px; margin-left: 20px;">
-                                    <img class="logo" src="/appleMarket/img/recommend/3번대기중.png" alt="사과마켓" style="width: 100px; margin-left: 20px;">
-                                    <img class="logo" src="/appleMarket/img/recommend/4번대기중.png" alt="사과마켓" style="width: 100px; margin-left: 20px;">
-                                    <img class="logo" src="/appleMarket/img/recommend/5번대기중.png" alt="사과마켓" style="width: 100px; margin-left: 20px;">
+                                    <label>현재비밀번호 </label>
+                                    <input type="password" name="member_pwd" id="member_pwd" placeholder="8자 이상의 영문과 숫자를 조합" />
                                 </div>
-                                <input type="button" disabled="disabled" value="쿠폰 받기" id="writeBtn" class="sbm2" />
-                                <hr>
                                 <div class="memberupwrite">
-                                    <label>주의사항 </label>
+                                    <label>새 비밀번호 </label>
+                                    <input type="password" name="member_pwd" id="member_pwd" placeholder="8자 이상의 영문과 숫자를 조합" />
                                 </div>
-                                <div class="memberupwrite4">
-                                    <label>1. 사과 1개를 받기 위해서는 친구가 내 초대 URL을 통해 가입을 해야 합니다. </label>
-                                    <label>2. 내가 초대한 친구가 가입하고 동네인즈을 하면, 친구도 나도 사과을 1개 받을 수 있어요. </label>
-                                    <label>3. 사과 5개 받으면 쿠폰 받기를 클릭할 수 있고, 클릭하면 가입한 전화번호로 쿠폰이 발송됩니다. </label>
-                                    <label>4. 쿠폰 유효기간은 쿠폰 발송한 날짜로부터 60일입니다. </label>
-                                    <label>5. 이벤트 용으로 받은 쿠폰은 환불이 불가능합니다. </label>
-                                    <label>6. 사과는 초대 링크를 통해 가입한 최초 1회만 받을 수 있습니다. </label>
-                                    <label>7. 회원 탈퇴 후 초대로 재가입하여도 당근은 발급되지 않습니다. </label>
-                                    <label>8. 동일한 전화번호나 기기를 이용해서 가입을 시도할 경우 사과가 지급되지 않습니다. </label>
-                                    <label>9. 신뢰할 수 없는 전화번호나 이메일을 이용하는 경우 사과가 지급되지 않습니다. </label>
-                                    <label>10. 회원탈퇴하면 모든 사과가 소멸됩니다. </label>
-                                    <label>11. 초대하기 관련하여 문의사항이 있으시면 쳇봇을 이용해 주세요! </label>
+                                <div class="memberupwrite">
+                                    <label>새 비밀번호확인 </label>
+                                    <input type="password" name="member_rePwd" id="member_rePwd" placeholder="비밀번호를 한번 더 입력해주세요" />
                                 </div>
+                                <input type="button" value="비밀변호변경" id="writeBtn" class="sbm" />
                             </form>
                         </div>
                     </div>
@@ -134,7 +115,7 @@
                                 <li><a href="/appleMarket/view/myPage/communityboardcommenthistory.jsp">조잘조잘 댓글</a></li>
                                 <li><a href="/appleMarket/view/myPage/localcommunityboardhistory.jsp">우리동네이야기 글</a></li>
                                 <li><a href="/appleMarket/view/myPage/localcommunityboardcommenthistory.jsp">우리동네이야기 댓글</a></li>
-                                <li><a href="/appleMarket/view/myPage/recommend.jsp">친구초대</a></li>
+                                <li><a href="#">친구초대</a></li>
                             </ul>
                         </div>
                     </div>
@@ -222,10 +203,5 @@
     </script>
     <!-- End Channel Plugin -->
 </body>
+
 </html>
-
-
-
-
-
-
