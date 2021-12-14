@@ -43,7 +43,9 @@
                              <li class="profile-detail-title">매너온도 <span class="profile-detail-count"></span></li>
                            </ul>
                            <div id="profile-image">
-                             <img alt="당근이" src="https://dnvefa72aowie.cloudfront.net/origin/profile/202109/23D6FCD4F145019383458B90F66961C9E8AD8DFA8122229A084C2DAA4507023E.jpg?q=82&amp;s=80x80&amp;t=crop" />
+                             <!-- <img alt="당근이" src="https://dnvefa72aowie.cloudfront.net/origin/profile/202109/23D6FCD4F145019383458B90F66961C9E8AD8DFA8122229A084C2DAA4507023E.jpg?q=82&amp;s=80x80&amp;t=crop" /> -->
+                           	<img alt="당근이" src="https://raw.githubusercontent.com/jsol3122/appleMarket/hyuenjung/appleMarket/src/main/webapp/img/%EC%82%AC%EA%B3%BC.png?q=82&amp;s=80x80&amp;t=crop" />
+                           	
                            </div>
                          </section>
                      
