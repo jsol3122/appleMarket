@@ -29,6 +29,9 @@
                 <li><a href="/appleMarket/view/saleboard/saleboardList.jsp">팔고</a></li>
                 <li><a href="/appleMarket/view/communityboard/communityboardList.jsp?pg=1">조잘조잘</a></li>
                 <li><a href="/appleMarket/view/localCommunityboard/localCommunityboardList.jsp?pg=1">우리동네</a></li>
+                <c:if test="${not empty sessionScope.login_info}">
+                <a href=""><img src="/appleMarket/img/chatting.png" style="height: 30px; margin-left: 10px;"></a>
+                </c:if>
             </ul>
          <ul class="login">
             <c:choose>
@@ -69,10 +72,12 @@
                     <span class="bar3"></span>
                 </div>
                 <ul class="menu">
-                    <li class="active"><a href="#">사고/팔고</a></li>
+                    <li class="active"><a href="#">사고</a></li>
+                    <li><a href="#">팔고</a></li>
                     <li><a href="#">조잘조잘</a></li>
                     <li><a href="#">우리동네</a></li>
-                    <li><a href="#">문의하기</a></li>
+                    <li><a href="#">로그인</a></li>
+                    <li><a href="#">회원가입</a></li>
                 </ul>
             </nav>
 

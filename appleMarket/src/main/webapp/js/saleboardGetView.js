@@ -49,8 +49,8 @@ $(function(){
 function get_detail(DTO){
     let html = 
     "<div class=row>"+
-        "<div class=product_pictures>"+
-            "<img src='/appleMarket/storage/"+DTO.sale_image1+"' style=width:300px;height:245px; alt=상세사진1 class=big_img>"+
+        "<div class='product_pictures col-md-5'>"+
+            "<img src='/appleMarket/storage/"+DTO.sale_image1+"' style=width:270px;height:245px; alt=상세사진1 class=big_img>"+
             // 캐러셀????????써서 상세페이지 이미지 5개 슬라이드처리
             "<ul class=thumb_img>"+
                 "<li class=active>"+
@@ -61,20 +61,20 @@ function get_detail(DTO){
               "</li>"+
             "</ul>"+
         "</div>"+
-        "<div class=product_specs>"+
+        "<div class='droduct_specs jumbotron col-md-7'>"+
             "<h2>"+DTO.sale_subject+"</h2>"+
             "<h3>"+DTO.location_dong+"</h3>"+
             "<p>"+DTO.sale_content+"</p>"+
             "<form action=''>"+
                 "<hr/>"+
-                "<div class=option>"+
+                "<div class='option row justify-content-between'>"+
                     "<div class=size>"+
                         "<h4>"+DTO.member_id+"</h4>"+
                     "</div>"+
                     "<span class=divider>|</span>"+
                 "</div>"+
                 "<hr/>"+
-                "<div class=option>"+
+                "<div class='option order_summary row justify-content-between'>"+
                     "<div class=total_price>"+
                         "<h4>가격</h4>"+
                         "<span class=price>"+DTO.sale_price+" 원</span>"+
@@ -82,7 +82,7 @@ function get_detail(DTO){
                     "<div class=order_now>"+
                         "<ul>"+
                             "<li>"+
-                                "<a href='' class=addcart>addcart</a>"+
+                                "<a href='' class='sprites addcart'>addcart</a>"+
                             "</li>"+
                             "<li>"+
                             	"<a href='' class=trash></a>"+
@@ -96,13 +96,13 @@ function get_detail(DTO){
     "</div>";
 
     $(".product_info .container").append(html);
-
+/*
     $('.product_pictures').addClass('col-mod-5');
     $('.product_specs').addClass(['col-mod-7', 'jumbotron']);
     $('.option').addClass(['row', 'justify-content-between']);
     $('form div').eq(2).addClass('order_summary');
     $('.addcart').addClass('sprites');
-
+*/
     if(DTO.sale_image3 != null){
         make_li(DTO.sale_image3);
     }else if(DTO.sale_image4 != null){

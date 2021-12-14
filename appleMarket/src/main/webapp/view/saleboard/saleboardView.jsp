@@ -22,7 +22,6 @@
 
     <!-- fontawesome -->
     <script src="/appleMarket/js/all.min.js"></script>
-
     <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
     

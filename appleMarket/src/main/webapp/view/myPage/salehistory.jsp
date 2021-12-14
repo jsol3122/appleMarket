@@ -55,12 +55,6 @@
  </section>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
          <script src="/appleMarket/js/salehistory.js"></script>
-
-        <!-- Container End -->
-        <!-- To Top -->
-        <div class="top-to">
-            <a id="top" class="" href="#"><i class="fa fa-angle-up"></i></a>
-        </div>
         <!-- Channel Plugin Scripts -->
         <script>
             (function() {
