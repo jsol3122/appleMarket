@@ -37,11 +37,11 @@
                     <li> ${sessionScope.login_info.member_id}님</li>               
                     <li><a href="/appleMarket/profile">마이페이지</a></li>
                     <li><a href="#" class="logout">로그아웃</a></li><!-- ajax 쓰기..화면넘어가게 하지 않기 위해서 -->   
-                 </c:if>  
-                 <c:if test="${sessionScope.member_id == 'admin' }">
-                      <li><a href="/appleMarket/adminNoticeList">관리자 페이지</a></li>
-                      <li><a href="#" class="logout">로그아웃</a></li>
-                  </c:if>
+	              </c:if>  
+	              <c:if test="${sessionScope.member_id == 'admin' }">
+	                   <li><a href="/appleMarket/adminNoticeList">관리자 페이지</a></li>
+	                   <li><a href="#" class="logout">로그아웃</a></li>
+	               </c:if>
                </c:when>
                <c:when test="${not empty sessionScope.kakaoInfo}">   
                 <li> ${member_id}님</li>      

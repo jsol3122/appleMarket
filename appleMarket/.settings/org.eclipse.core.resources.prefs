@@ -2,6 +2,7 @@
 <<<<<<<=HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>>=branch 'master' of https\://github.com/jsol3122/appleMarket.git
 =======
 >>>>>>>=4221a90955c63a05eb6e85b1c462ccf4358d04d6
@@ -35,8 +36,17 @@ encoding//src/main/webapp/view/myPage/modifyForm.jsp=UTF-8
 >>>>>>> 0b486c0d8415b0e398ce89a034a18d5986f60eba
 =======
 >>>>>>> branch 'master' of https://github.com/jsol3122/appleMarket.git
+=======
+>>>>>>>=branch 'master' of https\://github.com/jsol3122/appleMarket.git
+eclipse.preferences.version=1
+encoding//src/main/webapp/admin/adminindex.jsp=UTF-8
+>>>>>>> branch 'master' of https://github.com/jsol3122/appleMarket.git
 encoding//src/main/webapp/includes/footer.jsp=UTF-8
 encoding//src/main/webapp/includes/header.jsp=UTF-8
+<<<<<<< HEAD
+>>>>>>> branch 'master' of https://github.com/jsol3122/appleMarket.git
+=======
+encoding//src/main/webapp/view/chat/chatting.jsp=UTF-8
 >>>>>>> branch 'master' of https://github.com/jsol3122/appleMarket.git
 encoding//src/main/webapp/view/myPage/changePwdForm.jsp=UTF-8
 encoding//src/main/webapp/view/myPage/deleteForm.jsp=UTF-8

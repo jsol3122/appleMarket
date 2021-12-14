@@ -11,10 +11,12 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import admin.bean.AdminNoticeDTO;
 import buyerboard.bean.BuyerboardDTO;
 import communityboard.bean.CommunityboardDTO;
 import communityboardComment.bean.CommunityboardCommentDTO;
@@ -276,9 +278,22 @@ public class MyPageController {
 	}
 	
 	@GetMapping("/profile")
-	   public String profile() {
-	      
-	      return "/view/myPage/profile";
-	   }
+	public String profile() {
+		
+		return "/view/myPage/profile";
+	}
 	
+	//팔고 게시판 글 판매완료로 바꾸기
+	@PostMapping("/saleComplete")
+	@ResponseBody
+	public void saleComplete(@ModelAttribute SaleboardDTO saleboardDTO) {
+		 myPageService.saleComplete(saleboardDTO);
+	}
+	
+	//사고 게시판 글 판매완료로 바꾸기
+	@PostMapping("/buyerComplete")
+	@ResponseBody
+	public void buyerComplete(@ModelAttribute BuyerboardDTO buyerboardDTO) {
+		 myPageService.buyerComplete(buyerboardDTO);
+	}
 }
