@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href="/appleMarket/css/user2.css">
 <meta name="google-signin-client_id" content="618037962343-sbg29ei4a6dcd9acrv01ndougru7va1b.apps.googleusercontent.com">
 </head>
-<body style="overflow-x: hidden">
+<body>
 	<div id="modal-content">
 		<div class="modal-body"> <!-- modal body -->
 	            <div class="button-wrap">
@@ -16,7 +16,7 @@
 	                <button type="button" class="togglebtn" onclick="login()"
 	                style="padding-left: 25px; padding-right: 15px;">아이디찾기</button>
 	                <button type="button" class="togglebtn" onclick="register()" 
-	                style="padding-left: 15px; padding-right: 0px;">비밀번호 찾기</button>
+	                style="padding-left: 0px; padding-right: 20px;">비밀번호 찾기</button>
 	            </div>
 	            
             <form id="login" action="" class="input-group">

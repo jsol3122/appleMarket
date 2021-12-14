@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
     <link rel="stylesheet" href="/appleMarket/css/userupdatapage.css">
     
+    
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>사과마켓 사고</title>
     <meta name="keywords" content="shopping mall, jacket, men, women">
@@ -56,7 +57,7 @@
                 <div class="combi_filters">
                     <div class="category_filter" data-filter-group="category">
                         <h3>카테고리</h3>
-                        <input type="checkbox" id="buyerboard_category_all" name="buyerboard_category" value="*" onclick='getCheckboxValue(event)'>
+                        <input type="checkbox" id="buyerboard_category_all" name="buyerboard_category" onclick='getCheckboxValue(event)'>
                         <span class="box">box</span>
                         <label for="buyerboard_category_all">All</label>
 

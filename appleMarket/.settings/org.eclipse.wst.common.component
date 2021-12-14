@@ -4,20 +4,29 @@
     
     
     <wb-module deploy-name="appleMarket-0.0.1-SNAPSHOT">
+<<<<<<< HEAD
                                                 
         
         
         
         
+=======
+>>>>>>> branch 'master' of https://github.com/jsol3122/appleMarket.git
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
+<<<<<<< HEAD
                                                 
         
         
         
         
+=======
+>>>>>>> branch 'master' of https://github.com/jsol3122/appleMarket.git
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+<<<<<<< HEAD
                         
         
+=======
+>>>>>>> branch 'master' of https://github.com/jsol3122/appleMarket.git
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
                                                 
         
