@@ -63,7 +63,7 @@
 $(document).on("click", ".localCommunityDelete", function(){
 
 		var localcommunity_seq = $(this).parents().prev().prev().prev().prev().prev().prev().html();
-		alert(localcommunity_seq+"삭제");
+		//alert(localcommunity_seq+"삭제");
 		
 		  $.ajax({
 			url:'/appleMarket/adminLocalCommunityDelete'

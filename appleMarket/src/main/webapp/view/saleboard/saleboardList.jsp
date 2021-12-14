@@ -79,6 +79,7 @@
                         <label for="living">생활/가공식품</label>
                         </div>
 
+
                         <div class="category_filter">
                         <h3></h3>
                         <input type="checkbox" class="test" id="female" name="sale_category" value="female"  onclick='getCheckboxValue(event)'>
@@ -102,6 +103,7 @@
                         <div class="category_filter">
                         <h3></h3>
                         <input type="checkbox" class="test" id="beauty" name="sale_category" value="beauty"  onclick='getCheckboxValue(event)'>
+
                         <span class="box">box</span>
                         <label for="beauty">뷰티/미용</label>
                         

@@ -17,6 +17,7 @@ import javax.validation.constraints.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.Nullable;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -95,15 +96,22 @@ public class MemberController{
 		return result;
 	}
 
-   //회원가입 - index 이동(맞는지 확인 요망)
+  
+//회원가입 - index 이동(맞는지 확인 요망)
    @RequestMapping("/write")
    public String write(@ModelAttribute @Valid @Nullable MemberDTO memberDTO,@Nullable @RequestParam("recommend_id") String recommend_id, HttpSession session){
-	   
-	   String member_id=memberDTO.getMember_id();
-	   MemberDTO Check = memberSerivce.checkId(memberDTO.getMember_id());
-	   BlackListDTO blackListDTO = adminService.adminBlackListCheck(memberDTO.getMember_id());
-	   
-		 //추천인 등록      
+
+      
+      String member_id=memberDTO.getMember_id();
+      MemberDTO Check = memberSerivce.checkId(memberDTO.getMember_id());
+      BlackListDTO blackListDTO = adminService.adminBlackListCheck(memberDTO.getMember_id());
+      
+      BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+      String securePw = encoder.encode(memberDTO.getMember_pwd());
+      memberDTO.setMember_pwd(securePw);
+      System.out.println("암호화한 비밀번호"+securePw);
+  
+      //추천인 등록      
 		Map<String, String> map = new HashMap<String,String>();
 		map.put("recommend_id", recommend_id);
 		map.put("member_id", member_id);
@@ -323,7 +331,33 @@ public class MemberController{
 	
 	@ResponseBody
 	public void modify(@ModelAttribute MemberDTO memberDTO) {
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		String securePw = encoder.encode(memberDTO.getMember_pwd());
+		memberDTO.setMember_pwd(securePw);
+		
 		memberSerivce.modify(memberDTO);
+	}
+	
+	@PostMapping("/checkPwd")
+	@ResponseBody
+	public Map<String, Integer> checkPwd(@RequestParam("member_id") String member_id, @RequestParam("member_beforepwd") String member_beforepwd) {
+		int pwdChek = 2;
+		MemberDTO memberDTO = new MemberDTO();
+		memberDTO.setMember_id(member_id);
+		System.out.println("받은 비밀번호 "+member_beforepwd);
+		
+		MemberDTO checkPwdDTO =  memberSerivce.checkPwd(memberDTO);
+		System.out.println("암호화된 비번 "+checkPwdDTO.getMember_pwd());
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		if(encoder.matches(member_beforepwd, checkPwdDTO.getMember_pwd())) {
+			pwdChek=1;
+		}else {
+			pwdChek=0;
+		}
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		map.put("pwdCheck", pwdChek);
+		
+		return map;
 	}
 	
 	//아이디찾기, 비밀번호찾기 폼
@@ -367,9 +401,14 @@ public class MemberController{
 	@ResponseBody
 	public void changePwd(@RequestParam("member_id")String member_id,@RequestParam("member_pwd")String member_pwd) {
 		
+		
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		String securePw = encoder.encode(member_pwd);
+		System.out.println("암호화한 비밀번호"+securePw);
+		
 		MemberDTO memberDTO = new MemberDTO();
 		memberDTO.setMember_id(member_id);
-		memberDTO.setMember_pwd(member_pwd);
+		memberDTO.setMember_pwd(securePw);
 
 		memberSerivce.changePwd(memberDTO);
 	
@@ -408,6 +447,7 @@ public class MemberController{
 		
 		}
 	//============================================================================================
+
 	
-	
+
 }
