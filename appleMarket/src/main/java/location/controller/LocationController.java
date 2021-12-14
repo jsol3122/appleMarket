@@ -1,7 +1,6 @@
 package location.controller;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -67,12 +66,7 @@ public class LocationController {
 		request.setAttribute("display", "/view/myPage/myMap.jsp");
 		return "/view/myPage/mypageMainForm";
 	}
-	
-	
-	@PostMapping("/getLocation")
-	@ResponseBody
-	public LocationDTO getLocation(String member_id) {
-		return locationService.getLocation(member_id);
-	}
+
+
 	
 }

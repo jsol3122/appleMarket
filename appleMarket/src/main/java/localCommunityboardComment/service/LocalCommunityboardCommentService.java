@@ -20,4 +20,3 @@ public interface LocalCommunityboardCommentService {
 	public int commentTotal(String localcommunity_seq);
 
 }
-

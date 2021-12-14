@@ -1,0 +1,12 @@
+=\=\=\=\=\=\=
+<<<<<<<=HEAD
+>>>>>>>=branch 'master' of https\://github.com/jsol3122/appleMarket.git
+eclipse.preferences.version=1
+encoding//src/main/webapp/admin/adminindex.jsp=UTF-8
+encoding//src/main/webapp/includes/footer.jsp=UTF-8
+encoding//src/main/webapp/includes/header.jsp=UTF-8
+encoding//src/main/webapp/view/chat/chatting.jsp=UTF-8
+encoding//src/main/webapp/view/myPage/changePwdForm.jsp=UTF-8
+encoding//src/main/webapp/view/myPage/deleteForm.jsp=UTF-8
+encoding//src/main/webapp/view/myPage/modifyForm.jsp=UTF-8
+encoding//src/main/webapp/view/myPage/profile.jsp=UTF-8

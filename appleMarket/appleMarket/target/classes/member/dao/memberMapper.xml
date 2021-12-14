@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="memberSQL">
+ 	
+ 	<!-- 회원가입  -->
+ 	<insert id="write" parameterType="member">
+ 		
+ 		<if test="member_pwd != null">
+ 		insert into appleMarket(member_seq, member_id, member_pwd,
+ 								member_email, member_tel1, member_tel2,
+ 								member_tel3, member_sido_sigungu, member_dong,
+ 								member_address, member_detailAddr, member_gender,
+								member_entryLogtime) 
+		values(seq_member.nextval,	#{member_id}, 
+ 									#{member_pwd},
+ 									#{member_email},
+ 									#{member_tel1}, 
+ 									#{member_tel2}, 
+ 									#{member_tel3}, 
+ 									#{member_sido_sigungu}, 
+ 									#{member_dong}, 
+ 									#{member_address}, 
+ 									#{member_detailAddr}, 
+ 									#{member_gender}, 
+ 									sysdate
+ 		)
+ 		</if>
+ 		
+ 		<if test="member_pwd == null">
+ 		insert into appleMarket(member_seq, member_id, member_siteCheck, member_email, member_entryLogtime) 
+		values(seq_member.nextval,	#{member_id}, #{member_siteCheck}, #{member_email},
+ 									sysdate
+ 		)
+ 		</if>
+ 	</insert>
+ 	
+ 	<!-- 카카오 회원가입  -->
+ 	<insert id="kakaoWrite" parameterType="member">
+ 		insert into appleMarket(member_seq, member_id, member_pwd,
+ 								member_email, member_tel1, member_tel2,
+ 								member_tel3, member_sido_sigungu, member_dong,
+ 								member_address, member_detailAddr, member_gender,
+								member_entryLogtime) 
+		values(seq_member.nextval,	#{member_id}, 
+ 									#{member_pwd},
+ 									#{member_email},
+ 									#{member_tel1}, 
+ 									#{member_tel2}, 
+ 									#{member_tel3}, 
+ 									#{member_sido_sigungu}, 
+ 									#{member_dong}, 
+ 									#{member_address}, 
+ 									#{member_detailAddr}, 
+ 									#{member_gender}, 
+ 									sysdate
+ 		)
+ 	</insert>
+ 	
+ 	<!-- id 중복체크  -->
+ 	<select id="checkId" parameterType="String" resultType="member">
+ 		select * from appleMarket where member_id=#{member_id}
+ 	</select>
+ 	
+ 	<!-- 로그인  -->
+ 	<select id="login" parameterType="member" resultType="Integer">
+ 		select count(*) from appleMarket where member_id=#{member_id} and member_pwd=#{member_pwd}
+ 	</select>
+ 	
+ 	<!-- 로그인 GPS  -->
+ 	 <select id="loginGPS" parameterType="member" resultType="Integer">
+ 		select count(*) from locationConfirm where member_id=#{member_id}
+ 	</select>
+ 	
+ 	<!-- 주소  -->
+ 	<select id="getzipcodeList" parameterType="java.util.Map" resultType="zipcode">
+ 		select * from newzipcode where sido like'%'||#{sido}||'%'
+ 								   and nvl(sigungu,0) like '%'||#{sigungu}||'%'
+ 								   and roadname like '%'||#{roadname}||'%'
+  	</select>
+ 	
+ 	<!-- 회원탈퇴  -->
+ 	<delete id="delete" parameterType="member">
+		delete from appleMarket where member_id=#{member_id}
+ 	</delete>
+ 	
+ 	<!-- 회원수정  -->
+ 	<update id="update" parameterType="member">
+ 		update appleMarket set member_pwd=#{member_pwd}, member_email=#{member_email},
+ 							   member_tel1=#{member_tel1}, member_tel2=#{member_tel2},
+ 							   member_tel3=#{member_tel3},
+ 							   member_sido_sigungu=#{member_sido_sigungu}, 
+ 							   member_dong=#{member_dong}, member_address=#{member_address},
+ 							   member_detailAddr=#{member_detailAddr}, member_gender=#{member_gender}
+ 							   where member_id=#{member_id}
+ 						   	    
+ 	</update>
+ 	
+ 	<!-- 아이디 찾기 -->
+ 	<select id="idSearch" parameterType="String" resultType="member">
+ 		select * from appleMarket where member_email=#{member_email}
+ 	</select>
+ 	
+ 	<!-- 비밀번호 찾기 -->
+ 	<select id="pwdSearch" parameterType="java.util.Map">
+ 		select * from appleMarket where member_id=#{member_id} and member_email=#{member_email}
+ 	</select>
+ 	
+ 	<!--비밀변호 변경 -->
+ 	<update id="changePwd" parameterType="member">
+ 		update appleMarket set member_pwd=#{member_pwd} where member_id=#{member_id}
+ 	</update>
+ 	
+ 	<!-- 추천하기  -->
+	<insert id="recommend" parameterType="java.util.Map">
+		insert into recommend(recommend_id, recommended_id, recommend_logtime) values(#{recommend_id}, #{member_id}, sysdate)
+	</insert>
+	
+	<!-- 추천받기  -->
+	<insert id="recommended" parameterType="java.util.Map">
+		insert into recommend(recommend_id, recommended_id, recommend_logtime) values(#{member_id}, #{recommend_id}, sysdate)
+	</insert>	
+
+	<!-- 추천하기 5개체크  -->
+	<select id="recommendChk" parameterType="java.util.Map" resultType="Integer">
+ 		select count(*) from recommend where recommend_id=#{recommend_id} and recommend_YN='N'
+ 	</select>
+ 	
+ 	<!-- 추천하기 리스트 -->
+ 	<select id="recommendList" parameterType="String" resultType="recommend">
+ 		select recommended_id from recommend where recommend_id=#{member_id} and recommend_YN='N' order by recommend_logtime
+ 	</select>
+ 	
+ 	<!-- 추천하기 - 쿠폰 발송 후 recommend_YN 'N' -> 'Y'로 바꾸기  -->
+ 	<update id="recommendCoupon" parameterType="String">
+ 		update recommend set recommend_YN='Y' where recommend_id=#{member_id}
+ 	</update>
+ 
+	<!-- 이메일 중복체크  -->
+ 	<select id="emailChk" parameterType="String" resultType="Integer">
+ 		select count(*) from appleMarket where member_email=#{member_email}
+ 	</select>
+
+
+ </mapper>
