@@ -99,7 +99,7 @@ $(document).on("click", ".nav__icon_minus", function(){
 			data : {'member_id' :member_id},
 			success: function(data){
 				alert('매너온도 낮추기 완료');
-	
+					
 				location.href='/appleMarket/adminMemberList'
 				
 			},error : function(err){
@@ -113,7 +113,7 @@ $(document).on("click", ".nav__icon_minus", function(){
 			data : {'member_id':member_id,
 					'member_siteCheck':member_siteCheck},
 			success: function(data){
-				alert('매너온도 낮추기 완료');
+				alert('블랙리스트 회원으로 전환되어 회원정보가 삭제되었습니다');
 	
 				location.href='/appleMarket/adminMemberList'
 				

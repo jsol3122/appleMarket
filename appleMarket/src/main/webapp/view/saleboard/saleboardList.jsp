@@ -11,13 +11,15 @@
     <script src="https://kit.fontawesome.com/674d94d429.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" type="image/x-icon" href="img/shortcut_icon.png" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+
     <link rel="stylesheet" href="/appleMarket/css/userupdatapage.css">
     
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>사과마켓 팔고</title>
+    <title>사과마켓 사고</title>
     <meta name="keywords" content="shopping mall, jacket, men, women">
     <meta name="description" content="shop any where for women and men's ware">
     <meta name="robots" content="index, follow">
@@ -36,7 +38,7 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
     <script src="/appleMarket/js/isotope.pkgd.min.js"></script>
-    <script src="/appleMarket/js/buyandsell2.js"></script>
+    <script src="/appleMarket/js/buyandsell.js"></script>
     <script type="text/javascript" src="/appleMarket/js/saleboardList.js"></script>
     <script src="/appleMarket/js/app.js"></script>
 
@@ -56,61 +58,60 @@
                 <div class="combi_filters">
                     <div class="category_filter" data-filter-group="category">
                         <h3>카테고리</h3>
-                        <input type="checkbox" id="sale_category_all" name="sale_category" value="*" onclick='getCheckboxValue(event)'>
+                        <input type="checkbox" id="sale_category_all" name="sale_category" value="*">
                         <span class="box">box</span>
                         <label for="sale_category_all">All</label>
-                        
-                        <input type="checkbox" id="tech" name="sale_category" value="디지털기기/생활가전" onclick='getCheckboxValue(event)' checked>
+                        <input type="checkbox" id="tech" name="sale_category" value=".tech" checked>
                         <span class="box">box</span>
                         <label for="tech">디지털기기/생활가전</label>
 
-                        <input type="checkbox" id="furniture" name="sale_category" value="가구/인테리어" onclick='getCheckboxValue(event)'>
+                        <input type="checkbox" id="furniture" name="sale_category" value=".furniture">
                         <span class="box">box</span>
                         <label for="furniture">가구/인테리어</label>
 
-                        <input type="checkbox" id="baby" name="sale_category" value="유아동" onclick='getCheckboxValue(event)'>
+                        <input type="checkbox" id="baby" name="sale_category" value=".baby">
                         <span class="box">box</span>
                         <label for="baby">유아동</label>
 
-                        <input type="checkbox" id="living" name="sale_category" value="생활/가공식품" onclick='getCheckboxValue(event)'>
+                        <input type="checkbox" id="living" name="sale_category" value=".living">
                         <span class="box">box</span>
                         <label for="living">생활/가공식품</label>
                         </div>
                         
                         <div class="category_filter" data-filter-group="category">
                         <h3></h3>
-                        <input type="checkbox" id="female" name="sale_category" value="여성패션/잡화" onclick='getCheckboxValue(event)'>
+                        <input type="checkbox" id="female" name="sale_category" value=".female">
                         <span class="box">box</span>
                         <label for="female">여성패션/잡화</label>
                         
-                        <input type="checkbox" id="male" name="sale_category" value="남성패션/잡화" onclick='getCheckboxValue(event)'>
+                        <input type="checkbox" id="male" name="sale_category" value=".male">
                         <span class="box">box</span>
                         <label for="male">남성패션/잡화</label>
                         
-                        <input type="checkbox" id="hobby" name="sale_category" value="게임/취미" onclick='getCheckboxValue(event)'>
+                        <input type="checkbox" id="hobby" name="sale_category" value=".hobby">
                         <span class="box">box</span>
                         <label for="hobby">게임/취미</label>
                         
-                        <input type="checkbox" id="sports" name="sale_category" value="스포츠/레저" onclick='getCheckboxValue(event)'>
+                        <input type="checkbox" id="sports" name="sale_category" value=".sports">
                         <span class="box">box</span>
                         <label for="sports">스포츠/레저</label>
                         </div>
                         
                         <div class="category_filter" data-filter-group="category">
                         <h3></h3>
-                        <input type="checkbox" id="beauty" name="sale_category" value="뷰티/미용" onclick='getCheckboxValue(event)'>
+                        <input type="checkbox" id="beauty" name="sale_category" value=".beauty">
                         <span class="box">box</span>
                         <label for="beauty">뷰티/미용</label>
                         
-                        <input type="checkbox" id="pet" name="sale_category" value="반려동물용품" onclick='getCheckboxValue(event)'>
+                        <input type="checkbox" id="pet" name="sale_category" value=".pet">
                         <span class="box">box</span>
                         <label for="pet">반려동물용품</label>
                         
-                        <input type="checkbox" id="book" name="sale_category" value="도시/티켓/음반" onclick='getCheckboxValue(event)'>
+                        <input type="checkbox" id="book" name="sale_category" value=".book">
                         <span class="box">box</span>
                         <label for="book">도시/티켓/음반</label>
                         
-                        <input type="checkbox" id="etc" name="sale_category" value="기타중고물품" onclick='getCheckboxValue(event)'>
+                        <input type="checkbox" id="etc" name="sale_category" value=".etc">
                         <span class="box">box</span>
                         <label for="etc">기타중고물품</label>
 
@@ -127,7 +128,7 @@
         </section>
        
     </main>
-    
+    <footer></footer>
 </body>
 </html>
 

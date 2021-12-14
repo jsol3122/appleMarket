@@ -22,6 +22,7 @@
 
     <!-- fontawesome -->
     <script src="/appleMarket/js/all.min.js"></script>
+
     <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
     
@@ -30,7 +31,8 @@
     
     <script src="/appleMarket/js/saleboardGetView.js"></script>
     <script src="/appleMarket/js/main.js"></script>
-
+	<script src="/appleMarket/js/saleboardPick.js"></script>
+	<script src="/appleMarket/js/warning.js"></script>	
     <!-- bootstrap grid -->
     <link rel="stylesheet" href="/appleMarket/css/bootstrap-grid.min.css">
     <link rel="stylesheet" href="/appleMarket/css/star-rating.min.css">
@@ -40,11 +42,12 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 </head>
 
-<body>
+<body id="saleboardView">
     <%@include file="/includes/header.jsp" %>
     <section class="product_info">
         <h2 class="hidden">product_info</h2>
         <input type="hidden" id="session_id" value="${member_id}" /> 
+        <input type="hidden" id="sale_seq" value="" /> 
         <div class="container"> 
             <!-- 상품 상세페이지 ajax로 뜨는 부분 -->
         </div>

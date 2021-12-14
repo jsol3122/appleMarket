@@ -16,7 +16,7 @@
 	                <button type="button" class="togglebtn" onclick="login()"
 	                style="padding-left: 25px; padding-right: 15px;">아이디찾기</button>
 	                <button type="button" class="togglebtn" onclick="register()" 
-	                style="padding-left: 15px; padding-right: 0px;">비밀번호 찾기</button>
+	                style="padding-left: 0px; padding-right: 20px;">비밀번호 찾기</button>
 	            </div>
             <form id="login" action="" class="input-group">
                 <input type="text" id="member_id" name="member_id" class="loginInput" placeholder="이름을 입력해!" style="width:350px;height:45px;margin-left: 0px;"/>

@@ -57,12 +57,13 @@ function make_list(list){
       list.communityboard_comment_user_id+
       "</a></span>"+
     "</td>"+
-    "</td>"+
-    "<td class=m_no><a href='' class=delete value="+list.communityboard_comment_seq+"><i class='fas fa-trash'></i></a></td>"+
+    "<td class=time title=''>"+logtime_str+"</td>"+
+    "<td class=m_no><a href='' class=delete value="+list.communityboard_comment_seq+"><i class=fa-trash></i></a></td>"+
   "</tr>";
     
   $('.bd_tb_lst tbody').append(html);
-
+  
+  $('.fa-trash').addClass('fas');
     
 }
 

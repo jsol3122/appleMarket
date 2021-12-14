@@ -772,8 +772,8 @@ form hr {
     display: flex;
     margin-bottom: 20px;
     align-items: center;
-    flex-wrap: wrap;
 }
+
 
 .brand_filter:nth-child(n+14):nth-child(-n+26) {
     display: none;

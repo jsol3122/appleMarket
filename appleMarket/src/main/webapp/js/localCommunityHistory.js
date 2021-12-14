@@ -57,11 +57,12 @@ function make_list(list){
       "</a></span>"+
     "</td>"+
     "<td class=time title=''>"+logtime_str+"</td>"+
-    "<td class=m_no><a href='' class=delete value="+list.localcommunity_seq+"><i class='fas fa-trash'></i></a></td>"+
+    "<td class=m_no><a href='' class=delete value="+list.localcommunity_seq+"><i class=fa-trash></i></a></td>"+
   "</tr>";
     
   $('.bd_tb_lst tbody').append(html);
-
+  
+  $('.fa-trash').addClass('fas');
     
 }
 

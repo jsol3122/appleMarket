@@ -764,15 +764,13 @@
         padding-right: 0;
     }
     #nav .menu li {
-        background: #d6d6d6e0;
+        background: #b5db92e0;
         width: 100%;
         display: inline-block;
     }
-    /*
     #nav .menu li.active {
         background: #b5db92e0;
     }
-    */
     /* #visualBox */
     #visualBox {
         height: 780px;
