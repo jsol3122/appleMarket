@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -40,10 +41,11 @@ public class SaleboardController {
 	
 	@PostMapping("/saleboard/saleboardGetList")
 	@ResponseBody
-	public JSONObject saleboardGetList(@RequestParam String pg) {
+	public JSONObject saleboardGetList(@RequestParam String pg,  @Nullable @RequestParam("sale_category") String sale_category) {
 		int page = Integer.parseInt(pg);
 		System.out.println(page);
-		return saleboardService.saleboardGetList(page);
+		System.out.println(sale_category);
+		return saleboardService.saleboardGetList(page,sale_category);
 	}
 	
 	@PostMapping("/saleboard/saleboardSearch")
@@ -199,7 +201,6 @@ public class SaleboardController {
 		
 		System.out.println(sale_seq);
 		System.out.println(member_id);
-
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("sale_seq", sale_seq+"");
 		map.put("member_id", member_id);
@@ -212,7 +213,9 @@ public class SaleboardController {
 	
 	@PostMapping("/saleboard/saleboardPickCancel")
 	public void saleboardPickCancel(String sale_seq) {
+		
 		SaleboardDTO saleboardDTO = saleboardService.member_idLoad(sale_seq);
+
 		String member_id = saleboardDTO.getMember_id();
 
 		Map<String, String> map = new HashMap<String, String>();

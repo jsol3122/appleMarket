@@ -42,7 +42,6 @@
 						<input type="button" value="수정하기" id="userchangBtn" class="sbm" name="writeBtn" />
                    </form>
                      </div>
-
 <script type="text/javascript" src="/appleMarket/js/user.js"></script>
  <script>
  /*회원정보 받아오기  */
