@@ -151,10 +151,7 @@ public class SaleboardServiceImpl implements SaleboardService {
 		return saleboardDAO.member_idLoad(sale_seq);
 	}
 
-<<<<<<< HEAD
 	@Override
-=======
->>>>>>> 60b89c37e39fc581e479de386db82fe7ad050209
 	public List<InterestDTO> getinterestList(String member_id) {
 		return saleboardDAO.getinterestList(member_id);
 	}

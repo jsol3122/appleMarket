@@ -278,17 +278,11 @@ public class MyPageController {
 	}
 	
 	@GetMapping("/profile")
-<<<<<<< HEAD
 	   public String profile() {
 	      
 	      return "/view/myPage/profile";
 	   }
 
-=======
-	public String profile() {
-		
-		return "/view/myPage/profile";
-	}
 	
 	//팔고 게시판 글 판매완료로 바꾸기
 	@PostMapping("/saleComplete")
@@ -296,7 +290,6 @@ public class MyPageController {
 	public void saleComplete(@ModelAttribute SaleboardDTO saleboardDTO) {
 		 myPageService.saleComplete(saleboardDTO);
 	}
->>>>>>> 60b89c37e39fc581e479de386db82fe7ad050209
 	
 	//사고 게시판 글 판매완료로 바꾸기
 	@PostMapping("/buyerComplete")

@@ -201,11 +201,6 @@ public class SaleboardController {
 		
 		System.out.println(sale_seq);
 		System.out.println(member_id);
-<<<<<<< HEAD
-		
-=======
-
->>>>>>> 60b89c37e39fc581e479de386db82fe7ad050209
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("sale_seq", sale_seq+"");
 		map.put("member_id", member_id);
@@ -218,13 +213,9 @@ public class SaleboardController {
 	
 	@PostMapping("/saleboard/saleboardPickCancel")
 	public void saleboardPickCancel(String sale_seq) {
-<<<<<<< HEAD
 		
 		SaleboardDTO saleboardDTO = saleboardService.member_idLoad(sale_seq);
-		
-=======
-		SaleboardDTO saleboardDTO = saleboardService.member_idLoad(sale_seq);
->>>>>>> 60b89c37e39fc581e479de386db82fe7ad050209
+
 		String member_id = saleboardDTO.getMember_id();
 
 		Map<String, String> map = new HashMap<String, String>();
@@ -261,10 +252,7 @@ public class SaleboardController {
 	public List<InterestDTO> getinterestList(String member_id){
 		return saleboardService.getinterestList(member_id);
 	}
-<<<<<<< HEAD
-=======
 
->>>>>>> 60b89c37e39fc581e479de386db82fe7ad050209
 	
 	//찜게시판 삭제 
 	@PostMapping("/interestDelete")

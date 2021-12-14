@@ -110,13 +110,8 @@
 	</update>
 	
 	<insert id="saleboardPick2" parameterType="saleboard.bean.SaleboardDTO">
-<<<<<<< HEAD
-	   insert into interestList (interestList_seq, member_id, sale_seq, sale_status, sale_subject, sale_price, sale_logtime, sale_image1)
-	   	values(seq_interestList.nextval, #{member_id}, #{sale_seq}, #{sale_status}, #{sale_subject}, #{sale_price}, #{sale_logtime}, #{sale_image1} )
-=======
 	   insert into interestList (interestList_seq, member_id, sale_seq, sale_status, sale_subject, sale_price, sale_logtime, sale_image1, board_name)
 	   	values(seq_interestList.nextval, #{member_id}, #{sale_seq}, #{sale_status}, #{sale_subject}, #{sale_price}, #{sale_logtime}, #{sale_image1}, 'saleboard' )
->>>>>>> 60b89c37e39fc581e479de386db82fe7ad050209
 	</insert> 	
  
  	<update id="saleboardPickCancel1" parameterType="saleboard.bean.SaleboardDTO">
@@ -156,8 +151,5 @@
 	<update id="intereUpdate" parameterType="saleboard.bean.SaleboardDTO">
 		update interestList set sale_status=#{sale_status}, sale_subject=#{sale_subject}, sale_price=#{sale_price}, sale_logtime=#{sale_logtime}, sale_image1=#{sale_image1} where sale_seq=#{sale_seq} and member_id=#{member_id}
 	</update>
-<<<<<<< HEAD
-=======
 
->>>>>>> 60b89c37e39fc581e479de386db82fe7ad050209
  </mapper>
