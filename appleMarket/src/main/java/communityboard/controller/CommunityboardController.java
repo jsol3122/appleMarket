@@ -3,16 +3,20 @@ package communityboard.controller;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.UUID;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.maven.model.Model;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -85,7 +89,18 @@ public class CommunityboardController {
 	
 	@PostMapping("/communityboard/communityboardGetView")
 	@ResponseBody
-	public CommunityboardDTO  communityboardGetView(@RequestParam int communityboard_seq){
+	public CommunityboardDTO  communityboardGetView(@CookieValue(name = "view") String cookie,HttpServletResponse response,
+													@RequestParam int communityboard_seq,Model model){
+		
+		System.out.println(cookie);
+		String seq = communityboard_seq+"";
+		
+		if (!(cookie.contains(String.valueOf(communityboard_seq)))) {
+			cookie += "communityboard_seq"+communityboard_seq + "/";
+			communityboardHit(seq);
+		}
+		response.addCookie(new Cookie("view", cookie));
+		
 		return 	communityboardService.communityboardGetView(communityboard_seq);	
 	}
 	
@@ -96,12 +111,13 @@ public class CommunityboardController {
 	}
 	
 	
-	@GetMapping("/communityboard/communityboardHit")
-	@ResponseBody
-	public void communityboardHit(@RequestParam String communityboard_seq) {
+	public void communityboardHit(String communityboard_seq ) {
+	
 		communityboardService.communityboardHit(communityboard_seq);
+		
 	}
 	
 	
 	
 }
+
