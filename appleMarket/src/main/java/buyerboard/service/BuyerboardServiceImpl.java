@@ -125,12 +125,5 @@ public class BuyerboardServiceImpl implements BuyerboardService {
 	public List<BuyerboardDTO> boardcategoryFilter(String buyerboard_category) {		
 		return buyerboardDAO.boardcategoryFilter(buyerboard_category);
 	}
-
-
-	@Override
-	public void buyerboardPick(Map<String, String> map) {
-		buyerboardDAO.buyerboardPick(map);	
-		
-	}
 	
 }

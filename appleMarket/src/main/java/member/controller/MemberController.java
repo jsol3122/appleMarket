@@ -73,19 +73,7 @@ public class MemberController{
 		return "/view/user/writeFail";
 	}
 	
-
-//	//회원가입
-//	@RequestMapping("/write")
-//	@ResponseBody
-//	public void write(@ModelAttribute @Valid MemberDTO memberDTO) {
-//		String Check = memberSerivce.checkId(memberDTO.getMember_id());
-//		if(Check.equals("non_exist")) {
-//			memberSerivce.write(memberDTO);
-//		}else {
-//			return;
-//		}
-//	}
-
+	
 
 	//이메일 중복체크
 	@PostMapping("/emailChk")
@@ -97,7 +85,7 @@ public class MemberController{
 
    //회원가입 - index 이동(맞는지 확인 요망)
    @RequestMapping("/write")
-   public String write(@ModelAttribute @Valid @Nullable MemberDTO memberDTO,@Nullable @RequestParam("recommend_id") String recommend_id, HttpSession session){
+   public String write(@ModelAttribute @Valid MemberDTO memberDTO,@Nullable @RequestParam("recommend_id") String recommend_id){
 	   
 	   String member_id=memberDTO.getMember_id();
 	   MemberDTO Check = memberSerivce.checkId(memberDTO.getMember_id());
@@ -116,23 +104,22 @@ public class MemberController{
 		
 		if(blackListDTO == null){
 			if(Check == null) {
-				
-				System.out.println(blackListDTO);
-				memberSerivce.write(memberDTO);
 				//추천인 등록
-				if(recommend_id!=""){
+				if(recommend_id!=null) {
 					if(recommendChk<5) { 
 			            memberSerivce.recommend(map);
 			            memberSerivce.recommended(map);
 					}
 				}
 				
-					
-			}
-		return "/view/user/writeFormSuccess";
+					System.out.println(blackListDTO);
+					memberSerivce.write(memberDTO); 
+					return "/view/writeFail";
+				}
+			return "/view/user/writeFormSuccess";
       }else {
-    	 session.invalidate();
-         return "/view/user/writeFail";
+    	
+         return "/view/user//writeFail";
       }
    }
    
@@ -346,14 +333,11 @@ public class MemberController{
 		memberSerivce.searchPwd(memberDTO, response);
 	}
 
-
-
 	//비밀번호찾기- 비밀번호변경
 	@GetMapping(value="/searchPwdForm")
 	public String changePwdForm(){			
 		return "/view/user/searchPwdForm";
 	}
-
 	//마이페이지 비밀번호 변경 폼
 	@GetMapping(value="/changePwdForm")
 	public String changePwdForm(HttpServletRequest request, HttpServletResponse response) throws Throwable{

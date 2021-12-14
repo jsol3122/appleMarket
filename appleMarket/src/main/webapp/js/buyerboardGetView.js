@@ -14,8 +14,6 @@ function get_query(){
 $(function(){
   var result = get_query(); //result { category: "1060192", } - 의형식으로 추출됨
   
-  $('#buyerboard_seq').val(result.buyerboard_seq);
-  
   $.ajax({
       url: '/appleMarket/buyerboard/buyerboardGetView',
       type: 'post',
@@ -51,8 +49,8 @@ $(function(){
 function get_detail(DTO){
   let html = 
   "<div class=row>"+
-      "<div class=product_pictures>"+
-          "<img src='/appleMarket/storage/"+DTO.buyerboard_image1+"' style=width:300px;height:245px; alt=상세사진1 class=big_img>"+
+      "<div class='product_pictures col-md-5'>"+
+          "<img src='/appleMarket/storage/"+DTO.buyerboard_image1+"' style=width:270px;height:245px; alt=상세사진1 class=big_img>"+
           // 캐러셀????????써서 상세페이지 이미지 5개 슬라이드처리
           "<ul class=thumb_img>"+
               "<li class=active>"+
@@ -63,76 +61,48 @@ function get_detail(DTO){
               "</li>"+
           "</ul>"+
       "</div>"+
-      "<div class=product_specs>"+
+      "<div class='droduct_specs jumbotron col-md-7'>"+
           "<h2>"+DTO.buyerboard_subject+"</h2>"+
           "<h3>"+DTO.location_dong+"</h3>"+
           "<p>"+DTO.buyerboard_content+"</p>"+
           "<form action=''>"+
               "<hr/>"+
-              "<div class=option>"+
+              "<div class='option row justify-content-between'>"+
                   "<div class=size>"+
-                      "<h4 class=nick>"+DTO.member_id+"</h4>"+
+                      "<h4>"+DTO.member_id+"</h4>"+
                   "</div>"+
                   "<span class=divider>|</span>"+
               "</div>"+
               "<hr/>"+
-              "<div class=option>"+
+              "<div class='option order_summary row justify-content-between'>"+
                   "<div class=total_price>"+
                       "<h4>가격</h4>"+
                       "<span class=price>"+DTO.buyerboard_price+" 원</span>"+
                   "</div>"+
                   "<div class=order_now>"+
                       "<ul>"+
-                          "<li>"
-                          		+"<input type='button' style='border:0 ; outline:0' class='addcart' id='addcart' value='addcart'/>"+
-                           "</li>"+
-                           "<li>"+
-                            "<a href='#' class=trash onclick='openPopup()'></a>"+
-                            "</a>" +
-                         "</li>"+
+                          "<li>"+
+                              "<a href='' class='sprites addcart'>addcart</a>"+
+                          "</li>"+
+                          "<li>"+
+	                      	"<a href='' class=trash></a>"+
+	                      "</li>"+
                       "</ul>"+
-                      "<button type='button' class='chat'>채팅하기</button>"+
+                      "<button type=submit id=chat>채팅하기</button>"+
                   "</div>"+
               "</div>"+
           "</form>"+
       "</div>"+
   "</div>";
 
-
   $(".product_info .container").append(html);
-
+/*
   $('.product_pictures').addClass('col-mod-5');
   $('.product_specs').addClass(['col-mod-7', 'jumbotron']);
   $('.option').addClass(['row', 'justify-content-between']);
   $('form div').eq(2).addClass('order_summary');
   $('.addcart').addClass('sprites');
-
-//buyerboardDTO 변수들만 넣을 수 있다
-	var member_id = DTO.member_id;
-	var buyerboard_seq = DTO.buyerboard_seq;
-
-	// 채팅하기 버튼 클릭
-	$(document).on('click', '.chat',function(DTO){
- 	alert(member_id+" "+buyerboard_seq+"DTO 들어왔나?");  
-	    $.ajax({
-	      url: '/appleMarket/chat/newChat',
-	      type: 'post',
-	      data: 'member_id='+member_id+'&buyerboard_seq='+buyerboard_seq,  
-	      success: function(){
-	        console.log('dto 보내기 성공~~~~~~~');
-	      },
-	      error: function(){
-	        console.log('dto 보내기 실패')
-	      }
-        });      
-	});
-
-    if(DTO.buyerboard_image3 != null){
-        make_li(DTO.buyerboard_image3);
-    }
-    
-
-
+*/
   if(DTO.buyerboard_image3 != null){
       make_li(DTO.buyerboard_image3);
   }
@@ -150,7 +120,6 @@ function get_detail(DTO){
   
   console.log('상세페이지 뜨기 완료')
 }
-
 
 // 사진 갯수만큼 동적 li삽입
 function make_li(imgNum){
@@ -199,7 +168,7 @@ if(DTO.location_dong == undefined){ //임시로 지역 넣어놓고 gps위치 �
   $(".new_arrivals_list").append(html);
   console.log(mode)
   
- // $('.hover a').addClass('addcart');
+  $('.hover a').addClass('addcart');
   $('.new_arrivals_list>li').addClass(['col-md-3', category]);
   
 

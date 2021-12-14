@@ -83,7 +83,7 @@ let renderList = function(mode, DTO){
     $(".new_arrivals_list").append(html);
     console.log(mode)
     
-   /* $('.hover a').addClass('addcart');*/
+    $('.hover a').addClass('addcart');
     $('.new_arrivals_list>li').addClass(['col-md-3', category]);
     
 
