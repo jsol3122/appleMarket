@@ -83,7 +83,7 @@ $('#recommendSMS').click(function(){
       objectType: 'feed',
       content: {
         title: '따뜻한 우리 동네 중고 직거래 마켓을 함께 해요 :)',
-        description: '#우리동네 #직거래 #미니멀리즘 #사과마켓',
+        description: '#우리동네 #직거래 #미니멀리즘 #당근마켓',
         imageUrl: 'https://raw.githubusercontent.com/jsol3122/appleMarket/master/appleMarket/src/main/webapp/img/shortcut_icon.png',
         link: {
           mobileWebUrl: 'http://localhost:8080/appleMarket/index?recommend_id='+member_id,

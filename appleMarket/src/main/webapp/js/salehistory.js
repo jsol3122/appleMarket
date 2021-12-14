@@ -48,10 +48,9 @@ function make_list(list){
   let html =
   "<tr>"+
     "<td class=product-thumb>"+
-       "<a href='/appleMarket/view/saleboard/saleboardView.jsp?sale_seq="+list.sale_seq+"'>"+	
       "<img width=80px height=auto src='/appleMarket/storage/"+list.sale_image1+"' alt='판매내역사진'>"+
     "</td>"+
-    "<td class=product-details value="+list.member_id+">"+
+    "<td class=product-details>"+
       "<h3 class=title>"+list.sale_subject+"</h3>"+
       "<span class=add-id><strong>ID:</strong>"+list.member_id+"</span>"+
       "<span><strong>날짜:</strong><time>2021/11/27</time></span>"+
@@ -59,10 +58,9 @@ function make_list(list){
       "<span class=location><strong>장소:</strong>"+list.location_dong+"</span>"+
     "</td>"+
     "<td class=product-category>"+
-      "<span class=categories>"+list.sale_status+"</span><br><br>"+
-      "<input type=button class=complete id="+list.sale_status+" value=완료>"+
+      "<span class=categories>"+list.sale_status+"</span>"+
     "</td>"+
-    "<td class=action data-title=Action value="+list.sale_seq+">"+
+    "<td class=action data-title=Action>"+
       "<div class=''>"+
         "<ul class=list-inline>"+
           "<li class=list-inline-item>"+
@@ -85,7 +83,6 @@ function make_list(list){
 // 글 삭제버튼 클릭
 $(document).on('click', '.delete',function(){
   let seq = $(this).attr('value');
-	
   // 삭제여부 다시한번 확인
   if(confirm('정말로 삭제하시겠습니까? 삭제된 글은 복구할 수 없습니다')){
     $.ajax({
@@ -100,47 +97,4 @@ $(document).on('click', '.delete',function(){
       }
     });
   }else return false;
-});
-
-// 거래완료 버튼
-$(document).on('click', '.complete',function(){
-  var sale_status = $(this).attr('id'); 
-  var sale_seq = $(this).parents().next().attr('value');
-  var member_id= $(this).parents().prev().attr('value');
-
-  if(sale_status=='판매중'){
- 	 //거래완료 다시한번 확인
-	  if(confirm('판매완료 처리하시겠습니까?')){
-	    $.ajax({
-	      url: '/appleMarket/saleComplete',
-	      type: 'post',
-	      data: {'sale_seq' : sale_seq, 'member_id': member_id, 'sale_status' : sale_status},
-	      success: function(data){
-	        alert('판매완료 처리되었습니다.');
-	        location.href='/appleMarket/salehistory?pg=1';
-	      },
-	      error: function(err){
-	      
-	      }
-	    });
-	  }
-	}
-	
-	if(sale_status=='나눔중'){
- 	 //거래완료 다시한번 확인
-	  if(confirm('나눔완료 처리하시겠습니까?')){
-	    $.ajax({
-	      url: '/appleMarket/saleComplete',
-	      type: 'post',
-	      data: {'sale_seq' : sale_seq, 'member_id': member_id, 'sale_status' : sale_status},
-	      success: function(data){
-	        alert('나눔완료 처리되었습니다.');
-	        location.href='/appleMarket/salehistory?pg=1';
-	      },
-	      error: function(err){
-	      
-	      }
-	    });
-	  }
-	}
-});
+})

@@ -1003,13 +1003,6 @@ ul.sb_menu li a:hover {
     border: 0;
 }
 
-p, li, input, select, button {
-    font-family: "Muli", sans-serif;
-    color: #666;
-    font-size: 14px;
-    font-weight: 400;
-}
-
 
 /* 타블렛 버전 */
 

@@ -34,21 +34,15 @@
             <div class="content">
                 <div class="content_resize">
                     <div class="mainbar">
-                        <div class="article">
                             <!-- main -->
                         <c:if test="${empty display}">
-<<<<<<< HEAD
-                      <%@include file="/view/myPage/modifyForm.jsp" %>
-=======
                       <form class="memberuptext" id="userUpdataForm" action="" method="">
                       이미지 넣기
                       </form>
->>>>>>> bddeb693c08df341813ea311f5096a39c9367355
                   </c:if >
                     <c:if test="${not empty display}">
                            <jsp:include page="${display }"/>
                         </c:if >   
-                        </div>
                     </div>
                        <!-- sidebar -->
                      <%@include file="/includes/myPage_sidebar.jsp" %>
