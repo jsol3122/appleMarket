@@ -30,11 +30,7 @@
                 <li><a href="/appleMarket/view/communityboard/communityboardList.jsp?pg=1">조잘조잘</a></li>
                 <li><a href="/appleMarket/view/localCommunityboard/localCommunityboardList.jsp?pg=1">우리동네</a></li>
                 <c:if test="${not empty sessionScope.login_info}">
-<<<<<<< HEAD
-                <a href=""><img src="/appleMarket/img/chatting.png" style="height: 30px; margin-left: 10px;"></a>
-=======
                 <a onclick="window.open('/appleMarket/view/chat/indexChat.jsp', '쪽지창', 'width=900px,height=500px,left=600px,top=200px,scrollbars=yes')"><img src="/appleMarket/img/chatting.png" style="height: 30px; margin-left: 10px;"></a>
->>>>>>> 66e4aaecf25f62095304b7599d2e09566813b6c3
                 </c:if>
             </ul>
          <ul class="login">
