@@ -148,6 +148,17 @@ public class MyPageMybatis implements MyPageDAO {
 		sqlSession.delete("myPageSQL.myCommunityCommentDelete", communityboard_comment_seq);
 	}
 
+	@Override
+	public void saleComplete(SaleboardDTO saleboardDTO) {
+		sqlSession.update("myPageSQL.saleComplete", saleboardDTO);
+	}
+
+	@Override
+	public void buyerComplete(BuyerboardDTO buyerboardDTO) {
+		sqlSession.update("myPageSQL.buyerComplete", buyerboardDTO);
+		
+	}
+
 	
 	
 	

@@ -29,37 +29,34 @@
                 <li><a href="/appleMarket/view/saleboard/saleboardList.jsp">팔고</a></li>
                 <li><a href="/appleMarket/view/communityboard/communityboardList.jsp?pg=1">조잘조잘</a></li>
                 <li><a href="/appleMarket/view/localCommunityboard/localCommunityboardList.jsp?pg=1">우리동네</a></li>
-                <c:if test="${not empty sessionScope.login_info}">
-<<<<<<< HEAD
-                <a href=""><img src="/appleMarket/img/chatting.png" style="height: 30px; margin-left: 10px;"></a>
-=======
-                <a onclick="window.open('/appleMarket/view/chat/indexChat.jsp', '쪽지창', 'width=900px,height=500px,left=600px,top=200px,scrollbars=yes')"><img src="/appleMarket/img/chatting.png" style="height: 30px; margin-left: 10px;"></a>
->>>>>>> 66e4aaecf25f62095304b7599d2e09566813b6c3
-                </c:if>
             </ul>
          <ul class="login">
             <c:choose>
                <c:when test="${not empty sessionScope.login_info}">
-                 
+                 <c:if test="${sessionScope.member_id != 'admin' }">
                     <li> ${sessionScope.login_info.member_id}님</li>               
-                    <li><a href="/appleMarket/mypageMainForm">마이페이지</a></li>
+                    <li><a href="/appleMarket/profile">마이페이지</a></li>
                     <li><a href="#" class="logout">로그아웃</a></li><!-- ajax 쓰기..화면넘어가게 하지 않기 위해서 -->   
-                 
+	              </c:if>  
+	              <c:if test="${sessionScope.member_id == 'admin' }">
+	                   <li><a href="/appleMarket/adminNoticeList">관리자 페이지</a></li>
+	                   <li><a href="#" class="logout">로그아웃</a></li>
+	               </c:if>
                </c:when>
                <c:when test="${not empty sessionScope.kakaoInfo}">   
                 <li> ${member_id}님</li>      
-                   <li><a href="/appleMarket/mypageMainForm">마이페이지</a></li>                 
+                   <li><a href="/appleMarket/profile">마이페이지</a></li>                 
                    <li><a href="https://kauth.kakao.com/oauth/logout?client_id=ab83dfbd7b35d430c0fcb3a8f27f07ed&logout_redirect_uri=http://localhost:8080/appleMarket/logout">로그아웃</a></li>
                     
 				<!-- ajax 쓰기..화면넘어가게 하지 않기 위해서 -->          
                </c:when>
                <c:otherwise>
-                  
                       <li><a href="/appleMarket/view/user/writeForm.jsp" rel="modal:open">회원가입</a></li>
                       <li><a href="/appleMarket/view/user/loginForm.jsp" rel="modal:open">로그인</a></li>
          
                </c:otherwise>  
             </c:choose>
+              
           </ul>
             <!-- <div class="btnbox_search"> 수정해야하지만 일단 잘 돌아감 -->
           <div class="btnbox_search">
@@ -76,20 +73,10 @@
                     <span class="bar3"></span>
                 </div>
                 <ul class="menu">
-                    <li class="active"><a href="/appleMarket/view/buyerboard/buyerboardList.jsp">사고</a></li>
-                    <li><a href="/appleMarket/view/saleboard/saleboardList.jsp">팔고</a></li>
-                    <li><a href="/appleMarket/view/communityboard/communityboardList.jsp?pg=1">조잘조잘</a></li>
-                    <li><a href="/appleMarket/view/localCommunityboard/localCommunityboardList.jsp?pg=1">우리동네</a></li>
-                    <c:choose>
-               			<c:when test="${not empty sessionScope.login_info}">
-                    <li><a href="/appleMarket/mypageMainForm">마이페이지</a></li>
-                    <li><a href="#">로그아웃</a></li>
-                    	</c:when>
-                    	<c:otherwise>
-                    <li><a href="/appleMarket/view/user/loginForm.jsp" rel="modal:open">로그인</a></li>
-                    <li><a href="/appleMarket/view/user/writeForm.jsp" rel="modal:open">회원가입</a></li>
-                    	</c:otherwise>
-                    </c:choose>
+                    <li class="active"><a href="#">사고/팔고</a></li>
+                    <li><a href="#">조잘조잘</a></li>
+                    <li><a href="#">우리동네</a></li>
+                    <li><a href="#">문의하기</a></li>
                 </ul>
             </nav>
 
