@@ -546,7 +546,7 @@ header form input[type="submit"] {
 .product_pictures .thumb_img {
     margin-top: 70px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .product_pictures .thumb_img li {
