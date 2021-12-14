@@ -174,7 +174,7 @@
                                         <div class="tl_srch clear">
 
                                             <div class="bd_tl">
-                                                <h1 class="ngeb clear"><i class="bg_color"></i><a href="#">우리동네게시판</a>
+                                                <h1 class="ngeb clear"><i class="bg_color"></i><a href="#">조잘조잘게시판</a>
                                                    <c:if test="${member_id ne null}">
                                                       <span id='dong' style='font-size:8pt'></span>
                                                    </c:if>

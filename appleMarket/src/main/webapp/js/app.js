@@ -4,6 +4,7 @@
 var nav = $("#nav ul li");
 var cont = $("#contents > div");
 
+if($(this.hash).offset()) {
 nav.click(function(e) {
     e.preventDefault();
     var target = $(this);
@@ -14,6 +15,7 @@ nav.click(function(e) {
     //alert(offset);
     $("html,body").animate({ scrollTop: offset }, 600, "easeInOutBack");
 });
+
 
 $(window).scroll(function() {
     var wScroll = $(this).scrollTop();
@@ -45,6 +47,8 @@ $(window).scroll(function() {
     }
 });
 
+
+}
 $(".ham").click(function() {
     //메뉴를 보여주는 방법
     // $(".menu").css("display","block");

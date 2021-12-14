@@ -39,6 +39,7 @@
     <script src="/appleMarket/js/isotope.pkgd.min.js"></script>
     <script src="/appleMarket/js/buyandsell.js"></script>
     <script type="text/javascript" src="/appleMarket/js/buyerboardList.js"></script>
+    <script src="/appleMarket/js/app.js"></script>
 
     <!-- bootstrap grid -->
     <link rel="stylesheet" href="/appleMarket/css/bootstrap-grid.min.css">

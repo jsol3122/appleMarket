@@ -48,7 +48,7 @@
                    <li><a href="/appleMarket/profile">마이페이지</a></li>                 
                    <li><a href="https://kauth.kakao.com/oauth/logout?client_id=ab83dfbd7b35d430c0fcb3a8f27f07ed&logout_redirect_uri=http://localhost:8080/appleMarket/logout">로그아웃</a></li>
                     
-				<!-- ajax 쓰기..화면넘어가게 하지 않기 위해서 -->          
+            <!-- ajax 쓰기..화면넘어가게 하지 않기 위해서 -->          
                </c:when>
                <c:otherwise>
                       <li><a href="/appleMarket/view/user/writeForm.jsp" rel="modal:open">회원가입</a></li>
@@ -73,10 +73,10 @@
                     <span class="bar3"></span>
                 </div>
                 <ul class="menu">
-                    <li class="active"><a href="#">사고/팔고</a></li>
-                    <li><a href="#">조잘조잘</a></li>
-                    <li><a href="#">우리동네</a></li>
-                    <li><a href="#">문의하기</a></li>
+                    <li class="active"><a href="/appleMarket/view/buyerboard/buyerboardList.jsp">사고</a></li>
+                    <li><a href="/appleMarket/view/saleboard/saleboardList.jsp">팔고</a></li>
+                    <li><a href="/appleMarket/view/communityboard/communityboardList.jsp?pg=1">조잘조잘</a></li>
+                    <li><a href="/appleMarket/view/localCommunityboard/localCommunityboardList.jsp?pg=1">우리동네</a></li>
                 </ul>
             </nav>
 
