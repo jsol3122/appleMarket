@@ -61,20 +61,20 @@ a.sbm{
 	     </div>
 	     <div class="memberupwrite">
        
-	         <input type="image" name="recommended_id" value="http://localhost:8080/appleMarket/index?recommend_id=${member_id}" class="logo changelog" src="/appleMarket/img/recommend/1번대기중.png" alt="사과마켓" style="width: 90px; margin-left: 20px;" disabled/> 
-	         <input type="image" name="recommended_id" value="" class="logo changelog" src="/appleMarket/img/recommend/2번대기중.png" alt="사과마켓" style="width: 90px; margin-left: 20px;" disabled />
-	         <input type="image" name="recommended_id" value="" class="logo changelog" src="/appleMarket/img/recommend/3번대기중.png" alt="사과마켓" style="width: 90px; margin-left: 20px;" disabled/>
-	         <input type="image" name="recommended_id" value="" class="logo changelog" src="/appleMarket/img/recommend/4번대기중.png" alt="사과마켓" style="width: 90px; margin-left: 20px;" disabled/>
-	         <input type="image" id="recommended_id5" name="recommended_id5" value="" class="logo changelog" src="/appleMarket/img/recommend/5번대기중.png" alt="사과마켓" style="width: 90px; margin-left: 20px;" disabled/>
+	         <input type="image" name="recommended_id" value="http://localhost:8080/appleMarket/index?recommend_id=${member_id}" class="logo changelog" src="/appleMarket/img/recommend/1번대기중.png" alt="사과마켓" style="width: 100px; margin-left: 20px;" disabled/> 
+	         <input type="image" name="recommended_id" value="" class="logo changelog" src="/appleMarket/img/recommend/2번대기중.png" alt="사과마켓" style="width: 100px; margin-left: 20px;" disabled />
+	         <input type="image" name="recommended_id" value="" class="logo changelog" src="/appleMarket/img/recommend/3번대기중.png" alt="사과마켓" style="width: 100px; margin-left: 20px;" disabled/>
+	         <input type="image" name="recommended_id" value="" class="logo changelog" src="/appleMarket/img/recommend/4번대기중.png" alt="사과마켓" style="width: 100px; margin-left: 20px;" disabled/>
+	         <input type="image" id="recommended_id5" name="recommended_id5" value="" class="logo changelog" src="/appleMarket/img/recommend/5번대기중.png" alt="사과마켓" style="width: 100px; margin-left: 20px;" disabled/>
       
 	     </div>
 	     
 	     <div>
-             <label class="stamp" style="text-align:center;width: 66px; margin-left: 43px;"></label>
-             <label class="stamp" style="text-align:center; width: 66px; margin-left: 43px;"></label>
-             <label class="stamp" style="text-align:center; width: 66px; margin-left: 43px;"></label>
-             <label class="stamp" style="text-align:center; width: 66px; margin-left: 43px;"></label>
-             <label id="chkcoupon" class="stamp" style=" text-align:center; width: 66px; margin-left: 43px;"></label>
+             <label class="stamp" style="width: 80px; margin-left: 45px;"></label>
+             <label class="stamp" style="width: 80px; margin-left: 45px;"></label>
+             <label class="stamp" style="width: 80px; margin-left: 45px;"></label>
+             <label class="stamp" style="width: 80px; margin-left: 45px;"></label>
+             <label id="chkcoupon" class="stamp" style="width: 80px; margin-left: 45px;"></label>
  		</div>
 	        <a id="recommendSMS" href="#" class="sbm2"> 쿠폰 받기 </a>	     
 	     

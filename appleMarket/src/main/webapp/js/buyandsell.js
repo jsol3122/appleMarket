@@ -106,7 +106,6 @@ $(function() {
 	
         if ($button.val() == '*') {
             $button.parent('div').find('input').prop('checked', false);
-            $(".test").prop("checked",false);
             $button.prop('checked', true);
         } else {
             $button.parent('div').find('input').eq(0).prop('checked', false);
@@ -114,7 +113,6 @@ $(function() {
 
         if ($button.val() == 'tech') {
             $button.parent('div').find('input').prop('checked', false);
-             $(".test").prop("checked",false);
             $button.prop('checked', true);
         } else {
             $button.parent('div').find('input').eq(1).prop('checked', false);
@@ -122,15 +120,13 @@ $(function() {
 
         if ($button.val() == 'furniture') {
             $button.parent('div').find('input').prop('checked', false);
-             $(".test").prop("checked",false);
             $button.prop('checked', true);
         } else {
             $button.parent('div').find('input').eq(2).prop('checked', false);
         }
 
         if ($button.val() == 'baby') {
-            $button.parent('div').find('.in input').prop('checked', false);
-             $(".test").prop("checked",false);
+            $button.parent('div').find('input').prop('checked', false);
             $button.prop('checked', true);
         } else {
             $button.parent('div').find('input').eq(3).prop('checked', false);
@@ -138,7 +134,6 @@ $(function() {
 
         if ($button.val() == 'living') {
             $button.parent('div').find('input').prop('checked', false);
-             $(".test").prop("checked",false);
             $button.prop('checked', true);
         } else {
             $button.parent('div').find('input').eq(4).prop('checked', false);
@@ -146,7 +141,6 @@ $(function() {
 
         if ($button.val() == 'female') {
             $button.parent('div').find('input').prop('checked', false);
-             $(".test").prop("checked",false);
             $button.prop('checked', true);
         } else {
             $button.parent('div').find('input').eq(5).prop('checked', false);
@@ -154,7 +148,6 @@ $(function() {
 
         if ($button.val() == 'male') {
             $button.parent('div').find('input').prop('checked', false);
-             $(".test").prop("checked",false);
             $button.prop('checked', true);
         } else {
             $button.parent('div').find('input').eq(6).prop('checked', false);
@@ -162,7 +155,6 @@ $(function() {
         
         if ($button.val() == 'hobby') {
             $button.parent('div').find('input').prop('checked', false);
-             $(".test").prop("checked",false);
             $button.prop('checked', true);
         } else {
             $button.parent('div').find('input').eq(7).prop('checked', false);
@@ -170,15 +162,13 @@ $(function() {
         
         if ($button.val() == 'sports') {
             $button.parent('div').find('input').prop('checked', false);
-             $(".test").prop("checked",false);
             $button.prop('checked', true);
         } else {
             $button.parent('div').find('input').eq(8).prop('checked', false);
         }
- 
+        
         if ($button.val() == 'beauty') {
             $button.parent('div').find('input').prop('checked', false);
-             $(".test").prop("checked",false);
             $button.prop('checked', true);
         } else {
             $button.parent('div').find('input').eq(9).prop('checked', false);
@@ -186,7 +176,6 @@ $(function() {
         
         if ($button.val() == 'pet') {
             $button.parent('div').find('input').prop('checked', false);
-             $(".test").prop("checked",false);
             $button.prop('checked', true);
         } else {
             $button.parent('div').find('input').eq(10).prop('checked', false);
@@ -194,7 +183,6 @@ $(function() {
         
         if ($button.val() == 'book') {
             $button.parent('div').find('input').prop('checked', false);
-             $(".test").prop("checked",false);
             $button.prop('checked', true);
         } else {
             $button.parent('div').find('input').eq(11).prop('checked', false);
@@ -202,7 +190,6 @@ $(function() {
         
         if ($button.val() == 'etc') {
             $button.parent('div').find('input').prop('checked', false);
-             $(".test").prop("checked",false);
             $button.prop('checked', true);
         } else {
             $button.parent('div').find('input').eq(12).prop('checked', false);

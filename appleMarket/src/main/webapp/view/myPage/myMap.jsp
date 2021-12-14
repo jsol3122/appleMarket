@@ -5,25 +5,10 @@
 <head>
     <meta charset="utf-8">
     <title>지도</title>
-    <link rel="stylesheet" href="/appleMarket/css/user.css">
-    <style>
-a.sbm{
- 	display:block;
-    width:80px;
-    line-height:45px;
-    text-align:center;
-    shadow: 0px -2px rgba(0, 0, 0, 0.44);
- 	 
-
-}
-.sbm:active{
-      transform: translateY(3px);
-}
-
-</style>
+    
 </head>
 <body>
-<a id="addr" class="sbm">위치변경</a>
+<input type="button" value="위치 변경" id="addr">
 <div>
 <div class="box-header with-border" id="address" style="width:300px;height:400px;position:relative;overflow:hidden;"></div>
 <div id="addr2"></div>

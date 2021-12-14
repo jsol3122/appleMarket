@@ -15,8 +15,8 @@
 		        <h2 class="star"><span>마이페이지</span></h2>
 			        <div class="clr"></div>
 				        <ul class="sb_menu">
-				        <li><a href="/appleMarket/buyhistory?pg=1">구매내역</a></li>
-				        <li><a href="/appleMarket/salehistory?pg=1">판매내역</a></li>
+				        <li><i class="fa fa-shopping-cart"></i><a href="/appleMarket/buyhistory?pg=1">구매내역</a></li>
+				        <li><i class="fa fa-shopping-cart"></i><a href="/appleMarket/salehistory?pg=1">판매내역</a></li>
 				         <li><a href="/appleMarket/myMap">동네인증</a></li>
 				        <li class="sidebar-dropdown">
 				            <a href="#">
