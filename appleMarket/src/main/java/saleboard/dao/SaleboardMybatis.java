@@ -29,7 +29,7 @@ public class SaleboardMybatis implements SaleboardDAO {
 	}
 	
 	@Override
-	public List<SaleboardDTO> saleboardGetList(Map<String, Integer> map) {
+	public List<SaleboardDTO> saleboardGetList(Map<String, Object> map) {
 		return sqlSession.selectList("saleboardSQL.saleboardGetList",map);
 	}
 	
@@ -123,7 +123,7 @@ public class SaleboardMybatis implements SaleboardDAO {
 		sqlSession.insert("saleboardSQL.saleboardFollow", map);
 		
 	}
-/*
+	/*
 	@Override
 	public void saleboardChat(Map<String, String> map) {
 		String sale_seq = map.get("sale_seq");

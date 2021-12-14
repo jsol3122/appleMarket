@@ -278,10 +278,11 @@ public class MyPageController {
 	}
 	
 	@GetMapping("/profile")
-	public String profile() {
-		
-		return "/view/myPage/profile";
-	}
+	   public String profile() {
+	      
+	      return "/view/myPage/profile";
+	   }
+
 	
 	//팔고 게시판 글 판매완료로 바꾸기
 	@PostMapping("/saleComplete")
