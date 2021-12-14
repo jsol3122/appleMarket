@@ -10,7 +10,7 @@
    <title>사고팔고마켓</title>
 </head>
    
-    ㅇㄴㄹㄴㅇㄹㄴㅇㄹㄴ
+   
 <header id="headBox">
         <div class="inner">
             <h1>
